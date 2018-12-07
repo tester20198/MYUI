@@ -65,8 +65,3 @@ class Android:
             app_Activity = aa.replace('/', '')  # 替换掉非法的输入活动名
         print(f'{self.app}的启动页Activity为:', app_Activity)
         return app_Activity
-
-
-if __name__ == '__main__':
-    a = Android('xwallet')
-    print(a.get_app_Activity())

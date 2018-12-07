@@ -1,5 +1,6 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
+import time
 
 
 class LoginPage(Base):
@@ -9,17 +10,64 @@ class LoginPage(Base):
 
     login_button = (By.ID, "btnSignIn")  # 启动页的登录按钮
     edit_email = (By.ID, "et_emailSignIn")  # 邮箱输入框
+    edit_mobile = (By.ID, "et_login_mobile")
     edit_pwd = (By.ID, "et_login_pass")  # 登录密码输入框
     login_btn = (By.ID, "btn_login")  # 登录页的登录按钮
+    switch_btn = (By.ID, "tv_switchUserIn")  # 切换登录方式按钮
+    select_nation_btn = (By.ID, "sp_encrytionType")  # 国家下拉框
+    nation_china = (By.XPATH, "//android.widget.TextView[contains(@text, 'China')]")  # 中国
 
     def check_in(self):
+        """
+        初始页面的登录按钮
+        :return:
+        """
         self.driver.find_element(*self.login_button).click()
 
     def login_by_Email(self, email, pwd):
         self.check_in()
         self.driver.find_element(*self.edit_email).send_keys(email)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
+        self.Sys_back()  # 把键盘缩下去
+
+    def login_by_Mobile(self, mobile, pwd):
+        """
+        使用邮箱登录
+        :return:
+        """
+        self.check_in()
+        self.switch_login()  # 切换为电话登录模式
+        self.select_nation()  # 选择国家
+        self.driver.find_element(*self.edit_mobile).send_keys(mobile)
+        self.driver.find_element(*self.edit_pwd).send_keys(pwd)
+        self.Sys_back()
 
     def login_in(self):
+        """
+        登录页面的登录按钮
+        :return:
+        """
         self.driver.find_element(*self.login_btn).click()
+
+    def switch_login(self):
+        """
+        切换登录方式
+        :return:
+        """
+        self.driver.find_element(*self.switch_btn).click()  # 切换为登录模式
+
+    def select_nation(self):
+        """
+        选择国家-中国
+        :return:
+        """
+
+        self.driver.find_element(*self.select_nation_btn).click()
+        print(self.driver.page_source)
+        while not self.findElement('China'):
+            self.driver.swipe(350, 940, 250, 150, duration=3000)  # 在下拉框中向上滑动
+            # time.sleep(2)
+        else:
+            self.driver.find_element(*self.nation_china).click()
+
 

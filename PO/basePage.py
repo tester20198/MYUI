@@ -1,4 +1,5 @@
 from Public.AndroidMessage import Android
+from Public.getConfig import Environment
 
 
 class Base:
@@ -9,18 +10,46 @@ class Base:
 
     driver = None
     # 选择Android设备中的app
-    caps = Android('hhtc.dialer')
+    en = Environment()
+    caps = Android(en.get_env('app', 'app'))
     # 初始化设备数据
     driver_caps = {'platformName': caps.platformName,
                    'platformVersion': caps.get_android_version(),
                    'deviceName': caps.get_android_name()[0],  # 第一个设备
                    'appPackage': caps.get_android_app(),
                    'appActivity': caps.get_app_Activity()
-                    }
+                   }
 
     def __init__(self, driver):
         self.driver = driver
 
+    def Sys_back(self):
+        """
+        点击系统返回键
+        :return:
+        """
 
-print(Base.driver_caps)
+        self.driver.keyevent(4)
 
+    def Sys_home(self):
+        """
+        点击系统home键
+        :return:
+        """
+
+        self.driver.keyevent(3)
+
+    def findElement(self, el):
+        """
+        判断某元素是否存在
+        :return:
+        """
+
+        source = self.driver.page_source  # 打印当前页面全部的元素
+        if el in source:
+            return True
+        else:
+            return False
+
+
+print(Base(1).driver_caps)
