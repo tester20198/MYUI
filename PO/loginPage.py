@@ -63,7 +63,6 @@ class LoginPage(Base):
         """
 
         self.driver.find_element(*self.select_nation_btn).click()
-        print(self.driver.page_source)
         while not self.findElement('China'):
             self.driver.swipe(350, 940, 250, 150, duration=3000)  # 在下拉框中向上滑动
             # time.sleep(2)
