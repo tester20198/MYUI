@@ -51,5 +51,34 @@ class Base:
         else:
             return False
 
+    def get_size(self):
+        """
+        获取屏幕分辨率大小
+        :return:
+        """
 
-print(Base(1).driver_caps)
+        size = self.driver.get_window_size()
+        print(size['width'], size['height'])
+        return size['width'], size['height']
+
+    def swipeDown(self):
+        """
+        根据屏幕相对大小，向下滑动
+        :return:
+        """
+
+        x, y = self.get_size()
+        self.driver.swipe(x/2, y/4, x/2, y*3/4, duration=500)
+
+    def swipeUp(self):
+        """
+        根据屏幕相对大小，向上滑动
+        :return:
+        """
+
+        x, y = self.get_size()
+        self.driver.swipe(x/2, y*3/4, x/2, y/4, duration=500)
+
+
+if __name__ == '__main__':
+    print(Base(1).driver_caps)
