@@ -49,6 +49,7 @@ class Base:
         if el in source:
             return True
         else:
+            print('找不到该元素...')
             return False
 
     def get_size(self):

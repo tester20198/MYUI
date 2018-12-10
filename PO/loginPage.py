@@ -15,7 +15,8 @@ class LoginPage(Base):
     login_btn = (By.ID, "btn_login")  # 登录页的登录按钮
     switch_btn = (By.ID, "tv_switchUserIn")  # 切换登录方式按钮
     select_nation_btn = (By.ID, "sp_encrytionType")  # 国家下拉框
-    nation_china = (By.XPATH, "//android.widget.TextView[contains(@text, 'China')]")  # 中国
+    nation = 'China'
+    nation_XPATH = (By.XPATH, "//android.widget.TextView[contains(@text, %s)]" % nation)  # 中国
 
     def check_in(self):
         """
@@ -37,7 +38,7 @@ class LoginPage(Base):
         """
         self.check_in()
         self.switch_login()  # 切换为电话登录模式
-        self.select_nation()  # 选择国家
+        self.select_nation(self.nation)  # 选择国家
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
         self.Sys_back()
@@ -56,17 +57,17 @@ class LoginPage(Base):
         """
         self.driver.find_element(*self.switch_btn).click()  # 切换为登录模式
 
-    def select_nation(self):
+    def select_nation(self, na):
         """
-        选择国家-中国
+        选择国家
         :return:
         """
 
         self.driver.find_element(*self.select_nation_btn).click()
-        while not self.findElement('China'):
+        while not self.findElement(na):
             self.driver.swipe(350, 940, 250, 150, duration=3000)  # 在下拉框中向上滑动
             # time.sleep(2)
         else:
-            self.driver.find_element(*self.nation_china).click()
+            self.driver.find_element(*self.nation_XPATH).click()
 
 
