@@ -13,10 +13,10 @@ class LoginPage(Base):
     edit_mobile = (By.ID, "et_login_mobile")
     edit_pwd = (By.ID, "et_login_pass")  # 登录密码输入框
     login_btn = (By.ID, "btn_login")  # 登录页的登录按钮
-    switch_btn = (By.ID, "tv_switchUserIn")  # 切换登录方式按钮
-    select_nation_btn = (By.ID, "sp_encrytionType")  # 国家下拉框
-    nation = 'China'
-    nation_XPATH = (By.XPATH, "//android.widget.TextView[contains(@text, %s)]" % nation)  # 中国
+    switch_btn = (By.ID, "tv_switch")  # 切换登录方式按钮(默认：手机)
+    select_nation_btn = (By.ID, "tv_encrytionType")  # 国家下拉框
+    nation = 'Venezuela'
+    nation_XPATH = (By.XPATH, "//android.widget.TextView[contains(@text, 'Venezuela')]")
 
     def check_in(self):
         """
@@ -26,22 +26,30 @@ class LoginPage(Base):
         self.driver.find_element(*self.login_button).click()
 
     def login_by_Email(self, email, pwd):
-        self.check_in()
-        self.driver.find_element(*self.edit_email).send_keys(email)
-        self.driver.find_element(*self.edit_pwd).send_keys(pwd)
-        self.Sys_back()  # 把键盘缩下去
-
-    def login_by_Mobile(self, mobile, pwd):
         """
         使用邮箱登录
         :return:
         """
         self.check_in()
-        self.switch_login()  # 切换为电话登录模式
+        self.switch_login()  # 切换为邮箱登录模式
+        self.driver.find_element(*self.edit_email).send_keys(email)
+        self.driver.find_element(*self.edit_pwd).send_keys(pwd)
+        self.Sys_back()  # 把键盘缩下去
+        time.sleep(1)
+
+    def login_by_Mobile(self, mobile, pwd):
+        """
+        使用手机登录
+        :return:
+        """
+        self.check_in()
         self.select_nation(self.nation)  # 选择国家
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
-        self.Sys_back()
+        if self.findElement('注册'):
+            pass
+        else:
+            self.Sys_back()
 
     def login_in(self):
         """
@@ -65,8 +73,7 @@ class LoginPage(Base):
 
         self.driver.find_element(*self.select_nation_btn).click()
         while not self.findElement(na):
-            self.driver.swipe(350, 940, 250, 150, duration=3000)  # 在下拉框中向上滑动
-            # time.sleep(2)
+            self.swipeUp(duration=1500)
         else:
             self.driver.find_element(*self.nation_XPATH).click()
 
