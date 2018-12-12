@@ -33,7 +33,7 @@ class LoginTestCase(unittest.TestCase):
         time.sleep(3)
         self.login_page.login_by_Mobile('4126777777', 'Aa123456')
         self.login_page.login_in()
-        time.sleep(5)
+        # time.sleep(5)
         # self.add_img()
         time.sleep(5)
 
