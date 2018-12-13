@@ -46,7 +46,7 @@ class LoginPage(Base):
         self.select_nation(self.nation)  # 选择国家
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
-        if self.findElement('注册'):
+        if self.findElement('注册') != -1:  # 找到了注册按钮
             pass
         else:
             self.Sys_back()

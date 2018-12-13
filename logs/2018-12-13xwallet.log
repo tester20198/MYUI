@@ -929,17 +929,6 @@
 12-13 16:42:57.191 E/cr_VariationsUtils( 4274): Failed reading seed file "/data/user/0/com.pundix.xwallet/app_webview/variations_seed": /data/user/0/com.pundix.xwallet/app_webview/variations_seed (No such file or directory)
 12-13 16:42:57.222 D/ActivityManager( 1425): Package [com.pundix.xwallet] have process
 12-13 16:42:57.244 I/ActivityManager( 1425): Start proc 4427:com.google.android.webview:sandboxed_process0/u0i102 for webview_service com.pundix.xwallet/org.chromium.content.app.SandboxedProcessService0
-12-13 16:42:57.244 D/ActivityManager( 1425): handleProcessStartedLocked mDoneFinishBooting && app.pid != 0 ---> notifyProcessStart, app.processName = com.google.android.webview:sandboxed_process0, app.info = ApplicationInfo{5745823 com.pundix.xwallet}, app.hostingType = webview_service, getHostingName() = ComponentInfo{com.pundix.xwallet/org.chromium.content.app.SandboxedProcessService0}, getIntentFlag() = 0, getIsPackageRunning() = true, app = ProcessRecord{3766120 4427:com.google.android.webview:sandboxed_process0/u0a14i102}, getExtraData() = Bundle[{SERVICE_INTENT=Intent { cmp=com.pundix.xwallet/org.chromium.content.app.SandboxedProcessService0 }, CALLER_PACKAGE=co274): isAPPNeedChange pkgName: com.pundix.xwallet needKeep: false
-12-13 16:42:56.887 I/PhoneWindow( 4274): isAPPNeedChangeSBColor pkgName: com.pundix.xwallet needKeep: false
-12-13 16:42:56.919 I/mangoHttp( 4274): │ ===PosString===http://api.testonline.pundix.com/xwallet/api/v1/upgrade  【jsonString】:{"version_api":"1","manufacturer":"HMD Global","model":"Nokia 7 plus","os":"Android","version_os":"28","system":"9","channel":"XWallet","tt":"1544690576916","rd":"117109191151809341259194075266953604194","network":"wifi","apkVersion":"4"}
-12-13 16:42:56.994 W/SurfaceFlinger(  838): Attempting to set client state on removed layer: com.pundix.xwallet/com.pundix.xwallet.ui.login.SignInActivity#1
-12-13 16:42:56.995 W/SurfaceFlinger(  838): Attempting to destroy on removed layer: com.pundix.xwallet/com.pundix.xwallet.ui.login.SignInActivity#1
-12-13 16:42:57.050 I/mangoHttp( 4274): │ ===PosString===http://api.testonline.pundix.com/xwallet/api/v1/home/searchHomeInfo  【jsonString】:{"version_api":"1","manufacturer":"HMD Global","model":"Nokia 7 plus","os":"Android","version_os":"28","system":"9","channel":"XWallet","tt":"1544690577046","rd":"325128933851664020889035948949689586134","network":"wifi"}
-12-13 16:42:57.131 I/mangoHttp( 4274): │ ===PosString===http://api.testonline.pundix.com/xwallet/api/v1/pay/home  【jsonString】:{"version_api":"1","manufacturer":"HMD Global","model":"Nokia 7 plus","os":"Android","version_os":"28","system":"9","channel":"XWallet","tt":"1544690577128","rd":"270955584595783953815876047460777192924","network":"wifi"}
-12-13 16:42:57.191 E/cr_VariationsUtils( 4274): Failed reading seed file "/data/user/0/com.pundix.xwallet/app_webview/variations_seed_new": /data/user/0/com.pundix.xwallet/app_webview/variations_seed_new (No such file or directory)
-12-13 16:42:57.191 E/cr_VariationsUtils( 4274): Failed reading seed file "/data/user/0/com.pundix.xwallet/app_webview/variations_seed": /data/user/0/com.pundix.xwallet/app_webview/variations_seed (No such file or directory)
-12-13 16:42:57.222 D/ActivityManager( 1425): Package [com.pundix.xwallet] have process
-12-13 16:42:57.244 I/ActivityManager( 1425): Start proc 4427:com.google.android.webview:sandboxed_process0/u0i102 for webview_service com.pundix.xwallet/org.chromium.content.app.SandboxedProcessService0
 12-13 16:42:57.244 D/ActivityManager( 1425): handleProcessStartedLocked mDoneFinishBooting && app.pid != 0 ---> notifyProcessStart, app.processName = com.google.android.webview:sandboxed_process0, app.info = ApplicationInfo{5745823 com.pundix.xwallet}, app.hostingType = webview_service, getHostingName() = ComponentInfo{com.pundix.xwallet/org.chromium.content.app.SandboxedProcessService0}, getIntentFlag() = 0, getIsPackageRunning() = true, app = ProcessRecord{3766120 4427:com.google.android.webview:sandboxed_process0/u0a14i102}, getExtraData() = Bundle[{SERVICE_INTENT=Intent { cmp=com.pundix.xwallet/org.chromium.content.app.SandboxedProcessService0 }, CALLER_PACKAGE=com.pundix.xwallet}]
 12-13 16:42:57.244 V/ActivityManager( 1425): notifyProcessStart: com.google.android.webview:sandboxed_process0 for: webview_service from: com.pundix.xwallet packageName: com.pundix.xwallet className: org.chromium.content.app.SandboxedProcessService0
 12-13 16:42:57.549 I/ActivityManager( 1425): Displayed com.pundix.xwallet/.ui.NewsMainActivity: +737ms
@@ -947,4 +936,30 @@
 12-13 16:42:57.626 D/[PowerSavingAppG3]ProcessMonitorService( 3736): Package Name = com.pundix.xwallet,getLastTimeUsed = 下午4:42:56 (1544690576378),time diff  = 50030
 12-13 16:42:57.858 W/cr_CrashFileManager( 4274): /data/user/0/com.pundix.xwallet/cache/WebView/Crash Reports does not exist or is not a directory
 12-13 16:42:58.002 D/AR_ADV_APPS_USAGE_COL( 1425): com.pundix.xwallet -> resizable apps -> USAGE 13306
-12-13 16:43:02.878 I/ActivityManager( 1425): Force stopping com.p
+12-13 16:43:02.878 I/ActivityManager( 1425): Force stopping com.pundix.xwallet appid=10014 user=0: from pid 4474
+12-13 16:43:02.878 I/ActivityManager( 1425): Killing 4274:com.pundix.xwallet/u0a14 (adj 0): stop com.pundix.xwallet
+12-13 16:43:02.885 W/ActivityManager( 1425): Force removing ActivityRecord{b6e30bb u0 com.pundix.xwallet/.ui.NewsMainActivity t927}: app died, no saved state
+12-13 16:43:02.897 W/SurfaceFlinger(  838): Attempting to destroy on removed layer: AppWindowToken{9b49131 token=Token{c65e9d8 ActivityRecord{b6e30bb u0 com.pundix.xwallet/.ui.NewsMainActivity t927}}}#0
+12-13 16:43:02.922 D/AR_ADV_APPS_USAGE_COL( 1425): com.pundix.xwallet -> resizable apps -> USAGE 4945
+12-13 16:44:03.398 I/[PowerSavingAppG3]ProcessMonitorService( 3736): original mTopApList = [com.pundix.xwallet]
+12-13 16:44:03.398 I/[PowerSavingAppG3]ProcessMonitorService( 3736): keep mTopApList = [com.pundix.xwallet]
+12-13 16:44:33.549 D/[PowerSavingAppG3]BackgroundCleanService( 3736): RecentTasks: com.pundix.xwallet
+12-13 16:44:33.549 D/[PowerSavingAppG3]BackgroundCleanService( 3736): mTopApList: com.pundix.xwallet
+12-13 16:44:34.190 D/[PowerSavingAppG3]BackgroundCleanService( 3736): Package Name = com.pundix.xwallet
+12-13 16:44:34.190 D/[PowerSavingAppG3]BackgroundCleanService( 3736): target PackageName---com.pundix.xwallet
+12-13 16:44:34.190 D/[PowerSavingAppG3]BackgroundCleanService( 3736): Ignore: top 2 of running tasks---com.pundix.xwallet
+12-13 16:44:42.280 D/PowerCalculator( 3605): topApCounter com.pundix.xwallet
+12-13 16:44:42.280 D/PowerCalculator( 3605): topApCounter com.pundix.xwallet
+12-13 16:47:10.829 I/[PowerSavingAppG3]ProcessMonitorService( 3736): original mTopApList = [com.pundix.xwallet]
+12-13 16:47:10.829 I/[PowerSavingAppG3]ProcessMonitorService( 3736): keep mTopApList = [com.pundix.xwallet]
+12-13 16:47:11.519 I/[PowerSavingAppG3]ProcessMonitorService( 3736): original mTopApList = [com.pundix.xwallet]
+12-13 16:47:11.519 I/[PowerSavingAppG3]ProcessMonitorService( 3736): keep mTopApList = [com.pundix.xwallet]
+12-13 16:47:15.043 I/[PowerSavingAppG3]ProcessMonitorService( 3736): set run_in_background allow : [com.pundix.xwallet, com.taobao.taobao]
+12-13 16:47:20.043 I/[PowerSavingAppG3]ProcessMonitorService( 3736): original mTopApList = [com.pundix.xwallet, com.taobao.taobao]
+12-13 16:48:40.502 I/RecentsLockDBHelper( 3707): isPackageLocked packages = com.pundix.xwallet userId = 0
+12-13 16:48:40.502 I/RecentsLockDBHelper( 3707): isPackageLocked packages = com.pundix.xwallet userId = 0
+12-13 16:48:40.504 I/RecentsLockDBHelper( 3707): isPackageLocked packages = com.pundix.xwallet userId = 0
+12-13 16:48:40.505 I/RecentsLockDBHelper( 3707): isPackageLocked packages = com.pundix.xwallet userId = 0
+12-13 16:48:41.526 I/RecentsLockDBHelper( 3707): isPackageLocked packages = com.pundix.xwallet userId = 0
+12-13 16:48:41.526 D/LockAPP ( 3707): createAllTasksDismissAnimation removeTask isLockApp = false getPackageName = com.pundix.xwallet
+12-13 16:48:41.526 I/RecentsLockDBHelper( 3707): isPackageLocked packages = com
