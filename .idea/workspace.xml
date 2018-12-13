@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ba280db-c9a3-453c-9c73-b79fe348977d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sendEmail.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Public/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/getLog.py" beforeDir="false" afterPath="$PROJECT_DIR$/Public/getLog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/login_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/login_case.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,39 +16,39 @@
     <session id="-232296812">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
-          <entry key="project.open.time.0" value="15" />
+          <entry key="project.closed" value="26" />
+          <entry key="project.open.time.0" value="16" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.4" value="7" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="1" />
-          <entry key="ini" value="2" />
-          <entry key="log" value="3" />
+          <entry key="ini" value="3" />
+          <entry key="log" value="9" />
           <entry key="png" value="3" />
-          <entry key="py" value="61" />
+          <entry key="py" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="1" />
           <entry key="Image" value="3" />
-          <entry key="Ini" value="2" />
-          <entry key="Log" value="3" />
-          <entry key="Python" value="61" />
+          <entry key="Ini" value="3" />
+          <entry key="Log" value="9" />
+          <entry key="Python" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="36" />
           <entry key="ini" value="26" />
-          <entry key="py" value="9865" />
+          <entry key="py" value="10584" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -56,7 +56,7 @@
         <counts>
           <entry key="Ini" value="26" />
           <entry key="PLAIN_TEXT" value="38" />
-          <entry key="Python" value="9865" />
+          <entry key="Python" value="10584" />
         </counts>
       </usages-collector>
     </session>
@@ -66,7 +66,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/config.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PO/basePage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="810">
+              <caret line="103" selection-start-line="103" selection-end-line="103" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <marker date="1544607931868" expanded="true" signature="211:212" ph="..." />
@@ -90,26 +90,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testcase/login_case.py">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-                <marker date="1544608230626" expanded="true" signature="851:1051" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sendEmail.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-139">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -117,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcase/ScanQR.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
+            <state relative-caret-position="476">
               <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -128,47 +112,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO/homePage.py">
+        <entry file="file://$PROJECT_DIR$/testcase/login_case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            <state relative-caret-position="510">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1544608020879" expanded="true" signature="108:113" ph="..." />
+                <marker date="1544690345964" expanded="true" signature="916:1116" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_report.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Public/getLog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="48" column="11" lean-forward="true" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+            <state relative-caret-position="272">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO/loginPage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-                <marker date="1544504841609" expanded="true" signature="109:114" ph="..." />
-              </folding>
-            </state>
+        <entry file="file://$PROJECT_DIR$/logs/2018-12-13xwallet.log">
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="-15391" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/HTMLTestRunner_cn.py">
+        <entry file="file://$PROJECT_DIR$/Public/getConfig.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16973" />
+            <state relative-caret-position="442">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -179,6 +159,18 @@
               <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_report.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="36" column="11" lean-forward="true" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -205,6 +197,13 @@
       <find>查找到相关app包名</find>
       <find>time</find>
       <find>img_path</find>
+      <find>traceback</find>
+      <find>error_or_failure_tex</find>
+      <find>add_test_type</find>
+      <find>addError</find>
+      <find>complete_output</find>
+      <find>case_log</find>
+      <find>sys.stderr.write</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,7 +216,6 @@
         <option value="$PROJECT_DIR$/PO/Base.py" />
         <option value="$PROJECT_DIR$/PO/base.py" />
         <option value="$PROJECT_DIR$/testcase/test_login.py" />
-        <option value="$PROJECT_DIR$/Public/getLog.py" />
         <option value="$PROJECT_DIR$/Public/getConfig.py" />
         <option value="$PROJECT_DIR$/testcase/scanQR.py" />
         <option value="$PROJECT_DIR$/Public/AndroidMessage.py" />
@@ -229,17 +227,18 @@
         <option value="$PROJECT_DIR$/Public/other.py" />
         <option value="$PROJECT_DIR$/PO/homePage.py" />
         <option value="$PROJECT_DIR$/run_report.py" />
-        <option value="$PROJECT_DIR$/testcase/login_case.py" />
         <option value="$PROJECT_DIR$/sendEmail.py" />
         <option value="$PROJECT_DIR$/Public/config.ini" />
+        <option value="$PROJECT_DIR$/testcase/login_case.py" />
+        <option value="$PROJECT_DIR$/Public/getLog.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="286" />
-    <option name="y" value="142" />
-    <option name="width" value="2022" />
-    <option name="height" value="1171" />
+    <option name="x" value="137" />
+    <option name="y" value="104" />
+    <option name="width" value="2337" />
+    <option name="height" value="1379" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -260,7 +259,17 @@
             <path>
               <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="MYUI" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
               <item name="Public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
+              <item name="testcase" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -269,8 +278,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="page_s&#9;null&#9;null&#10;Command&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py&#10;page_source&#9;null&#9;null&#10;GET_PAGE_SOURCE&#9;null&#9;null&#10;add_test&#9;null&#9;null&#10;add_test_img&#9;null&#9;null&#10;get_screenshot_as_png&#9;null&#9;null&#10;be&#9;null&#9;null&#10;WebDriverWait&#9;null&#9;null&#10;support.ui&#9;ACTION&#9;null&#10;selenium.webdriver.common.by&#9;null&#9;null&#10;MobileBy&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;WebElement&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webelement.py&#10;located&#9;null&#9;null&#10;RemoteCommand&#9;null&#9;null&#10;FIND_ELEMENT&#9;null&#9;null&#10;find_ele&#9;null&#9;null&#10;find_element_by_id&#9;null&#9;null&#10;By&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;mobi&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;webdriver&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py&#10;element_located&#9;null&#9;null&#10;appium&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium" />
+    <property name="SearchEverywhereHistoryKey" value="bea&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py&#10;page_s&#9;null&#9;null&#10;Command&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py&#10;page_source&#9;null&#9;null&#10;GET_PAGE_SOURCE&#9;null&#9;null&#10;add_test&#9;null&#9;null&#10;add_test_img&#9;null&#9;null&#10;get_screenshot_as_png&#9;null&#9;null&#10;be&#9;null&#9;null&#10;WebDriverWait&#9;null&#9;null&#10;support.ui&#9;ACTION&#9;null&#10;selenium.webdriver.common.by&#9;null&#9;null&#10;MobileBy&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;WebElement&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webelement.py&#10;located&#9;null&#9;null&#10;RemoteCommand&#9;null&#9;null&#10;FIND_ELEMENT&#9;null&#9;null&#10;find_ele&#9;null&#9;null&#10;find_element_by_id&#9;null&#9;null&#10;By&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;mobi&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;webdriver&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py&#10;element_located&#9;null&#9;null&#10;appium&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="two.files.diff.last.used.file" value="/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -292,7 +302,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.run_report">
+  <component name="RunManager" selected="Python tests.pytest for login_case.LoginTestCase">
+    <configuration name="getLog" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MYUI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Public" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Public/getLog.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="run_report" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MYUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -329,6 +360,21 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for login_case.LoginTestCase.test_login_by_email" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="MYUI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;login_case.LoginTestCase.test_login_by_email&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for login_case.LoginTestCase.test_login_by_mobile" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="MYUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -344,50 +390,20 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for testcase.login_case.LoginTestCase" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="MYUI" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testcase.login_case.LoginTestCase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for testcase.login_case.LoginTestCase.test_login_by_mobile" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="MYUI" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;testcase.login_case.LoginTestCase.test_login_by_mobile&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.run_report" />
-      <item itemvalue="Python tests.pytest for testcase.login_case.LoginTestCase.test_login_by_mobile" />
-      <item itemvalue="Python tests.pytest for testcase.login_case.LoginTestCase" />
       <item itemvalue="Python tests.pytest for login_case.LoginTestCase.test_login_by_mobile" />
       <item itemvalue="Python tests.pytest for login_case.LoginTestCase" />
+      <item itemvalue="Python.getLog" />
+      <item itemvalue="Python tests.pytest for login_case.LoginTestCase.test_login_by_email" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run_report" />
         <item itemvalue="Python tests.pytest for login_case.LoginTestCase" />
+        <item itemvalue="Python tests.pytest for login_case.LoginTestCase.test_login_by_email" />
         <item itemvalue="Python tests.pytest for login_case.LoginTestCase.test_login_by_mobile" />
-        <item itemvalue="Python tests.pytest for testcase.login_case.LoginTestCase" />
-        <item itemvalue="Python tests.pytest for testcase.login_case.LoginTestCase.test_login_by_mobile" />
+        <item itemvalue="Python.getLog" />
+        <item itemvalue="Python.run_report" />
       </list>
     </recent_temporary>
   </component>
@@ -413,35 +429,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_for_ScanQR_ScanQRcode_test_scan - 2018.12.11 at 14h 14m 55s.xml">
-      <configuration name="pytest for ScanQR.ScanQRcode.test_scan" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_ScanQR_ScanQRcode - 2018.12.11 at 14h 19m 11s.xml">
-      <configuration name="pytest for ScanQR.ScanQRcode" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_ScanQR_py - 2018.12.11 at 14h 21m 34s.xml">
-      <configuration name="pytest in ScanQR.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_ScanQR_ScanQRcode_test_scan - 2018.12.11 at 14h 44m 12s.xml">
-      <configuration name="pytest for ScanQR.ScanQRcode.test_scan" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_ScanQR_py - 2018.12.11 at 15h 04m 20s.xml">
-      <configuration name="pytest in ScanQR.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_ScanQR_py - 2018.12.11 at 15h 08m 47s.xml">
-      <configuration name="pytest in ScanQR.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_ScanQR_ScanQRcode_test_scan - 2018.12.11 at 15h 11m 24s.xml">
-      <configuration name="pytest for ScanQR.ScanQRcode.test_scan" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_for_login_testcase_LoginTestCase_test_login_by_mobile - 2018.12.12 at 10h 26m 41s.xml">
-      <configuration name="pytest for login_testcase.LoginTestCase.test_login_by_mobile" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_for_login_testcase_LoginTestCase - 2018.12.12 at 10h 28m 53s.xml">
       <configuration name="pytest for login_testcase.LoginTestCase" configurationId="tests" />
     </history-entry>
     <history-entry file="pytest_for_login_case_LoginTestCase_test_login_by_mobile - 2018.12.12 at 16h 18m 04s.xml">
       <configuration name="pytest for login_case.LoginTestCase.test_login_by_mobile" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase_test_login_by_mobile - 2018.12.13 at 16h 04m 59s.xml">
+      <configuration name="pytest for login_case.LoginTestCase.test_login_by_mobile" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase_test_login_by_mobile - 2018.12.13 at 16h 06m 04s.xml">
+      <configuration name="pytest for login_case.LoginTestCase.test_login_by_mobile" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase - 2018.12.13 at 16h 08m 16s.xml">
+      <configuration name="pytest for login_case.LoginTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase - 2018.12.13 at 16h 09m 43s.xml">
+      <configuration name="pytest for login_case.LoginTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase - 2018.12.13 at 16h 12m 57s.xml">
+      <configuration name="pytest for login_case.LoginTestCase" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase_test_login_by_mobile - 2018.12.13 at 16h 38m 03s.xml">
+      <configuration name="pytest for login_case.LoginTestCase.test_login_by_mobile" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase_test_login_by_email - 2018.12.13 at 16h 42m 08s.xml">
+      <configuration name="pytest for login_case.LoginTestCase.test_login_by_email" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_login_case_LoginTestCase - 2018.12.13 at 16h 43m 04s.xml">
+      <configuration name="pytest for login_case.LoginTestCase" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -454,21 +470,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="286" y="142" width="2022" height="1171" extended-state="0" />
+    <frame x="137" y="104" width="2337" height="1379" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49852508" visible="true" weight="0.2003998" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49852508" visible="true" weight="0.17314336" />
       <window_info id="Structure" order="1" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
       <window_info id="Favorites" order="2" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32942432" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3253012" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32478634" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39944392" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942432" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32900834" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.27583528" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -565,26 +581,6 @@
     <entry file="file://$PROJECT_DIR$/PO/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/getLog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <marker date="1542180070583" expanded="true" signature="210:215" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/getConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public/AndroidMessage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -606,9 +602,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/201812121047.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/201812121047.png" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -619,16 +613,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/test2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="48" column="48" lean-forward="true" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/img/test2.png" />
     <entry file="file://$PROJECT_DIR$/reports/18-12-12_report.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -646,10 +631,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/PO/homePage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1544608020879" expanded="true" signature="108:113" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO/loginPage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1544504841609" expanded="true" signature="109:114" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/HTMLTestRunner_cn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/login_case.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-5956" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/0.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="612">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/getConfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PO/basePage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="810">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <marker date="1544607931868" expanded="true" signature="211:212" ph="..." />
@@ -658,9 +715,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/HTMLTestRunner_cn.py">
+    <entry file="file://$PROJECT_DIR$/testcase/ScanQR.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16973" />
+        <state relative-caret-position="476">
+          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1544582702962" expanded="true" signature="215:216" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/xwallet.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="470">
+          <caret line="512" column="17" selection-start-line="512" selection-start-column="17" selection-end-line="512" selection-end-column="17" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/other.py">
@@ -673,43 +743,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PO/loginPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1544504841609" expanded="true" signature="109:114" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PO/homePage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1544608020879" expanded="true" signature="108:113" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/ScanQR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1544582702962" expanded="true" signature="215:216" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_report.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="48" column="11" lean-forward="true" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+        <state relative-caret-position="323">
+          <caret line="36" column="11" lean-forward="true" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -718,29 +755,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testcase/login_case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="45" column="19" lean-forward="true" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+        <state relative-caret-position="510">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1544608230626" expanded="true" signature="851:1051" ph="..." />
+            <marker date="1544690345964" expanded="true" signature="916:1116" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+    <entry file="file://$PROJECT_DIR$/logs/2018-12-13xwallet.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-15391" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/getLog.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-139">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="272">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>

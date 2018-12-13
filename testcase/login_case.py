@@ -2,6 +2,7 @@ from appium import webdriver
 import unittest
 from PO.loginPage import LoginPage
 from PO.basePage import Base
+from Public.getLog import write_log,stop_log
 import time
 
 
@@ -16,6 +17,7 @@ class LoginTestCase(unittest.TestCase):
         cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.driver_caps)  # 串联
         cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
         cls.imgs = []
+        write_log()
 
     @unittest.skip('调试')
     def test_login_by_email(self):
@@ -39,6 +41,7 @@ class LoginTestCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        stop_log()
         cls.driver.quit()
 
 
