@@ -10,9 +10,9 @@ class Android:
         self.platformName = 'Android'
         self.app = app
 
-    def get_android_name(self):
+    def get_android_name(self) -> list:
         """
-        获取连接到电脑的安卓设备名称，返回一个list
+        获取连接到电脑的安卓设备名称
         """
 
         devicelist = []
