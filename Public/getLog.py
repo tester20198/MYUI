@@ -12,7 +12,7 @@ def write_log():
     en = Environment()
     app = en.get_env('app', 'app')  # 获取待测试app名字
     tt = other.format_time()  # 时间格式化
-    file = os.path.join(os.path.dirname(os.getcwd()), f'logs/{tt}{app}.log')
+    file = os.path.join(os.getcwd(), f'logs/{tt}{app}.log')
     cmd = f'adb shell logcat -v time | grep {app} > {file}'  # 查看app日志命令
     print('执行的终端命令是:', cmd)
     process = subprocess.Popen(cmd, shell=True)

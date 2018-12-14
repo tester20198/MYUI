@@ -59,5 +59,5 @@ if __name__ == "__main__":
     # 用例集合
     re = RunReport()
     cases = re.add_cases()
-    #re.run_cases_by_HTML(cases)
+    re.run_cases_by_HTML(cases)
     #re.run_cases_by_beautiful_report(cases)
