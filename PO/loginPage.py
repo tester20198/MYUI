@@ -1,6 +1,5 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
-import time
 
 
 class LoginPage(Base):

@@ -3,7 +3,6 @@ import unittest
 from BeautifulReport import BeautifulReport
 # from Public.getConfig import Environment
 from Public import other
-# import HTMLTestRunner
 from Public.HTMLTestRunner_cn import HTMLTestRunner
 
 
