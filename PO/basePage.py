@@ -1,5 +1,4 @@
 from Public.AndroidMessage import Android
-from Public.getConfig import Environment
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
@@ -12,14 +11,13 @@ class Base:
 
     driver = None
     # 选择Android设备中的app
-    en = Environment()
-    caps = Android(en.get_env('app', 'app'))
+    an = Android()
     # 初始化设备数据
-    driver_caps = {'platformName': caps.platformName,
-                   'platformVersion': caps.get_android_version(),
-                   'deviceName': caps.get_android_name()[0],  # 第一个设备
-                   'appPackage': caps.get_android_app(),
-                   'appActivity': caps.get_app_Activity(),
+    driver_caps = {'platformName': an.platformName,
+                   'platformVersion': an.get_device_version,
+                   'deviceName': an.get_device_name[0],  # 第一个设备
+                   'appPackage': an.get_app_name,
+                   'appActivity': an.get_app_Activity,
                    'autoGrantPermissions': True  # 获取默认权限
                    }
 

@@ -12,37 +12,33 @@ class LoginTestCase(unittest.TestCase):
     登录的测试用例
     """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.driver_caps)  # 串联
-        cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
-        cls.imgs = []
+    def setUp(self):
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.driver_caps)  # 串联
+        self.login_page = LoginPage(self.driver)  # 初始化登录页元素以及方法
+        time.sleep(3)  # 等待初始化完成
+        self.imgs = []  # 截图列表
         write_log()  # 写入日志
-
-    @unittest.skip('调试')
-    def test_login_by_email(self):
-        time.sleep(3)
-        self.login_page.login_by_Email('476367001@qq.com', 'Aa123456')  # 邮箱登录
-        self.login_page.login_in()
-        time.sleep(3)
 
     def add_img(self):
         # 截图方法
         self.imgs.append(self.driver.get_screenshot_as_base64())
         return True
 
-    def test_login_by_mobile(self):
-        time.sleep(3)
-        self.login_page.login_by_Mobile('4126777777', 'Aa123456')
+    def test_login_by_email(self):
+        self.login_page.login_by_Email('447788@qq.com', 'Aa123456')
         self.login_page.login_in()
-        time.sleep(5)
-        self.add_img()
-        time.sleep(5)
+        time.sleep(3)
 
-    @classmethod
-    def tearDownClass(cls):
+    def test_login_by_mobile(self):
+        self.login_page.login_by_Mobile('4123336667', 'Aa123456')
+        self.login_page.login_in()
+        time.sleep(3)
+        self.add_img()
+        time.sleep(3)
+
+    def tearDown(self):
         stop_log()  # 停止写入日志
-        cls.driver.quit()
+        self.driver.quit()
 
 
 if __name__ == '__main__':

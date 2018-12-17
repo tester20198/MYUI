@@ -35,7 +35,10 @@ class LoginPage(Base):
         self.driver.find_element(*self.edit_email).send_keys(email)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
         self.Sys_back()  # 把键盘缩下去
-        time.sleep(1)
+        if self.findElement('注册'):
+            pass
+        else:
+            self.Sys_back()
 
     def login_by_Mobile(self, mobile, pwd):
         """
