@@ -21,11 +21,13 @@ class Android:
         with os.popen('adb devices', 'r') as f:
             output = f.read().split('\n')  # 切掉换行
             dev = [x for x in output if x != ''][1:]  # 去掉不需要的部分
+            ii = 1
             if dev:  # 判断是否有设备连接
                 for i in dev:  # 可能有多个设备
                     devicename = i.replace('\tdevice', '')
-                    print(f'你有{len(dev)}个设备已连接，设备名为{devicename}')
+                    print(f'你有{len(dev)}个设备已连接，第{ii}个设备名为{devicename}')
                     devicelist.append(devicename)
+                    ii += 1
             else:
                 raise Exception('请重新尝试连接设备...')  # 若无设备连接，引起错误
         return devicelist
@@ -34,7 +36,6 @@ class Android:
     def get_app_name(self) -> str:
         """
         获取待测目标app的包名
-        : app: 模糊搜索包名
         """
 
         with os.popen(f'adb shell pm list packages | grep {self.app}', 'r') as f:
@@ -43,7 +44,7 @@ class Android:
         if app_name:  # 判断是否存在该安装包
             print(f'查找到相关app包名:{app_name}')
         else:
-            print('找不到相关的{self.app}包名，请检查安装或者重新输入正确的app名字...')
+            print(f'找不到相关的{self.app}包名，请检查安装或者重新输入正确的app名字...')
         return app_name
 
     @property
