@@ -51,7 +51,7 @@ class RunReport:
         :return:
         """
         result = BeautifulReport(cases)
-        result.report(description='PushService测试报告', log_path='./reports')
+        result.report(description='测试报告', log_path='./reports')
 
 
 if __name__ == "__main__":
