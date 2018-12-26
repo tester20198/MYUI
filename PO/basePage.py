@@ -1,6 +1,8 @@
 from Public.AndroidMessage import Android
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.common.by import By
+from Public import other
 
 
 class Base:
@@ -98,6 +100,42 @@ class Base:
         :return:
         """
         WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(element), msg)
+
+    def clear(self, *el):
+        """
+        清空输入框
+        :param el:控件
+        :return:
+        """
+
+        conn = self.driver.find_element(el)
+        conn.click()
+        self.driver.keyevent(123)  # 光标追尾
+        textLength = len(str(conn.text))
+        for i in range(0, textLength):
+            self.driver.keyevent(67)  # 逐个删除已输入的内容
+
+    def getAttribute(self, *el, attr) -> str:
+        """
+        获取控件的各项属性
+        :param el:控件
+        :param attr:属性类别
+        :return:返回"true"/"false"
+        """
+
+        return self.driver.find_element(el).get_attribute(attr)
+
+    def save_img(self, filename):
+        """
+        截图并保存
+        :param filename:文件名+文件后缀
+        :return:
+        """
+
+        path = other.upper_path() + 'img/'
+        # print(path)
+        self.driver.get_screenshot_as_file(path+filename)
+        return True
 
 
 if __name__ == '__main__':

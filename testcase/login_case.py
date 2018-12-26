@@ -19,6 +19,10 @@ class LoginTestCase(unittest.TestCase):
         self.imgs = []  # 截图列表
         write_log()  # 写入日志
 
+    def tearDown(self):
+        stop_log()  # 停止写入日志
+        self.driver.quit()
+
     def add_img(self):
         # 截图方法
         self.imgs.append(self.driver.get_screenshot_as_base64())
@@ -30,15 +34,11 @@ class LoginTestCase(unittest.TestCase):
         time.sleep(3)
 
     def test_login_by_mobile(self):
-        self.login_page.login_by_Mobile('4123336667', 'Aa123456')
+        self.login_page.login_by_Mobile('Venezuela', '4123336667', 'Aa123456')
         self.login_page.login_in()
         time.sleep(3)
         self.add_img()
         time.sleep(3)
-
-    def tearDown(self):
-        stop_log()  # 停止写入日志
-        self.driver.quit()
 
 
 if __name__ == '__main__':

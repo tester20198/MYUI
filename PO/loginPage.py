@@ -14,8 +14,8 @@ class LoginPage(Base):
     login_btn = (By.ID, "btn_login")  # 登录页的登录按钮
     switch_btn = (By.ID, "tv_switch")  # 切换登录方式按钮(默认：手机)
     select_nation_btn = (By.ID, "tv_encrytionType")  # 国家下拉框
-    nation = 'Venezuela'
-    nation_XPATH = (By.XPATH, "//android.widget.TextView[contains(@text, 'Venezuela')]")
+    back = (By.XPATH, "")  # 登录页面的返回按钮
+    register = (By.ID, "tv_sign_up")  # 登录页面的注册按钮
 
     def check_in(self):
         """
@@ -39,13 +39,13 @@ class LoginPage(Base):
         else:
             self.Sys_back()
 
-    def login_by_Mobile(self, mobile, pwd):
+    def login_by_Mobile(self, na, mobile, pwd):
         """
         使用手机登录
         :return:
         """
         self.check_in()
-        self.select_nation(self.nation)  # 选择国家
+        self.select_nation(na)  # 选择国家
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
         if self.findElement('注册'):
@@ -65,7 +65,7 @@ class LoginPage(Base):
         切换登录方式
         :return:
         """
-        self.driver.find_element(*self.switch_btn).click()  # 切换为登录模式
+        self.driver.find_element(*self.switch_btn).click()
 
     def select_nation(self, na):
         """
@@ -73,10 +73,20 @@ class LoginPage(Base):
         :return:
         """
 
+        nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
+
         self.driver.find_element(*self.select_nation_btn).click()
         while not self.findElement(na):
             self.swipeUp(duration=1500)
         else:
-            self.driver.find_element(*self.nation_XPATH).click()
+            self.driver.find_element(*nation_XPATH).click()
+
+    def loginpage_register(self):
+        """
+        登录页面的注册按钮
+        :return:
+        """
+
+        self.driver.find_element(*self.register).click()
 
 
