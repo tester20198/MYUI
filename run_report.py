@@ -40,7 +40,7 @@ class RunReport:
         filepath = other.append_path('reports') + '%s_report.html' % date
         ftp = open(filepath, 'wb')
         # 使用HTMLTestRunner配置参数，输出报告路径、报告标题、描述
-        runner = HTMLTestRunner(stream=ftp, title='%s接口测试报告' % date,
+        runner = HTMLTestRunner(stream=ftp, title='%s自动化测试报告' % date,
                                 description='')
         runner.run(cases)
 
