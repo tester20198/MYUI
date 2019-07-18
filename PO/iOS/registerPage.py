@@ -8,7 +8,7 @@ class registerPage(Base):
     启动页+注册界面的页面元素
     """
 
-    register_button = (By.ID, "btnSignup")  # 启动页注册按钮
+    register_button = (By.ID, "SIGN UP")  # 启动页注册按钮
     select_nation_btn = (By.ID, "tv_encrytionType")  # 国家下拉框
     send_mobile = (By.ID, "et_phone_number")  # 注册手机号码
     next_step = (By.ID, "btn_signUp")  # 注册第一步

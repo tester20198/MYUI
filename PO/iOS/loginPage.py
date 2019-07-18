@@ -2,22 +2,10 @@ from PO.basePage import Base
 from selenium.webdriver.common.by import By
 import time
 
+
 class LoginPage(Base):
     """
     启动页+登录界面的页面元素
-    """
-
-    """
-    # 安卓
-    login_button = (By.ID, "btnSignIn")  # 启动页的登录按钮
-    edit_email = (By.ID, "et_emailSignIn")  # 邮箱输入框
-    edit_mobile = (By.ID, "et_login_mobile")  # 手机输入框
-    edit_pwd = (By.ID, "et_login_pass")  # 登录密码输入框
-    login_btn = (By.ID, "btn_login")  # 登录页的登录按钮
-    switch_btn = (By.ID, "tv_switch")  # 切换登录方式按钮
-    select_nation_btn = (By.ID, "tv_encrytionType")  # 国家下拉框
-    back = (By.XPATH, "")  # 登录页面的返回按钮
-    register = (By.ID, "tv_sign_up")  # 登录页面的注册按钮
     """
 
     # iOS
@@ -37,7 +25,6 @@ class LoginPage(Base):
     setting = (By.ID, 'Account Settings')  # 个人中心的设置
     logout = (By.ID, 'Log Out')
     confirm_logout = (By.ID, 'Confirm')
-
 
     def check_in(self):
         """
@@ -62,7 +49,7 @@ class LoginPage(Base):
         """
 
         self.switch_login()
-        #self.ios_select_nation(na)  # 选择国家
+        # self.select_nation(na)  # 选择国家
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
         self.login_in()
@@ -81,21 +68,7 @@ class LoginPage(Base):
         """
         self.driver.find_element(*self.switch_btn).click()
 
-    def android_select_nation(self, na):
-        """
-        选择国家
-        :return:
-        """
-
-        nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
-
-        self.driver.find_element(*self.select_nation_btn).click()
-        while not self.findElement(na):
-            self.swipeUp(duration=1500)
-        else:
-            self.driver.find_element(*nation_XPATH).click()
-
-    def ios_select_nation(self, na):
+    def select_nation(self, na):
         """
         选择国家
         :return:
@@ -127,4 +100,3 @@ class LoginPage(Base):
         self.driver.find_element(*self.setting).click()
         self.driver.find_element(*self.logout).click()
         self.driver.find_element(*self.confirm_logout).click()
-

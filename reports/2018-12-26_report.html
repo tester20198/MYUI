@@ -428,8 +428,8 @@ ft1.1: 运行的日志位置是: adb shell logcat -v time | grep xwallet &gt; /U
 运行的日志位置是: adb shell logcat -v time | grep xwallet &gt; /Users/pundix047/PycharmProjects/MYUI/logs/2018-12-26xwallet.log
 Traceback (most recent call last):
   File "/Users/pundix047/PycharmProjects/MYUI/testcase/login_case.py", line 33, in test_login_by_email
-    self.login_page.login_in()
-  File "/Users/pundix047/PycharmProjects/MYUI/PO/loginPage.py", line 61, in login_in
+    self.login_page.log_in()
+  File "/Users/pundix047/PycharmProjects/MYUI/PO/loginPage.py", line 61, in log_in
     self.driver.find_element(*self.login_btn).click()
   File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py", line 222, in find_element
     'value': value})['value']

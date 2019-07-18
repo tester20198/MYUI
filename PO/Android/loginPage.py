@@ -2,89 +2,79 @@ from PO.basePage import Base
 from selenium.webdriver.common.by import By
 import time
 
+
 class LoginPage(Base):
     """
     启动页+登录界面的页面元素
     """
 
-    """
-    # 安卓
-    login_button = (By.ID, "btnSignIn")  # 启动页的登录按钮
+    # Android
+    login = (By.ID, "btnSignIn")  # 启动页的登录按钮
+    sunge = (By.ID, 'btnSignIn')
+    zhuce = (By.ID, 'btnSignup')
+    register = (By.ID, "btnSignup")  # 启动页的注册按钮
+    help_bt = (By.ID, "tv_menu")  # help&feedback
     edit_email = (By.ID, "et_emailSignIn")  # 邮箱输入框
     edit_mobile = (By.ID, "et_login_mobile")  # 手机输入框
     edit_pwd = (By.ID, "et_login_pass")  # 登录密码输入框
     login_btn = (By.ID, "btn_login")  # 登录页的登录按钮
     switch_btn = (By.ID, "tv_switch")  # 切换登录方式按钮
     select_nation_btn = (By.ID, "tv_encrytionType")  # 国家下拉框
-    back = (By.XPATH, "")  # 登录页面的返回按钮
-    register = (By.ID, "tv_sign_up")  # 登录页面的注册按钮
-    """
+    back = (By.XPATH,
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ImageButton")  # 登录页面的返回按钮
+    login_register = (By.ID, "tv_sign_up")  # 登录页面的注册按钮
+    forget_pwd = (By.ID, "tv_forget_pass")  # 登录页面的忘记密码
+    center = (By.ID, "iv_user_icon")  # 个人中心
+    setting = (By.ID, "rl_layout_setting")  # 个人中心的设置
+    logout = (By.ID, "tv_loginout")  # 退出登录
+    confirm_logout = (By.ID, "button1")  # 确认退出登录
+    extra = (By.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout[2]/android.widget.TextView[4]')
 
-    # iOS
-    login = (By.ID, "LOG IN")  # 启动页的登录按钮
-    register = (By.ID, "SIGN UP")  # 启动页的注册按钮
-    edit_email = (By.ID, 'login_email')  # 邮箱输入框
-    edit_mobile = (By.ID, "login_phone")  # 手机输入框
-    edit_pwd = (By.ID, 'login_password')  # 登录密码输入框
-    login_btn = (By.ID, 'login_submit')  # 登录页的登录按钮
-    switch_btn = (By.NAME, "Phone No.")  # 切换登录方式按钮
-    back = (By.ID, "btn back")  # 登录页面的返回按钮
-    help_btn = (By.ID, 'Help&Feedback')
-    register_btn = (By.ID, 'Sign Up')  # 登录页的注册按钮
-    forget_pwd = (By.ID, 'Forgot Password')  # 登录页的忘记登录密码按钮
-    select_nation_btn = (By.ID, "Rectangle")  # 国家下拉框
-    center = (By.ID, 'ic user home')  # 个人中心
-    setting = (By.ID, 'Account Settings')  # 个人中心的设置
-    logout = (By.ID, 'Log Out')
-    confirm_logout = (By.ID, 'Confirm')
 
 
     def check_in(self):
         """
-        初始页面的登录按钮
-        :return:
+        启动页选择登录
         """
+
         self.driver.find_element(*self.login).click()
 
     def login_by_Email(self, email, pwd):
         """
         使用邮箱登录
-        :return:
         """
+
         self.driver.find_element(*self.edit_email).send_keys(email)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
-        self.login_in()
+        self.log_in()
 
     def login_by_Mobile(self, mobile, pwd, na=None):
         """
         使用手机登录
-        :return:
         """
 
         self.switch_login()
-        #self.ios_select_nation(na)  # 选择国家
+        self.select_nation(na)  # 选择国家
+        time.sleep(1)
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
-        self.login_in()
+        self.log_in()
 
-    def login_in(self):
+    def log_in(self):
         """
-        登录页面的登录按钮
-        :return:
+        点击登录页面的登录按钮
         """
         self.driver.find_element(*self.login_btn).click()
 
     def switch_login(self):
         """
         切换登录方式
-        :return:
         """
         self.driver.find_element(*self.switch_btn).click()
 
-    def android_select_nation(self, na):
+    def select_nation(self, na):
         """
-        选择国家
-        :return:
+        手机登录--选择国家
         """
 
         nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
@@ -95,36 +85,28 @@ class LoginPage(Base):
         else:
             self.driver.find_element(*nation_XPATH).click()
 
-    def ios_select_nation(self, na):
-        """
-        选择国家
-        :return:
-        """
-
-        nation_PATH = (By.ID, na)  # 定位国家
-        self.driver.find_element(*self.select_nation_btn).click()
-        while not self.findElement(na):
-            self.ios_swipeUP()
-        else:
-            self.driver.find_element(*nation_PATH).click()
-
     def loginpage_register(self):
         """
-        登录页面的注册按钮
-        :return:
+        点击登录页面的注册按钮
         """
 
         self.driver.find_element(*self.register).click()
 
+    def enter_usercenter(self):
+        self.driver.find_element(*self.center).click()
+
     def log_out(self):
         """
         退出登录
-        :return:
         """
+
         self.driver.find_element(*self.center).click()
-        time.sleep(5)
-        self.ios_swipeUP()
+        time.sleep(3)
         self.driver.find_element(*self.setting).click()
         self.driver.find_element(*self.logout).click()
-        self.driver.find_element(*self.confirm_logout).click()
+        self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
+        # self.driver.find_element(*self.confirm_logout).click()
 
+
+    def into_extra(self):
+        self.driver.find_element(*self.extra).click()

@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ba280db-c9a3-453c-9c73-b79fe348977d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/run_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_report.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Android/cardPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/cardPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Android/loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/loginPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Android/registerPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/registerPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/Android/usercenterPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/usercenterPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/basePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/basePage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/iOS/loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/iOS/loginPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PO/iOS/registerPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/iOS/registerPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/AndroidMessage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Public/AndroidMessage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Public/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/getConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Public/getConfig.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-12-26xwallet.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/2018-12-26xwallet.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/2018-12-26_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/2018-12-26_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/Android/card_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/card_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/Android/login_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/login_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/Android/register_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/register_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/Android/usercenter_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/usercenter_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/iOS/login_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/iOS/login_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/iOS/register_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/iOS/register_case.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,47 +32,49 @@
     <session id="-232296812">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
-          <entry key="project.open.time.0" value="17" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="4" />
-          <entry key="project.open.time.4" value="11" />
-          <entry key="project.open.time.5" value="6" />
-          <entry key="project.opened" value="40" />
+          <entry key="project.closed" value="52" />
+          <entry key="project.open.time.0" value="20" />
+          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.3" value="5" />
+          <entry key="project.open.time.4" value="13" />
+          <entry key="project.open.time.5" value="8" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="2" />
-          <entry key="ini" value="4" />
-          <entry key="log" value="15" />
-          <entry key="png" value="6" />
-          <entry key="py" value="136" />
+          <entry key="html" value="4" />
+          <entry key="ini" value="6" />
+          <entry key="log" value="19" />
+          <entry key="png" value="12" />
+          <entry key="py" value="250" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
-          <entry key="Image" value="6" />
-          <entry key="Ini" value="4" />
-          <entry key="Log" value="15" />
-          <entry key="Python" value="136" />
+          <entry key="HTML" value="4" />
+          <entry key="Image" value="12" />
+          <entry key="Ini" value="6" />
+          <entry key="Log" value="19" />
+          <entry key="Python" value="250" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="55" />
-          <entry key="ini" value="26" />
-          <entry key="py" value="18950" />
+          <entry key="dummy" value="62" />
+          <entry key="ini" value="117" />
+          <entry key="py" value="24292" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ini" value="26" />
-          <entry key="PLAIN_TEXT" value="57" />
-          <entry key="Python" value="18950" />
+          <entry key="Ini" value="117" />
+          <entry key="PLAIN_TEXT" value="64" />
+          <entry key="Python" value="24292" />
         </counts>
       </usages-collector>
     </session>
@@ -65,44 +85,111 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/AndroidMessage.py">
+        <entry file="file://$PROJECT_DIR$/PO/Android/loginPage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+            <state relative-caret-position="775">
+              <caret line="111" column="53" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1563359996191" expanded="true" signature="1639:1646" ph="..." />
+                <marker date="1563359996191" expanded="true" signature="1803:1808" ph="..." />
+                <marker date="1563359996191" expanded="true" signature="3154:3159" ph="..." />
+                <marker date="1563359996191" expanded="true" signature="3154:3215" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testcase/register_case.py">
+        <entry file="file://$PROJECT_DIR$/PO/Android/registerPage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+            <state relative-caret-position="-7">
+              <caret line="77" column="17" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1545810894764" expanded="true" signature="216:221" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PO/Android/cardPage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PO/Android/usercenterPage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="38" selection-start-line="38" selection-end-line="41" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1563270472397" expanded="true" signature="1999:2008" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="2105:2114" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="2222:2231" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="2615:2624" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="2712:2721" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="2810:2819" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="2914:2923" ph="..." />
+                <marker date="1563270472397" expanded="true" signature="3015:3024" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase/Android/login_case.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase/Android/card_case.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img/home.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PO/basePage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="61" selection-start-line="61" selection-end-line="72" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/run_report.py">
+        <entry file="file://$PROJECT_DIR$/testcase/Android/usercenter_case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="658">
-              <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO/registerPage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+            <state relative-caret-position="656">
+              <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -111,53 +198,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/tester.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11254">
-              <caret line="678" column="28" selection-start-line="678" selection-start-column="28" selection-end-line="678" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public/AppiumServer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/2018-12-26xwallet.log">
-          <provider selected="true" editor-type-id="LogFileEditorProvider" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO/basePage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-7">
+              <caret line="805" column="8" selection-start-line="805" selection-start-column="8" selection-end-line="805" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -197,11 +241,15 @@
       <find>查找到相关app包名</find>
       <find>rigister</find>
       <find>att</find>
+      <find>Base</find>
     </findStrings>
     <replaceStrings>
       <replace>self</replace>
       <replace>register</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -213,38 +261,53 @@
         <option value="$PROJECT_DIR$/PO/Base.py" />
         <option value="$PROJECT_DIR$/PO/base.py" />
         <option value="$PROJECT_DIR$/testcase/test_login.py" />
-        <option value="$PROJECT_DIR$/Public/getConfig.py" />
         <option value="$PROJECT_DIR$/testcase/scanQR.py" />
         <option value="$PROJECT_DIR$/testcase/login_testcase.py" />
         <option value="$PROJECT_DIR$/testcase/ScanQR.py" />
         <option value="/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py" />
         <option value="$PROJECT_DIR$/Public/other.py" />
         <option value="$PROJECT_DIR$/sendEmail.py" />
-        <option value="$PROJECT_DIR$/Public/config.ini" />
         <option value="$PROJECT_DIR$/Public/mutiltask.py" />
         <option value="$PROJECT_DIR$/Public/startMultiAppium.py" />
         <option value="$PROJECT_DIR$/Public/Multithread.py" />
         <option value="$PROJECT_DIR$/Public/getLog.py" />
-        <option value="$PROJECT_DIR$/Public/AndroidMessage.py" />
         <option value="$PROJECT_DIR$/Public/AppiumServer.py" />
         <option value="$PROJECT_DIR$/PO/rigisterPage.py" />
         <option value="$PROJECT_DIR$/testcase/1.py" />
         <option value="$PROJECT_DIR$/img/phone_num.py" />
-        <option value="$PROJECT_DIR$/PO/loginPage.py" />
         <option value="$PROJECT_DIR$/PO/homePage.py" />
-        <option value="$PROJECT_DIR$/testcase/login_case.py" />
-        <option value="$PROJECT_DIR$/PO/basePage.py" />
-        <option value="$PROJECT_DIR$/testcase/register_case.py" />
         <option value="$PROJECT_DIR$/PO/registerPage.py" />
         <option value="$PROJECT_DIR$/run_report.py" />
+        <option value="$PROJECT_DIR$/testcase/setting_page.py" />
+        <option value="$PROJECT_DIR$/PO/settingpage.py" />
+        <option value="$PROJECT_DIR$/Public/config.ini" />
+        <option value="$PROJECT_DIR$/testcase/iOS_login_case.py" />
+        <option value="$PROJECT_DIR$/Public/getConfig.py" />
+        <option value="$PROJECT_DIR$/testcase/login_case.py" />
+        <option value="$PROJECT_DIR$/testcase/register_case.py" />
+        <option value="$PROJECT_DIR$/PO/loginPage.py" />
+        <option value="$PROJECT_DIR$/testcase/iOS/login_case.py" />
+        <option value="$PROJECT_DIR$/PO/iOS/loginPage.py" />
+        <option value="$PROJECT_DIR$/testcase/iOS/register_case.py" />
+        <option value="$PROJECT_DIR$/PO/iOS/registerPage.py" />
+        <option value="$PROJECT_DIR$/Public/AndroidMessage.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/login_case.py" />
+        <option value="$PROJECT_DIR$/PO/Android/usercenterPage.py" />
+        <option value="$PROJECT_DIR$/PO/Android/registerPage.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/register_case.py" />
+        <option value="$PROJECT_DIR$/PO/basePage.py" />
+        <option value="$PROJECT_DIR$/PO/Android/cardPage.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/card_testcase.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/card_case.py" />
+        <option value="$PROJECT_DIR$/PO/Android/loginPage.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/usercenter_case.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="481" />
     <option name="y" value="23" />
-    <option name="width" value="1744" />
-    <option name="height" value="1417" />
+    <option name="width" value="2560" />
+    <option name="height" value="1369" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -265,32 +328,24 @@
             <path>
               <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="MYUI" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
               <item name="PO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="MYUI" type="462c0819:PsiDirectoryNode" />
-              <item name="Public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
-              <item name="reports" type="462c0819:PsiDirectoryNode" />
+              <item name="PO" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="MYUI" type="462c0819:PsiDirectoryNode" />
               <item name="testcase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
+              <item name="testcase" type="462c0819:PsiDirectoryNode" />
+              <item name="Android" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -299,18 +354,25 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Command&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py&#10;page_s&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py&#10;find_ele&#9;null&#9;null&#10;clearText&#9;ACTION&#9;TextComponent.ClearAction&#10;BaseTestSuite&#9;null&#9;null&#10;Testsui&#9;null&#9;null&#10;addTe&#9;null&#9;null&#10;WebDriverWait&#9;null&#9;null&#10;expected_conditions&#9;null&#9;null&#10;selenium.webdriver.support&#9;ACTION&#9;null&#10;bea&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py&#10;page_source&#9;null&#9;null&#10;GET_PAGE_SOURCE&#9;null&#9;null&#10;add_test&#9;null&#9;null&#10;add_test_img&#9;null&#9;null&#10;get_screenshot_as_png&#9;null&#9;null&#10;be&#9;null&#9;null&#10;support.ui&#9;ACTION&#9;null&#10;selenium.webdriver.common.by&#9;null&#9;null&#10;MobileBy&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;WebElement&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webelement.py&#10;located&#9;null&#9;null&#10;RemoteCommand&#9;null&#9;null&#10;FIND_ELEMENT&#9;null&#9;null&#10;find_element_by_id&#9;null&#9;null&#10;By&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;mobi&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;webdriver&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py&#10;element_located&#9;null&#9;null&#10;appium&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium" />
+    <property name="SearchEverywhereHistoryKey" value="presen&#9;null&#9;null&#10;Command&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py&#10;page_s&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py&#10;find_ele&#9;null&#9;null&#10;clearText&#9;ACTION&#9;TextComponent.ClearAction&#10;BaseTestSuite&#9;null&#9;null&#10;Testsui&#9;null&#9;null&#10;addTe&#9;null&#9;null&#10;WebDriverWait&#9;null&#9;null&#10;expected_conditions&#9;null&#9;null&#10;selenium.webdriver.support&#9;ACTION&#9;null&#10;bea&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py&#10;page_source&#9;null&#9;null&#10;GET_PAGE_SOURCE&#9;null&#9;null&#10;add_test&#9;null&#9;null&#10;add_test_img&#9;null&#9;null&#10;get_screenshot_as_png&#9;null&#9;null&#10;be&#9;null&#9;null&#10;support.ui&#9;ACTION&#9;null&#10;selenium.webdriver.common.by&#9;null&#9;null&#10;MobileBy&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;WebElement&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webelement.py&#10;located&#9;null&#9;null&#10;RemoteCommand&#9;null&#9;null&#10;FIND_ELEMENT&#9;null&#9;null&#10;find_element_by_id&#9;null&#9;null&#10;By&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;mobi&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py&#10;webdriver&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py&#10;element_located&#9;null&#9;null&#10;appium&#9;FILE&#9;file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="two.files.diff.last.used.file" value="/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/testcase/Android/.pytest_cache" />
+      <recent name="$PROJECT_DIR$/testcase/iOS" />
+      <recent name="$PROJECT_DIR$/PO/iOS" />
+      <recent name="$PROJECT_DIR$/PO/Android" />
       <recent name="$PROJECT_DIR$/Public" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/img" />
-      <recent name="$PROJECT_DIR$/Public" />
+      <recent name="$PROJECT_DIR$/testcase/Android" />
+      <recent name="$PROJECT_DIR$/PO/Android" />
+      <recent name="$PROJECT_DIR$/PO" />
+      <recent name="$PROJECT_DIR$/testcase" />
+      <recent name="$PROJECT_DIR$/testcase/iOS" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -325,7 +387,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.register_case">
+  <component name="RunManager" selected="Python tests.pytest for usercenter_case.LoginTestCase.test_into_collection">
     <configuration name="basePage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MYUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -347,92 +409,80 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="register_case" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MYUI" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testcase/register_case.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_report" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="MYUI" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_report.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for register_case.RigisterTestCase" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for usercenter_case.LoginTestCase" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="MYUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase/Android" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;register_case.RigisterTestCase&quot;" />
+      <option name="_new_target" value="&quot;usercenter_case.LoginTestCase&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for register_case.RigisterTestCase.test_all_nation_mobile" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for usercenter_case.LoginTestCase.test_into_collection" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="MYUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase/Android" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;register_case.RigisterTestCase.test_all_nation_mobile&quot;" />
+      <option name="_new_target" value="&quot;usercenter_case.LoginTestCase.test_into_collection&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for usercenter_case.LoginTestCase.test_into_setting" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="MYUI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase/Android" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;usercenter_case.LoginTestCase.test_into_setting&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in usercenter_case.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="MYUI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testcase/Android" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/testcase/Android/usercenter_case.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase" />
+      <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_collection" />
+      <item itemvalue="Python tests.pytest in usercenter_case.py" />
+      <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_setting" />
       <item itemvalue="Python.basePage" />
-      <item itemvalue="Python tests.pytest for register_case.RigisterTestCase.test_all_nation_mobile" />
-      <item itemvalue="Python tests.pytest for register_case.RigisterTestCase" />
-      <item itemvalue="Python.register_case" />
-      <item itemvalue="Python.run_report" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.register_case" />
-        <item itemvalue="Python.run_report" />
+        <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_collection" />
+        <item itemvalue="Python tests.pytest in usercenter_case.py" />
+        <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase" />
         <item itemvalue="Python.basePage" />
-        <item itemvalue="Python tests.pytest for register_case.RigisterTestCase" />
-        <item itemvalue="Python tests.pytest for register_case.RigisterTestCase.test_all_nation_mobile" />
+        <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_setting" />
       </list>
     </recent_temporary>
   </component>
@@ -458,35 +508,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 03m 35s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_for_usercenter_case_LoginTestCase - 2019.07.18 at 09h 27m 17s.xml">
+      <configuration name="pytest for usercenter_case.LoginTestCase" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 12m 35s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 30m 52s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 18m 08s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 48m 13s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 19m 27s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 50m 42s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 25m 36s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 51m 37s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 26m 16s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 52m 37s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.25 at 20h 28m 20s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 10h 16m 28s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.26 at 09h 21m 56s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 10h 17m 36s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase_test_all_nation_mobile - 2018.12.26 at 09h 25m 56s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase.test_all_nation_mobile" configurationId="tests" />
+    <history-entry file="pytest_for_usercenter_case_LoginTestCase_test_into_collection - 2019.07.18 at 10h 18m 35s.xml">
+      <configuration name="pytest for usercenter_case.LoginTestCase.test_into_collection" configurationId="tests" />
     </history-entry>
-    <history-entry file="pytest_for_register_case_RigisterTestCase - 2018.12.26 at 09h 27m 24s.xml">
-      <configuration name="pytest for register_case.RigisterTestCase" configurationId="tests" />
+    <history-entry file="pytest_for_usercenter_case_LoginTestCase_test_into_collection - 2019.07.18 at 10h 19m 31s.xml">
+      <configuration name="pytest for usercenter_case.LoginTestCase.test_into_collection" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -499,9 +549,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="481" y="23" width="1744" height="1417" extended-state="0" />
+    <frame x="0" y="23" width="2560" height="1369" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49852508" visible="true" weight="0.1579362" />
+      <window_info id="Structure" order="1" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
+      <window_info id="Favorites" order="2" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32811275" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3163665" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39906102" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32942098" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.27493712" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32942098" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49852508" visible="true" weight="0.2327336" />
       <window_info id="Structure" order="1" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
       <window_info id="Favorites" order="2" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
@@ -513,13 +582,13 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942432" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2754717" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2754717" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -530,13 +599,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -547,97 +609,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/common/by.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/common/mobileby.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/2018111412.log" />
-    <entry file="file://$PROJECT_DIR$/logs/2018111414.log" />
-    <entry file="file://$PROJECT_DIR$/PO/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="465" column="8" selection-start-line="465" selection-start-column="8" selection-end-line="465" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/201812121047.png" />
-    <entry file="file://$PROJECT_DIR$/img/test2.png" />
-    <entry file="file://$PROJECT_DIR$/reports/18-12-12_report.html" />
-    <entry file="file://$PROJECT_DIR$/logs/login_case.log" />
-    <entry file="file://$PROJECT_DIR$/logs/0.log" />
-    <entry file="file://$PROJECT_DIR$/logs/xwallet.log" />
-    <entry file="file://$PROJECT_DIR$/img/1.png" />
-    <entry file="file://$PROJECT_DIR$/reports/2018-12-13_report.html" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/BeautifulReport/BeautifulReport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7293">
-          <caret line="439" selection-start-line="439" selection-end-line="439" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/2018-12-13xwallet.log" />
-    <entry file="file://$PROJECT_DIR$/img/结果.png" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/support/expected_conditions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2074">
-          <caret line="122" column="32" lean-forward="true" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/support/wait.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="79" column="59" selection-start-line="79" selection-start-column="59" selection-end-line="79" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/2018-12-14xwallet.log" />
-    <entry file="file://$PROJECT_DIR$/Public/Multithread.py" />
-    <entry file="file://$PROJECT_DIR$/Public/startMultiAppium.py" />
-    <entry file="file://$PROJECT_DIR$/testcase/ScanQR.py" />
-    <entry file="file://$PROJECT_DIR$/sendEmail.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reports/2018-12-17_report.html" />
     <entry file="file://$PROJECT_DIR$/logs/2018-12-17xwallet.log" />
     <entry file="file://$PROJECT_DIR$/logs/2018-12-18xwallet.log" />
-    <entry file="file://$PROJECT_DIR$/Public/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/getConfig.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/getLog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/HTMLTestRunner_cn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/more_itertools/tests/test_more.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -654,66 +627,132 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/img/phone_num.py" />
+    <entry file="file://$PROJECT_DIR$/img/test.png" />
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/support/expected_conditions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2174">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28271">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/HTMLTestRunner.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO/settingpage.py" />
+    <entry file="file://$PROJECT_DIR$/PO/Android/homePage.py" />
+    <entry file="file://$PROJECT_DIR$/PO/homePage.py" />
+    <entry file="file://$PROJECT_DIR$/testcase/setting_page.py" />
+    <entry file="file://$PROJECT_DIR$/testcase/iOS_login_case.py" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/appium/webdriver/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="1428" column="22" selection-start-line="1428" selection-start-column="19" selection-end-line="1428" selection-end-column="22" />
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#658#671#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/other.py">
+    <entry file="file://$PROJECT_DIR$/testcase/iOS/register_case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="425">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PO/homePage.py">
+    <entry file="file://$PROJECT_DIR$/PO/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO/iOS/loginPage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="170">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/test.png" />
-    <entry file="file://$PROJECT_DIR$/testcase/login_case.py">
+    <entry file="file://$PROJECT_DIR$/PO/iOS/registerPage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PO/loginPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1545806797817" expanded="true" signature="97:102" ph="..." />
-            <marker date="1545806797817" expanded="true" signature="1578:1579" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Public/AndroidMessage.py">
+    <entry file="file://$PROJECT_DIR$/PO/Android/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/support/event_firing_webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+        <state relative-caret-position="3208">
+          <caret line="201" column="56" lean-forward="true" selection-start-line="201" selection-start-column="56" selection-end-line="201" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/register_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sendEmail.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_report.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PO/registerPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,58 +760,181 @@
     <entry file="file://$PROJECT_DIR$/img/tester.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py">
+    <entry file="file://$PROJECT_DIR$/logs/2018-12-26xwallet.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-9952">
+          <caret line="664" column="52" lean-forward="true" selection-start-line="664" selection-start-column="52" selection-end-line="664" selection-end-column="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/AndroidMessage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11254">
-          <caret line="678" column="28" selection-start-line="678" selection-start-column="28" selection-end-line="678" selection-end-column="51" />
+        <state relative-caret-position="183">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/AppiumServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state relative-caret-position="-7">
+          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="21" column="10" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/getConfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/2018-12-26xwallet.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider" />
+    <entry file="file://$PROJECT_DIR$/Public/getLog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/HTMLTestRunner_cn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/other.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reports/2018-12-26_report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/iOS/login_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO/Android/cardPage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/card_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="805" column="8" selection-start-line="805" selection-start-column="8" selection-end-line="805" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/home.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/PO/basePage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="-7">
+          <caret line="61" selection-start-line="61" selection-end-line="72" selection-end-column="24" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/command.py">
+    <entry file="file://$PROJECT_DIR$/PO/Android/registerPage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/register_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+        <state relative-caret-position="-7">
+          <caret line="77" column="17" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1545810894764" expanded="true" signature="216:221" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_report.py">
+    <entry file="file://$PROJECT_DIR$/PO/Android/usercenterPage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="53" column="35" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+        <state relative-caret-position="-7">
+          <caret line="38" selection-start-line="38" selection-end-line="41" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1563270472397" expanded="true" signature="1999:2008" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="2105:2114" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="2222:2231" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="2615:2624" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="2712:2721" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="2810:2819" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="2914:2923" ph="..." />
+            <marker date="1563270472397" expanded="true" signature="3015:3024" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/login_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO/Android/loginPage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="111" column="53" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1563359996191" expanded="true" signature="1639:1646" ph="..." />
+            <marker date="1563359996191" expanded="true" signature="1803:1808" ph="..." />
+            <marker date="1563359996191" expanded="true" signature="3154:3159" ph="..." />
+            <marker date="1563359996191" expanded="true" signature="3154:3215" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/usercenter_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

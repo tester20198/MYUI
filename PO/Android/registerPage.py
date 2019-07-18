@@ -25,8 +25,7 @@ class registerPage(Base):
 
     def click_register(self):
         """
-        初始页面的注册按钮
-        :return:
+        选择注册
         """
         self.driver.find_element(*self.register_button).click()
 
@@ -45,7 +44,6 @@ class registerPage(Base):
     def select_nation(self, na):
         """
         选择国家
-        :return:
         """
         nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')# 定位国家
 
@@ -56,7 +54,9 @@ class registerPage(Base):
             self.driver.find_element(*nation_XPATH).click()
 
     def verify(self, code=2222):
-        """输入手机验证码"""
+        """
+        输入手机验证码
+        """
 
         self.driver.find_element(*self.mobile_code).send_keys(code)  # 测试环境默认2222
         self.driver.find_element(*self.verify_code).click()  # 第二步
@@ -65,7 +65,6 @@ class registerPage(Base):
     def send_pwd(self, pwd='Aa123456'):
         """
         注册时输入账号密码
-        :return:
         """
 
         self.driver.find_element(*self.register_pwd).send_keys(pwd)
@@ -77,7 +76,6 @@ class registerPage(Base):
     def send_pay_pwd(self, p='123456'):
         """
         注册时输入支付密码
-        :return:
         """
 
         self.driver.find_element(*self.pay_pwd).send_keys(p)

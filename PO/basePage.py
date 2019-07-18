@@ -1,7 +1,6 @@
 from Public.AndroidMessage import Android
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.by import By
 from Public import other
 
 
@@ -12,18 +11,28 @@ class Base:
     """
 
     driver = None
-    # 选择Android设备中的app
-    an = Android()
-    # 初始化设备数据
-    driver_caps = {'platformName': an.platformName,
-                   'platformVersion': an.get_device_version,
-                   'deviceName': an.get_device_name[0],  # 第一个设备
-                   'appPackage': an.get_app_name,
-                   'appActivity': an.get_app_Activity,
-                   'autoGrantPermissions': True  # 获取默认权限
-                   }
 
-    def __init__(self, driver):
+    an = Android()  # 初始化设备数据
+    android_driver_caps = {'platformName': an.platformName,
+                           'platformVersion': an.get_device_version,
+                           'deviceName': an.get_device_name[0],  # 第一个设备
+                           'appPackage': an.get_app_name,
+                           'appActivity': an.get_app_Activity,
+                           'autoGrantPermissions': True,  # 获取默认权限
+                           # "noReset": True,  # 不清空数据
+                           "automationName": "Uiautomator2"  # 使用Uiautomator2
+                           }
+    """
+    ios_driver_caps = {"platformName": "iOS",
+                       "platformVersion": "12.1",
+                       "bundleId": "com.pundix.wallet",
+                       "automationName": "XCUITest",
+                       "udid": "72c8074b6e518ba2c4a462a5bbe169f90c802f8c",
+                       "deviceName": "“PundiX051”的 iPhone"
+                       }
+    """
+
+    def __init__(self, driver, ):
         self.driver = driver
 
     def Sys_back(self):
@@ -80,7 +89,7 @@ class Base:
         """
 
         x, y = self.get_size()
-        self.driver.swipe(x/2, y/4, x/2, y*3/4, duration)
+        self.driver.swipe(x / 2, y / 4, x / 2, y * 3 / 4, duration)
 
     def swipeUp(self, duration=500):
         """
@@ -89,7 +98,7 @@ class Base:
         """
 
         x, y = self.get_size()
-        self.driver.swipe(x/2, y*3/4, x/2, y/4, duration)
+        self.driver.swipe(x / 2, y * 3 / 4, x / 2, y / 4, duration)
 
     def wait_element(self, time, element, msg):
         """
@@ -134,9 +143,56 @@ class Base:
 
         path = other.upper_path() + 'img/'
         # print(path)
-        self.driver.get_screenshot_as_file(path+filename)
+        self.driver.get_screenshot_as_file(path + filename)
         return True
+
+    def ios_swipeUP(self):
+        """
+        iOS端向上滑动
+        :return:
+        """
+        self.driver.execute_script('mobile: swipe', {'direction': 'up'})
+
+    def ios_swipeDown(self):
+        """
+        iOS端向上滑动
+        :return:
+        """
+        self.driver.execute_script('mobile: swipe', {'direction': 'down'})
+
+    def is_toast_exist(driver, text, timeout=30, poll_frequency=0.5):
+
+        """is toast exist, return True or False
+
+        :Agrs:
+
+         - driver - 传driver
+
+         - text   - 页面上看到的文本内容
+
+         - timeout - 最大超时时间，默认30s
+
+         - poll_frequency  - 间隔查询时间，默认0.5s查询一次
+
+        :Usage:
+
+         is_toast_exist(driver, "看到的内容")
+
+        """
+
+        try:
+
+            toast_loc = ("xpath", ".//*[contains(@text,'%s')]" % text)
+
+            WebDriverWait(driver, timeout, poll_frequency).until(
+                expected_conditions.presence_of_element_located(toast_loc))
+
+            return True
+
+        except:
+
+            return False
 
 
 if __name__ == '__main__':
-    print(Base(1).driver_caps)
+    print(Base(1))

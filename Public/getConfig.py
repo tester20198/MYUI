@@ -1,4 +1,4 @@
-import configparser
+from configparser import ConfigParser
 import os
 
 
@@ -8,7 +8,7 @@ class Environment:
     """
 
     def __init__(self):
-        self.config = configparser.ConfigParser()
+        self.config = ConfigParser()
         self.filename = os.path.dirname(__file__) + '/config.ini'  # 配置文件
 
     def get_env(self, title, subtitle):
@@ -26,3 +26,12 @@ class Environment:
         else:
             setting = self.config.get(title, subtitle)
         return setting
+
+    @property
+    def iOS_cpas(self) -> dict:
+        """
+        以字典形式返回设备配置
+        :return:
+        """
+        self.config.read(self.filename)
+        return dict(self.config._sections['iOS_caps'])

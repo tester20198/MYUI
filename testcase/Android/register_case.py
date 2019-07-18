@@ -1,6 +1,6 @@
 from appium import webdriver
 import unittest
-from PO.registerPage import registerPage
+from PO.Android.registerPage import registerPage
 from PO.basePage import Base
 import time
 
@@ -32,21 +32,6 @@ class RigisterTestCase(unittest.TestCase):
         self.register_page.save_img('tester.png')
         time.sleep(1)
 
-    def test_all_nation_mobile(self):
-        self.setUp()
-        time.sleep(2)
-        num = 0
-        self.register_page.click_register()
-        for key, values in phone_num.items():
-            for v in values:
-                self.register_page.register_by_mobile(key, v)
-                # print(self.register_page.getAttribute())
-                if self.register_page.getAttribute() == 'true':
-                    num += 1
-                    print(f'{key}国家的{v}手机号码is OK...')
-                else:
-                    print(f'{key}国家的{v}手机号码is Wrong...')
-                self.register_page.edit_clear()
 
     def tearDown(self):
         self.driver.quit()

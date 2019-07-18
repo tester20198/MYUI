@@ -1,8 +1,7 @@
 from appium import webdriver
 import unittest
-from PO.Android.loginPage import LoginPage
+from PO.iOS.loginPage import LoginPage
 from PO.basePage import Base
-# from Public.getLog import write_log,stop_log
 import time
 
 
@@ -30,17 +29,15 @@ class LoginTestCase(unittest.TestCase):
         self.login_page.check_in()
         self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
         time.sleep(10)
-        self.login_page.log_out()
-        time.sleep(3)
 
     def test_login_by_mobile(self):
         self.login_page.check_in()
         self.login_page.login_by_Mobile('4121580666', 'Aa123456')
         time.sleep(10)
-        self.login_page.log_out()
-        time.sleep(3)
 
     def tearDown(self):
+        self.login_page.log_out()
+        time.sleep(3)
         self.driver.quit()
 
 
