@@ -3,19 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5ba280db-c9a3-453c-9c73-b79fe348977d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/Android/cardPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/cardPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/Android/loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/loginPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/Android/registerPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/registerPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/Android/usercenterPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/Android/usercenterPage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PO/basePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/basePage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/iOS/loginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/iOS/loginPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PO/iOS/registerPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PO/iOS/registerPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/AndroidMessage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Public/AndroidMessage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Public/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Public/getConfig.py" beforeDir="false" afterPath="$PROJECT_DIR$/Public/getConfig.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-12-26xwallet.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/2018-12-26xwallet.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/2018-12-26_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/2018-12-26_report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testcase/Android/card_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/card_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcase/Android/card_case.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/testcase/Android/login_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/login_case.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testcase/Android/register_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/register_case.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testcase/Android/usercenter_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/testcase/Android/usercenter_case.py" afterDir="false" />
@@ -50,7 +39,7 @@
           <entry key="ini" value="6" />
           <entry key="log" value="19" />
           <entry key="png" value="12" />
-          <entry key="py" value="250" />
+          <entry key="py" value="253" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -59,14 +48,14 @@
           <entry key="Image" value="12" />
           <entry key="Ini" value="6" />
           <entry key="Log" value="19" />
-          <entry key="Python" value="250" />
+          <entry key="Python" value="253" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="62" />
           <entry key="ini" value="117" />
-          <entry key="py" value="24292" />
+          <entry key="py" value="24740" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -74,7 +63,7 @@
         <counts>
           <entry key="Ini" value="117" />
           <entry key="PLAIN_TEXT" value="64" />
-          <entry key="Python" value="24292" />
+          <entry key="Python" value="24740" />
         </counts>
       </usages-collector>
     </session>
@@ -84,6 +73,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase/Android/register_case.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PO/Android/loginPage.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -105,18 +106,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-7">
               <caret line="77" column="17" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PO/Android/cardPage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -147,20 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcase/Android/login_case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testcase/Android/card_case.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            <state relative-caret-position="476">
+              <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -173,23 +150,24 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PO/basePage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="61" selection-start-line="61" selection-end-line="72" selection-end-column="24" />
+            <state relative-caret-position="752">
+              <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+                <marker date="1563419781022" expanded="true" signature="4908:4917" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcase/Android/usercenter_case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+            <state relative-caret-position="707">
+              <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -198,10 +176,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/selenium/webdriver/remote/webdriver.py">
+        <entry file="file://$PROJECT_DIR$/testcase/iOS/login_case.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="805" column="8" selection-start-line="805" selection-start-column="8" selection-end-line="805" selection-end-column="8" />
+            <state relative-caret-position="357">
+              <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testcase/iOS/register_case.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -286,21 +279,21 @@
         <option value="$PROJECT_DIR$/testcase/login_case.py" />
         <option value="$PROJECT_DIR$/testcase/register_case.py" />
         <option value="$PROJECT_DIR$/PO/loginPage.py" />
-        <option value="$PROJECT_DIR$/testcase/iOS/login_case.py" />
         <option value="$PROJECT_DIR$/PO/iOS/loginPage.py" />
-        <option value="$PROJECT_DIR$/testcase/iOS/register_case.py" />
         <option value="$PROJECT_DIR$/PO/iOS/registerPage.py" />
         <option value="$PROJECT_DIR$/Public/AndroidMessage.py" />
-        <option value="$PROJECT_DIR$/testcase/Android/login_case.py" />
         <option value="$PROJECT_DIR$/PO/Android/usercenterPage.py" />
         <option value="$PROJECT_DIR$/PO/Android/registerPage.py" />
-        <option value="$PROJECT_DIR$/testcase/Android/register_case.py" />
-        <option value="$PROJECT_DIR$/PO/basePage.py" />
         <option value="$PROJECT_DIR$/PO/Android/cardPage.py" />
         <option value="$PROJECT_DIR$/testcase/Android/card_testcase.py" />
         <option value="$PROJECT_DIR$/testcase/Android/card_case.py" />
         <option value="$PROJECT_DIR$/PO/Android/loginPage.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/login_case.py" />
+        <option value="$PROJECT_DIR$/testcase/Android/register_case.py" />
         <option value="$PROJECT_DIR$/testcase/Android/usercenter_case.py" />
+        <option value="$PROJECT_DIR$/testcase/iOS/login_case.py" />
+        <option value="$PROJECT_DIR$/testcase/iOS/register_case.py" />
+        <option value="$PROJECT_DIR$/PO/basePage.py" />
       </list>
     </option>
   </component>
@@ -347,6 +340,12 @@
               <item name="testcase" type="462c0819:PsiDirectoryNode" />
               <item name="Android" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MYUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MYUI" type="462c0819:PsiDirectoryNode" />
+              <item name="testcase" type="462c0819:PsiDirectoryNode" />
+              <item name="iOS" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -387,7 +386,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for usercenter_case.LoginTestCase.test_into_collection">
+  <component name="RunManager" selected="Python tests.pytest in usercenter_case.py">
     <configuration name="basePage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MYUI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -478,8 +477,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_collection" />
         <item itemvalue="Python tests.pytest in usercenter_case.py" />
+        <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_collection" />
         <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase" />
         <item itemvalue="Python.basePage" />
         <item itemvalue="Python tests.pytest for usercenter_case.LoginTestCase.test_into_setting" />
@@ -508,12 +507,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_for_usercenter_case_LoginTestCase - 2019.07.18 at 09h 27m 17s.xml">
-      <configuration name="pytest for usercenter_case.LoginTestCase" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 30m 52s.xml">
-      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 09h 48m 13s.xml">
       <configuration name="pytest in usercenter_case.py" configurationId="tests" />
     </history-entry>
@@ -538,6 +531,12 @@
     <history-entry file="pytest_for_usercenter_case_LoginTestCase_test_into_collection - 2019.07.18 at 10h 19m 31s.xml">
       <configuration name="pytest for usercenter_case.LoginTestCase.test_into_collection" configurationId="tests" />
     </history-entry>
+    <history-entry file="pytest_for_usercenter_case_LoginTestCase_test_into_collection - 2019.07.18 at 11h 13m 21s.xml">
+      <configuration name="pytest for usercenter_case.LoginTestCase.test_into_collection" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_in_usercenter_case_py - 2019.07.18 at 11h 14m 13s.xml">
+      <configuration name="pytest in usercenter_case.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -556,14 +555,14 @@
       <window_info id="Structure" order="1" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
       <window_info id="Favorites" order="2" sideWeight="0.5014749" side_tool="true" weight="0.2713126" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32811275" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32732967" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3163665" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39906102" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32942098" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.27493712" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.23257636" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32942098" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -691,16 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/iOS/register_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PO/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -731,16 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3208">
           <caret line="201" column="56" lean-forward="true" selection-start-line="201" selection-start-column="56" selection-end-line="201" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/Android/register_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -826,30 +805,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/iOS/login_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PO/Android/cardPage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/Android/card_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -865,16 +824,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/img/home.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PO/basePage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="61" selection-start-line="61" selection-end-line="72" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PO/Android/registerPage.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -904,16 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/Android/login_case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PO/Android/loginPage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="775">
@@ -928,12 +867,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testcase/Android/usercenter_case.py">
+    <entry file="file://$PROJECT_DIR$/testcase/Android/card_case.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="108" column="26" lean-forward="true" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+        <state relative-caret-position="459">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/login_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="23" lean-forward="true" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/register_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/Android/usercenter_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="707">
+          <caret line="96" column="19" lean-forward="true" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/iOS/login_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcase/iOS/register_case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PO/basePage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="215" lean-forward="true" selection-start-line="215" selection-end-line="215" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1563419781022" expanded="true" signature="4908:4917" ph="..." />
           </folding>
         </state>
       </provider>

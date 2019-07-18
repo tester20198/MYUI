@@ -13,12 +13,6 @@ class RigisterTestCase(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.ios_driver_caps)  # 串联
         self.register_page = registerPage(self.driver)  # 初始化登录页元素以及方法
-        time.sleep(2)  # 等待初始化完成
-
-    def add_img(self):
-        # 截图方法
-        self.imgs.append(self.driver.get_screenshot_as_base64())
-        return True
 
     def test_register_by_mobile(self):
         self.register_page.click_register()

@@ -18,29 +18,14 @@ class LoginTestCase(unittest.TestCase):
         self.login_page = LoginPage(self.driver)  # 初始化登录页元素以及方法
         self.user_page = UsercenterPage(self.driver)  # 初始化个人中心页元素以及方法
         time.sleep(3)  # 等待初始化完成
-        self.imgs = []  # 截图列表
-
-    def add_img(self):
-        # 截图方法
-        self.imgs.append(self.driver.get_screenshot_as_base64())
-        return True
-
 
     def test_into_collection(self):
         self.login_page.check_in()
         self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
         time.sleep(10)
-        #self.driver.implicitly_wait(10)
-        #self.driver.save_screenshot('/Users/pundix047/PycharmProjects/MYUI/img/home.png')
         self.driver.back()
-        self.login_page.into_extra()
-        print(self.driver.contexts)
-        self.driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": "WEBVIEW_com.pundix.xwallet"})
-        print(self.driver.current_context)
-        time.sleep(4)
-        print(self.driver.page_source)
         time.sleep(3)
-        #self.user_page.into_Collection()  # 进入收款页面
+        self.user_page.into_Collection()  # 进入收款页面
 
     def test_into_assets(self):
         self.login_page.check_in()

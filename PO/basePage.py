@@ -1,7 +1,9 @@
 from Public.AndroidMessage import Android
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from appium.webdriver.mobilecommand import MobileCommand
 from Public import other
+import time
 
 
 class Base:
@@ -181,18 +183,33 @@ class Base:
         """
 
         try:
-
             toast_loc = ("xpath", ".//*[contains(@text,'%s')]" % text)
 
             WebDriverWait(driver, timeout, poll_frequency).until(
                 expected_conditions.presence_of_element_located(toast_loc))
-
             return True
-
         except:
-
             return False
+
+    def switch_to_view(self, target='H5'):
+        """
+        切换app视窗 或 h5视窗
+        :target:目标视窗（app/H5），默认切换到H5
+        :return:
+        """
+
+        view_list = self.driver.contexts
+        print('当前页面的webview元素有：', view_list)
+        webview = [i for i in view_list if 'WEB' in i]
+        app = [a for a in view_list if 'APP' in a]
+
+        if target == 'H5':
+            self.driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": webview[0]})
+        else:
+            self.driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": app[0]})
+        # print(self.driver.current_context)
+        time.sleep(2)
 
 
 if __name__ == '__main__':
-    print(Base(1))
+    print(Base(1).android_driver_caps)
