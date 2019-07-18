@@ -8,8 +8,6 @@ class UsercenterPage(Base):
     个人中心的页面元素
     """
 
-    # Android
-
     head = (By.ID, 'iv_head')  # 头像
     nickname = (By.ID, 'tv_nickname')  # 昵称
     change_head = (By.ID, 'rl_layout_hand')  # 头像—进入手机相机
@@ -37,54 +35,49 @@ class UsercenterPage(Base):
     help_btn = (By.ID, 'rl_layout_help_feedback')  # feedback
 
     def into_Collection(self):
-        # 进入收款码页面
+        """ 进入收款码页面"""
 
         self.driver.find_element(*self.Collection).click()
 
     def into_Assets(self):
-        # 进入总资产界面
+        """进入总资产界面"""
 
         self.driver.find_element(*self.Assets).click()
 
     def switch_Assets(self, type='coin'):
-        # 总资产切换选项
+        """总资产切换选项"""
 
         if type == 'coin':
             self.driver.find_element_by_android_uiautomator('new UiSelector().text("Accounts")').click()
         else:
             self.driver.find_element_by_android_uiautomator('new UiSelector().text("Coins")').click()
 
-
     def into_Bill(self):
-        # 进入总账单
+        """进入总账单"""
 
         self.driver.find_element(*self.Bills).click()
 
     def into_coupon(self):
-        # 进入优惠券
+        """进入优惠券"""
 
         self.driver.find_element(*self.coupon).click()
 
     def into_KYC(self):
-        # 进入kyc
+        """进入kyc"""
 
         self.driver.find_element(*self.kyc).click()
 
     def into_setting(self):
-        # 进入设置界面
+        """进入设置界面"""
 
         self.driver.find_element(*self.setting).click()
 
     def into_merchant(self):
-        # 进入商户设置
+        """进入商户设置"""
 
         self.driver.find_element(*self.merchant).click()
 
     def into_help(self):
-        # 进入帮助界面
+        """进入帮助界面"""
 
         self.driver.find_element(*self.help_btn).click()
-
-
-
-

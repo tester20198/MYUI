@@ -52,6 +52,7 @@ class AppiumServer:
         找到appium服务占用的端口(mac OS下)
         :return:
         """
+
         with os.popen('ps |grep node') as f:
             port = f.readline()
         if port == '':

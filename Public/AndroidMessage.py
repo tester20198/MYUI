@@ -61,7 +61,7 @@ class Android:
     @property
     def get_app_Activity(self) -> str:
         """
-        # 获取app的启动页Activity
+        获取app的启动页Activity
         """
 
         # 调用自身的方法去获取app的包名

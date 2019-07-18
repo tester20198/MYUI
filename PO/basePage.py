@@ -213,4 +213,3 @@ class Base:
 
 if __name__ == '__main__':
     print(Base(1).android_driver_caps)
-    print('123')

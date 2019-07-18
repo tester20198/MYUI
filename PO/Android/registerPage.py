@@ -45,7 +45,7 @@ class registerPage(Base):
         """
         选择国家
         """
-        nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')# 定位国家
+        nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
 
         self.driver.find_element(*self.select_nation_btn).click()
         while not self.findElement(na):

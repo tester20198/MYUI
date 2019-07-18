@@ -8,7 +8,6 @@ class LoginPage(Base):
     启动页+登录界面的页面元素
     """
 
-    # Android
     login = (By.ID, "btnSignIn")  # 启动页的登录按钮
     sunge = (By.ID, 'btnSignIn')
     zhuce = (By.ID, 'btnSignup')
@@ -28,9 +27,6 @@ class LoginPage(Base):
     setting = (By.ID, "rl_layout_setting")  # 个人中心的设置
     logout = (By.ID, "tv_loginout")  # 退出登录
     confirm_logout = (By.ID, "button1")  # 确认退出登录
-    extra = (By.XPATH, '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout[2]/android.widget.TextView[4]')
-
-
 
     def check_in(self):
         """
@@ -70,6 +66,7 @@ class LoginPage(Base):
         """
         切换登录方式
         """
+
         self.driver.find_element(*self.switch_btn).click()
 
     def select_nation(self, na):
@@ -93,6 +90,10 @@ class LoginPage(Base):
         self.driver.find_element(*self.register).click()
 
     def enter_usercenter(self):
+        """
+        进入个人中心
+        """
+
         self.driver.find_element(*self.center).click()
 
     def log_out(self):
@@ -106,7 +107,3 @@ class LoginPage(Base):
         self.driver.find_element(*self.logout).click()
         self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
         # self.driver.find_element(*self.confirm_logout).click()
-
-
-    def into_extra(self):
-        self.driver.find_element(*self.extra).click()

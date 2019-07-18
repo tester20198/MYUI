@@ -50,6 +50,7 @@ class RunReport:
         :param cases:测试用例集
         :return:
         """
+
         result = BeautifulReport(cases)
         result.report(description='测试报告', log_path='./reports')
 

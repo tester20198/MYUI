@@ -8,7 +8,6 @@ class LoginPage(Base):
     启动页+登录界面的页面元素
     """
 
-    # iOS
     login = (By.ID, "LOG IN")  # 启动页的登录按钮
     register = (By.ID, "SIGN UP")  # 启动页的注册按钮
     edit_email = (By.ID, 'login_email')  # 邮箱输入框
@@ -27,17 +26,15 @@ class LoginPage(Base):
     confirm_logout = (By.ID, 'Confirm')
 
     def check_in(self):
-        """
-        初始页面的登录按钮
-        :return:
-        """
+        """初始页面的登录按钮"""
+
         self.driver.find_element(*self.login).click()
 
     def login_by_Email(self, email, pwd):
         """
         使用邮箱登录
-        :return:
         """
+
         self.driver.find_element(*self.edit_email).send_keys(email)
         self.driver.find_element(*self.edit_pwd).send_keys(pwd)
         self.login_in()
@@ -45,7 +42,6 @@ class LoginPage(Base):
     def login_by_Mobile(self, mobile, pwd, na=None):
         """
         使用手机登录
-        :return:
         """
 
         self.switch_login()
@@ -55,24 +51,17 @@ class LoginPage(Base):
         self.login_in()
 
     def login_in(self):
-        """
-        登录页面的登录按钮
-        :return:
-        """
+        """登录页面的登录按钮"""
+
         self.driver.find_element(*self.login_btn).click()
 
     def switch_login(self):
-        """
-        切换登录方式
-        :return:
-        """
+        """切换登录方式"""
+
         self.driver.find_element(*self.switch_btn).click()
 
     def select_nation(self, na):
-        """
-        选择国家
-        :return:
-        """
+        """选择国家"""
 
         nation_PATH = (By.ID, na)  # 定位国家
         self.driver.find_element(*self.select_nation_btn).click()
@@ -82,18 +71,15 @@ class LoginPage(Base):
             self.driver.find_element(*nation_PATH).click()
 
     def loginpage_register(self):
-        """
-        登录页面的注册按钮
-        :return:
-        """
+        """登录页面的注册按钮"""
 
         self.driver.find_element(*self.register).click()
 
     def log_out(self):
         """
         退出登录
-        :return:
         """
+
         self.driver.find_element(*self.center).click()
         time.sleep(5)
         self.ios_swipeUP()

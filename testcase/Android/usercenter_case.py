@@ -8,9 +8,9 @@ from Public.getLog import write_log, stop_log
 import time
 
 
-class LoginTestCase(unittest.TestCase):
+class UsercenterTestCase(unittest.TestCase):
     """
-    登录的测试用例
+    个人中心的测试用例
     """
 
     def setUp(self):
@@ -92,6 +92,7 @@ class LoginTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main()

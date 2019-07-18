@@ -33,5 +33,6 @@ class Environment:
         以字典形式返回设备配置
         :return:
         """
+
         self.config.read(self.filename)
         return dict(self.config._sections['iOS_caps'])
