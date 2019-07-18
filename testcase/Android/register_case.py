@@ -2,7 +2,6 @@ from appium import webdriver
 import unittest
 from PO.registerPage import registerPage
 from PO.basePage import Base
-from Public.getLog import write_log,stop_log
 import time
 
 
@@ -16,11 +15,8 @@ class RigisterTestCase(unittest.TestCase):
         self.register_page = registerPage(self.driver)  # 初始化登录页元素以及方法
         time.sleep(3)  # 等待初始化完成
         self.imgs = []  # 截图列表
-        # write_log()  # 写入日志
 
-    def tearDown(self):
-        # stop_log()  # 停止写入日志
-        self.driver.quit()
+
 
     def add_img(self):
         # 截图方法
@@ -36,8 +32,6 @@ class RigisterTestCase(unittest.TestCase):
         self.register_page.save_img('tester.png')
         time.sleep(1)
 
-
-"""
     def test_all_nation_mobile(self):
         self.setUp()
         time.sleep(2)
@@ -53,8 +47,9 @@ class RigisterTestCase(unittest.TestCase):
                 else:
                     print(f'{key}国家的{v}手机号码is Wrong...')
                 self.register_page.edit_clear()
-        print(f'共{num}个成功！！！')
-"""
+
+    def tearDown(self):
+        self.driver.quit()
 
 
 if __name__ == '__main__':
