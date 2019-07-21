@@ -162,30 +162,19 @@ class Base:
         """
         self.driver.execute_script('mobile: swipe', {'direction': 'down'})
 
-    def is_toast_exist(driver, text, timeout=30, poll_frequency=0.5):
-
-        """is toast exist, return True or False
-
-        :Agrs:
-
-         - driver - 传driver
-
-         - text   - 页面上看到的文本内容
-
-         - timeout - 最大超时时间，默认30s
-
-         - poll_frequency  - 间隔查询时间，默认0.5s查询一次
-
-        :Usage:
-
-         is_toast_exist(driver, "看到的内容")
-
+    def is_toast_exist(self, text, timeout=10, poll_frequency=0.1):
+        """
+        定位toast提示语
+        :param text: 提示语内容（全部）
+        :param timeout: 多少秒后超时，不再监控
+        :param poll_frequency: 监控间隔
+        :return:
         """
 
         try:
             toast_loc = ("xpath", ".//*[contains(@text,'%s')]" % text)
 
-            WebDriverWait(driver, timeout, poll_frequency).until(
+            WebDriverWait(self.driver, timeout, poll_frequency).until(
                 expected_conditions.presence_of_element_located(toast_loc))
             return True
         except:
@@ -209,6 +198,19 @@ class Base:
             self.driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": app[0]})
         # print(self.driver.current_context)
         time.sleep(2)
+
+    def click2(self, text):
+        """
+        特殊点击法，点击一些只有text标识的元素
+        :param text: 元素名称
+        :return:
+        """
+
+        try:
+            text_loc = ("xpath", ".//*[contains(@text,'%s')]" % text)
+            self.driver.find_element(*text_loc).click()
+        except:
+            raise AttributeError('不存在该元素...')
 
 
 if __name__ == '__main__':
