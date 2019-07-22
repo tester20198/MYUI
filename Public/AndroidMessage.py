@@ -65,7 +65,7 @@ class Android:
         """
 
         # 调用自身的方法去获取app的包名
-        with os.popen(f'adb shell dumpsys package {self.get_app_name} | grep Start | grep Activity', 'r') as f:
+        with os.popen(f'adb shell dumpsys package {self.get_app_name} | grep Start | grep Startup', 'r') as f:
             output = f.read()
             aa = output.lstrip().split(' ')[1]  # 提取内容主要部分得到主干的activity
             app_activity = aa.replace('/', '')  # 替换掉非法的输入活动名
