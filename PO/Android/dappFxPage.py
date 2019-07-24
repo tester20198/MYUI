@@ -79,20 +79,22 @@ class DappFxPage(Base):
     npxsxem_message = (By.ID, "ed_transfer_msg")  # message输入框
     npxsxem_transfer_next = (By.ID, "btn_transferNext")  # 下一步按钮
 
-    """
-    点击DAPP按钮
-    """
+
 
     def enter_dapp(self):
+        """
+        点击DAPP按钮
+        """
         # self.driver.find_element(*self.Dapp).click()
         self.click2("DApp")
         time.sleep(2)
 
-    """
-    添加fx卡片
-    """
+
 
     def add_fxcard(self):
+        """
+        添加fx卡片
+        """
         card_btn = self.driver.find_element(*self.Dapp_add_card_btn)
         print("131232131231231231232")
         while not self.findElement(card_btn):
@@ -103,20 +105,22 @@ class DappFxPage(Base):
         else:
             self.driver.find_element(*self.Dapp_add_card_btn).click()
 
-    """
-    点击fx卡片的设置按钮
-    """
+
 
     def enter_fx_setting(self):
+        """
+        点击fx卡片的设置按钮
+        """
         self.driver.find_element(*self.fx_setting).click()
         time.sleep(2)
 
     def click_fx_text(self):
         self.driver.find_element(*self.fx_conversion_btn)
 
-    """
-    进入转换的帮助按钮
-    """
 
     def enter_conversion(self):
+
+        """
+        进入转换的帮助按钮
+        """
         self.driver.find_element(*self.fx_conversion_btn).click()

@@ -44,10 +44,11 @@ class DAppFxTestCase(unittest.TestCase):
     #     self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
 
 
+
+    # def test_add_FXCard(self):
     """
     点击添加卡片按钮
     """
-    # def test_add_FXCard(self):
         # # if self.login_page.findElement("Skip"):
         # #     self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
         # #     time.sleep(2)
