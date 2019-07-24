@@ -3,9 +3,9 @@ from selenium.webdriver.common.by import By
 import time
 
 
-class LoginPage(Base):
+class DappVirtualCardPage(Base):
     """
-    启动页+登录界面的页面元素
+    虚拟卡界面的页面元素
     """
 
     # DAPP页面 虚拟卡片 DAPP首页
