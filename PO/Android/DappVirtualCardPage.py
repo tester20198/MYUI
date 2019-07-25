@@ -3,15 +3,15 @@ from selenium.webdriver.common.by import By
 import time
 
 
-class DappVirtualCardPage(Base):
+class LoginPage(Base):
     """
-    虚拟卡界面的页面元素
+    启动页+登录界面的页面元素
     """
 
     # DAPP页面 虚拟卡片 DAPP首页
-    Virtual_BTC = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.ImageView")  # 虚拟卡片中的BTC
-    Virtual_ETH = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.TextView")  #虚拟卡片中的ETH
-    Virtual_Go = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.ImageView[2]")  #虚拟卡片中的"更多"键
+    Virtual_BTC = "BTC"  # 虚拟卡片中的BTC
+    Virtual_ETH = "ETH " #虚拟卡片中的ETH
+    Virtual_Go = "virtual"  #虚拟卡片中的"更多"键
 
     #卡片详情页面
     Virtual_Eye = (By.ID, "tv_amout")  #虚拟卡片中的加密按键
@@ -29,8 +29,8 @@ class DappVirtualCardPage(Base):
     Receiving_address_close =(By.ID, "iv_close") #查看充值地址说明页面的关闭按键
 
      # 转账页面
-    Transfer_Address=(By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.ImageView")  #在转账页面，选择添加地址
-    Transfer_Scan =(By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.ImageView")      #在转账页面，点击扫码
+    Transfer_Address=(By.ID,"ed_receivingAddress")  #在转账页面，选择添加地址
+    Transfer_Scan =(By.ID, "iv_iconScan")      #在转账页面，点击扫码
     Transfer_Amount_All =(By.ID, "tv_allCoinNumber")    #在转账页面金额转出all
     Transfer_server =(By.ID, "tv_serviceCharge")    #在转账页面查看手续费说明
     Transfer_KYC =(By.ID, "tv_kycVerify")   #在转账页面点击KYV认证
@@ -39,7 +39,7 @@ class DappVirtualCardPage(Base):
 
     #BEP-2协议币种转账页面附言
     Transfer_Memo = (By.ID, "ed_transfer_msg")      #在转账页面点击Memo输入框
-    transfer_Memo_Scan = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.RelativeLayout[4]/android.widget.RelativeLayout/android.widget.ImageView")       #在Memo输入时选择扫码
+    transfer_Memo_Scan = (By.ID,"iv_msg_scan")       #在Memo输入时选择扫码
 
     #Google认证提示
     Google_Notnow =(By.ID, "btn_no")    #Google认证时，选择Not Now
@@ -68,37 +68,37 @@ class DappVirtualCardPage(Base):
     Virtual_Internal_Transfer_change = (By.ID, "iv_exchange")       #虚拟卡片内部划转切卡片位置
     Virtual_Internal_Transfer_FromCard = (By.ID,"tv_from_card_id")      #内部划转选择From方卡片
     Virtual_Internal_Transfer_Tocard = (By.ID, "tv_to_card_id")     #内部划转选择To方卡片
-    Virtual_Internal_Transfer_Accoutclose = (By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.ImageView")       #内部划转在选择卡片时，点击X
-    Virtual_Internal_Transfer_Accountselect = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.RelativeLayout")       #内部划转，选择转账卡片
-    Virtual_Internal_Transfer_Coin = (By.ID, "tv_cion")     #内部划转选择转账币种
-    Virtual_Internal_Transfer_Coinselect = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout")
+    Virtual_Internal_Transfer_Accoutclose = (By.ID, "ll_close")       #内部划转在选择卡片时，点击X
+    Virtual_Internal_Transfer_Accountselect = (By.ID,"rl_layout_pay_type")    #内部划转，选择转账卡片
+    Virtual_Internal_Transfer_Coin = (By.ID, "tv_cion")     #内部划转选择点击下拉币种
+    Virtual_Internal_Transfer_Coinselect = (By.ID,"rl_layout_pay_type")     #内部划转选择币种
     Virtual_Internal_Transfer_ALl = (By.ID, "tv_available_all")     #内部划转金额选择all
     Virtual_Internal_Transfer_Available = (By.ID, "ed_available")       #内部划转手动输入金额
     Virtual_Internal_Transfer_Confirm = (By.ID, "btn_transfer")     #内部划转选择确认
 
     #虚拟卡片卡片详情中的历史账单
-    Virtual_Transition_Hisrory = (By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.RelativeLayout[2]/android.widget.LinearLayout[2]")      #虚拟卡片，卡片详情中的历史账单
+    Virtual_Transition_Hisrory = (By.ID,"rl_layout_payinfo")    #虚拟卡片，卡片详情中的历史账单
 
 
     #添加XPASS卡
     Add_card =(By.ID, "ib_add_card")        #添加卡片按钮
-    Add_XPASS = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")      #点击添加XPASS卡
+    Add_XPASS = "XPASS"    #点击添加XPASS卡
     Add_XPASS_No = (By.ID , "ed_addCardXpassNO")       #输入XPASS卡号输入框
     Add_XPASS_Next = (By.ID, "btn_addCardNext")         #输入卡号后下一步按钮
     Add_XPASS_6pin_code = (By.ID, "ed_addCardXpassNO")      #输入6位密码
     Add_XPASS_confirm = (By.ID, "btn_addCardNext")      #最后一步确认按键
 
     #添加开放平台卡片
-    Add_opencard = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.ImageView[2]")     #选择开放平台卡片
+    Add_opencard = (By.ID, "item_card_tv_virtual")  #选择开放平台卡片点击区域
     Add_opencard_select_Virtual = (By.Id, "rl_virtualFlag")     #添加开放平台卡片时，选择添加虚拟卡
     Add_opencard_select_Physical =(By.ID, "rl_physicalFlag")    #添加开放平台卡片时，选择添加物理卡片
 
     # 开放平台卡片
-    Open_Platform_Card_Pay = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.ImageView")    #点击开放平台卡片Pay按钮
-    Open_Platform_Card_Transfer =(By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.ImageView")     #点击开放平台卡片上的Transfer按钮
-    Open_Platform_Card_Website =(By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout")      #开放平台卡片上的开发者网站
+    Open_Platform_Card_Pay ="Pay"   #点击开放平台卡片Pay按钮
+    Open_Platform_Card_Transfer = "Transfer"  #点击开放平台卡片上的Transfer按钮
+    Open_Platform_Card_Website ="Website"    #开放平台卡片上的开发者网站
 
     #添加开放平台APP
-    open_platform_app_Add =(By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.ImageView")    #添加开放平台APP
-    Open_Platfrom_app = (By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.ImageView")  #点击DApp首页APP入口
-    Open_Platform_app_About = (By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.ImageView")   #点击DAPP首页关于入口
+    open_platform_app_Add ="FamilyMart"   #添加开放平台APP
+    Open_Platfrom_app = "familymart"     #点击DApp首页APP入口
+    Open_Platform_app_About = "About us"   #点击DAPP首页关于入口
