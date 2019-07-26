@@ -1,6 +1,5 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
-from appium import webdriver
 from selenium.common import exceptions
 import time
 
@@ -276,7 +275,6 @@ class UsercenterPage(Base):
             self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
         else:
             raise exceptions.ElementNotVisibleException
-        di = webdriver.Remote().find_element_by_id().is_enabled()
 
     def check_collection_history(self):
         """进入收款历史记录"""
