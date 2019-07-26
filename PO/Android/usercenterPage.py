@@ -56,7 +56,7 @@ class UsercenterPage(Base):
     my_Vouchers_Not = (By.ID, 'tv_invalid')  # 我的优惠券-无法使用
     my_Vouchers_instructions = (By.ID, 'iv_menu')  # 我的优惠券说明
 
-
+    # ———————————————————————KYC——————————————————————————#
     KYC_btn = (By.ID, 'rl_layout_personal_center')  # KYC入口
     KYC_go = (By.ID, 'webView')  # go to KYC
     KYC_birth = (By.ID, 'birth')  # KYC出生日期选择
@@ -68,8 +68,10 @@ class UsercenterPage(Base):
     KYC_submit = (By.ID, 'btn_submit')  # KYC-第一页提交
     KYC_instructions = (By.ID, 'iv_menu')  # KYC-第一页说明
 
+    # ———————————————————————设置入口——————————————————————————#
     setting_btn = (By.ID, 'rl_layout_setting')  # 设置入口
 
+    # ———————————————————————修改手机号——————————————————————————#
     setting_phone = (By.ID, 'tv_mobile')  # 设置-手机号
     send_email_code = (By.ID, 'tv_send_email_code')  # 设置-发送邮箱验证码
     send_sms_code = (By.ID, 'tv_send_sms_code')  # 设置-发送短信验证码
@@ -81,20 +83,24 @@ class UsercenterPage(Base):
     phone_new_Verification_code = (By.ID, 'ed_news_code')  # 设置-新手机号确认验证码
     phone_new_confirm = (By.ID, 'btn_confirm')  # 设置-手机号-确认
 
+    # ———————————————————————修改邮箱，与修改手机号元素一致——————————————————————————#
     Setting_Email = (By.ID, 'tv_email')  # 设置-邮箱
     email_new = (By.ID, 'et_email')  # 设置-手机号-新手机号
 
+    # ———————————————————————手势密码、指纹识别、谷歌验证码——————————————————————————#
     Setting_Security_btn = (By.ID, 'rl_safety')  # 设置-安全中心入口
     Setting_Security_pattern = (By.ID, 'switch_gesture')  # 设置-安全中心-手势密码
     Setting_Security_fingerprint = (By.ID, 'switch_fingerprint')  # 设置-安全中心-指ew纹识别
     Setting_Security_google = (By.ID, 'switch_google_authen')  # 设置-安全中心-谷歌验证码
 
+    # ———————————————————————修改登录密码——————————————————————————#
     Setting_Security_loginPWD = (By.ID, 'rl_safety_login_pass')  # 设置-安全中心-修改登录密码
     Setting_Security_loginOld = (By.ID, 'et_loginpass_old')  # 设置-安全中心-修改登录密码之旧密码
     Setting_Security_loginNew = (By.ID, 'et_loginpass_new')  # 设置-安全中心-修改登录密码之新密码
     Setting_Security_loginAgain = (By.ID, 'et_loginpass_again')  # 设置-安全中心-修改登录密码之新密码确认
     Setting_Security_loginModify = (By.ID, 'bt_loginpass_modify')  # 设置-安全中心-修改登录密码之确认
 
+    # ———————————————————————修改支付密码——————————————————————————#
     Setting_Security_payPWD = (By.ID, 'rl_safety_pay_pass')  # 设置-安全中心-修改支付密码
     Setting_Security_payOld = (By.ID, 'et_paypass_old')  # 设置-安全中心-修改支付密码之旧密码
     Setting_Security_payNew = (By.ID, 'et_paypass_new')  # 设置-安全中心-修改支付密码之新密码
@@ -102,14 +108,17 @@ class UsercenterPage(Base):
     Setting_Security_payModify = (By.ID, 'bt_paypass_modify')  # 设置-安全中心-修改支付密码之确认
     Setting_Security_payForget = (By.ID, 'tv_forget_old_pass')  # 设置-安全中心-忘记支付密码入口
 
+    # ———————————————————————通用、语言、货币——————————————————————————#
     Setting_General_btn = (By.ID, 'rl_common')  # 设置-通用入口
     Setting_General_languages = (By.ID, 'tv_language')  # 设置-通用语言
     Setting_General_languagesENG = (By.XPATH,
                                     '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.RelativeLayout')  # 设置-通用语言英语
     Setting_General_currency = (By.ID, 'rl_common_currency')  # 设置-通用货币 (上下滑动调用)
 
+    # ———————————————————————软件更新——————————————————————————#
     Setting_Software_Update = (By.ID, 'rl_version')  # 设置-软件更新
 
+    # ———————————————————————设置-关于——————————————————————————#
     Setting_About_btn = (By.ID, 'rl_about')  # 设置-关于入口
     Setting_About_website = (By.XPATH,
                              '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[2]')  # 设置-关于website
@@ -118,6 +127,7 @@ class UsercenterPage(Base):
     Setting_About_twitter = (By.XPATH,
                              '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[3]/android.widget.TextView[2]')  # 设置-关于twitter
 
+    # ———————————————————————退出登录——————————————————————————#
     Setting_Loginout = (By.ID, 'tv_loginout')  # 设置-退出登录
 
     def into_vouchers(self):

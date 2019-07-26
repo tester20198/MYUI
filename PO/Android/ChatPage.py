@@ -22,7 +22,7 @@ class ChatPage(Base):
     select_coin_npxs = (By.XPATH, "//android.widget.TextView[@text='ETH']")  # 选择ETH
     input_redpacket_amount =(By.XPATH,"//android.widget.EditText[@text='Please enter amount']") #输入红包金额
     input_redpacket_number =(By.XPATH,"//android.widget.EditText[@text='Please enter number of people']") #输入红包个数
-    input_redpacket_best_wishes =(By.XPATH,"//android.widget.EditText[@text='Best wishes']") #输入红包祝福语
+    input_redpacket_best_wishes =(By.XPATH,"//android.widget.EditText[@text='Best wishes']") #输入红包祝福语52076
     click_send_button =(By.CLASS_NAME,'android.widget.Button') # 点击send发送
     input_pay_password =(By.ID,'ed_pwd') # 输入支付密码
     click_forgot_pay_password =(By.ID,'tv_forget_pwd') # 点击忘记支付密码

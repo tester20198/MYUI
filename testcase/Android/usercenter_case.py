@@ -15,13 +15,20 @@ class UsercenterTestCase(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
-        self.login_page = LoginPage(self.driver)  # 初始化登录页元素以及方法
+        # self.login_page = LoginPage(self.driver)  # 初始化登录页元素以及方法
+        time.sleep(3)
         self.user_page = UsercenterPage(self.driver)  # 初始化个人中心页元素以及方法
         time.sleep(3)  # 等待初始化完成
 
+
+    def test_into_Vouchers(self):
+        pass
+
+
+
     def test_into_collection(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         time.sleep(3)
@@ -29,7 +36,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_assets(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
@@ -38,7 +45,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_bill(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
@@ -47,7 +54,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_coupon(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
@@ -56,7 +63,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_kyc(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
@@ -65,7 +72,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_setting(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
@@ -74,7 +81,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_merchant(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
@@ -83,7 +90,7 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_into_feedback(self):
         self.login_page.check_in()
-        self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+        self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
         time.sleep(10)
         self.driver.back()
         self.login_page.enter_usercenter()
