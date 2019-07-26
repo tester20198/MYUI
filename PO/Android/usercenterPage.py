@@ -122,6 +122,7 @@ class UsercenterPage(Base):
     KYC_submit = (By.ID, 'btn_submit')  # KYC-第一页提交
     KYC_instructions = (By.ID, 'iv_menu')  # KYC-第一页说明
 
+
     # ———————————————————————设置入口——————————————————————————#
     setting_btn = (By.ID, 'rl_layout_setting')  # 设置入口
 
@@ -184,77 +185,60 @@ class UsercenterPage(Base):
     # ———————————————————————退出登录——————————————————————————#
     Setting_Loginout = (By.ID, 'tv_loginout')  # 设置-退出登录
 
-    def into_vouchers(self):
+    def my_vouchers(self):
         """我的优惠券"""
-        self.driver.find_element(*self.my_Vouchers).click()
+        self.driver.find_element(*self.my_Vouchers).click() # 进入我的优惠券入口
+        time.sleep(1)
+        self.driver.find_element(*self.my_Vouchers_Not).click() # 已使用优惠券
+        time.sleep(2)
+        self.driver.find_element(*self.my_Vouchers_instructions).click()    # 我的优惠券说明
+        time.sleep(3)
 
-    def into_vouchers_not(self):
-        """已使用的优惠券"""
-        self.driver.find_element(*self.my_Vouchers_Not).click()
 
-    def into_vouchers_instructions(self):
-        """我的优惠券说明"""
-        self.driver.find_element(*self.my_Vouchers_instructions).click()
-
-    def into_kyc(self):
-        """KYC 入口"""
-        self.driver.find_element(*self.KYC_btn).click()
-
-    def into_kyc_go(self):
-        """ go to kyc"""
+    def setting_kyc(self,firstname,middleName,lastname,number):
+        """ KYC ---- 选择日期未完成 """
+        self.driver.find_element(*self.KYC_btn).click() # 进入kyc 界面
+        time.sleep(2)
         self.driver.find_element(*self.KYC_go).click()
-
-    def into_kyc_birth(self):
-        """kyc 出生日期选择"""
-        self.driver.find_element(*self.KYC_birth).click()
-
-    def into_kyc_nationality(self):
-        """ KYC 国籍选择"""
+        time.sleep(3)
+        self.driver.find_element(*self.KYC_birth).click()   # 选择出生日期及国籍
+        time.sleep(3)
         self.driver.find_element(*self.KYC_nationality).click()
-
-    def into_kyc_firstName(self, firstname):
-        """KYC first name"""
-        self.driver.find_element(*self.KYC_firstName).send_key(firstname)
-
-    def into_kyc_middleName(self, middleName):
-        """KYC middle name"""
+        time.sleep(3)
+        self.driver.find_element(*self.KYC_firstName).send_key(firstname)   # 分别输入名字
         self.driver.find_element(*self.KYC_middleName).send_key(middleName)
-
-    def into_kyc_lastName(self, lastname):
-        """KYC last name"""
         self.driver.find_element(*self.KYC_lastname).send_key(lastname)
-
-    def into_kyc_number(self, number):
-        """KYC number id"""
         self.driver.find_element(*self.KYC_number).send_key(number)
+        time.sleep(2)
+        self.driver.find_element(*self.KYC_submit).click()  # kyc 第一页提交
+        time.sleep(10)
+        self.driver.find_element(*self.KYC_instructions).click()    # KYC第一页说明
 
-    def into_kyc_submit(self):
-        """ KYC 第一页提交按键"""
-        self.driver.find_element(*self.KYC_submit).click()
 
-    def into_kyc_instructions(self):
-        """KYC 第一页说明"""
-        self.driver.find_element(*self.KYC_instructions).click()
-
-    def into_setting(self):
-        """进入设置界面"""
-        self.driver.find_element(*self.setting).click()
-
-    def into_phone(self):
-        """进入修改手机号界面"""
-        self.driver.find_element(*self.setting_phone).click()
-
-    def into_email_send(self):
-        """发送邮箱验证码"""
+    def change_phone(self,code,num):
+        """修改手机号界面"""
+        self.driver.find_element(*self.setting).click()    # 设置入口
+        time.sleep(3)
+        self.driver.find_element(*self.setting_phone).click()   # 修改手机号入口
+        time.sleep(3)
         self.driver.find_element(*self.send_email_code).click()
+        self.driver.find_element(*self.send_sms_code).click()   #发送短信、邮箱验证码
+        time.sleep(2)
+        self.driver.find_element(*self.verification_email_code).send_keys(code)
+        time.sleep(2)
+        self.driver.find_element(*self.verification_sms_code).send_keys(code)   # 输入短信、邮箱验证码
+        time.sleep(2)
+        self.driver.find_element(*self.phone_new).send_keys(num)    # 输入新手机号
+        time.sleep(1)
+        self.driver.find_element(*self.phone_new__code).click()
+        time.sleep(3)
+        self.driver.find_element(*self.phone_new_Verification_code).send_keys(code) # 发送及输入验证码
+        time.sleep(2)
+        self.driver.find_element(*self.phone_new_confirm).click()   # 修改提交
 
-    def into_sms_send(self):
-        """发送短信验证码"""
-        self.driver.find_element(*self.send_sms_code).click()
 
-    def into_ver_email_code(self, code):
-        """输入邮箱验证码"""
-        self.driver.find_element(*self.verification_email_code).send_key(code)
+
+
 
     def into_Collection(self):
         """ 进入收款码页面"""
