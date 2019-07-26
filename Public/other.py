@@ -80,10 +80,10 @@ def create_mobile():
     """
 
     num = '0123456789'
-    code = ['+86137', '+86159', '+86188', '+86132']  # 中国
-    mobile = random.choice(code) + ''.join(random.choice(num) for i in range(8))  # 中国电话号码
+    # code = ['+86137', '+86159', '+86188', '+86132']  # 中国
+    code = ['4120','4123','4124']  # 委内瑞拉
+    mobile = random.choice(code) + ''.join(random.choice(num) for i in range(6)) # 委内瑞拉
     return mobile
-
 
 def create_email():
     """
@@ -106,3 +106,7 @@ def create_address(size=6, chars=string.digits + string.ascii_letters):
     """
 
     return ''.join(random.choice(chars) for _ in range(size))
+
+
+if __name__ == '__main__':
+    print(create_email())
