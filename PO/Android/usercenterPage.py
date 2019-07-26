@@ -1,5 +1,7 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
+from appium import webdriver
+from selenium.common import exceptions
 import time
 
 
@@ -33,11 +35,13 @@ class UsercenterPage(Base):
     start_time = (By.ID, 'tv_startTime')  # 开始时间
     end_time = (By.ID, 'tv_endTime')  # 结束时间
     ok_btn = (By.ID, 'tv_menu')  # ok按钮
+    collection_name = (By.ID, 'tv_name')  # 收款人名字
+    refund = (By.ID, 'btn_out')  # 退款
 
     # ———————————————————————总资产——————————————————————————#
     Assets = (By.ID, 'rl_layout_assets')  # 资产
-    Assets_Account = 'Accounts'
-    Assets_Coint = 'Coins'
+    Assets_Accounts = 'Accounts'
+    Assets_Coins = 'Coins'
 
     # ———————————————————————总账单——————————————————————————#
     Bills = (By.ID, 'rl_layout_bill')  # 总账单
@@ -61,6 +65,7 @@ class UsercenterPage(Base):
     Internal_Transfer = (By.ID, 'rl_layout_transfer')  # 内部划转入口
     from_card = (By.ID, 'tv_from_card_id')  # from哪张卡
     to_card = (By.ID, 'tv_to_card_id')  # to哪张卡
+    other_card = (By.ID, 'tv_pay_name')  # 其他卡片
     exchange = (By.ID, 'iv_exchange')  # 交换卡的位置
     coins_selector = (By.ID, 'tv_cion')  # 选择币种
     close_btn = (By.ID, 'll_close')  # 关闭按钮
@@ -101,9 +106,14 @@ class UsercenterPage(Base):
     store_phone = (By.XPATH,
                    '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[6]/android.widget.EditText')
     store_help = (By.ID, 'goHowToApply')  # 商户帮助说明
+    store_setting = 'Store Settings'
+    usdt_btn = (By.ID, 'switch_settle_accounts')  # USDT结算开关
 
     # ———————————————————————工单——————————————————————————#
     help_btn = (By.ID, 'rl_layout_help_feedback')  # feedback
+    help = (By.ID, 'll_layout_help')  # FAQ
+    feedback = (By.ID, 'll_layout_feedbcak')  # feedback
+    disclaimer = (By.ID, 'll_layout_disclaimer')  # disclaimer
 
     # ———————————————————————优惠券——————————————————————————#
     my_Vouchers = (By.ID, 'rl_layout_coupon')  # 我的优惠券
@@ -121,7 +131,6 @@ class UsercenterPage(Base):
     KYC_number = (By.ID, 'ed_id_number')  # KYC-ID number
     KYC_submit = (By.ID, 'btn_submit')  # KYC-第一页提交
     KYC_instructions = (By.ID, 'iv_menu')  # KYC-第一页说明
-
 
     # ———————————————————————设置入口——————————————————————————#
     setting_btn = (By.ID, 'rl_layout_setting')  # 设置入口
@@ -187,63 +196,107 @@ class UsercenterPage(Base):
 
     def my_vouchers(self):
         """我的优惠券"""
-        self.driver.find_element(*self.my_Vouchers).click() # 进入我的优惠券入口
+        self.driver.find_element(*self.my_Vouchers).click()  # 进入我的优惠券入口
         time.sleep(1)
-        self.driver.find_element(*self.my_Vouchers_Not).click() # 已使用优惠券
+        self.driver.find_element(*self.my_Vouchers_Not).click()  # 已使用优惠券
         time.sleep(2)
-        self.driver.find_element(*self.my_Vouchers_instructions).click()    # 我的优惠券说明
+        self.driver.find_element(*self.my_Vouchers_instructions).click()  # 我的优惠券说明
         time.sleep(3)
 
-
-    def setting_kyc(self,firstname,middleName,lastname,number):
+    def setting_kyc(self, firstname, middleName, lastname, number):
         """ KYC ---- 选择日期未完成 """
-        self.driver.find_element(*self.KYC_btn).click() # 进入kyc 界面
+        self.driver.find_element(*self.KYC_btn).click()  # 进入kyc 界面
         time.sleep(2)
         self.driver.find_element(*self.KYC_go).click()
         time.sleep(3)
-        self.driver.find_element(*self.KYC_birth).click()   # 选择出生日期及国籍
+        self.driver.find_element(*self.KYC_birth).click()  # 选择出生日期及国籍
         time.sleep(3)
         self.driver.find_element(*self.KYC_nationality).click()
         time.sleep(3)
-        self.driver.find_element(*self.KYC_firstName).send_key(firstname)   # 分别输入名字
+        self.driver.find_element(*self.KYC_firstName).send_key(firstname)  # 分别输入名字
         self.driver.find_element(*self.KYC_middleName).send_key(middleName)
         self.driver.find_element(*self.KYC_lastname).send_key(lastname)
         self.driver.find_element(*self.KYC_number).send_key(number)
         time.sleep(2)
         self.driver.find_element(*self.KYC_submit).click()  # kyc 第一页提交
         time.sleep(10)
-        self.driver.find_element(*self.KYC_instructions).click()    # KYC第一页说明
+        self.driver.find_element(*self.KYC_instructions).click()  # KYC第一页说明
 
-
-    def change_phone(self,code,num):
+    def change_phone(self, code, num):
         """修改手机号界面"""
-        self.driver.find_element(*self.setting).click()    # 设置入口
+        self.driver.find_element(*self.setting).click()  # 设置入口
         time.sleep(3)
-        self.driver.find_element(*self.setting_phone).click()   # 修改手机号入口
+        self.driver.find_element(*self.setting_phone).click()  # 修改手机号入口
         time.sleep(3)
         self.driver.find_element(*self.send_email_code).click()
-        self.driver.find_element(*self.send_sms_code).click()   #发送短信、邮箱验证码
+        self.driver.find_element(*self.send_sms_code).click()  # 发送短信、邮箱验证码
         time.sleep(2)
         self.driver.find_element(*self.verification_email_code).send_keys(code)
         time.sleep(2)
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)   # 输入短信、邮箱验证码
+        self.driver.find_element(*self.verification_sms_code).send_keys(code)  # 输入短信、邮箱验证码
         time.sleep(2)
-        self.driver.find_element(*self.phone_new).send_keys(num)    # 输入新手机号
+        self.driver.find_element(*self.phone_new).send_keys(num)  # 输入新手机号
         time.sleep(1)
         self.driver.find_element(*self.phone_new__code).click()
         time.sleep(3)
-        self.driver.find_element(*self.phone_new_Verification_code).send_keys(code) # 发送及输入验证码
+        self.driver.find_element(*self.phone_new_Verification_code).send_keys(code)  # 发送及输入验证码
         time.sleep(2)
-        self.driver.find_element(*self.phone_new_confirm).click()   # 修改提交
-
-
-
-
+        self.driver.find_element(*self.phone_new_confirm).click()  # 修改提交
 
     def into_Collection(self):
         """ 进入收款码页面"""
 
         self.driver.find_element(*self.Collection).click()
+
+    def check_QR_code(self):
+        """
+        检查二维码是否正常展示
+        :return:
+        """
+
+        self.into_Collection()
+        try:
+            self.driver.find_element(*self.QR_code).is_displayed()  # 二维码出现
+            return True
+        except exceptions.NoSuchElementException as E:
+            print('找不到收款二维码...', E)
+            return False
+
+    def save_QRcode(self):
+        """
+        保存收款二维码
+        :return:
+        """
+
+        self.into_Collection()
+        time.sleep(1)
+        if self.check_QR_code():
+            self.driver.find_element(*self.save_code).click()
+            self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
+            self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
+        else:
+            raise exceptions.ElementNotVisibleException
+        di = webdriver.Remote().find_element_by_id().is_enabled()
+
+    def check_collection_history(self):
+        """进入收款历史记录"""
+
+        self.into_Collection()
+        time.sleep(1)
+        self.driver.find_element(*self.collection_history).click()
+        time.sleep(1)
+        self.driver.find_element(*self.collection_name).click()
+        time.sleep(1)
+
+    def refund_collection(self):
+        """商户收款-退款"""
+
+        self.check_collection_history()
+        if self.driver.find_element(*self.refund).is_enabled():
+            self.driver.find_element(*self.refund).click()
+        else:
+            print('不存在退款或者已经退款了...')
+            pass
 
     def into_Assets(self):
         """进入总资产界面"""
@@ -253,37 +306,157 @@ class UsercenterPage(Base):
     def switch_Assets(self, type='coin'):
         """总资产切换选项"""
 
+        self.into_Assets()
         if type == 'coin':
-            self.driver.find_element_by_android_uiautomator('new UiSelector().text("Accounts")').click()
+            self.click2(self.Assets_Coins)
         else:
-            self.driver.find_element_by_android_uiautomator('new UiSelector().text("Coins")').click()
+            self.click2(self.Assets_Accounts)
+        time.sleep(1)
 
     def into_Bill(self):
         """进入总账单"""
 
         self.driver.find_element(*self.Bills).click()
 
-    def into_coupon(self):
-        """进入优惠券"""
+    def click_bill_types(self):
+        """点击总账单的账单类别按钮"""
 
-        self.driver.find_element(*self.coupon).click()
+        self.into_Bill()
+        time.sleep(1)
+        self.driver.find_element(*self.bill_type).click()
 
-    def into_KYC(self):
-        """进入kyc"""
+    def click_bill_type(self):
+        """点击总账单的账单卡片按钮"""
 
-        self.driver.find_element(*self.kyc).click()
+        self.into_Bill()
+        time.sleep(1)
+        self.driver.find_element(*self.bill_card).click()
 
-    def into_setting(self):
-        """进入设置界面"""
+    def check_every_type_bill(self):
+        """遍历所有订单类型订单详情"""
 
-        self.driver.find_element(*self.setting).click()
+        bills = [self.Receive, self.Expenditure, self.Transfer, self.Extra, self.Distribution, self.Collection1,
+                 self.Refund, self.Crypto_Gift_Sent, self.Crypto_Gift_Received, self.Crypto_Gift_Refund, self.All_Types]
+        for i in bills:
+            if self.findElement(i):
+                self.click2(i)
+                time.sleep(2)
+                self.driver.back()
+            else:
+                self.swipeUp()
+                print('找不到该类型账单...')
+
+    def into_internal_transfer(self):
+        """进入内部划转"""
+
+        try:
+            self.driver.find_element(*self.Internal_Transfer).click()
+        except exceptions.NoSuchElementException:
+            print('不存在内部划转入口...')
+            pass
+
+    def virtual_to_black(self, coin='BTC'):
+        """内部划转，虚拟卡划转(BTC)到black卡"""
+
+        self.into_internal_transfer()
+        time.sleep(1)
+
+        self.driver.find_element(*self.other_card).click()  # 弹出卡片列表
+        if self.findElement('black'):
+            print('找到黑卡...')
+            self.click2('black')  # 选择黑卡
+        else:
+            print('找到黑卡...')
+            raise exceptions.NoSuchElementException()
+
+        self.driver.find_element(*self.coins_selector).click()  # 弹出币种列表
+        self.click2(coin)  # 选择币种
+
+    def virtual_to_black_little(self):
+        """内部划转，虚拟卡划转小额到black卡，小额度"""
+
+        self.driver.find_element(*self.edit_money).send_keys(0.00000001)
+        self.driver.find_element(*self.confirm_transfer).click()
+        time.sleep(1)
+
+    def virtual_all_black_all(self):
+        """
+        内部划转，虚拟卡划转all到black卡，全部划转
+        备注：为方便多次使用该函数，需要原地划转回去
+        """
+
+        self.driver.find_element(*self.all_btn).click()
+        self.driver.find_element(*self.confirm_transfer).click()
+        time.sleep(1)
+
+        # 原地划转返回
+        self.driver.find_element(*self.exchange).click()
+        self.driver.find_element(*self.all_btn).click()
+        self.driver.find_element(*self.confirm_transfer).click()
+        time.sleep(1)
 
     def into_merchant(self):
         """进入商户设置"""
 
         self.driver.find_element(*self.merchant).click()
 
+    def judge_merchant(self):
+        """判断是否是商家"""
+
+        self.into_merchant()
+        time.sleep(1)
+        if self.findElement(self.store_setting):
+            print('已认证商户！')
+            return True
+        else:
+            print('未认证商户！')
+            return False
+
+    def into_merchant_settings(self):
+        """进入商户设置，查看商户详情"""
+
+        self.into_merchant()
+        if self.judge_merchant():
+            self.driver.find_element(*self.store_setting).click()
+            time.sleep(1)
+        else:
+            pass
+
+    def change_merchant_usdt(self):
+        """开启/关闭商户USDT结算"""
+
+        self.into_merchant()
+        if self.judge_merchant():
+            self.driver.find_element(*self.usdt_btn).click()
+            time.sleep(1)
+        else:
+            pass
+
     def into_help(self):
         """进入帮助界面"""
 
         self.driver.find_element(*self.help_btn).click()
+
+    def into_help_FAQ(self):
+        """进入FAQ"""
+
+        self.into_help()
+        self.driver.find_element(*self.help).click()
+        self.driver.back()
+        self.driver.back()
+
+    def into_help_feedback(self):
+        """进入feedback"""
+
+        self.into_help()
+        self.driver.find_element(*self.feedback).click()
+        self.driver.back()
+        self.driver.back()
+
+    def into_help_disclaimer(self):
+        """进入disclaimer"""
+
+        self.into_help()
+        self.driver.find_element(*self.disclaimer).click()
+        self.driver.back()
+        self.driver.back()
