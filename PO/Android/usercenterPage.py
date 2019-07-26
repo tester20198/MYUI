@@ -24,7 +24,15 @@ class UsercenterPage(Base):
     option_btn = (By.ID, 'options1')  # 第一选项
 
     # ———————————————————————收款码——————————————————————————#
-    Collection = (By.ID, 'rl_layout_collection')  # 收款码
+    Collection = (By.ID, 'rl_layout_collection')  # 收款码入口
+    collection_history = (By.ID, 'tv_collect_record')  # 收款历史
+    collection_help = (By.ID, 'iv_menu')  # 帮助按钮
+    QR_code = (By.ID, 'iv_qr_code')  # 二维码
+    save_code = (By.ID, 'tv_save')  # 保存二维码
+    time_filter = (By.ID, 'tv_timer')  # 收款历史日期筛选
+    start_time = (By.ID, 'tv_startTime')  # 开始时间
+    end_time = (By.ID, 'tv_endTime')  # 结束时间
+    ok_btn = (By.ID, 'tv_menu')  # ok按钮
 
     # ———————————————————————总资产——————————————————————————#
     Assets = (By.ID, 'rl_layout_assets')  # 资产
@@ -35,6 +43,30 @@ class UsercenterPage(Base):
     Bills = (By.ID, 'rl_layout_bill')  # 总账单
     bill_type = (By.ID, 'tv_order_type')  # 账单类别分类
     bill_card = (By.ID, 'tv_card_type')  # 账单卡片分类
+    bill_list = (By.XPATH,
+                 '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]')  # 账单列表第一个
+    Receive = 'Receive'  # 收款类型
+    Expenditure = 'Expenditure'  # 消费类型
+    Transfer = 'Transfer'  # 转账类型
+    Extra = 'Extra'  # 活动类型
+    Distribution = 'Distribution'
+    Collection1 = 'Collection'  # 收款类型
+    Refund = 'Refund'  # 退款类型
+    Crypto_Gift_Sent = 'Crypto_Gift_Sent'  # telegram红包发送
+    Crypto_Gift_Received = 'Crypto_Gift_Received'  # telegram红包接收
+    Crypto_Gift_Refund = 'Crypto_Gift_Refund'  # telegram红包退款
+    All_Types = 'All_Types'
+
+    # ———————————————————————内部划转——————————————————————————#
+    Internal_Transfer = (By.ID, 'rl_layout_transfer')  # 内部划转入口
+    from_card = (By.ID, 'tv_from_card_id')  # from哪张卡
+    to_card = (By.ID, 'tv_to_card_id')  # to哪张卡
+    exchange = (By.ID, 'iv_exchange')  # 交换卡的位置
+    coins_selector = (By.ID, 'tv_cion')  # 选择币种
+    close_btn = (By.ID, 'll_close')  # 关闭按钮
+    edit_money = (By.ID, 'ed_available')  # 输入金额
+    all_btn = (By.ID, 'tv_available_all')  # 点击all按钮
+    confirm_transfer = (By.ID, 'btn_transfer')  # 确认划转
 
     # ———————————————————————优惠券——————————————————————————#
     coupon = (By.ID, 'rl_layout_coupon')  # 优惠券
@@ -45,8 +77,30 @@ class UsercenterPage(Base):
     # ———————————————————————个人中心——————————————————————————#
     setting = (By.ID, "rl_layout_setting")  # 个人中心的设置
 
-    # ———————————————————————商户后台——————————————————————————#
-    merchant = (By.ID, 'rl_layout_merchant_setting')  # 商户后台
+    # ———————————————————————商户申请——————————————————————————#
+    merchant = (By.ID, 'rl_layout_merchant_setting')  # 商户申请
+    first_name = (By.XPATH,
+                  '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText')
+    last_name = (By.XPATH,
+                 '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[3]/android.widget.EditText')
+    id = (By.XPATH,
+          '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText')
+    invitation_code = (By.ID, 'invitationCode')  # 邀请码
+    next_btn = (By.ID, 'onMerchantPrincipal')  # next按钮
+    work_pic = (By.ID, 'paperworkPicture')  # 上传营业执照
+    take_pic = (By.ID, 'tv_camera')  # 拍照
+    select_pic = (By.ID, 'tv_album')  # 选择照片
+    firs_pic = (By.ID, 'icon_thumb')  # 图库里第一张图片
+    cancel_btn = (By.ID, 'tv_cancel')  # 取消按钮
+    header_pic = (By.ID, 'paperworkPictureHand')  # 工作地点
+    next1_btn = (By.ID, 'onMerchantVerified')  # 第二个next按钮
+    logo_pic = (By.ID, 'uploadPhotoFileIco')  # 商户logo
+    store_name = (By.XPATH,
+                  '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText')
+    store_type = (By.ID, 'xwalletMerchantStoreTypeText')  # 商户类型
+    store_phone = (By.XPATH,
+                   '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[6]/android.widget.EditText')
+    store_help = (By.ID, 'goHowToApply')  # 商户帮助说明
 
     # ———————————————————————工单——————————————————————————#
     help_btn = (By.ID, 'rl_layout_help_feedback')  # feedback
@@ -63,7 +117,7 @@ class UsercenterPage(Base):
     KYC_nationality = (By.ID, 'click_country')  # KYC国籍选择
     KYC_firstName = (By.ID, 'firstName')  # KYC-firstName
     KYC_middleName = (By.ID, 'middleName')  # KYC-middleName
-    KYC_lastname = (By.ID, 'lastname')  # KYC-lastname
+    KYC_lastname = (By.ID, 'lastname')  # KYC-last—name
     KYC_number = (By.ID, 'ed_id_number')  # KYC-ID number
     KYC_submit = (By.ID, 'btn_submit')  # KYC-第一页提交
     KYC_instructions = (By.ID, 'iv_menu')  # KYC-第一页说明
@@ -201,7 +255,6 @@ class UsercenterPage(Base):
     def into_ver_email_code(self, code):
         """输入邮箱验证码"""
         self.driver.find_element(*self.verification_email_code).send_key(code)
-
 
     def into_Collection(self):
         """ 进入收款码页面"""
