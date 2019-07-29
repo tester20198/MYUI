@@ -21,39 +21,104 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(3)  # 等待初始化完成
 
 
-    def test_into_Vouchers(self):
-        """ 个人中心 - 优惠券
-        路径：优惠券 -- 查看无可用优惠券 -- 查看优惠券说明
-
-        """
-        time.sleep(3)
-        self.login_page.enter_usercenter()
-        time.sleep(3)
-        self.user_page.my_vouchers()
-
-
-
-
-    def test_setting_kyc(self):
-        """设置KYC
-        路径 ： 配置KYC 第一页数据
-        """
-        time.sleep(3)
-        self.login_page.enter_usercenter()
+    # def test_my_Vouchers(self):
+    #     """ 个人中心 - 优惠券
+    #     路径：优惠券 -- 查看无可用优惠券 -- 查看优惠券说明
+    #
+    #     """
+    #     time.sleep(3)
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(3)
+    #     self.user_page.my_vouchers()
+    #
+    #
+    #
+    #
+    # # def test_setting_kyc(self):
+    # #     """设置KYC
+    # #     路径 ： 配置KYC 第一页数据
+    # #     """
+    # #     time.sleep(3)
+    # #     self.user_page.enter_usercenter()
+    # #     time.sleep(2)
+    # #     self.user_page.setting_kyc('first','second','third','6742384')
+    # #     print(self.driver.page_source)
+    #
+    #
+    #
+    # def test_change_phone(self):
+    #     """设置 -- 修改手机号
+    #     路径 ：获取验证码 -- 输入新号 -- 提交
+    #     """
+    #     time.sleep(3)
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(3)
+    #     self.user_page.change_phone(2222,4120909090)
+    #     time.sleep(3)
+    #
+    #
+    # def test_change_email(self):
+    #     """ 修改邮箱地址"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(3)
+    #     self.user_page.change_email(2222,'120@qq.com')
+    #
+    def test_general(self):
+        """通用 - 语言及货币选择 """
+        self.user_page.enter_usercenter()
         time.sleep(2)
-        self.user_page.setting_kyc('first','second','third','6742384')
+        self.user_page.general()
+    #
+
+    # def test_change_loginPWD(self):
+    #     """"修改登录密码"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(2)
+    #     self.user_page.change_login_paw('Test1234')
+    #
+    # def test_change_payPwd(self):
+    #     """修改支付密码"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(2)
+    #     self.user_page.change_payPwd('123456')
+    #
+    #
+    # def test_forget_pay_password(self):
+    #     """忘记支付密码"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(2)
+    #     self.user_page.forget_pay_password(2222)
+
+
+    # def test_pattern(self):
+    #     """设置-手势密码"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(3)
+    #     self.user_page.pattern()
+    #
+
+    # def test_fingerprint(self):
+    #     """设置-指纹识别"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(3)
+    #     self.user_page.fingerprint()
+
+
+    # def test_google(self):
+    #     """谷歌验证码"""
+    #     self.user_page.enter_usercenter()
+    #     time.sleep(3)
+    #     self.user_page.google(2222)
 
 
 
-    def test_into_change_phone(self):
-        """设置 -- 修改手机号
-        路径 ：获取验证码 -- 输入新号 -- 提交
-        """
-        time.sleep(3)
-        self.login_page.enter_usercenter()
-        time.sleep(3)
-        self.user_page.change_phone(2222,4120909090)
-        time.sleep(3)
+
+
+
+
+
+
+
 
 
 
