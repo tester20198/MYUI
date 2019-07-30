@@ -254,7 +254,6 @@ class UsercenterPage(Base):
         :return:
         """
 
-        self.into_Collection()
         try:
             self.driver.find_element(*self.QR_code).is_displayed()  # 二维码出现
             return True
@@ -268,8 +267,6 @@ class UsercenterPage(Base):
         :return:
         """
 
-        self.into_Collection()
-        time.sleep(1)
         if self.check_QR_code():
             self.driver.find_element(*self.save_code).click()
             self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
@@ -280,8 +277,6 @@ class UsercenterPage(Base):
     def check_collection_history(self):
         """进入收款历史记录"""
 
-        self.into_Collection()
-        time.sleep(1)
         self.driver.find_element(*self.collection_history).click()
         time.sleep(1)
         self.driver.find_element(*self.collection_name).click()
@@ -290,7 +285,6 @@ class UsercenterPage(Base):
     def refund_collection(self):
         """商户收款-退款"""
 
-        self.check_collection_history()
         if self.driver.find_element(*self.refund).is_enabled():
             self.driver.find_element(*self.refund).click()
         else:
@@ -305,7 +299,6 @@ class UsercenterPage(Base):
     def switch_Assets(self, type='coin'):
         """总资产切换选项"""
 
-        self.into_Assets()
         if type == 'coin':
             self.click2(self.Assets_Coins)
         else:
@@ -320,15 +313,11 @@ class UsercenterPage(Base):
     def click_bill_types(self):
         """点击总账单的账单类别按钮"""
 
-        self.into_Bill()
-        time.sleep(1)
         self.driver.find_element(*self.bill_type).click()
 
     def click_bill_type(self):
         """点击总账单的账单卡片按钮"""
 
-        self.into_Bill()
-        time.sleep(1)
         self.driver.find_element(*self.bill_card).click()
 
     def check_every_type_bill(self):
@@ -356,9 +345,6 @@ class UsercenterPage(Base):
 
     def virtual_to_black(self, coin='BTC'):
         """内部划转，虚拟卡划转(BTC)到black卡"""
-
-        self.into_internal_transfer()
-        time.sleep(1)
 
         self.driver.find_element(*self.other_card).click()  # 弹出卡片列表
         if self.findElement('black'):
@@ -402,8 +388,6 @@ class UsercenterPage(Base):
     def judge_merchant(self):
         """判断是否是商家"""
 
-        self.into_merchant()
-        time.sleep(1)
         if self.findElement(self.store_setting):
             print('已认证商户！')
             return True
@@ -414,7 +398,6 @@ class UsercenterPage(Base):
     def into_merchant_settings(self):
         """进入商户设置，查看商户详情"""
 
-        self.into_merchant()
         if self.judge_merchant():
             self.driver.find_element(*self.store_setting).click()
             time.sleep(1)
@@ -424,7 +407,6 @@ class UsercenterPage(Base):
     def change_merchant_usdt(self):
         """开启/关闭商户USDT结算"""
 
-        self.into_merchant()
         if self.judge_merchant():
             self.driver.find_element(*self.usdt_btn).click()
             time.sleep(1)
@@ -439,7 +421,6 @@ class UsercenterPage(Base):
     def into_help_FAQ(self):
         """进入FAQ"""
 
-        self.into_help()
         self.driver.find_element(*self.help).click()
         self.driver.back()
         self.driver.back()
@@ -447,7 +428,6 @@ class UsercenterPage(Base):
     def into_help_feedback(self):
         """进入feedback"""
 
-        self.into_help()
         self.driver.find_element(*self.feedback).click()
         self.driver.back()
         self.driver.back()
@@ -455,7 +435,6 @@ class UsercenterPage(Base):
     def into_help_disclaimer(self):
         """进入disclaimer"""
 
-        self.into_help()
         self.driver.find_element(*self.disclaimer).click()
         self.driver.back()
         self.driver.back()
