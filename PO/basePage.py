@@ -2,8 +2,7 @@ from Public.AndroidMessage import Android
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from appium.webdriver.mobilecommand import MobileCommand
-from Public import other
-import time
+import time, os
 
 
 class Base:
@@ -136,17 +135,16 @@ class Base:
 
         return self.driver.find_element(el).get_attribute(attr)
 
-    def save_img(self, filename):
+    def save_img(self, picname):
         """
         截图并保存
         :param filename:文件名+文件后缀
         :return:
         """
 
-        path = other.upper_path() + 'img/'
+        path = os.path.abspath('../../img/')
         # print(path)
-        self.driver.get_screenshot_as_file(path + filename)
-        return True
+        self.driver.get_screenshot_as_file(path + picname + '.png')
 
     def ios_swipeUP(self):
         """

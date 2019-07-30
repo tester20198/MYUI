@@ -9,6 +9,7 @@ class UsercenterPage(Base):
     个人中心的页面元素
     """
 
+    center = (By.ID, "iv_user_icon")  # 个人中心
     # ———————————————————————头像区域——————————————————————————#
     head = (By.ID, 'iv_head')  # 头像
     nickname = (By.ID, 'tv_nickname')  # 昵称
@@ -458,3 +459,13 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.disclaimer).click()
         self.driver.back()
         self.driver.back()
+
+    def go_to_usercenter(self):
+        """进入个人中心"""
+
+        if self.findElement('Skip'):
+            self.click2('Skip')
+        else:
+            print('不存在telegram引导页面，无须点击Skip.')
+            pass
+        self.driver.find_element(*self.center).click()
