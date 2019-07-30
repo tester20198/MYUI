@@ -138,12 +138,12 @@ class Base:
     def save_img(self, picname):
         """
         截图并保存
-        :param filename:文件名+文件后缀
-        :return:
+        :param filename:文件名
+        :使用例子：self.usercenterPage.save_img('/hello')
         """
 
-        path = os.path.abspath('../../img/')
-        # print(path)
+        path = os.path.abspath('../../img')
+        # print(path + picname + '.png')
         self.driver.get_screenshot_as_file(path + picname + '.png')
 
     def ios_swipeUP(self):
