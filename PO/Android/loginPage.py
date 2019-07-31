@@ -67,8 +67,9 @@ class LoginPage(Base):
         nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
 
         self.driver.find_element(*self.select_nation_btn).click()
+        time.sleep(2)
         while not self.findElement(na):
-            self.swipeUp(duration=1500)
+            self.swipeUp(duration=500)
         else:
             self.driver.find_element(*nation_XPATH).click()
 

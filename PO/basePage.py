@@ -187,14 +187,14 @@ class Base:
 
         view_list = self.driver.contexts
         print('当前页面的webview元素有：', view_list)
-        webview = [i for i in view_list if 'WEB' in i]
+        webview = [i for i in view_list if 'xwallet' in i]
         app = [a for a in view_list if 'APP' in a]
 
         if target == 'H5':
             self.driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": webview[0]})
         else:
             self.driver.execute(MobileCommand.SWITCH_TO_CONTEXT, {"name": app[0]})
-        # print(self.driver.current_context)
+        print(self.driver.current_context)
         time.sleep(2)
 
     def click2(self, text):
@@ -207,6 +207,20 @@ class Base:
         try:
             text_loc = ("xpath", ".//*[contains(@text,'%s')]" % text)
             self.driver.find_element(*text_loc).click()
+        except:
+            raise AttributeError('不存在该元素...')
+
+    def send_keys2(self, el, text):
+        """
+        特殊点击法，点击一些只有text标识的元素
+        :param el: 元素名称
+        :text: 输入内容
+        :return:
+        """
+
+        try:
+            text_loc = ("xpath", ".//*[contains(@text,'%s')]" % el)
+            self.driver.find_element(*text_loc).send_keys(text)
         except:
             raise AttributeError('不存在该元素...')
 
