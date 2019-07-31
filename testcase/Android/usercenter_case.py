@@ -38,72 +38,36 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(2)
         self.user_page.setting_kyc('first','second','third','6742384')
 
-    def test_into_change_phone(self):
-        """设置 -- 修改手机号"""
-        time.sleep(3)
-        self.user_page.change_phone(2222,4120909090)
-        time.sleep(3)
 
-
-    def test_change_email(self):
-        """ 修改邮箱地址"""
-        self.user_page.enter_usercenter()
-        time.sleep(3)
-        self.user_page.change_email(2222,'120@qq.com')
-
-
-    def test_general(self):
-        """通用 - 语言及货币选择 """
-        self.user_page.enter_usercenter()
-        time.sleep(2)
-        self.user_page.general()
+    # def test_into_Vouchers(self):
+    #     """ 个人中心 - 优惠券
+    #     路径：优惠券 -- 查看无可用优惠券 -- 查看优惠券说明
     #
-
-    # def test_change_loginPWD(self):
-    #     """"修改登录密码"""
-    #     self.user_page.enter_usercenter()
-    #     time.sleep(2)
-    #     self.user_page.change_login_paw('Test1234')
+    #     """
     #
-    # def test_change_payPwd(self):
-    #     """修改支付密码"""
-    #     self.user_page.enter_usercenter()
-    #     time.sleep(2)
-    #     self.user_page.change_payPwd('123456')
-    #
-    #
-    # def test_forget_pay_password(self):
-    #     """忘记支付密码"""
-    #     self.user_page.enter_usercenter()
-    #     time.sleep(2)
-    #     self.user_page.forget_pay_password(2222)
-
-
-    # def test_pattern(self):
-    #     """设置-手势密码"""
-    #     self.user_page.enter_usercenter()
     #     time.sleep(3)
-    #     self.user_page.pattern()
+    #     self.user_page.my_vouchers()
     #
-
-    # def test_fingerprint(self):
-    #     """设置-指纹识别"""
-    #     self.user_page.enter_usercenter()
+    # def test_setting_kyc(self):
+    #     """设置KYC
+    #     路径 ： 配置KYC 第一页数据
+    #     """
+    #
+    #     time.sleep(2)
+    #     self.user_page.setting_kyc('first','second','third','6742384')
+    #
+    # def test_into_change_phone(self):
+    #     """设置 -- 修改手机号
+    #     路径 ：获取验证码 -- 输入新号 -- 提交
+    #     """
+    #
     #     time.sleep(3)
-    #     self.user_page.fingerprint()
-
-
-    # def test_google(self):
-    #     """谷歌验证码"""
-    #     self.user_page.enter_usercenter()
+    #     self.user_page.change_phone(2222,4120909090)
     #     time.sleep(3)
-    #     self.user_page.google(2222)
-
-
-
 
 
     def test_001_check_code(self):
+        time.sleep(1)
         self.user_page.into_Collection()  # 进入收款页面
         time.sleep(1)
         self.assertTrue(self.user_page.check_QR_code(), '判断是否加载收款二维码成功')
@@ -122,73 +86,81 @@ class UsercenterTestCase(unittest.TestCase):
         self.assertTrue(self.user_page.findElement('Status'), '判断是否加载收款详情成功')
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
+    def test_004_collection_refund(self):
+        time.sleep(1)
+        self.user_page.refund_collection()
 
+    def test_005_assets_account(self):
+        # self.driver.back()
+        # self.driver.back()
+        # self.driver.back()   # 退回个人中心页面
+        self.user_page.into_Assets()  # 进入总资产页面
+        time.sleep(2)
+        self.user_page.click2(self.user_page.Assets_Accounts)  # 总资产-Accounts
+        self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
+    def test_006_assets_coin(self):
+        time.sleep(1)
+        self.user_page.click2(self.user_page.Assets_Coins)  # 总资产-Coins
+        self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
+    def test_007_bills_detail(self):
+        self.user_page.into_Bill()  # 进入总账单
+        time.sleep(2)
+        self.user_page.click_bill_type()
+        self.driver.back()
+        self.user_page.click_bill_card()
+        self.driver.back()
+        time.sleep(1)
+        self.user_page.check_every_type_bill()  # 检查各个账单类型
+        self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
+    def test_008_internal_transfer(self):
+        self.user_page.into_internal_transfer()  # 进入内部划转
+        time.sleep(2)
+        self.user_page.virtual_to_black('BTC')  # 选择虚拟卡到黑卡
+        self.user_page.virtual_to_black_little('0.00000001')  # 划转小金额的BTC
+        self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
-    # def test_into_assets(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_Assets()  # 进入资产页面
-    #
-    # def test_into_bill(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_Bill()  # 进入账单页面
-    # #
-    # def test_into_coupon(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_coupon()  # 进入优惠券页面
-    #
-    # def test_into_kyc(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_KYC()  # 进入KYC页面
-    #
-    # def test_into_setting(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_setting()  # 进入设置页面
-    #
-    # def test_into_merchant(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_merchant()  # 进入商户中心页面
-    #
-    # def test_into_feedback(self):
-    #     self.login_page.check_in()
-    #     self.login_page.login_by_Email('uat-2.0626@jianglun.xinjineng.net', 'Test1234')
-    #     time.sleep(10)
-    #     self.driver.back()
-    #     self.login_page.enter_usercenter()
-    #     time.sleep(3)
-    #     self.user_page.into_help()  # 进入feedback页面
+    def test_009_internal_transfer_all(self):
+        self.user_page.into_internal_transfer()  # 进入内部划转
+        time.sleep(2)
+        self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
+        self.user_page.transfer_all()  # 虚拟卡划转全部金额到黑卡
+        self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
+
+        # 原地划转返回，方便多次run case
+        self.user_page.into_internal_transfer()
+        self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
+        self.user_page.change_card()  # 切换卡片位置
+        self.user_page.transfer_all()  # 黑卡划转全部金额到虚拟卡
+        self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
+
+    def test_010_into_merchant(self):
+        time.sleep(2)
+        self.user_page.into_merchant()  # 进入商户中心页面
+        time.sleep(3)
+        if self.user_page.judge_merchant():  # 判断是否是商户
+            pass  # 另建case去测试
+        else:
+            self.user_page.into_merchant_help()  # 进入商户帮助说明
+            self.driver.back()
+            self.user_page.edit_merchant()  # 输入商户资料
+            time.sleep(2)
+            self.user_page.upload_merchant_pic()  # 上传商户图片
+            time.sleep(2)
+            self.user_page.finish_merchant()  # 完善商户资料
+            time.sleep(2)
+
+    def test_011_into_feedback(self):
+        self.user_page.into_help()  # 进入feedback页面
+        time.sleep(2)
+        self.user_page.into_help_FAQ()
+        time.sleep(5)
+        self.user_page.into_help_feedback()
+        time.sleep(5)
+        self.user_page.into_help_disclaimer()
+        time.sleep(5)
 
     @classmethod
     def tearDownClass(cls):

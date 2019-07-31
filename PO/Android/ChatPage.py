@@ -19,10 +19,13 @@ class ChatPage(Base):
     click_send_message1 = (By.CLASS_NAME, "//android.widget.ImageView")  # 点击发送信息按钮
     click_crypto_gift = (By.XPATH, "//android.widget.TextView[@text='Crypto Gift']")  # 点击Crypto Gift进入发红包界面
     click_redpacket_coin =(By.XPATH,"//android.widget.TextView[@index='1']") #点击选择币种
-    select_coin_npxs = (By.XPATH, "//android.widget.TextView[@text='ETH']")  # 选择ETH
+    select_coin_btc = (By.XPATH, "//android.widget.TextView[@text='BTC']")  # 选择BTC
+    select_coin_eth = (By.XPATH, "//android.widget.TextView[@text='ETH']")  # 选择ETH
+    select_coin_npxs = (By.XPATH, "//android.widget.TextView[@text='NPXS']")  # 选择NPXS
+    select_coin_bnb = (By.XPATH, "//android.widget.TextView[@text='BNB']")  # 选择BNB
     input_redpacket_amount =(By.XPATH,"//android.widget.EditText[@text='Please enter amount']") #输入红包金额
     input_redpacket_number =(By.XPATH,"//android.widget.EditText[@text='Please enter number of people']") #输入红包个数
-    input_redpacket_best_wishes =(By.XPATH,"//android.widget.EditText[@text='Best wishes']") #输入红包祝福语52076
+    input_redpacket_best_wishes =(By.XPATH,"//android.widget.EditText[@text='Best wishes']") #输入红包祝福语
     click_send_button =(By.CLASS_NAME,'android.widget.Button') # 点击send发送
     input_pay_password =(By.ID,'ed_pwd') # 输入支付密码
     click_forgot_pay_password =(By.ID,'tv_forget_pwd') # 点击忘记支付密码
@@ -39,6 +42,17 @@ class ChatPage(Base):
     input_2FA_verification_code =(By.ID,'et_2fa_code') # 输入2FA谷歌验证码
     click_2FA_paste =(By.ID,'tv_paste') # 点击2FA页面粘贴按钮
     click_2FA_confirm =(By.ID,'btn_confirm') # 点击2FA页面提交按钮Confirm
+
+    #忘记密码流程
+    Click_forgot_password =(By.XPATH,"//android.widget.TextView[@text='Forgot payment password?']") #点击忘记密码
+    Click_send_email =(By.XPATH,"//android.widget.TextView[@resource-id='com.pundix.xwallet:id/tv_send_email_code']") #点击发送邮箱验证码
+    input_email_code =(By.XPATH,"//android.widget.TextView[@resource-id='com.pundix.xwallet:id/ed_email_code']") #输入邮箱验证码
+    Click_send_mobile =(By.ID,"tv_send_sms_code']") #点击发送手机验证码
+    input_mobile_code =(By.ID,"ed_sms_code']") #输入手机验证码
+    Click_Confirm_button = (By.XPATH, "//android.widget.Button[@text='Confirm']")  # 点击提交按钮
+    input_pay_pwd = (By.XPATH, "//android.widget.TextView[@text='Set a 6-digit payment password']")  # 输入支付密码
+    input_confirmpay_pwd = (By.XPATH, "//android.widget.TextView[@text='Confirm the payment password']")  # 确认支付密码
+    button_confirmpay_pwd = (By.XPATH, "//android.widget.Button[@text='Confirm']")  # 提交
 
     def Click_chat(self):
         # 进入Chat菜单
@@ -57,13 +71,41 @@ class ChatPage(Base):
         time.sleep(1)
         self.driver.find_element(*self.click_crypto_gift).click()  # 进入红包界面
         time.sleep(1)
+        self.driver.find_element(*self.input_redpacket_amount).send_keys(text2)  # 输入红包金额
+        time.sleep(1)
+        self.driver.find_element(*self.input_redpacket_best_wishes).send_keys(text3)  # 输入红包祝福语
+        time.sleep(1)
+
+    def Select_redpacket_coin_BTC(self):
+        '''选择支付的BTC币种'''
+
+        self.driver.find_element(*self.click_redpacket_coin).click()  # 点击选择币种
+        time.sleep(2)
+        self.driver.find_element(*self.select_coin_btc).click()  # 选择BTC币种
+        time.sleep(1)
+
+    def Select_redpacket_coin_ETH(self):
+        '''选择支付的ETH币种'''
+
+        self.driver.find_element(*self.click_redpacket_coin).click()  # 点击选择币种
+        time.sleep(2)
+        self.driver.find_element(*self.select_coin_eth).click()  # 选择ETH币种
+        time.sleep(1)
+
+    def Select_redpacket_coin_NPXS(self):
+        '''选择支付的NPXS币种'''
+
         self.driver.find_element(*self.click_redpacket_coin).click()  # 点击选择币种
         time.sleep(2)
         self.driver.find_element(*self.select_coin_npxs).click()  # 选择NPXS币种
         time.sleep(1)
-        self.driver.find_element(*self.input_redpacket_amount).send_keys(text2)  # 输入红包金额
-        time.sleep(1)
-        self.driver.find_element(*self.input_redpacket_best_wishes).send_keys(text3)  # 输入红包祝福语
+
+    def Select_redpacket_coin_BNB(self):
+        '''选择支付的BNB币种'''
+
+        self.driver.find_element(*self.click_redpacket_coin).click()  # 点击选择币种
+        time.sleep(2)
+        self.driver.find_element(*self.select_coin_bnb).click()  # 选择BNB币种
         time.sleep(1)
 
     def business_processes_2FA(self,text1='2222',text2='222222'):
@@ -89,32 +131,56 @@ class ChatPage(Base):
         time.sleep(1)
         self.driver.find_element(*self.click_2FA_confirm).click()
 
-    def Send_personal_redpacket(self,text1,text2,text3,text4='123456'):
-        '''发送个人红包(小额)'''
+    def business_forgot_payment_password(self,text,text1):
+        '''忘记密码支付密码流程'''
 
-        self.Send_redpacket_default_setting(text1,text2,text3)
         self.driver.find_element(*self.click_send_button).click()  # 点击发送红包按钮
         time.sleep(1)
-        self.driver.find_element(*self.input_pay_password).send_keys(text4)  # 输入支付密码
+        self.driver.find_element(*self.Click_forgot_password).click()
+        time.sleep(1)
+        self.driver.find_element(*self.Click_send_email).click()
+        time.sleep(1)
+        self.driver.find_element(*self.input_email_code).send_keys(text)
+        time.sleep(1)
+        self.driver.find_element(*self.Click_Confirm_button).click()
+        time.sleep(1)
+        self.driver.find_element(*self.input_pay_pwd).send_keys(text1)
+        time.sleep(1)
+        self.driver.find_element(*self.input_confirmpay_pwd).send_keys(text1)
+        time.sleep(1)
+        self.driver.find_element(*self.button_confirmpay_pwd).click()
+        time.sleep(1)
+
+    def Click_Send_redpacket(self,text):
+        '''点击发送按钮和输入支付密码'''
+
+        self.driver.find_element(*self.click_send_button).click()  # 点击发送红包按钮
+        time.sleep(1)
+        self.driver.find_element(*self.input_pay_password).send_keys(text)  # 输入支付密码
         time.sleep(3)
+
+    def judge_redpacket_status(self):
+        '''判断发出去的红包状态是否为View'''
+
+        time.sleep(2)
         redpacket_status = self.driver.find_element(*self.redpacket_status).text  #判断发出去的红包状态是否为View
         return redpacket_status
 
-    def Send_group_redpacket(self,text1,text2,text3,text4,text5='123456'):
+    def Send_personal_redpacket(self,text1,text2,text3):
+        '''发送个人红包(小额)'''
+
+        self.Send_redpacket_default_setting(text1,text2,text3)
+
+    def Send_group_redpacket(self,text1,text2,text3,text4):
         '''发送群红包(小额)'''
 
         self.Send_redpacket_default_setting(text1,text2,text3)
         self.driver.find_element(*self.input_redpacket_number).send_keys(text4)  # 输入红包个数
         time.sleep(1)
-        self.driver.find_element(*self.click_send_button).click()  # 点击发送红包按钮
-        time.sleep(1)
-        self.driver.find_element(*self.input_pay_password).send_keys(text5)  # 输入支付密码
-        time.sleep(1)
 
     def Open_group_redpacket(self):
         '''打开群红包'''
 
-        send_redpacket_status = self.driver.find_element(*self.redpacket_status).text  # 判断发出去的红包状态是否为View
         self.driver.find_element(*self.redpacket_status).click() #点击发送的红包
         time.sleep(3)
         self.driver.find_element(*self.open_group_redpacket).click()  #打开群红包
@@ -123,14 +189,12 @@ class ChatPage(Base):
             time.sleep(2)
         else:
             return True
-        self.driver.back()
-        return send_redpacket_status
 
-    def Send_group_big_redpacket(self,text1,text2,text3,text4,text5='123456',text6='2222',text7='222222'):
+    def Send_group_big_redpacket(self,text1,text2,text3,text4,text5='2222',text6='222222'):
         '''发送群红包(大额)'''
 
-        self.Send_group_redpacket(text1,text2,text3,text4,text5)
-        self.business_processes_2FA(text6,text7)
+        self.Send_group_redpacket(text1,text2,text3,text4)
+        self.business_processes_2FA(text5,text6)
         send_redpacket_status = self.driver.find_element(*self.redpacket_status).text  #判断发出去的红包状态是否为View
         return send_redpacket_status
 
