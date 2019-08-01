@@ -27,43 +27,37 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(1)
 
 
-    # def test_into_Vouchers(self):
+    # def test_100_vouchers(self):
     #     """ 我的优惠券"""
     #     time.sleep(3)
     #     self.user_page.my_vouchers()
     #
-    #
-    # def test_setting_kyc(self):
+    # def test_101_kyc(self):
     #     """设置KYC-第一页"""
     #     time.sleep(2)
-    #     self.user_page.setting_kyc('first','second','third','6742384')
+    #     self.user_page.setting_kyc('first', 'second', 'third', '6742384')
 
-    # def test_into_Vouchers(self):
-    #     """ 个人中心 - 优惠券
-    #     路径：优惠券 -- 查看无可用优惠券 -- 查看优惠券说明
-    #
-    #     """
-    #
+
+    # def test_102_change_phone(self):
+    #     """设置 -- 修改手机号"""
     #     time.sleep(3)
-    #     self.user_page.my_vouchers()
-    #
-    # def test_setting_kyc(self):
-    #     """设置KYC
-    #     路径 ： 配置KYC 第一页数据
-    #     """
-    #
+    #     self.user_page.change_phone(2222, 4120909090)
+    #     time.sleep(3)
+    #     self.user_page.change_phone_call()
+
+
+
+    # def test_103_change_email(self):
+    #     """ 修改邮箱地址"""
+    #     time.sleep(3)
+    #     self.user_page.change_email(2222, '120@qq.com')
+
+
+    # def test_104_general(self):
+    #     """通用 - 语言及货币选择 """
+    #     self.user_page.enter_usercenter()
     #     time.sleep(2)
-    #     self.user_page.setting_kyc('first','second','third','6742384')
-    #
-    # def test_into_change_phone(self):
-    #     """设置 -- 修改手机号
-    #     路径 ：获取验证码 -- 输入新号 -- 提交
-    #     """
-    #
-    #     time.sleep(3)
-    #     self.user_page.change_phone(2222,4120909090)
-    #     time.sleep(3)
-
+    #     self.user_page.general()
 
     def test_001_check_code(self):
         time.sleep(1)
@@ -160,13 +154,6 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(5)
         self.user_page.into_help_disclaimer()
         time.sleep(5)
-
-    def test_012_edit_user_detail(self):
-        self.user_page.complete_user_picture()  # 上传头像
-        self.assertTrue(self.user_page.is_toast_exist('uploaded'), '判断上传头像成功')
-        self.user_page.complete_user_gender()
-        self.assertTrue(self.user_page.is_toast_exist('Saved'), '判断保存性别成功')
-        self.driver.back()
 
     @classmethod
     def tearDownClass(cls):

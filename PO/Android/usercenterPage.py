@@ -1,9 +1,7 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
-from selenium.common import exceptions
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
 import time
+from selenium.common import exceptions
 
 
 class UsercenterPage(Base):
@@ -12,21 +10,18 @@ class UsercenterPage(Base):
     """
 
     center = (By.ID, "iv_user_icon")  # 个人中心
-
     # ———————————————————————头像区域——————————————————————————#
-    head = (By.ID, 'iv_head')  # 个人中心-头像
-    head2 = (By.ID, 'rl_layout_hand')  # 个人资料-头像
+    head = (By.ID, 'iv_head')  # 头像
     nickname = (By.ID, 'tv_nickname')  # 昵称
     change_head = (By.ID, 'rl_layout_hand')  # 头像—进入手机相机
     head_gallery = (By.ID, 'btn_gallery')  # 手机相册
-    com = (By.ID, 'menu_crop')  # 确定选择照片
     head_photo = (By.ID, 'btn_picturey')  # 照相
     photo = (By.XPATH,
              '/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.ImageView')  # x选择照片
     photo_back = (By.XPATH,
                   '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ImageButton')  # 相册页面的返回
     gender = (By.ID, 'iv_gender_arrow')  # 性别
-    ok = (By.XPATH, '//android.widget.TextView[@resource-id="com.pundix.xwallet:id/tv_complete"]')  # 性别选择框-ok
+    ok = (By.ID, 'tv_complete')  # 性别选择框-ok
     cancel = (By.ID, 'tv_cancel')  # 性别选择框-cancel
     option_btn = (By.ID, 'options1')  # 第一选项
 
@@ -77,6 +72,7 @@ class UsercenterPage(Base):
     edit_money = (By.ID, 'ed_available')  # 输入金额
     all_btn = (By.ID, 'tv_available_all')  # 点击all按钮
     confirm_transfer = (By.ID, 'btn_transfer')  # 确认划转
+
 
     # ———————————————————————优惠券——————————————————————————#
     coupon = (By.ID, 'rl_layout_coupon')  # 优惠券
@@ -139,6 +135,7 @@ class UsercenterPage(Base):
     KYC_submit = (By.ID, 'btn_submit')  # KYC-第一页提交
     KYC_instructions = (By.ID, 'iv_menu')  # KYC-第一页说明
 
+
     # ———————————————————————设置入口——————————————————————————#
     setting_btn = (By.ID, 'rl_layout_setting')  # 设置入口
 
@@ -162,7 +159,7 @@ class UsercenterPage(Base):
     email_new = (By.ID, 'et_email')  # 设置-手机号-新手机号
 
     # ———————————————————————手势密码、指纹识别、谷歌验证码——————————————————————————#
-    setting_Security_btn = (By.ID, 'rl_safety')  # 设置-安全中心入口
+    security_btn = (By.ID, 'rl_safety')  # 设置-安全中心入口
     security_pattern = (By.ID, 'switch_gesture')  # 设置-安全中心-手势密码
     pattern_reset = (By.ID,'resetBtn')  # 手势密码重置
     security_fingerprint = (By.ID, 'switch_fingerprint')  # 设置-安全中心-指ew纹识别
@@ -176,6 +173,7 @@ class UsercenterPage(Base):
     security_loginAgain = (By.ID, 'et_loginpass_again')  # 设置-安全中心-修改登录密码之新密码确认
     security_loginModify = (By.ID, 'bt_loginpass_modify')  # 设置-安全中心-修改登录密码之确认
 
+
     # ———————————————————————修改支付密码——————————————————————————#
     setting_Security_payPWD = (By.ID, 'rl_safety_pay_pass')  # 设置-安全中心-修改支付密码
     security_payOld = (By.ID, 'et_paypass_old')  # 设置-安全中心-修改支付密码之旧密码
@@ -184,28 +182,28 @@ class UsercenterPage(Base):
     security_payModify = (By.ID, 'bt_paypass_modify')  # 设置-安全中心-修改支付密码之确认
     security_payForget = (By.ID, 'tv_forget_old_pass')  # 设置-安全中心-忘记支付密码入口
 
+
     # ———————————————————————通用、语言、货币——————————————————————————#
-    setting_General_btn = (By.ID, 'rl_common')  # 设置-通用入口
-    setting_General_languages = (By.ID, 'tv_language')  # 设置-通用语言
-    setting_General_languagesENG = (By.XPATH,
+    Setting_General_btn = (By.ID, 'rl_common')  # 设置-通用入口
+    Setting_General_languages = (By.ID, 'tv_language')  # 设置-通用语言
+    Setting_General_languagesENG = (By.XPATH,
                                     '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.RelativeLayout')  # 设置-通用语言英语
-    setting_General_currency = (By.ID, 'rl_common_currency')  # 设置-通用货币 (上下滑动调用)
+    Setting_General_currency = (By.ID, 'rl_common_currency')  # 设置-通用货币 (上下滑动调用)
 
     # ———————————————————————软件更新——————————————————————————#
-    setting_Software_Update = (By.ID, 'rl_version')  # 设置-软件更新
+    Setting_Software_Update = (By.ID, 'rl_version')  # 设置-软件更新
 
     # ———————————————————————设置-关于——————————————————————————#
-    setting_About_btn = (By.ID, 'rl_about')  # 设置-关于入口
-    About_website = (By.XPATH,
+    Setting_About_btn = (By.ID, 'rl_about')  # 设置-关于入口
+    Setting_About_website = (By.XPATH,
                              '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.TextView[2]')  # 设置-关于website
-    About_email = (By.XPATH,
+    Setting_About_email = (By.XPATH,
                            '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[2]/android.widget.TextView[2]')  # 设置-关于email
-    About_twitter = (By.XPATH,
+    Setting_About_twitter = (By.XPATH,
                              '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout[3]/android.widget.TextView[2]')  # 设置-关于twitter
 
     # ———————————————————————退出登录——————————————————————————#
-    setting_Loginout = (By.ID, 'tv_loginout')  # 设置-退出登录
-
+    Setting_Loginout = (By.ID, 'tv_loginout')  # 设置-退出登录
 
     def my_vouchers(self):
         """我的优惠券"""
@@ -245,26 +243,42 @@ class UsercenterPage(Base):
         # self.driver.find_element(*self.KYC_instructions).click()    # KYC第一页说明
 
 
-    def change_phone(self,code,phone):
-        """修改手机号界面"""
-        self.driver.find_element(*self.setting).click()    # 设置入口
+    def into_setting(self):
+        """设置入口"""
+        self.driver.find_element(*self.setting).click()  # 设置入口
         time.sleep(3)
+
+
+
+    def change_phone_call(self):
+        """修改手机号、邮箱的语音识别"""
+        time.sleep(55)
+        try:
+            self.driver.find_element(*self.call_phone_code).click()
+        except Exception as e:
+            print(e)
+
+
+
+    def change_phone(self,code,phone):
+        """修改手机号"""
+        self.into_setting()
         self.driver.find_element(*self.setting_phone).click()   # 修改手机号入口
         time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click()
-        self.driver.find_element(*self.send_sms_code).click()   #发送短信、邮箱验证码
+        self.driver.find_element(*self.send_email_code).click()  # 发送短信、邮箱验证码
         time.sleep(1)
-        self.driver.find_element(*self.verification_email_code).send_keys(code)
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)   # 输入短信、邮箱验证码
-        time.sleep(2)
+        self.driver.find_element(*self.send_sms_code).click()
+        time.sleep(1)
+        self.driver.find_element(*self.verification_email_code).send_keys(code) # 输入短信、邮箱验证码
+        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        time.sleep(1)
         self.driver.find_element(*self.phone_new).send_keys(phone)    # 输入新手机号
         self.driver.find_element(*self.new_code).click()
-        time.sleep(3)
+        time.sleep(1)
         self.driver.find_element(*self.verification_new_code).send_keys(code) # 发送及输入验证码
-        time.sleep(58)
-        self.driver.find_element(*self.call_phone_code).click() # 语音识别
-        time.sleep(60)
-        self.driver.find_element(*self.call_new_phone_code).click()  # 新手机号语音识别
+        self.change_phone_call()    # 新旧手机号的语音识别
+        time.sleep(3)
+        self.driver.find_element(*self.call_new_phone_code).click()
         time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 修改提交
         time.sleep(4)
@@ -272,13 +286,15 @@ class UsercenterPage(Base):
         time.sleep(3)
         self.Sys_back()
 
+
+
     def change_email(self,code,email):
         """修改邮箱界面"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(3)
+        self.into_setting()
         self.driver.find_element(*self.setting_Email).click()   # 修改邮箱入口
         time.sleep(3)
         self.driver.find_element(*self.send_email_code).click()    # 发送手机及邮箱验证码
+        time.sleep(1)
         self.driver.find_element(*self.send_sms_code).click()
         time.sleep(2)
         self.driver.find_element(*self.verification_email_code).send_keys(code)     # 输入当前手机及邮箱验证码
@@ -288,20 +304,114 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.new_code).click()    # 发送新邮箱地址的验证码
         time.sleep(2)
         self.driver.find_element(*self.verification_new_code).send_keys(code)
-        time.sleep(60)
-        self.driver.find_element(*self.call_phone_code).click()  # 语音识别
+        self.change_phone_call()
         time.sleep(4)
-        self.driver.find_element(*self.new_confirm).click()  # 提交修改的数据
-        time.sleep(4)
-        self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
+        self.driver.find_element(*self.new_confirm).click  # 提交修改的数据
         time.sleep(3)
+        self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
+        time.sleep(2)
         self.Sys_back()
+
+
+
+    def into_general(self):
+        """"安全中心入口"""
+        self.into_setting()
+        self.driver.find_element(*self.security_btn).click()  # 通用入口
+        time.sleep(2)
+
+
+
+    def change_login_paw(self,pwd):
+        """修改登录密码"""
+        self.into_general()
+        self.driver.find_element(*self.setting_Security_loginPWD).click()   # 修改登录密码入口
+        time.sleep(3)
+        self.driver.find_element(*self.security_loginOld).send_keys(pwd)   # 输入旧密码
+        time.sleep(3)
+        self.driver.find_element(*self.security_loginNew).send_keys(pwd)
+        time.sleep(3)
+        self.driver.find_element(*self.security_loginAgain).send_keys(pwd)  # 输入新密码及确认密码
+        self.Sys_back() # 收起 键盘
+        time.sleep(2)
+        self.driver.find_element(*self.security_loginModify).click()   # 提交确认
+        time.sleep(2)
+
+
+    def into_change_payPwd(self):
+        """进入修改支付密码界面"""
+        self.into_general()
+        self.driver.find_element(*self.setting_Security_payPWD).click()  # 修改支付密码入口
+
+
+    def change_payPwd(self,password):
+        """ 修改支付密码 """
+        self.into_change_payPwd()
+        time.sleep(2)
+        self.driver.find_element(*self.security_payOld).send_keys(password) # 输入旧密码
+        time.sleep(1)
+        self.driver.find_element(*self.security_payNew).send_keys(password)
+        time.sleep(1)
+        self.driver.find_element(*self.security_payAgain).send_keys(password)   # 输入新密码及确认新密码
+        time.sleep(2)
+        self.Sys_back() # 收起键盘
+        self.driver.find_element(*self.security_payModify).click()      # 提交信息
+        time.sleep(2)
+
+
+
+    def forget_pay_password(self,code):
+        """忘记支付密码"""
+        self.into_change_payPwd()
+        time.sleep(2)
+        self.driver.find_element(*self.security_payForget).click()  # 忘记支付密码入口
+        time.sleep(2)
+        self.driver.find_element(*self.send_email_code).click() # 点击发送邮箱及短信验证码按键
+        time.sleep(2)
+        self.driver.find_element(*self.send_sms_code).click()
+        time.sleep(2)
+        self.driver.find_element(*self.verification_email_code).send_keys(code) # 输入邮箱及短信验证码
+        time.sleep(2)
+        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        time.sleep(2)
+        self.driver.find_element(*self.new_confirm).click() # 提交按键
+        time.sleep(1)
+
+
+    def pattern(self):
+        """ 手势密码设置 """
+        self.into_general()
+        self.driver.find_element(*self.security_pattern).click()    # 手势密码入口
+        time.sleep(2)
+        self.driver.find_element(*self.pattern_reset).click()   # 手势密码重置
+        time.sleep(1)
+        Base.Sys_back(self) # 返回界面
+
+
+    def fingerprint(self):
+        """指纹识别"""
+        self.into_general()
+        self.driver.find_element(*self.security_fingerprint).click()    # 指纹识别入口
+
+
+    def google(self,code):
+        """谷歌验证"""
+        self.into_general()
+        self.driver.find_element(*self.security_google).click() # 谷歌入口
+        self.driver.find_element(*self.goodle_confirm).click()  # 开启谷歌验证码确认
+        time.sleep(2)
+        self.driver.find_element(*self.send_email_code).click() # 发送邮箱、手机验证码
+        self.driver.find_element(*self.send_sms_code).click()
+        time.sleep(1)
+        self.driver.find_element(*self.verification_email_code).send_keys(code) # 输入手机、邮箱验证码
+        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        time.sleep(1)
+        self.driver.find_element(*self.new_confirm).click() # 确认提交
 
 
     def general(self):
         """通用 - 语言及货币选择"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(3)
+        self.into_setting()
         self.driver.find_element(*self.setting_General_btn).click() # 通用入口
         time.sleep(2)
         self.driver.find_element(*self.setting_General_languages).click()   # 语言设置入口
@@ -318,181 +428,41 @@ class UsercenterPage(Base):
             time.sleep(2)
 
 
-    def change_login_paw(self,pwd):
-        """修改登录密码"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(3)
-        self.driver.find_element(*self.setting_Security_btn).click()    # 安全中心入口
-        time.sleep(3)
-        self.driver.find_element(*self.setting_Security_loginPWD).click()   # 修改登录密码入口
-        time.sleep(3)
-        self.driver.find_element(*self.security_loginOld).send_keys(pwd)   # 输入旧密码
-        time.sleep(3)
-        self.driver.find_element(*self.security_loginNew).send_keys(pwd)
-        time.sleep(3)
-        self.driver.find_element(*self.security_loginAgain).send_keys(pwd)  # 输入新密码及确认密码
-        self.Sys_back() # 收起 键盘
-        time.sleep(2)
-        self.driver.find_element(*self.security_loginModify).click()   # 提交确认
-        time.sleep(2)
-
-    def change_payPwd(self,password):
-        """ 修改支付密码 """
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(2)
-        self.driver.find_element(*self.setting_Security_btn).click()  # 安全中心入口
-        time.sleep(3)
-        self.driver.find_element(*self.setting_Security_payPWD).click() # 修改支付密码入口
-        time.sleep(2)
-        self.driver.find_element(*self.security_payOld).send_keys(password) # 输入旧密码
-        time.sleep(1)
-        self.driver.find_element(*self.security_payNew).send_keys(password)
-        time.sleep(1)
-        self.driver.find_element(*self.security_payAgain).send_keys(password)   # 输入新密码及确认新密码
-        time.sleep(2)
-        self.Sys_back() # 收起键盘
-        self.driver.find_element(*self.security_payModify).click()      # 提交信息
-        time.sleep(2)
-
-
-    def forget_pay_password(self,code):
-        """忘记支付密码"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(2)
-        self.driver.find_element(*self.setting_Security_btn).click()  # 安全中心入口
-        time.sleep(3)
-        self.driver.find_element(*self.setting_Security_payPWD).click()  # 修改支付密码入口
-        time.sleep(2)
-        self.driver.find_element(*self.security_payForget).click()  # 忘记支付密码入口
-        time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click() # 点击发送邮箱及短信验证码按键
-        time.sleep(2)
-        self.driver.find_element(*self.send_sms_code).click()
-        time.sleep(2)
-        self.driver.find_element(*self.verification_email_code).send_keys(code) # 输入邮箱及短信验证码
-        time.sleep(2)
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)
-        time.sleep(2)
-        self.driver.find_element(*self.new_confirm).click() # 提交按键
-        time.sleep(1)
-
-    def pattern(self):
-        """ 手势密码设置 """
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(2)
-        self.driver.find_element(*self.setting_Security_btn).click()    # 安全中心入口
-        time.sleep(2)
-        self.driver.find_element(*self.security_pattern).click()    # 手势密码入口
-        time.sleep(2)
-        self.driver.find_element(*self.pattern_reset).click()   # 手势密码重置
-        time.sleep(1)
-        Base.Sys_back(self) # 返回界面
-
-    def fingerprint(self):
-        """指纹识别"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(2)
-        self.driver.find_element(*self.setting_Security_btn).click()  # 安全中心入口
-        time.sleep(2)
-        self.driver.find_element(*self.security_fingerprint).click()    # 指纹识别入口
-
-    def google(self,code):
-        """谷歌验证"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(2)
-        self.driver.find_element(*self.setting_Security_btn).click()  # 安全中心入口
-        time.sleep(2)
-        self.driver.find_element(*self.security_google).click() # 谷歌入口
-        self.driver.find_element(*self.goodle_confirm).click()  # 开启谷歌验证码确认
-        time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click() # 发送邮箱、手机验证码
-        self.driver.find_element(*self.send_sms_code).click()
-        time.sleep(1)
-        self.driver.find_element(*self.verification_email_code).send_keys(code) # 输入手机、邮箱验证码
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)
-        time.sleep(1)
-        self.driver.find_element(*self.new_confirm).click() # 确认提交
 
     def about(self):
         """ 关于界面 """
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(3)
+        self.into_setting()
         self.driver.find_element(*self.setting_About_btn).click()   # 设置关于入口
         time.sleep(3)
-        self.driver.find_element(*self.About_website).click()   # 关于-website
+        self.driver.find_element(*self.about_website).click()   # 关于-website
         time.sleep(3)
         self.Sys_back()
-        self.driver.find_element(*self.About_email).click()    # 关于-email
+        self.driver.find_element(*self.about_email).click()    # 关于-email
         time.sleep(3)
         self.Sys_back()
-        self.driver.find_element(*self.About_twitter).click()   # 关于-twitter
+        self.driver.find_element(*self.about_twitter).click()   # 关于-twitter
         time.sleep(3)
         self.Sys_back()
 
+
     def software_update(self):
         """软件更新"""
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(3)
+        self.into_setting()
         self.driver.find_element(*self.setting_Software_Update).click() # 软件更新
 
 
     def login_out(self):
         """ 退出登录 """
-        self.driver.find_element(*self.setting).click()  # 设置入口
-        time.sleep(3)
-        self.driver.find_element(*self.setting_Loginout).click()    # 退出登录
+        self.into_setting()
+        self.driver.find_element(*self.setting_Loginout).click()    # 确认退出登录
+
+
 
 
     def into_Collection(self):
         """ 进入收款码页面"""
 
         self.driver.find_element(*self.Collection).click()
-
-    def check_QR_code(self):
-        """
-        检查二维码是否正常展示
-        :return:
-        """
-
-        try:
-            self.driver.find_element(*self.QR_code).is_displayed()  # 二维码出现
-            return True
-        except exceptions.NoSuchElementException as E:
-            print('找不到收款二维码...', E)
-            return False
-
-    def save_QRcode(self):
-        """
-        保存收款二维码
-        :return:
-        """
-
-        if self.check_QR_code():
-            if self.findElement('Allow'):  # 权限询问弹窗
-                self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
-                self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
-            else:
-                pass
-            self.driver.find_element(*self.save_code).click()
-        else:
-            raise exceptions.ElementNotVisibleException
-
-    def check_collection_history(self):
-        """进入收款历史记录"""
-
-        self.driver.find_element(*self.collection_history).click()
-        time.sleep(1)
-        self.driver.find_element(*self.collection_name).click()
-        time.sleep(1)
-
-    def refund_collection(self):
-        """商户收款-退款"""
-
-        if self.findElement('Refund'):
-            self.driver.find_element(*self.refund).click()
-        else:
-            print('不存在退款或者已经退款了...')
-            pass
 
     def into_Assets(self):
         """进入总资产界面"""
@@ -693,26 +663,3 @@ class UsercenterPage(Base):
             print('不存在telegram引导页面，无须点击Skip.')
             pass
         self.driver.find_element(*self.center).click()
-
-    def complete_user_picture(self):
-        """完善个人资料-头像"""
-
-        self.driver.find_element(*self.head).click()  # 点击个人中心的头像
-        time.sleep(2)
-        self.driver.find_element(*self.head2).click()  # 点击个人资料的头像
-        time.sleep(1)
-        self.driver.find_element(*self.head_gallery).click()  # 选择图库的照片
-        time.sleep(2)
-        self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
-        time.sleep(3)
-        WebDriverWait(self.driver, timeout=60, poll_frequency=1).until(expected_conditions.presence_of_element_located(self.com)).click()
-        time.sleep(5)
-
-    def complete_user_gender(self):
-        """修改个人资料-性别"""
-        self.driver.find_element(*self.gender).click()
-        time.sleep(1)
-        # self.click2('Female')  # 选择女性
-        self.driver.find_element(*self.ok).click()
-        time.sleep(1)
-
