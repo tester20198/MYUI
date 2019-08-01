@@ -31,8 +31,6 @@ class EmergencynewsTestCase(unittest.TestCase):
             InsertLog().debug(msg)
             raise BaseException
 
-
-
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()

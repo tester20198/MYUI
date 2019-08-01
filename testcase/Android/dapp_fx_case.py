@@ -6,8 +6,6 @@ from PO.basePage import Base
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
 import time
-from Public.getLog import write_log, stop_log
-import time
 import PO.Android.dappFxPage
 
 
@@ -38,12 +36,10 @@ class DAppFxTestCase(unittest.TestCase):
     #     time.sleep(10)
     #     self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
 
-
-
     # def test_add_FXCard(self):
-    """
-    点击添加卡片按钮
-    """
+    # """
+    # 点击添加卡片按钮
+    # """
         # # if self.login_page.findElement("Skip"):
         # #     self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
         # #     time.sleep(2)
@@ -53,6 +49,7 @@ class DAppFxTestCase(unittest.TestCase):
         # time.sleep(2)
         # self.dapp_Page.add_fxcard()
         # time.sleep(3)
+
 
     def test_click_fx_setting(self):
         """

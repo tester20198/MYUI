@@ -3,8 +3,6 @@ import unittest
 from PO.Android.loginPage import LoginPage
 from PO.Android.usercenterPage import UsercenterPage
 from PO.basePage import Base
-from appium.webdriver.mobilecommand import MobileCommand
-from Public.getLog import write_log, stop_log
 import time
 
 
@@ -37,7 +35,6 @@ class UsercenterTestCase(unittest.TestCase):
     #     time.sleep(2)
     #     self.user_page.setting_kyc('first', 'second', 'third', '6742384')
 
-
     # def test_102_change_phone(self):
     #     """设置 -- 修改手机号"""
     #     time.sleep(3)
@@ -45,19 +42,17 @@ class UsercenterTestCase(unittest.TestCase):
     #     time.sleep(3)
     #     self.user_page.change_phone_call()
 
-
-
     # def test_103_change_email(self):
     #     """ 修改邮箱地址"""
     #     time.sleep(3)
     #     self.user_page.change_email(2222, '120@qq.com')
-
 
     # def test_104_general(self):
     #     """通用 - 语言及货币选择 """
     #     self.user_page.enter_usercenter()
     #     time.sleep(2)
     #     self.user_page.general()
+
 
     def test_001_check_code(self):
         time.sleep(1)
@@ -154,6 +149,13 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(5)
         self.user_page.into_help_disclaimer()
         time.sleep(5)
+
+    def test_012_edit_user_detail(self):
+        self.user_page.complete_user_picture()  # 上传头像
+        self.assertTrue(self.user_page.is_toast_exist('uploaded'), '判断上传头像成功')
+        self.user_page.complete_user_gender()
+        self.assertTrue(self.user_page.is_toast_exist('Saved'), '判断保存性别成功')
+        self.driver.back()
 
     @classmethod
     def tearDownClass(cls):

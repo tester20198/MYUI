@@ -1,14 +1,13 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
 import time
-from appium import webdriver
-import unittest
 
 
 class DappFxPage(Base):
     """
     Dapp FX页面元素
     """
+
 
     # Android#
     # -------DApp列表元素------------
@@ -17,7 +16,6 @@ class DappFxPage(Base):
     Dapp_add_card_btn = (By.ID, "ib_add_card")  # 添加卡片按钮
     Dapp_show_amout = (By.ID, "img_show_amout")  # 加密按钮
     fx_card_btn= (By.XPATH,"//android.widget.LinearLayout[@resource-id='com.pundix.xwallet:id/ll_layout_balance']") #点击进入fx卡
-
 
     # ----------fx卡片主界面元素---------------
     fx_amout = (By.ID, "tv_amout")  # fx卡片里面的加密按钮
@@ -72,7 +70,6 @@ class DappFxPage(Base):
     npxs_confirm = (By.ID, "btn_transfer")  # 确认转账按钮
     npxs_input_amount=(By.ID,"ed_available")#内部转账金额输入框
 
-
     # ---------NPXSXEM界面元素------------
     npxsxem_menu = (By.ID, "iv_menu")  # 帮助按钮
     npxsxem_view = (By.ID, "btn_transfer")  # view按钮
@@ -94,7 +91,6 @@ class DappFxPage(Base):
     npxsxem_transfer_next = (By.ID, "btn_transferNext")  # 下一步按钮
 
 
-
     def enter_dapp(self):
         """
         点击DAPP按钮
@@ -102,8 +98,6 @@ class DappFxPage(Base):
         # self.driver.find_element(*self.Dapp).click()
         self.click2("DApp")
         time.sleep(2)
-
-
 
     def add_fxcard(self):
         """
@@ -119,8 +113,6 @@ class DappFxPage(Base):
         else:
             self.driver.find_element(*self.Dapp_add_card_btn).click()
 
-
-
     def enter_fx_setting(self):
         """
         点击fx卡片的设置按钮
@@ -134,7 +126,6 @@ class DappFxPage(Base):
         :return:
         """
         self.driver.find_element(*self.fx_conversion_btn)
-
 
     def enter_conversion(self):
         """
@@ -244,7 +235,3 @@ class DappFxPage(Base):
 
         self.driver.find_element(*self.npxs_confirm).click()#点击确认按钮
         time.sleep(1)
-
-
-
-

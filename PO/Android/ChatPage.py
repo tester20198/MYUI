@@ -8,7 +8,6 @@ class ChatPage(Base):
     """
 
     click_chat = (By.XPATH,"//android.widget.TextView[@text='Chat']") #点击Chat菜单
-
     Search_nickname =(By.XPATH,"//android.widget.EditText[@text='xSearch']") #首页点击搜索联系人昵称
     select_contacts =(By.XPATH,"//android.view.ViewGroup[@index='0']") #搜索结果中第一人
     input_message =(By.XPATH,"//android.widget.EditText[@index='1']") #输入信息框

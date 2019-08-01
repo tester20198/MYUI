@@ -9,6 +9,7 @@ class ChatTestCase(unittest.TestCase):
     """
     Chat界面的测试用例
     """
+
     @classmethod
     def setUpClass(cls):
         Base.android_driver_caps["noReset"] = True
