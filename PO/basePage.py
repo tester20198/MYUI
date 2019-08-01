@@ -101,7 +101,7 @@ class Base:
         x, y = self.get_size()
         self.driver.swipe(x / 2, y * 3 / 4, x / 2, y / 4, duration)
 
-    def wait_element(self, time, element, msg):
+    def wait_element(self, time, frequency, element):
         """
         等待元素出现
         :param time: 等待时间
@@ -109,7 +109,7 @@ class Base:
         :param msg: 输出信息
         :return:
         """
-        WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(element), msg)
+        WebDriverWait(self.driver, timeout=time, poll_frequency=frequency).until(expected_conditions.presence_of_element_located(element))
 
     def clear(self, *el):
         """

@@ -1,5 +1,8 @@
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
+from selenium.common import exceptions
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 import time
 
 
@@ -10,17 +13,19 @@ class UsercenterPage(Base):
 
     center = (By.ID, "iv_user_icon")  # 个人中心
     # ———————————————————————头像区域——————————————————————————#
-    head = (By.ID, 'iv_head')  # 头像
+    head = (By.ID, 'iv_head')  # 个人中心-头像
+    head2 = (By.ID, 'rl_layout_hand')  # 个人资料-头像
     nickname = (By.ID, 'tv_nickname')  # 昵称
     change_head = (By.ID, 'rl_layout_hand')  # 头像—进入手机相机
     head_gallery = (By.ID, 'btn_gallery')  # 手机相册
+    com = (By.ID, 'menu_crop')  # 确定选择照片
     head_photo = (By.ID, 'btn_picturey')  # 照相
     photo = (By.XPATH,
              '/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.support.v4.widget.DrawerLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.ImageView')  # x选择照片
     photo_back = (By.XPATH,
                   '/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ImageButton')  # 相册页面的返回
     gender = (By.ID, 'iv_gender_arrow')  # 性别
-    ok = (By.ID, 'tv_complete')  # 性别选择框-ok
+    ok = (By.XPATH, '//android.widget.TextView[@resource-id="com.pundix.xwallet:id/tv_complete"]')  # 性别选择框-ok
     cancel = (By.ID, 'tv_cancel')  # 性别选择框-cancel
     option_btn = (By.ID, 'options1')  # 第一选项
 
@@ -655,3 +660,26 @@ class UsercenterPage(Base):
             print('不存在telegram引导页面，无须点击Skip.')
             pass
         self.driver.find_element(*self.center).click()
+
+    def complete_user_picture(self):
+        """完善个人资料-头像"""
+
+        self.driver.find_element(*self.head).click()  # 点击个人中心的头像
+        time.sleep(2)
+        self.driver.find_element(*self.head2).click()  # 点击个人资料的头像
+        time.sleep(1)
+        self.driver.find_element(*self.head_gallery).click()  # 选择图库的照片
+        time.sleep(2)
+        self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
+        time.sleep(3)
+        WebDriverWait(self.driver, timeout=60, poll_frequency=1).until(expected_conditions.presence_of_element_located(self.com)).click()
+        time.sleep(5)
+
+    def complete_user_gender(self):
+        """修改个人资料-性别"""
+        self.driver.find_element(*self.gender).click()
+        time.sleep(1)
+        # self.click2('Female')  # 选择女性
+        self.driver.find_element(*self.ok).click()
+        time.sleep(1)
+
