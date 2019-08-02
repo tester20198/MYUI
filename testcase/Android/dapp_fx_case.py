@@ -2,11 +2,16 @@ from appium import webdriver
 import unittest
 from PO.Android.loginPage import LoginPage
 from PO.Android.dappFxPage import DappFxPage
+from Public.getLog import InsertLog
 from PO.basePage import Base
 from PO.basePage import Base
 from selenium.webdriver.common.by import By
 import time
+from Public.getLog import write_log, stop_log
+import time
 import PO.Android.dappFxPage
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 
@@ -36,22 +41,22 @@ class DAppFxTestCase(unittest.TestCase):
     #     time.sleep(10)
     #     self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
 
-    # def test_add_FXCard(self):
-    # """
-    # 点击添加卡片按钮
-    # """
-        # # if self.login_page.findElement("Skip"):
-        # #     self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
-        # #     time.sleep(2)
-        #
-        #
-        # # self.dapp_Page.enter_dapp()#点击Dapp按钮
-        # time.sleep(2)
-        # self.dapp_Page.add_fxcard()
-        # time.sleep(3)
 
 
-    def test_click_fx_setting(self):
+
+    def test_001_add_FXCard(self):
+        """点击添加卡片按钮"""
+        if self.login_page.findElement("Skip"):
+            self.login_page.click2('Skip')  # 登录成功后，点击红包引导界面的"跳过"按钮
+            time.sleep(2)
+
+
+        self.dapp_Page.enter_dapp()#点击Dapp按钮
+        time.sleep(2)
+        self.dapp_Page.add_fxcard()
+        time.sleep(3)
+
+    def test_002_click_fx_setting(self):
         """
         进入fx_setting
         """
@@ -63,7 +68,7 @@ class DAppFxTestCase(unittest.TestCase):
         self.driver.back()
         time.sleep(2)
 
-    def test_conversion(self):
+    def test_003_conversion(self):
         """
         进入conversion界面
         """
@@ -73,28 +78,89 @@ class DAppFxTestCase(unittest.TestCase):
         self.driver.find_element_by_id(self.dapp_Page.conver_option_btn)
         time.sleep(2)
 
-    def test_fx_transfer(self,address='0xd298500D22A49EE4BDf34330887ad3451fD5B510',amount='0.1',emailCode='2222',payPassword='123456'):
+    def test_004_fx_transfer(self,address='0xd298500D22A49EE4BDf34330887ad3451fD5B510',amount='0.1',emailCode='2222',payPassword='123456'):
         """fx转账"""
         self.dapp_Page.Dapp_enter_fx()#点击DAPP界面的fx按钮
         self.dapp_Page.enter_fx()#点击fx卡片的fx按钮
         self.dapp_Page.fx_transfer(address,amount,emailCode,payPassword)#fx转账
 
-    def test_fx_bill(self):
+    def test_005_fx_bill(self):
         """fx账单"""
         self.dapp_Page.Dapp_enter_fx()
-        msg=self.dapp_Page.enter_fx()
-        self.assertEqual(msg,u"FX Distribution")#前面加个u是转换字符串
+        #msg=self.dapp_Page.enter_fx()
+        #self.assertEqual(msg,u"FX Distribution")#前面加个u是转换字符串
+        self.dapp_Page.enter_fx()
 
-    def test_npxs_help(self):
+        #self.assertTrue("FX Distribution")
+        self.assertTrue(self.dapp_Page.findElement("FX Distribution"))
+
+
+
+    def test_006_npxs_help(self):
         """NPXS的帮助按钮"""
-        self.dapp_Page.enter_NPXS_helpBtn()
+        self.dapp_Page.dapp_page()
+        self.dapp_Page.Dapp_enter_fx() #点击dapp界面的fx按钮
+        self.dapp_Page.enter_NPXSPage()#点击fx卡片的npxs按钮
 
-    def test_npxs_InterTransfer(self,amount='1'):
+        self.assertTrue(self.dapp_Page.enter_NPXS_helpBtn())  # 点击帮助按钮
+        self.dapp_Page.save_img('/006')
+        # InsertLog().debug('1111')
+
+    def test_007_npxs_changCard_position(self):
+        self.dapp_Page.Dapp_enter_fx() #点击dapp界面的fx按钮
+        self.dapp_Page.enter_NPXSPage()#点击fx卡片的npxs按钮
+        """切换NPXS卡片位置"""
+        self.dapp_Page.click_transfer_exchange()
+
+    def test_008_npxs_InterTransfer(self,amount='1'):
         """npxs的内部转账"""
         self.dapp_Page.Dapp_enter_fx() #点击dapp界面的fx按钮
         self.dapp_Page.enter_NPXSPage()#点击fx卡片的npxs按钮
         self.dapp_Page.enter_NPXS_transfer()#点击转账按钮
         self.dapp_Page.input_Internal_transfer_amount()#转账操作
+
+    def test_009_npxs_addChain(self,address='0xd298500D22A49EE4BDf34330887ad3451fD5B510',note='test1234'):
+        """NPXS添加链上地址"""
+        self.dapp_Page.Dapp_enter_fx()#点击dapp界面的fx按钮
+        self.dapp_Page.enter_NPXSPage()#点击fx卡片的npxs按钮
+        self.dapp_Page.click_npxs_add()#点击ADD按钮
+        self.dapp_Page.Add_NPXSchain_address(address,note)#输入链上地址以及备注
+
+
+    def test_010_npxsxem_heleBtn(self):
+        """点击npxsxem的帮助说明按钮"""
+        self.dapp_Page.click_npxsxem_helpBtn()
+
+    def test_011_npxsxem_receive(self):
+        """测试npxsxem倒计时"""
+        self.dapp_Page.Dapp_enter_fx() #点击dapp界面的fx按钮
+        self.dapp_Page.enter_NPXSXEMPage()#点击fx卡片的npxsxem按钮
+        self.dapp_Page.click_npxsxem_viewBtn()#点击npxsxem界面的view按钮
+        self.dapp_Page.click_npxsxem_receive()#点击npxsxem界面的received按钮
+        self.dapp_Page.click_npxsxem_receiveCountdown()#点击npxsxem界面的倒计时、copy相关操作
+
+    def test_012_npxsxem_transfer(self,npxsxem_address='TAZH6R4OUX3TOEXJCVU722JPMKLDBKPQ545XBV5O',amount='0.001',message='l4v2vizvev'):
+        """测试npxsxem转账"""
+        self.dapp_Page.Dapp_enter_fx() #点击dapp界面的fx按钮
+        self.dapp_Page.enter_NPXSXEMPage()#点击fx卡片的npxsxem按钮
+        self.dapp_Page.click_npxsxem_viewBtn()#点击view按钮
+        self.dapp_Page.click_npxsxem_transfer()#点击npxsxem界面的转账按钮
+        self.dapp_Page.npxsxem_transfer(npxsxem_address,amount,message)#npxsxem转账
+
+    def test_013_npxsxem_addNem(self):
+        """测试npxsxem添加链上地址"""
+
+        self.dapp_Page.Dapp_enter_fx()  # 点击dapp界面的fx按钮
+        self.dapp_Page.enter_NPXSXEMPage()  # 点击fx卡片的npxsxem按钮
+        self.dapp_Page.click_npxsxem_add()#点击npxsxem界面的add按钮
+        self.dapp_Page.add_npxsxem_chain_address()#添加npxsxem链上地址
+
+    def test_014_staking_protocol(self):
+        """测试进入协议"""
+        self.dapp_Page.Dapp_enter_fx()#点击dapp界面的fx按钮
+        self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
+        self.dapp_Page.enter_staking_protocol()#进入挖矿的协议界面
+
 
 if __name__ == '__main__':
         unittest.main(verbosity=0)
