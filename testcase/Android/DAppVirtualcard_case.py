@@ -82,6 +82,7 @@ class ChatTestCase(unittest.TestCase):
             self.Dapppage.save_img("/QTUM_Receive")
 
     def test_06_XEM_Receive(self):
+        pass
 
 
 
