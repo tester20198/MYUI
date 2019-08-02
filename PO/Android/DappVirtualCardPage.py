@@ -10,8 +10,8 @@ class DAPPPage(Base):
 
     # DAPP页面 虚拟卡片 DAPP首页
     Virtual_BTC = "BTC"  # 虚拟卡片中的BTC
-    Virtual_ETH = "ETH "  # 虚拟卡片中的ETH
-    Virtual_Go = "virtual"  # 虚拟卡片中的"更多"键
+    Virtual_ETH = "ETH " #虚拟卡片中的ETH
+    Virtual_Go = "virtual"  #虚拟卡片中的"更多"键
 
     # 虚拟卡片卡片详情页面
     Virtual_Eye = (By.ID, "tv_amout")  # 虚拟卡片中的加密按键
@@ -56,33 +56,30 @@ class DAPPPage(Base):
     Transfer_camera_premise = (By.ID, "button1")    # 转账页面扫码时相机权限
 
 
-    # BEP-2协议币种转账页面附言
-    Transfer_Memo = (By.ID, "ed_transfer_msg")  # 在转账页面点击Memo输入框
-    Transfer_Memo_Scan = (By.ID, "iv_msg_scan")  # 在Memo输入时选择扫码
+    #BEP-2协议币种转账页面附言
+    Transfer_Memo = (By.ID, "ed_transfer_msg")      #在转账页面点击Memo输入框
+    transfer_Memo_Scan = (By.ID,"iv_msg_scan")       #在Memo输入时选择扫码
 
-    # Google认证提示
-    Google_Notnow = (By.ID, "btn_no")  # Google认证时，选择Not Now
-    Google_confirm = (By.ID, "btn_yes")  # google认证时，选择confirm
+    #Google认证提示
+    Google_Notnow =(By.ID, "btn_no")    #Google认证时，选择Not Now
+    Google_confirm =(By.ID, "btn_yes")  #google认证时，选择confirm
 
-    # 添加提现地址
-    Add_Address = (By.ID, "iv_menu")  # 添加地址页面点击添加地址
-    Input_withdrawAddress = (By.ID, "et_withdrawAddress")   # 输入转账地址
-    Input_note = (By.ID, "et_withdrawRemarksInfo")  # 输入地址备注
-    Add_address_Send = (By.ID, "tv_send_email_code")  # 添加地址时，发送邮箱验证码
-    Add_address_Next = (By.ID, "btn_withdrawNext2")  # 添加转账地址时，输入验证码后，点击下一步
+    #添加提现地址
+    Add_address_Send = (By.ID, "tv_send_email_code")    #添加地址时，发送邮箱验证码
+    Add_address_Next = (By.ID, "btn_withdrawNext2")     #添加转账地址时，输入验证码后，点击下一步
 
-    # 虚拟卡片BEP-2协议币种(带附言的币种:BNB + NPXSXEM）
-    Virtual_BNB_QRcode = (By.ID, "btn_many_get_address")  # BNB查看充值地址二维码
-    Virtual_BNB_QRcode_close = (By.ID, "iv_close")  # BNB关闭充值地址二维码页面
-    Virtual_BNB_copy_address = (By.ID, "btn_many_copy_address")  # 复制BNB充值地址
-    Virtual_BNB_Memo_QRcode = (By.ID, "btn_many_get_message")  # BNB查看附言二维码
-    Virtual_BNB_Memo_close = (By.ID, "rl_layout_close")  # BNB关闭附言二维码页面
-    Virtual_BNB_Copy_Memo = (By.ID, "btn_many_copy_message")  # BNB 复制附言
+    #虚拟卡片BEP-2协议币种(带附言的币种:BNB + NPXSXEM）
+    Virtual_BNB_QRcode =(By.ID, "btn_many_get_address")     #BNB查看充值地址二维码
+    Virtual_BNB_QRcode_close = (By.ID, "iv_close")      #BNB关闭充值地址二维码页面
+    Virtual_BNB_copy_address = (By.ID, "btn_many_copy_address")     #复制BNB充值地址
+    Virtual_BNB_Memo_QRcode  = (By.ID, "btn_many_get_message")      #BNB查看附言二维码
+    Virtual_BNB_Memo_close = (By.ID,"rl_layout_close")      #BNB关闭附言二维码页面
+    Virtual_BNB_Copy_Memo = (By.ID, "btn_many_copy_message")    #BNB 复制附言
 
-    # 虚拟卡片NPXSXEM
-    Virtual_NPXEXEM_time = (By.ID, "tv_count_down_timer")  # NPXSXEM 查看充值地址，弹出5说明提醒界面
-    Virtual_NPXSXEM_agree = (By.ID, "cb_select_agree")  # NPXSXEM 查看充值地址，同意协议
-    Virtual_NPXSXEM_Transfer = (By.ID, "btn_ok")  # NPXSXEM 转账弹出确认按钮
+    #虚拟卡片NPXSXEM
+    Virtual_NPXEXEM_Address = (By.ID,"tv_count_down_timer")     #NPXSXEM 查看充值地址，弹出5说明提醒界面
+    Virtual_NPXSXEM_agree = (By.ID, "cb_select_agree")      #NPXSXEM 查看充值地址，同意协议
+    Virtual_NPXSXEM_Transfer = (By.ID, "btn_ok")        #NPXSXEM 转账弹出确认按钮
 
     # 内部划账
     Virtual_Internal_Transfer_entrance  = (By.ID, "tv_refresh")  # 虚拟卡片中内部划转入口
@@ -99,41 +96,32 @@ class DAPPPage(Base):
     Virtual_Internal_Transfer_Available = (By.ID, "ed_available")  # 内部划转手动输入金额
     Virtual_Internal_Transfer_Confirm = (By.ID, "btn_transfer")  # 内部划转选择确认
 
-    # 虚拟卡片卡片详情中的历史账单
-    Virtual_Transition_Hisrory = (By.ID, "rl_layout_payinfo")  # 虚拟卡片，卡片详情中的历史账单
-    Receive = 'Receive'  # 收款类型
-    Expenditure = 'Expenditure'  # 消费类型
-    Transfer = 'Transfer'  # 转账类型
-    Extra = 'Extra'  # 活动类型
-    Distribution = 'Distribution'
-    Collection1 = 'Collection'  # 收款类型
-    Refund = 'Refund'  # 退款类型
-    Crypto_Gift_Sent = 'Crypto_Gift_Sent'  # telegram红包发送
-    Crypto_Gift_Received = 'Crypto_Gift_Received'  # telegram红包接收
-    Crypto_Gift_Refund = 'Crypto_Gift_Refund'  # telegram红包退款
+    #虚拟卡片卡片详情中的历史账单
+    Virtual_Transition_Hisrory = (By.ID,"rl_layout_payinfo")    #虚拟卡片，卡片详情中的历史账单
 
-    # 添加XPASS卡
-    Add_card = (By.ID, "ib_add_card")  # 添加卡片按钮
-    Add_XPASS = "XPASS"  # 点击添加XPASS卡
-    Add_XPASS_No = (By.ID, "ed_addCardXpassNO")  # 输入XPASS卡号输入框
-    Add_XPASS_Next = (By.ID, "btn_addCardNext")  # 输入卡号后下一步按钮
-    Add_XPASS_6pin_code = (By.ID, "ed_addCardXpassNO")  # 输入6位密码
-    Add_XPASS_confirm = (By.ID, "btn_addCardNext")  # 最后一步确认按键
 
-    # 添加开放平台卡片
-    Add_opencard = (By.ID, "item_card_tv_virtual")  # 选择开放平台卡片点击区域
-    Add_opencard_select_Virtual = (By.ID, "rl_virtualFlag")  # 添加开放平台卡片时，选择添加虚拟卡
-    Add_opencard_select_Physical = (By.ID, "rl_physicalFlag")  # 添加开放平台卡片时，选择添加物理卡片
+    #添加XPASS卡
+    Add_card =(By.ID, "ib_add_card")        #添加卡片按钮
+    Add_XPASS = "XPASS"    #点击添加XPASS卡
+    Add_XPASS_No = (By.ID , "ed_addCardXpassNO")       #输入XPASS卡号输入框
+    Add_XPASS_Next = (By.ID, "btn_addCardNext")         #输入卡号后下一步按钮
+    Add_XPASS_6pin_code = (By.ID, "ed_addCardXpassNO")      #输入6位密码
+    Add_XPASS_confirm = (By.ID, "btn_addCardNext")      #最后一步确认按键
+
+    #添加开放平台卡片
+    Add_opencard = (By.ID, "item_card_tv_virtual")  #选择开放平台卡片点击区域
+    Add_opencard_select_Virtual = (By.Id, "rl_virtualFlag")     #添加开放平台卡片时，选择添加虚拟卡
+    Add_opencard_select_Physical =(By.ID, "rl_physicalFlag")    #添加开放平台卡片时，选择添加物理卡片
 
     # 开放平台卡片
-    Open_Platform_Card_Pay = "Pay"  # 点击开放平台卡片Pay按钮
-    Open_Platform_Card_Transfer = "Transfer"  # 点击开放平台卡片上的Transfer按钮
-    Open_Platform_Card_Website = "Website"  # 开放平台卡片上的开发者网站
+    Open_Platform_Card_Pay ="Pay"   #点击开放平台卡片Pay按钮
+    Open_Platform_Card_Transfer = "Transfer"  #点击开放平台卡片上的Transfer按钮
+    Open_Platform_Card_Website ="Website"    #开放平台卡片上的开发者网站
 
-    # 添加开放平台APP
-    open_platform_app_Add = "FamilyMart"  # 添加开放平台APP
-    Open_Platfrom_app = "familymart"  # 点击DApp首页APP入口
-    Open_Platform_app_About = "About us"  # 点击DAPP首页关于入口
+    #添加开放平台APP
+    open_platform_app_Add ="FamilyMart"   #添加开放平台APP
+    Open_Platfrom_app = "familymart"     #点击DApp首页APP入口
+    Open_Platform_app_About = "About us"   #点击DAPP首页关于入口
 
     def enter_dapp(self):
         """
@@ -437,6 +425,166 @@ class DAPPPage(Base):
 
 
 
+
+
+
+
+
+    def add_XPASS_card(self, num, pin):
+        """
+        添加XPASS卡
+        num:XPASS卡号
+        pin:卡号密码
+        """
+
+        self.driver.find_element(*self.Add_card).click()
+        self.driver.find_element(*self.Add_XPASS).click()
+        time.sleep(1)
+        self.driver.find_element(*self.Add_XPASS_No).send_keys(num)
+        self.driver.find_element(*self.Add_XPASS_Next).click()
+
+        if self.is_toast_exist('not found'):
+            print(f'卡号{num}没找到，请输入正确的卡号')
+        elif self.is_toast_exist('activitied'):
+            print(f'卡号{num}未被激活，请先激活...')
+        else:
+            self.driver.find_element(*self.Add_XPASS_6pin_code).send_keys(pin)
+            self.driver.find_element(*self.Add_XPASS_confirm)
+            if self.is_toast_exist('already'):
+                print(f'该{num}已被添加过！')
+            elif self.is_toast_exist('password'):
+                print(f'卡号的密码{pin}不对')
+            else:
+                time.sleep(1)
+                return True
+
+    def XPASS_BTC_icon(self):
+        """从XPASS卡的一级页，点击BTC icon"""
+
+        XPASS_BTC = (By.XPATH, '//android.widget.ImageView[@resource-id="com.pundix.xwallet:id/iv_recod" and @instance=7]')
+        self.driver.find_element(*XPASS_BTC).click()  # 点击XPASS卡的BTC
+        time.sleep(3)
+
+    def XPASS_ETH_icon(self):
+        """从XPASS卡的一级页，点击ETH icon"""
+
+        XPASS_ETH = (By.XPATH, '//android.widget.ImageView[@resource-id="com.pundix.xwallet:id/iv_recod" and @instance=8]')
+        self.driver.find_element(*XPASS_ETH).click()  # 点击XPASS卡的ETH
+        time.sleep(3)
+
+    def into_XPASS_card(self):
+        """进入XPASS card页面"""
+
+        self.click2('black')
+
+    def click_card_setting(self):
+        """点击卡片的设置"""
+
+        self.into_XPASS_card()
+        self.driver.find_element(*self.Virtual_Setting).click()  # 点击黑卡的设置
+
+    def click_card_bill(self):
+        """点击卡片的账单"""
+
+        self.into_XPASS_card()
+        self.driver.find_element(*self.Virtual_bills).click()  # 点击黑卡的账单
+
+    def click_card_eye(self):
+        """点击卡片的眼睛，加密余额"""
+
+        self.driver.find_element(*self.Virtual_Eye).click()
+
+    def into_coin_detail(self, coin):
+
+        self.click2(coin)
+        time.sleep(2)
+
+    def check_QR_code(self):
+        """检查是否加载付款二维码是否正确"""
+
+        if self.driver.find_element(*self.QR_code).is_enabled():  # 判断元素是否可用
+            return True
+        else:
+            return False
+
+    def click_refresh(self):
+        """点击付款二维码下的刷新按钮"""
+
+        if self.check_QR_code():
+            self.driver.find_element(*self.Virtual_refresh).click()
+            time.sleep(1)
+        else:
+            raise ConnectionError
+
+    def click_more(self):
+        """点击卡片详情页中的更多按钮"""
+
+        self.driver.find_element(*self.Virtual_Menu).click()
+
+    def click_card_internal_transfer(self):
+        """点击卡片中的内部划转"""
+
+        self.click_more()
+        self.driver.find_element(*self.Virtual_Internal_Transfer).click()
+        time.sleep(1)
+
+    def click_card_instrucment(self):
+        """点击卡片中的说明"""
+
+        self.click_more()
+        self.driver.find_element(*self.card_instrucment).click()
+        time.sleep(3)
+
+    def check_card_Receive(self):
+        """
+        卡片的 充值  功能
+        针对：BTC ETH NPXS
+        """
+
+        self.driver.find_element(*self.Virtual_Receive).click()
+        time.sleep(2)
+        self.driver.find_element(*self.Virtual_view_Address).click()
+        time.sleep(1)
+        if self.driver.find_element(*self.receive_address).is_enabled():
+            self.driver.find_element(*self.Virtual_Copy_Address).click()
+            return True
+        else:
+            return False
+
+    def click_card_transfer(self, switch=0):
+        """
+        点击卡片的 转账  功能
+        针对：BTC ETH NPXS
+        """
+
+        self.driver.find_element(*self.Virtual_transfer).click()
+        # 是否开启2FA，默认不开启
+        if switch == 0:  # 不开启2FA
+            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+                self.driver.find_element(*self.Google_Notnow).click()
+                time.sleep(1)
+            else:
+                pass
+        else:  # 开启2FA
+            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+                self.driver.find_element(*self.Google_confirm).click()
+                time.sleep(1)
+            else:
+                pass
+        self.driver.find_element(*self.Virtual_transfer).click()
+
+    def transfer(self, address, money):
+        """
+        输入卡片的 转账  数据
+        针对：BTC ETH NPXS
+        """
+
+        self.click_card_transfer()
+        time.sleep(2)
+        self.driver.find_element(*self.Transfer_Address).send_keys(address)
+        self.driver.find_element(*self.Transfer_money).send_keys(money)
+        time.sleep(3)
+        self.driver.find_element(*self.Tranfer_Next).click()
 
 
 

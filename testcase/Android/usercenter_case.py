@@ -24,35 +24,68 @@ class UsercenterTestCase(unittest.TestCase):
         cls.user_page.go_to_usercenter()
         time.sleep(1)
 
+        # def test_100_vouchers(self):
+        #     """ 我的优惠券"""
+        #     time.sleep(3)
+        #     self.user_page.my_vouchers()
 
-    # def test_100_vouchers(self):
-    #     """ 我的优惠券"""
-    #     time.sleep(3)
-    #     self.user_page.my_vouchers()
-    #
-    # def test_101_kyc(self):
-    #     """设置KYC-第一页"""
-    #     time.sleep(2)
-    #     self.user_page.setting_kyc('first', 'second', 'third', '6742384')
+        # def test_101_kyc(self):
+        #     """设置KYC-第一页"""
+        #     time.sleep(2)
+        #     self.user_page.setting_kyc('first', 'second', 'third', '6742384')
 
-    # def test_102_change_phone(self):
-    #     """设置 -- 修改手机号"""
-    #     time.sleep(3)
-    #     self.user_page.change_phone(2222, 4120909090)
-    #     time.sleep(3)
-    #     self.user_page.change_phone_call()
+        # def test_102_change_phone(self):
+        #     """设置 -- 修改手机号"""
+        #     time.sleep(3)
+        #     self.user_page.change_phone(2222, 4120909090)
+        #     time.sleep(3)
+        #     self.user_page.change_phone_call()
+        #
+        # def test_103_change_email(self):
+        #     """ 修改邮箱地址"""
+        #     time.sleep(3)
+        #     self.user_page.change_email(2222, '120@qq.com')
 
-    # def test_103_change_email(self):
-    #     """ 修改邮箱地址"""
-    #     time.sleep(3)
-    #     self.user_page.change_email(2222, '120@qq.com')
+        # def test_104_change_loginPWD(self):
+        #     """修改登录密码"""
+        #     time.sleep(2)
+        #     self.user_page.change_login_pwd('Test1234')
 
-    # def test_104_general(self):
-    #     """通用 - 语言及货币选择 """
-    #     self.user_page.enter_usercenter()
-    #     time.sleep(2)
-    #     self.user_page.general()
+        # def test_105_change_payPWD(self):
+        #     """修改支付密码"""
+        #     time.sleep(2)
+        #     self.user_page.change_payPwd('123456')
 
+        # def test_106_forget_payPwd(self):
+        #     """忘记支付密码"""
+        #     time.sleep(2)
+        #     self.user_page.forget_payPwd('2222')
+
+        # def test_107_pattern(self):
+        #     """手势密码设置"""
+        #     time.sleep(2)
+        #     self.user_page.pattern()
+
+        # def test_108_fingerprint(self):
+        #     """指纹识别设置"""
+        #     time.sleep(2)
+        #     self.user_page.fingerprint()
+
+        # def test_109_google(self):
+        #     """谷歌验证码"""
+        #     time.sleep(2)
+        #     self.user_page.google('2222')
+
+    def test_110_general(self):
+        """通用 - 语言及货币选择 """
+        time.sleep(2)
+        self.user_page.general()
+        print(self.driver.page_source)
+
+    def test_111_about(self):
+        """关于界面"""
+        time.sleep(2)
+        self.user_page.about()
 
     def test_001_check_code(self):
         time.sleep(1)
