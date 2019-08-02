@@ -22,7 +22,7 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(5)
         cls.user_page = UsercenterPage(cls.driver)  # 初始化个人中心页元素以及方法
         cls.user_page.go_to_usercenter()
-        time.sleep(1)
+        time.sleep(2)
 
         # def test_100_vouchers(self):
         #     """ 我的优惠券"""
@@ -88,7 +88,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.about()
 
     def test_001_check_code(self):
-        time.sleep(1)
+        time.sleep(2)
         self.user_page.into_Collection()  # 进入收款页面
         time.sleep(1)
         self.assertTrue(self.user_page.check_QR_code(), '判断是否加载收款二维码成功')
@@ -112,9 +112,9 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.refund_collection()
 
     def test_005_assets_account(self):
-        # self.driver.back()
-        # self.driver.back()
-        # self.driver.back()   # 退回个人中心页面
+        self.driver.back()
+        self.driver.back()
+        self.driver.back()   # 退回个人中心页面
         self.user_page.into_Assets()  # 进入总资产页面
         time.sleep(2)
         self.user_page.click2(self.user_page.Assets_Accounts)  # 总资产-Accounts

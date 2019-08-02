@@ -302,7 +302,7 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.verification_new_code).send_keys(code)
         self.change_phone_call()
         time.sleep(4)
-        self.driver.find_element(*self.new_confirm).click  # 提交修改的数据
+        self.driver.find_element(*self.new_confirm).click()  # 提交修改的数据
         time.sleep(3)
         self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
         time.sleep(2)

@@ -26,6 +26,7 @@ class DAPPPage(Base):
     Virtual_NPXSXEM_Detail = "NPXSXEM"  # 虚拟卡片卡片详情中的NPXSXEM
 
     # 各币种详情页面
+    QR_code = (By.ID, 'iv_qr_code')  # 付款码
     Virtual_Receive = (By.ID, "btn_recharge")  # 查看虚拟卡片充值地址
     Virtual_transfer = (By.ID, "btn_withdraw")  # 查看虚拟卡片转账地址
     Virtual_Menu = (By.ID, "iv_menu")  # 虚拟卡片详情页面的菜单按键
@@ -38,6 +39,7 @@ class DAPPPage(Base):
     Virtual_Copy_Address = (By.ID, "btn_single_copy")  # 复制虚拟卡片充值地址
     Receiving_address_close = (By.ID, "iv_close")  # 查看充值地址说明页面的关闭按键
     Receive_address_code = (By.ID, 'iv_single_qr_code') # 充值二维码
+    card_instrucment = (By.ID, 'tv_help')
 
     # 转账页面
     Transfer_Address = (By.ID, "ed_receivingAddress")  # 在转账页面，输入地址
@@ -54,6 +56,12 @@ class DAPPPage(Base):
     Transfer_Pay_password = (By.ID, "ed_pay_password")  # 转账页面输入支付密码
     Transfer_confirm = (By.ID, "btn_confirm")   # 转账页面输入验证码和密码后Confirm
     Transfer_camera_premise = (By.ID, "button1")    # 转账页面扫码时相机权限
+    Transfer_money = (By.ID, 'ed_coinNumber')  # 充值金额
+    Tranfer_Next = (By.ID, "btn_withdraw")  # 转账页面点击下一步
+    Add_Address = (By.ID, "iv_menu")  # 转账页面添加转账地址
+    Input_withdrawAddress = (By.ID, "et_withdrawAddress")  # 输入转账地址
+    Input_note = (By.ID, "et_withdrawRemarksInfo")  # 输入地址备注
+    Transfer_Memo_Scan = (By.ID, "iv_msg_scan")  # 在Memo输入时选择扫码
 
 
     #BEP-2协议币种转账页面附言
@@ -123,13 +131,18 @@ class DAPPPage(Base):
     Open_Platfrom_app = "familymart"     #点击DApp首页APP入口
     Open_Platform_app_About = "About us"   #点击DAPP首页关于入口
 
-    def enter_dapp(self):
-        """
-        点击DAPP按钮
-        """
-        # self.driver.find_element(*self.Dapp).click()
-        self.click2("DApp")
-        time.sleep(2)
+    # 账单类型
+    Receive = 'Receive'  # 收款类型
+    Expenditure = 'Expenditure'  # 消费类型
+    Transfer = 'Transfer'  # 转账类型
+    Extra = 'Extra'  # 活动类型
+    Distribution = 'Distribution'
+    Collection1 = 'Collection'  # 收款类型
+    Refund = 'Refund'  # 退款类型
+    Crypto_Gift_Sent = 'Crypto_Gift_Sent'  # telegram红包发送
+    Crypto_Gift_Received = 'Crypto_Gift_Received'  # telegram红包接收
+    Crypto_Gift_Refund = 'Crypto_Gift_Refund'  # telegram红包退款
+
 
     def click_Virtual_BTC(self):
         """
@@ -153,21 +166,21 @@ class DAPPPage(Base):
         """
         点击虚拟卡片上的眼睛加密按键
         """
-        self.click_virtual_More()
+
         self.driver.find_element(*self.Virtual_Eye).click()
 
     def click_setting(self):
         """
         点击虚拟卡片上的设置按键
         """
-        self.click_virtual_More()
+
         self.driver.find_element(*self.Virtual_Setting).click()
 
     def click_bills(self):
         """
         点击虚拟卡片上的账单按钮
         """
-        self.click_virtual_More()
+
         self.driver.find_element(*self.Virtual_bills).click()
 
     def click_BTC_Detail(self):
@@ -426,10 +439,6 @@ class DAPPPage(Base):
 
 
 
-
-
-
-
     def add_XPASS_card(self, num, pin):
         """
         添加XPASS卡
@@ -499,7 +508,7 @@ class DAPPPage(Base):
         self.click2(coin)
         time.sleep(2)
 
-    def check_QR_code(self):
+    def check_QR_code2(self):
         """检查是否加载付款二维码是否正确"""
 
         if self.driver.find_element(*self.QR_code).is_enabled():  # 判断元素是否可用
@@ -510,7 +519,7 @@ class DAPPPage(Base):
     def click_refresh(self):
         """点击付款二维码下的刷新按钮"""
 
-        if self.check_QR_code():
+        if self.check_QR_code2():
             self.driver.find_element(*self.Virtual_refresh).click()
             time.sleep(1)
         else:
@@ -545,7 +554,7 @@ class DAPPPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.Virtual_view_Address).click()
         time.sleep(1)
-        if self.driver.find_element(*self.receive_address).is_enabled():
+        if self.driver.find_element(*self.Receive_address_code).is_enabled():
             self.driver.find_element(*self.Virtual_Copy_Address).click()
             return True
         else:
@@ -573,7 +582,7 @@ class DAPPPage(Base):
                 pass
         self.driver.find_element(*self.Virtual_transfer).click()
 
-    def transfer(self, address, money):
+    def ERC20_transfer(self, address, money):
         """
         输入卡片的 转账  数据
         针对：BTC ETH NPXS
@@ -585,6 +594,32 @@ class DAPPPage(Base):
         self.driver.find_element(*self.Transfer_money).send_keys(money)
         time.sleep(3)
         self.driver.find_element(*self.Tranfer_Next).click()
+
+    def send_codes(self, mcode=2222, ecode=2222, pwd=123456):
+        """
+        转账界面输入验证码
+        :param mcode: 手机验证码
+        :param ecode: 邮箱验证码
+        :return:
+        """
+
+        if self.driver.find_element(*self.Transfer_Send_email).is_enabled():
+            self.driver.find_element(*self.Transfer_Send_email).send_keys(ecode)
+        else:
+            pass
+        if self.driver.find_element(*self.Transfer_Send_SMS).is_enabled():
+            self.driver.find_element(*self.Transfer_Send_SMS).send_keys(mcode)
+        else:
+            pass
+        self.driver.find_element(*self.Transfer_Pay_password).send_keys(pwd)
+
+    def confirm_transfer(self):
+        """确认转账"""
+
+        self.Sys_back()
+        self.driver.find_element(*self.Transfer_confirm).click()
+
+
 
 
 
