@@ -65,7 +65,7 @@ class ChatTestCase(unittest.TestCase):
         self.Dapppage.click_BNB_Detail()
         time.sleep(2)
         self.Dapppage.Copy_Address_Memo()
-        self.Dapppage.save_img("/BNB_Recevice") # 保存BNB充值地址图片
+        self.Dapppage.save_img("/BNB_Recevice")     # 保存BNB充值地址图片
         self.Dapppage.driver.back()
 
     def test_05_QTUM_Receive(self):
@@ -82,8 +82,20 @@ class ChatTestCase(unittest.TestCase):
             self.Dapppage.save_img("/QTUM_Receive")
 
     def test_06_XEM_Receive(self):
-        pass
+        """点击查看XEM充值地址"""
+        self.Dapppage.click_virtual_More()
+        self.Dapppage.click_XEM_Detail()
+        time.sleep(2)
+        self.Dapppage.Copy_Address_Memo()
+        self.Dapppage.save_img("/XEM_Recevice")  # 保存XEM充值地址图片
 
+    def test_07_NPXSXEM_Recevice(self):
+        """点击查看NPXSXEM充值地址"""
+        self.Dapppage.click_virtual_More()
+        self.Dapppage.click_NPXSXEM_Detail()
+        time.sleep(2)
+        self.Dapppage.Copy_Address_Memo()
+        self.Dapppage.save_img("/NPXSXEM_Recevice")  # 保存NPXSXEM充值地址图片
 
 
     def test_01_BNB_transfer(self):

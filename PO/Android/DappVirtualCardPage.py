@@ -279,7 +279,7 @@ class DAPPPage(Base):
                 print('找不到该类型账单...')
 
 
-    def Click_Transfer_without_Memo(self):
+    def Click_Transfer_without_Memo(self, address):
 
         """
           无Memo类型的货币，转账页面操作
@@ -290,7 +290,7 @@ class DAPPPage(Base):
         else:
             pass
         time.sleep(2)
-        self.driver.find_element(*self.Transfer_Address).send_keys('midWvkgYPSXHgkYHibfW5LK7Bkqg3GVqPV')    # 转账输入BTC地址
+        self.driver.find_element(*self.Transfer_Address).send_keys(address)    # 转账输入BTC地址
         self.driver.find_element(*self.Transfer_Amount_All).click()     # 转账页面转全部金额
         self.driver.find_element(*self.Transfer_Next).click()       # 输入金额后点下一步
 
@@ -375,7 +375,7 @@ class DAPPPage(Base):
         else:
             return False
 
-    def Click_Transfer_with_memo(self):
+    def Click_Transfer_with_memo(self, address):
         """
         有Memo的货币，在转账页面输入转账地址，金额，等操作
         """
@@ -400,7 +400,7 @@ class DAPPPage(Base):
         time.sleep(1)
         self.driver.back()      # 在相机扫码界面点击返回
         time.sleep(1)
-        self.driver.find_element(*self.Transfer_Address).send_keys("tbnb1x5n9ck6xhexwfjpxmp2ygg0ypndmrnfv9l45de")       # 拉起键盘输入转账地址
+        self.driver.find_element(*self.Transfer_Address).send_keys(address)       # 拉起键盘输入转账地址
         self.driver.find_element(*self.Transfer_Amount_All).click()     # 转出金额点击All
         self.driver.find_element(*self.Transfer_Memo).send_keys("")     # 转出到外部地址，不输入附言
         self.driver.find_element(*self.Transfer_Next).click()   # 点击下一步
