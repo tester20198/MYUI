@@ -465,6 +465,52 @@ class UsercenterPage(Base):
 
         self.driver.find_element(*self.Collection).click()
 
+    def check_QR_code(self):
+        """
+        检查二维码是否正常展示
+        :return:
+        """
+
+        try:
+            self.driver.find_element(*self.QR_code).is_displayed()  # 二维码出现
+            return True
+        except exceptions.NoSuchElementException as E:
+            print('找不到收款二维码...', E)
+            return False
+
+    def save_QRcode(self):
+        """
+        保存收款二维码
+        :return:
+        """
+
+        if self.check_QR_code():
+            if self.findElement('Allow'):  # 权限询问弹窗
+                self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
+                self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
+            else:
+                pass
+            self.driver.find_element(*self.save_code).click()
+        else:
+            raise exceptions.ElementNotVisibleException
+
+    def check_collection_history(self):
+        """进入收款历史记录"""
+
+        self.driver.find_element(*self.collection_history).click()
+        time.sleep(1)
+        self.driver.find_element(*self.collection_name).click()
+        time.sleep(1)
+
+    def refund_collection(self):
+        """商户收款-退款"""
+
+        if self.findElement('Refund'):
+            self.driver.find_element(*self.refund).click()
+        else:
+            print('不存在退款或者已经退款了...')
+            pass
+
     def into_Assets(self):
         """进入总资产界面"""
 
