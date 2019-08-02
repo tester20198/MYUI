@@ -97,13 +97,28 @@ class ChatTestCase(unittest.TestCase):
         self.Dapppage.Copy_Address_Memo()
         self.Dapppage.save_img("/NPXSXEM_Recevice")  # 保存NPXSXEM充值地址图片
 
-
-    def test_01_BNB_transfer(self):
-        self.Dapppage.click_BNB_Detail()
-        self.Dapppage.Virtual_transfer()
+    def test_08_BTC_transfer(self):
+        """BTC转账"""
+        self.Dapppage.click_BTC_Detail()
+        self.Dapppage.Click_Transfer_without_Memo("mxSDkQSmejdeKEKMkNnjQV9jHfwFTudg9v")
         self.Dapppage.Send_code()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist('succee'))
             self.assertFalse(self.Dapppage.is_toast_exist('server'))
         except AssertionError:
-            self.Dapppage.save_img('/BNB_transfer')
+            self.Dapppage.save_img('BTC_transfer')
+
+    def test_09_ETH_transfer(self):
+        """ETH转账"""
+        self.Dapppage.click_ETH_Detail()
+        self.Dapppage.Click_Transfer_without_Memo("0xc9d83706efffc99896962cbb6025d67b2cb84b89")
+        self.Dapppage.Send_code()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succee"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("ETH_transfer")
+
+    def test_10_NPXS_transfer(self):
+        """NPXS转账"""
+        self.Dapppage.click_NPXS_Detail()
