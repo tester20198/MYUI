@@ -161,6 +161,41 @@ class DAppFxTestCase(unittest.TestCase):
         self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
         self.dapp_Page.enter_staking_protocol()#进入挖矿的协议界面
 
+    def test_015_staking_startMining(self):
+        """测试开始挖矿"""
+        self.dapp_Page.Dapp_enter_fx()#点击dapp界面的fx按钮
+        self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
+        self.assertFalse(self.dapp_Page.click_start_staking())
+
+    def test_016_staking_history(self):
+        """测试挖矿历史"""
+        self.dapp_Page.Dapp_enter_fx()#点击dapp界面的fx按钮
+        self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
+        self.dapp_Page.click_staking_setting()#点击右上角的更多按钮
+        self.dapp_Page.click_staking_history()#点击挖矿历史界面
+        self.assertTrue(self.dapp_Page.findElement("Staking History"))#断言是否成功进入staking history界面
+
+    def test_017_staking_shart(self):
+        """测试挖矿分享"""
+        self.dapp_Page.Dapp_enter_fx()#点击dapp界面的fx按钮
+        self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
+        self.dapp_Page.click_staking_setting()#点击右上角的更多按钮
+        self.dapp_Page.click_staking_shareTo()#点击分享按钮
+        self.assertTrue(self.dapp_Page.findElement("Share to"))#断言是否成功进入分享界面
+
+    def test_018_staking_guide(self):
+        """测试挖矿说明"""
+        self.dapp_Page.Dapp_enter_fx()#点击dapp界面的fx按钮
+        self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
+        self.dapp_Page.click_staking_setting()#点击右上角的更多按钮
+        self.dapp_Page.click_staking_guide()#点击右上角的挖矿说明按钮
+        self.assertTrue(self.dapp_Page.findElement("Staking Guide"))  # 断言是否成功进入说明界面界面
+
+    def test_019_fresh_staking(self):
+        """测试挖矿界面的下拉刷新"""
+        self.dapp_Page.Dapp_enter_fx()  # 点击dapp界面的fx按钮
+        self.dapp_Page.enter_staking()  # 点击fx卡片的staking按钮
+        self.dapp_Page.fresh_staking()#下拉刷新
 
 if __name__ == '__main__':
         unittest.main(verbosity=0)

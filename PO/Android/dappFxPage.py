@@ -20,8 +20,10 @@ class DappFxPage(Base):
     Dapp_enter_fx_card = "FX"  # 点击fxcard
     Dapp_add_card_btn = (By.ID, "ib_add_card")  # 添加卡片按钮
     Dapp_show_amout = (By.ID, "img_show_amout")  # 加密按钮
-    fx_card_btn= (By.XPATH,"//android.widget.LinearLayout[@resource-id='com.pundix.xwallet:id/ll_layout_balance']") #点击进入fx卡
-
+    #uat2环境
+    #fx_card_btn= (By.XPATH,"//android.widget.LinearLayout[@resource-id='com.pundix.xwallet:id/ll_layout_balance']") #点击进入fx卡
+    #uat3环境
+    fx_card_btn = (By.XPATH, "//android.widget.LinearLayout[@resource-id='com.pundix.xwallet: id / tv_balance']")  # 点击进入fx卡
 
     # ----------fx卡片主界面元素---------------
     fx_amout = (By.ID, "tv_amout")  # fx卡片里面的加密按钮
@@ -44,6 +46,7 @@ class DappFxPage(Base):
     staking_gotoKyc=(By.XPATH,"//android.widget.Button[@resource-id='commonBigBtnKyc']")#gotokyc 按钮
     staking_closeBtn=(By.ID,"toolbar")#挖矿界面左上角的关闭按钮
     staking_option_btn = (By.ID, "option")  # 挖矿界面右上角的更多按钮
+    staking_rl_layout_option=(By.ID,"rl_layout_option")#挖矿右上角的更多按钮
     staking_Guide = (By.ID, "option1")  # 挖矿界面guide按钮
     staking_history = (By.ID, "option2")  # 挖矿界面staking history按钮
     staking_startTime = (By.ID, "startTime")  # 挖矿开始时间
@@ -54,6 +57,10 @@ class DappFxPage(Base):
     staking_shart = (By.ID, "option3")  # 挖矿界面分享按钮
     staking_pwCancel = (By.ID, "tv_pwCancel")  # 取消分享按钮
     staking_cancle = (By.ID, "cancle")  # 取消按钮
+    staking_withdraw=(By.XPATH,"//android.view.View[@resource-id='showRecharge']")#提现按钮
+    staking_startMining=(By.XPATH,"//android.view.View[@resource-id='startMining']")#开始挖矿按钮
+
+
 
     # -----------fx转账界面元素----------
     fx_page_transfer = (By.ID, "btn_withdraw")  # 转账按钮
@@ -189,6 +196,7 @@ class DappFxPage(Base):
 
     def Dapp_enter_fx(self):
         """从Dapp界面进入fx转账界面"""
+        time.sleep(3)
         self.driver.find_element(*self.fx_card_btn).click()  # 点击DAPP界面的fx按钮
         time.sleep(2)
 
@@ -417,4 +425,36 @@ class DappFxPage(Base):
         """点击NEM转账记录"""
         self.driver.find_element(*self.npxsxem_chain_record).click()
         time.sleep(2)
+
+    def click_start_staking(self):
+        """点击开启挖矿按钮"""
+        self.driver.find_element(*self.staking_startMining).click()
+        time.sleep(2)
+        self.driver.find_element(*self.staking_startMining).is_enabled()
+
+    def click_staking_setting(self):
+        """点击挖矿界面右上角的更多按钮"""
+        self.driver.find_element(*self.staking_rl_layout_option).click()
+        time.sleep(2)
+
+    def click_staking_history(self):
+        """点击挖矿历史界面"""
+        self.driver.find_element(*self.staking_history).click()
+        time.sleep(2)
+
+    def click_staking_shareTo(self):
+        """点击分享按钮"""
+        self.driver.find_element(*self.staking_shart).click()
+        time.sleep(2)
+
+    def click_staking_guide(self):
+        """点击挖矿说明"""
+        self.driver.find_element(*self.staking_Guide).click()
+        time.sleep(2)
+
+    def fresh_staking(self):
+        """下拉刷新挖矿界面"""
+        time.sleep(3)
+        self.swipeDown()
+
 
