@@ -194,3 +194,11 @@ class LoginPage(Base):
         msg2 = self.driver.find_element(*self.get_page_title).text # 获取点击工单目录后的页面标题
         self.driver.back()
         return msg,msg1,msg2  # 返回为FAQ、Support and Feedback、Disclaimer
+
+    def telegram_skip(self):
+        """关闭telegram引导图"""
+
+        if self.findElement('Skip'):  # 关闭telegram引导图
+            self.click2('Skip')
+        else:
+            pass

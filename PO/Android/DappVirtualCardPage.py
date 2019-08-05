@@ -40,6 +40,7 @@ class DAPPPage(Base):
     Receiving_address_close = (By.ID, "iv_close")  # 查看充值地址说明页面的关闭按键
     Receive_address_code = (By.ID, 'iv_single_qr_code') # 充值二维码
     card_instrucment = (By.ID, 'tv_help')
+    qr_code = (By.ID, 'iv_qr_code')
 
     # 转账页面
     Transfer_Address = (By.ID, "ed_receivingAddress")  # 在转账页面，输入地址
@@ -113,12 +114,12 @@ class DAPPPage(Base):
     Add_XPASS = "XPASS"    #点击添加XPASS卡
     Add_XPASS_No = (By.ID , "ed_addCardXpassNO")       #输入XPASS卡号输入框
     Add_XPASS_Next = (By.ID, "btn_addCardNext")         #输入卡号后下一步按钮
-    Add_XPASS_6pin_code = (By.ID, "ed_addCardXpassNO")      #输入6位密码
-    Add_XPASS_confirm = (By.ID, "btn_addCardNext")      #最后一步确认按键
+    Add_XPASS_6pin_code = (By.ID, "ed_cardBackPassword")      #输入6位密码
+    Add_XPASS_confirm = (By.ID, "btn_cardPwFinish")      #最后一步确认按键
 
     #添加开放平台卡片
     Add_opencard = (By.ID, "item_card_tv_virtual")  #选择开放平台卡片点击区域
-    Add_opencard_select_Virtual = (By.Id, "rl_virtualFlag")     #添加开放平台卡片时，选择添加虚拟卡
+    Add_opencard_select_Virtual = (By.ID, "rl_virtualFlag")     #添加开放平台卡片时，选择添加虚拟卡
     Add_opencard_select_Physical =(By.ID, "rl_physicalFlag")    #添加开放平台卡片时，选择添加物理卡片
 
     # 开放平台卡片
@@ -371,7 +372,7 @@ class DAPPPage(Base):
     def check_QR_code(self):
         """检查是否加载付款二维码是否正确"""
 
-        if self.driver.find_element(*self.Receive_address_code).is_enabled():  # 判断充值二维码是否可用
+        if self.driver.find_element(*self.qr_code).is_enabled():  # 判断充值二维码是否可用
             return True
         else:
             return False
@@ -446,8 +447,10 @@ class DAPPPage(Base):
         pin:卡号密码
         """
 
+        self.swipeUp()
         self.driver.find_element(*self.Add_card).click()
-        self.driver.find_element(*self.Add_XPASS).click()
+        time.sleep(2)
+        self.click2(self.Add_XPASS)
         time.sleep(1)
         self.driver.find_element(*self.Add_XPASS_No).send_keys(num)
         self.driver.find_element(*self.Add_XPASS_Next).click()
@@ -458,14 +461,13 @@ class DAPPPage(Base):
             print(f'卡号{num}未被激活，请先激活...')
         else:
             self.driver.find_element(*self.Add_XPASS_6pin_code).send_keys(pin)
-            self.driver.find_element(*self.Add_XPASS_confirm)
+            self.driver.find_element(*self.Add_XPASS_confirm).click()
             if self.is_toast_exist('already'):
-                print(f'该{num}已被添加过！')
+                print(f'该{num}卡已被添加过！')
             elif self.is_toast_exist('password'):
                 print(f'卡号的密码{pin}不对')
             else:
-                time.sleep(1)
-                return True
+                pass
 
     def XPASS_BTC_icon(self):
         """从XPASS卡的一级页，点击BTC icon"""
@@ -489,13 +491,11 @@ class DAPPPage(Base):
     def click_card_setting(self):
         """点击卡片的设置"""
 
-        self.into_XPASS_card()
         self.driver.find_element(*self.Virtual_Setting).click()  # 点击黑卡的设置
 
     def click_card_bill(self):
         """点击卡片的账单"""
 
-        self.into_XPASS_card()
         self.driver.find_element(*self.Virtual_bills).click()  # 点击黑卡的账单
 
     def click_card_eye(self):
@@ -508,18 +508,10 @@ class DAPPPage(Base):
         self.click2(coin)
         time.sleep(2)
 
-    def check_QR_code2(self):
-        """检查是否加载付款二维码是否正确"""
-
-        if self.driver.find_element(*self.QR_code).is_enabled():  # 判断元素是否可用
-            return True
-        else:
-            return False
-
     def click_refresh(self):
         """点击付款二维码下的刷新按钮"""
 
-        if self.check_QR_code2():
+        if self.check_QR_code():
             self.driver.find_element(*self.Virtual_refresh).click()
             time.sleep(1)
         else:
@@ -568,28 +560,30 @@ class DAPPPage(Base):
 
         self.driver.find_element(*self.Virtual_transfer).click()
         # 是否开启2FA，默认不开启
+        time.sleep(5)
         if switch == 0:  # 不开启2FA
             if self.driver.find_element(*self.Google_Notnow).is_enabled():
                 self.driver.find_element(*self.Google_Notnow).click()
                 time.sleep(1)
+                self.driver.find_element(*self.Virtual_transfer).click()
             else:
                 pass
         else:  # 开启2FA
             if self.driver.find_element(*self.Google_Notnow).is_enabled():
                 self.driver.find_element(*self.Google_confirm).click()
-                time.sleep(1)
+                time.sleep(2)
+                self.driver.find_element(*self.Virtual_transfer).click()
             else:
                 pass
-        self.driver.find_element(*self.Virtual_transfer).click()
 
     def ERC20_transfer(self, address, money):
         """
         输入卡片的 转账  数据
-        针对：BTC ETH NPXS
+        针对：BNB
         """
 
         self.click_card_transfer()
-        time.sleep(2)
+        time.sleep(5)
         self.driver.find_element(*self.Transfer_Address).send_keys(address)
         self.driver.find_element(*self.Transfer_money).send_keys(money)
         time.sleep(3)

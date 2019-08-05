@@ -20,7 +20,7 @@ class Base:
                            'appPackage': an.get_app_name,
                            'appActivity': an.get_app_Activity,
                            'autoGrantPermissions': True,  # 获取默认权限
-                           # "noReset": True,  # 不清空数据
+                           "noReset": True,  # 不清空数据
                            "automationName": "Uiautomator2"  # 使用Uiautomator2
                            }
     """
