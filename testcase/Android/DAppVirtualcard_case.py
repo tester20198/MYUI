@@ -122,3 +122,67 @@ class ChatTestCase(unittest.TestCase):
     def test_10_NPXS_transfer(self):
         """NPXS转账"""
         self.Dapppage.click_NPXS_Detail()
+
+    def test_10_NPXS_transfer(self):
+        """NPXS转账"""
+        self.Dapppage.click_NPXS_Detail()
+        self.Dapppage.Click_Transfer_without_Memo("0x2b9084c74e4406eb7c0e06c1df9bff2b2bf7bbdb")
+        self.Dapppage.Send_code()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("NPXS_transfer")
+
+    def test_11_BNB_transfer(self):
+        """BNB转账"""
+        self.Dapppage.click_BTC_Detail()
+        self.Dapppage.Click_Transfer_with_memo("tbnb1x5n9ck6xhexwfjpxmp2ygg0ypndmrnfv9l45de")
+        self.Dapppage.Send_code()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("BNB_transfer")
+
+    def test_12_QTUM_transfer(self):
+        """QTUM转账"""
+        self.Dapppage.click_QTUM_Detail()
+        self.Dapppage.Click_Transfer_without_Memo("qWMbKpZi3R5jtpcRP2aJxdWNJdGs2Z9L7W")
+        self.Dapppage.Send_code()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("QTUM_transfer")
+
+    def test_13_XEM_transfer(self):
+        """XEM转账"""
+        self.Dapppage.click_XEM_Detail()
+        self.Dapppage.Click_Transfer_with_memo("TBF3ZZGCVY7NTWDABEH7P3KXD2LOYABEXASYDRUO")
+        self.Dapppage.Send_code()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("XEM_transfer")
+
+    def test_14_NPXSXEM_transfer(self):
+        """NPXSXEM转账"""
+        self.Dapppage.click_NPXSXEM_Detail()
+        self.Dapppage.Click_Transfer_with_memo("TBF3ZZGCVY7NTWDABEH7P3KXD2LOYABEXASYDRUO")
+        self.Dapppage.Send_code()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("NPXSXEM_transfer")
+
+    def test_15_Internal_Transfer(self):
+        """内部划转"""
+        self.Dapppage.Internal_Transfer()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+        except AssertionError:
+            self.Dapppage.save_img("Internal_Transfer")
