@@ -2,6 +2,7 @@ from appium import webdriver
 import unittest
 from Public.getLog import InsertLog
 from PO.Android.DappOpenCardPage import DappOpenCardPage
+from PO.Android.loginPage import LoginPage
 from PO.basePage import Base
 import time
 
@@ -11,14 +12,16 @@ class DappOpenCardTestCase(unittest.TestCase):
     """
     @classmethod
     def setUpClass(cls):
+        cls.cardname = u'ZCB'  # 必须传参开放平台卡片名称
         Base.android_driver_caps["noReset"] = True
         cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
         # cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
         time.sleep(3)  # 等待初始化完成
-        # cls.login_page.email_login('xgq1@xinjineng.net', 'Abc123456') #调用登陆
+        # cls.login_page.check_in()
+        # cls.login_page.login_by_Email('xgq1@xinjineng.net', 'Abc123456')  # 调用登陆
         cls.open_page = DappOpenCardPage(cls.driver)
 
-    def test_001_add_open_platform_Virtual_Card(self,type=u'Virtual Card'):
+    def test_001_add_open_platform_Virtual_Card(self):
         '''
         用例一: 添加开放平台虚拟卡
         :param type: 添加的卡片类型
@@ -27,12 +30,10 @@ class DappOpenCardTestCase(unittest.TestCase):
         try:
             self.open_page.dapp_page() #点击dapp菜单
             time.sleep(1)
-            self.open_page.add_card_buisess(type)
-            msg = self.open_page.add_virtual_card()
-            self.assertTrue(msg)
-            print('添加虚拟卡,获取的页面的标题信息：%s' % msg)
+            self.open_page.add_card_buisess(self.cardname)
+            self.assertTrue(self.open_page.add_virtual_card()) #判断添加成功
         except (BaseException, AssertionError) as msg:
-            self.open_page.save_img("/Virtual_card")
+            self.open_page.save_img("/Open_Virtual_card")
             InsertLog().debug(msg)
             raise BaseException
 
@@ -56,14 +57,14 @@ class DappOpenCardTestCase(unittest.TestCase):
 
     def test_003_Card_details(self):
         '''
-        用例三: 卡片详情界面加密、设置按钮、账单
+        用例三: 卡片详情界面加密、设置按钮、账单、开发者网站
         '''
         try:
             self.open_page.dapp_page()  # 点击dapp菜单
             time.sleep(1)
-            msg, msg1= self.open_page.card_details_page()
+            msg, msg1,msg2= self.open_page.card_details_page()
             # msg = Card Settings;msg1 = Transactions
-            self.assertListEqual([msg, msg1], ['Card Settings', 'Transactions'])
+            self.assertListEqual([msg, msg1,msg2], ['Card Settings', 'Transactions',self.cardname])
         except (BaseException, AssertionError) as msg:
             self.open_page.save_img("/Card_details")
             InsertLog().debug(msg)
@@ -76,10 +77,10 @@ class DappOpenCardTestCase(unittest.TestCase):
         try:
             self.open_page.dapp_page()  # 点击dapp菜单
             time.sleep(1)
-            self.open_page.check_receive_address()
+            self.open_page.card_details(self.cardname)
             self.assertTrue(self.open_page.check_receive_address()) #二维码可用则通过
         except (BaseException, AssertionError) as msg:
-            self.open_page.save_img("/open_receive_address")
+            self.open_page.save_img("/Receive_address")
             InsertLog().debug(msg)
             raise BaseException
 
@@ -90,44 +91,73 @@ class DappOpenCardTestCase(unittest.TestCase):
         try:
             self.open_page.dapp_page()  # 点击dapp菜单
             time.sleep(1)
+            self.open_page.card_details(self.cardname)
             self.assertTrue(self.open_page.transfer_buisess(address,amount,code,pwd))
         except (BaseException, AssertionError) as msg:
             self.open_page.save_img("/Transfer_fail")
             InsertLog().debug(msg)
             raise BaseException
 
-    def test_006_Receive_address(self):
+    def test_006_Payment_Code(self):
         '''
         用例六: 付款二维码
         '''
         try:
             self.open_page.dapp_page()  # 点击dapp菜单
             time.sleep(1)
-            self.open_page.click_pay_button()
+            self.open_page.card_details(self.cardname)
             self.assertTrue(self.open_page.check_receive_code()) #二维码可用则通过
         except (BaseException, AssertionError) as msg:
             self.open_page.save_img("/Payment_code")
             InsertLog().debug(msg)
             raise BaseException
 
-    def test_007_Receive_address(self):
+    def test_007_Hlep_And_Cancel(self):
         '''
-        用例六: 付款二维码
+        用例七: 帮助说明、取消功能
         '''
         try:
             self.open_page.dapp_page()  # 点击dapp菜单
             time.sleep(1)
-            self.open_page.click_pay_button()
-            self.assertFalse(self.open_page.check_receive_code()) #二维码可用则通过
+            self.open_page.card_details(self.cardname)
+            self.assertTrue(self.open_page.click_help())
         except (BaseException, AssertionError) as msg:
-            self.open_page.save_img("/Payment_code")
+            self.open_page.save_img("/help_and_cancel")
             InsertLog().debug(msg)
             raise BaseException
 
+    def test_008_Internal_Transfer(self):
+        '''
+        用例八: 内部划转
+        '''
+        try:
+            self.open_page.dapp_page()  # 点击dapp菜单
+            time.sleep(1)
+            self.open_page.card_details(self.cardname)
+            self.assertTrue(self.open_page.Internal_Transfer())
+        except (BaseException, AssertionError) as msg:
+            self.open_page.save_img("/Internal_Transfer")
+            InsertLog().debug(msg)
+            raise BaseException
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     cls.driver.quit()
+    def test_009_Transaction_History(self):
+        '''
+        用例九: 账单记录
+        '''
+        try:
+            self.open_page.dapp_page()  # 点击dapp菜单
+            time.sleep(1)
+            self.open_page.card_details(self.cardname)
+            self.open_page.Transaction_history()
+            # self.assertTrue()
+        except (BaseException, AssertionError) as msg:
+            self.open_page.save_img("/Transaction_history")
+            InsertLog().debug(msg)
+            raise BaseException
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
 
 if __name__ == '__main__':
