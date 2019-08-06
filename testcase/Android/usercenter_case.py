@@ -126,6 +126,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
     def test_007_bills_detail(self):
+        self.driver.back()
         self.user_page.into_Bill()  # 进入总账单
         time.sleep(2)
         self.user_page.click_bill_type()
@@ -137,6 +138,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
     def test_008_internal_transfer(self):
+        self.driver.back()
         self.user_page.into_internal_transfer()  # 进入内部划转
         time.sleep(2)
         self.user_page.virtual_to_black('BTC')  # 选择虚拟卡到黑卡
@@ -152,6 +154,7 @@ class UsercenterTestCase(unittest.TestCase):
 
         # 原地划转返回，方便多次run case
         self.user_page.into_internal_transfer()
+        time.sleep(1)
         self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
         self.user_page.change_card()  # 切换卡片位置
         self.user_page.transfer_all()  # 黑卡划转全部金额到虚拟卡
