@@ -76,18 +76,6 @@ class UsercenterTestCase(unittest.TestCase):
         #     time.sleep(2)
         #     self.user_page.google('2222')
 
-    def test_013_general(self):
-        """通用 - 语言及货币选择 """
-        time.sleep(2)
-        self.user_page.general()
-        # print(self.driver.page_source)
-
-    def test_014_about(self):
-        self.driver.back()
-        self.driver.back()
-        """关于界面"""
-        time.sleep(2)
-        self.user_page.about()
 
     def test_001_check_code(self):
         time.sleep(2)
@@ -139,14 +127,16 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.check_every_type_bill()  # 检查各个账单类型
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
-    def test_011_internal_transfer(self):
+    def test_008_internal_transfer(self):
+        self.driver.back()
+        time.sleep(2)
         self.user_page.into_internal_transfer()  # 进入内部划转
         time.sleep(2)
         self.user_page.virtual_to_black('BTC')  # 选择虚拟卡到黑卡
         self.user_page.virtual_to_black_little('0.00000001')  # 划转小金额的BTC
         self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
-    def test_012_internal_transfer_all(self):
+    def test_009_internal_transfer_all(self):
         time.sleep(2)
         self.user_page.into_internal_transfer()  # 进入内部划转
         time.sleep(2)
@@ -155,16 +145,16 @@ class UsercenterTestCase(unittest.TestCase):
         self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
         # 原地划转返回，方便多次run case
+        time.sleep(2)
         self.user_page.into_internal_transfer()
-        time.sleep(1)
+        time.sleep(5)
         self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
         self.user_page.change_card()  # 切换卡片位置
         self.user_page.transfer_all()  # 黑卡划转全部金额到虚拟卡
         self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
-    def test_008_into_merchant(self):
-        self.driver.back()
-        time.sleep(1)
+    def test_010_into_merchant(self):
+        time.sleep(2)
         self.user_page.into_merchant()  # 进入商户中心页面
         time.sleep(3)
         if self.user_page.judge_merchant():  # 判断是否是商户
@@ -179,7 +169,7 @@ class UsercenterTestCase(unittest.TestCase):
             self.user_page.finish_merchant()  # 完善商户资料
             time.sleep(2)
 
-    def test_009_into_feedback(self):
+    def test_011_into_feedback(self):
         self.driver.back()
         self.driver.back()
         self.driver.back()
@@ -197,7 +187,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.into_help_disclaimer()
         time.sleep(5)
 
-    def test_010_edit_user_detail(self):
+    def test_012_edit_user_detail(self):
 
         self.driver.back()
         self.driver.back()
@@ -207,6 +197,19 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.complete_user_gender()
         self.assertTrue(self.user_page.is_toast_exist('Saved'), '判断保存性别成功')
         self.driver.back()
+
+    def test_013_general(self):
+        """通用 - 语言及货币选择 """
+        time.sleep(2)
+        self.user_page.general()
+        # print(self.driver.page_source)
+
+    def test_014_about(self):
+        self.driver.back()
+        self.driver.back()
+        """关于界面"""
+        time.sleep(2)
+        self.user_page.about()
 
     @classmethod
     def tearDownClass(cls):
