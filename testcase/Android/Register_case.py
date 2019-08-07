@@ -3,7 +3,6 @@ import unittest
 from PO.Android.RegisterPage import registerPage
 from PO.basePage import Base
 from Public.other import create_email,create_mobile
-from Public.getLog import InsertLog,Screenshot
 import time
 
 class RigisterTestCase(unittest.TestCase):
@@ -12,11 +11,12 @@ class RigisterTestCase(unittest.TestCase):
     """
 
     def setUp(self):
+        Base.android_driver_caps["noReset"] = False
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
         self.register_page = registerPage(self.driver)  # 初始化登录页元素以及方法
         time.sleep(3)  # 等待初始化完成
 
-    def test_mobile_register(self,nation='Venezuela',loginpwd='Abc123456',paypwd='123456',code='2222'):
+    def test_001_mobile_register(self,nation='Venezuela',loginpwd='Abc123456',paypwd='123456',code='2222'):
         '''
         用例一： 手机注册
         :param nation: 传参国家名称，默认委内瑞拉
@@ -33,12 +33,11 @@ class RigisterTestCase(unittest.TestCase):
             msg = self.register_page.click_confirm_button()
             self.assertTrue(msg)
             print('注册成功后跳转到设置用户头像界面,获取的头像字段文本信息：%s' % msg)
-        except (BaseException, AssertionError) as msg:
-            Screenshot(self.driver)
-            InsertLog().debug(msg)
+        except (BaseException, AssertionError):
+            self.register_page.save_img("/mobile_register_fail")
             raise BaseException
 
-    def test_email_register(self,loginpwd='Abc123456',paypwd='123456',code='2222'):
+    def test_002_email_register(self,loginpwd='Abc123456',paypwd='123456',code='2222'):
         '''
         用例二： 邮箱注册
         :param create_email: 传参邮箱地址，create_email随机生成地址
@@ -54,23 +53,21 @@ class RigisterTestCase(unittest.TestCase):
             msg = self.register_page.click_confirm_button()
             self.assertTrue(msg)
             print('注册成功后跳转到设置用户头像界面,获取的头像字段文本信息：%s' % msg)
-        except (BaseException, AssertionError) as msg:
-            Screenshot(self.driver)
-            InsertLog().debug(msg)
+        except (BaseException,AssertionError):
+            self.register_page.save_img("/email_register_fail")
             raise BaseException
 
-    def test_register_Agreement(self):
+    def test_003_register_Agreement(self):
         '''
-        用例三: 点击注册界面的协议，判断注册页面跳转到登录页面时，获取忘记密码的文本
+        用例三: 点击注册界面的协议和判断注册页面跳转到登录页面时，获取忘记密码的文本
         '''
         try:
             self.register_page.click_register()
             msg = self.register_page.clcik_register_Agreement()
             self.assertEqual(msg, u'Forgot password')
             print('从注册页面跳转到登录页面,获取的页面文本信息：%s' % msg)
-        except (BaseException, AssertionError) as msg:
-            Screenshot(self.driver)
-            InsertLog().debug(msg)
+        except (BaseException,AssertionError):
+            self.register_page.save_img("/register_fail")
             raise BaseException
 
     def tearDown(self):

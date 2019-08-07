@@ -67,9 +67,10 @@ class LoginPage(Base):
         nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
 
         self.driver.find_element(*self.select_nation_btn).click()
-        time.sleep(2)
+        time.sleep(5)
         while not self.findElement(na):
-            self.swipeUp(duration=500)
+            self.swipeUp(duration=1500)
+            self.swipeUp(duration=1500)
         else:
             self.driver.find_element(*nation_XPATH).click()
 
@@ -84,6 +85,7 @@ class LoginPage(Base):
         """使用手机登录"""
 
         self.switch_login() #切换登录方式
+        time.sleep(2)
         self.select_nation(na)  # 选择国家
         time.sleep(1)
         self.driver.find_element(*self.edit_mobile).send_keys(mobile)
@@ -98,6 +100,12 @@ class LoginPage(Base):
     def Dapp_balance_text(self):
         '''登陆成功后，获取Dapp页面Balance的文本信息'''
 
+        time.sleep(6)
+        if self.findElement("Skip"):
+            self.click2('Skip')   # 登录成功后，点击红包引导界面的"跳过"按钮
+            time.sleep(2)
+        else:
+            pass
         WebDriverWait(self.driver, 10, 0.5).until(
             EC.text_to_be_present_in_element(self.get_balance_text, u"Balance"))  # 登陆后获取Dapp页面Balance
         msg = self.driver.find_element(*self.get_balance_text).text  # 登陆后获取Dapp页面Balance

@@ -1,6 +1,5 @@
 from appium import webdriver
 import unittest
-from Public.getLog import InsertLog
 from PO.Android.DappOpenAppPage import DappOpenAppPage
 from PO.Android.loginPage import LoginPage
 from PO.basePage import Base
@@ -30,10 +29,9 @@ class DappOpenAppTestCase(unittest.TestCase):
             time.sleep(1)
             self.open_app_page.add_app_buisess(type) #添加app
             self.assertTrue(self.open_app_page.is_toast_exist('success'))
-        except AssertionError as msg:
-            self.open_app_page.save_img("/App_fail")
-            InsertLog().debug(msg)
-            raise AssertionError
+        except (BaseException,AssertionError):
+            self.open_app_page.save_img("/open_add_app_fail")
+            raise BaseException
 
     def test_002_App_Home(self):
         '''
@@ -43,10 +41,9 @@ class DappOpenAppTestCase(unittest.TestCase):
             self.open_app_page.dapp_page() #点击dapp菜单
             time.sleep(1)
             self.assertTrue(self.open_app_page.click_app_home()) #app首页
-        except AssertionError as msg:
-            self.open_app_page.save_img("/app_home")
-            InsertLog().debug(msg)
-            raise AssertionError
+        except (BaseException, AssertionError):
+            self.open_app_page.save_img("/open_app_home_fail")
+            raise BaseException
 
     def test_003_App_About_us(self):
         '''
@@ -56,37 +53,36 @@ class DappOpenAppTestCase(unittest.TestCase):
             self.open_app_page.dapp_page() #点击dapp菜单
             time.sleep(1)
             self.assertTrue(self.open_app_page.click_About_us()) #app关于
-        except AssertionError as msg:
-            self.open_app_page.save_img("/app_about_us")
-            InsertLog().debug(msg)
-            raise AssertionError
+        except (BaseException, AssertionError):
+            self.open_app_page.save_img("/open_app_About_fail")
+            raise BaseException
 
-    def test_004_Remove_App(self):
+    def test_004_App_Home_Close(self):
         '''
-        用例四: 删除app
+        用例四: app首页关闭功能
+        '''
+        try:
+            self.open_app_page.dapp_page()  # 点击dapp菜单
+            time.sleep(1)
+            self.assertTrue(self.open_app_page.app_home_colse())
+        except (BaseException, AssertionError):
+            self.open_app_page.save_img("/open_close_app_fail")
+            raise BaseException
+
+    def test_005_Remove_App(self):
+        '''
+        用例五: 删除app
         '''
         try:
             self.open_app_page.dapp_page() #点击dapp菜单
             time.sleep(1)
             self.open_app_page.remove_app() #删除app
             self.assertTrue(self.open_app_page.is_toast_exist('success'))
-        except AssertionError as msg:
-            self.open_app_page.save_img("/remove_app")
-            InsertLog().debug(msg)
-            raise AssertionError
+        except (BaseException, AssertionError):
+            self.open_app_page.save_img("/open_remove_app_fail")
+            raise BaseException
 
-    def test_005_App_Home_Close(self):
-        '''
-        用例五: app首页关闭功能
-        '''
-        try:
-            self.open_app_page.dapp_page()  # 点击dapp菜单
-            time.sleep(1)
-            self.assertTrue(self.open_app_page.app_home_colse())
-        except AssertionError as msg:
-            self.open_app_page.save_img("/close_app")
-            InsertLog().debug(msg)
-            raise AssertionError
+
 
     @classmethod
     def tearDownClass(cls):
