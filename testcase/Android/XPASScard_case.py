@@ -164,4 +164,4 @@ class XPASSTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest. (verbosity=0)
+    unittest.main(verbosity=0)
