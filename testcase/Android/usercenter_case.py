@@ -136,6 +136,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.virtual_to_black_little('0.00000001')  # 划转小金额的BTC
         self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
+    @unittest.skip('防止不够钱转账')
     def test_009_internal_transfer_all(self):
         time.sleep(2)
         self.user_page.into_internal_transfer()  # 进入内部划转
