@@ -111,6 +111,7 @@ class XPASSTestCase(unittest.TestCase):
 
         self.test_003_check_XPASS_BTC_rec(coin='BTC')
 
+    @unittest.skip('BTC测试链充值地址错误')
     def test_008_check_XPASS_BTC_transfer(self):
         """
         检查XPASS卡的BTC的转账
