@@ -404,36 +404,25 @@ class DappFxPage(Base):
         time.sleep(2)
 
         self.driver.find_element(*self.npxsxem_address_note).click()#点击address note输入框
-        address_note=self.driver.find_element(*self.npxsxem_address_note)
+        address_note = self.driver.find_element(*self.npxsxem_address_note)
         address_note.click();address_note.send_keys(text1)
         msg = self.driver.find_element(*self.npxsxem_address_note).text
         time.sleep(2)
-        print(msg)
-        # enter_remark=address_note#获取输入address note的文本
-        self.driver.find_element(*self.npxsxem_save_modification).click()#点击save modification按钮
-        time.sleep(5)
-
-        msg1=self.driver.find_element(*self.npxsxem_tv_remarks).text
-        #print(msg,msg1)
-        print(msg1)
-
-
-
+        self.driver.find_element(*self.npxsxem_save_modification).click() #点击save modification按钮
+        time.sleep(2)
+        msg1 = self.driver.find_element(*self.npxsxem_tv_remarks).text
         self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
         time.sleep(2)
         self.driver.find_element(*self.npxsxem_guide_btn).click()#点击帮助说明
-        time.sleep(2)
-        self.driver.back()
+        if self.findElement('Guide'):
+            time.sleep(2)
+            self.driver.back()
         time.sleep(1)
-
         self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
         time.sleep(2)
         self.driver.find_element(*self.npxsxem_cancel).click()#点击取消按钮
         time.sleep(1)
-
         return msg,msg1
-
-
 
     def click_npxsxem_helpBtn(self):
         """点击npxsxem界面的帮助按钮"""
