@@ -423,12 +423,12 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.about_website).click()  # 关于-website
         time.sleep(3)
         self.Sys_back()
-        self.driver.find_element(*self.about_email).click()  # 关于-email
-        time.sleep(3)
-        self.Sys_back()
-        self.driver.find_element(*self.about_twitter).click()  # 关于-twitter
-        time.sleep(3)
-        self.Sys_back()
+        # self.driver.find_element(*self.about_email).click()  # 关于-email
+        # time.sleep(3)
+        # self.Sys_back()
+        # self.driver.find_element(*self.about_twitter).click()  # 关于-twitter
+        # time.sleep(3)
+        # self.Sys_back()
 
     def software_update(self):
         """软件更新"""
@@ -668,19 +668,16 @@ class UsercenterPage(Base):
         """进入FAQ"""
 
         self.driver.find_element(*self.help).click()
-        self.driver.back()
 
     def into_help_feedback(self):
         """进入feedback"""
 
         self.driver.find_element(*self.feedback).click()
-        self.driver.back()
 
     def into_help_disclaimer(self):
         """进入disclaimer"""
 
         self.driver.find_element(*self.disclaimer).click()
-        self.driver.back()
 
     def go_to_usercenter(self):
         """进入个人中心"""

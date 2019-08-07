@@ -76,13 +76,15 @@ class UsercenterTestCase(unittest.TestCase):
         #     time.sleep(2)
         #     self.user_page.google('2222')
 
-    def test_110_general(self):
+    def test_013_general(self):
         """通用 - 语言及货币选择 """
         time.sleep(2)
         self.user_page.general()
-        print(self.driver.page_source)
+        # print(self.driver.page_source)
 
-    def test_111_about(self):
+    def test_014_about(self):
+        self.driver.back()
+        self.driver.back()
         """关于界面"""
         time.sleep(2)
         self.user_page.about()
@@ -137,15 +139,15 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.check_every_type_bill()  # 检查各个账单类型
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
-    def test_008_internal_transfer(self):
-        self.driver.back()
+    def test_011_internal_transfer(self):
         self.user_page.into_internal_transfer()  # 进入内部划转
         time.sleep(2)
         self.user_page.virtual_to_black('BTC')  # 选择虚拟卡到黑卡
         self.user_page.virtual_to_black_little('0.00000001')  # 划转小金额的BTC
         self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
-    def test_009_internal_transfer_all(self):
+    def test_012_internal_transfer_all(self):
+        time.sleep(2)
         self.user_page.into_internal_transfer()  # 进入内部划转
         time.sleep(2)
         self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
@@ -160,8 +162,9 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.transfer_all()  # 黑卡划转全部金额到虚拟卡
         self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
 
-    def test_010_into_merchant(self):
-        time.sleep(2)
+    def test_008_into_merchant(self):
+        self.driver.back()
+        time.sleep(1)
         self.user_page.into_merchant()  # 进入商户中心页面
         time.sleep(3)
         if self.user_page.judge_merchant():  # 判断是否是商户
@@ -176,17 +179,29 @@ class UsercenterTestCase(unittest.TestCase):
             self.user_page.finish_merchant()  # 完善商户资料
             time.sleep(2)
 
-    def test_011_into_feedback(self):
+    def test_009_into_feedback(self):
+        self.driver.back()
+        self.driver.back()
+        self.driver.back()
+        time.sleep(3)
         self.user_page.into_help()  # 进入feedback页面
         time.sleep(2)
         self.user_page.into_help_FAQ()
-        time.sleep(5)
+        time.sleep(10)
+        self.driver.back()
+        time.sleep(2)
         self.user_page.into_help_feedback()
-        time.sleep(5)
+        time.sleep(10)
+        self.driver.back()
+        time.sleep(2)
         self.user_page.into_help_disclaimer()
         time.sleep(5)
 
-    def test_012_edit_user_detail(self):
+    def test_010_edit_user_detail(self):
+
+        self.driver.back()
+        self.driver.back()
+        time.sleep(1)
         self.user_page.complete_user_picture()  # 上传头像
         self.assertTrue(self.user_page.is_toast_exist('uploaded'), '判断上传头像成功')
         self.user_page.complete_user_gender()
