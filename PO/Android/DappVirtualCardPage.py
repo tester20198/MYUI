@@ -63,6 +63,7 @@ class DAPPPage(Base):
     Input_withdrawAddress = (By.ID, "et_withdrawAddress")  # 输入转账地址
     Input_note = (By.ID, "et_withdrawRemarksInfo")  # 输入地址备注
     Transfer_Memo_Scan = (By.ID, "iv_msg_scan")  # 在Memo输入时选择扫码
+    Transfer_Next1 = (By.ID, 'btn_withdrawNext1')
 
 
     #BEP-2协议币种转账页面附言
@@ -358,16 +359,14 @@ class DAPPPage(Base):
         有Memo的货币在充值二维码页面操作地址二维码和附言二维码
         """
 
-        self.driver.find_element(*self.Virtual_BNB_QRcode).click()      # 点击查看充值地址二维码
+        self.driver.find_element(*self.Virtual_Receive).click()  # 点击Receving,弹出"View address"提示
+        time.sleep(1)
+        self.driver.find_element(*self.Virtual_view_Address).click()
         time.sleep(2)
-        self.driver.find_element(self.Virtual_BNB_QRcode_close).click()     # 关闭充值二维码显示框
-        time.sleep(1)
-        self.driver.find_element(self.Virtual_BNB_copy_address).click()     # 点击复制BNB充值地址
-        self.driver.find_element(self.Virtual_BNB_Memo_QRcode).click()      # 点击查看BNB附言二维码
-        self.driver.find_element(self.Virtual_BNB_Memo_close).click()       # 点击关闭附言二维码显示框
-        time.sleep(1)
-        self.driver.find_element(self.Virtual_BNB_Copy_Memo).click()        # 点击copy memo
-        time.sleep(1)
+        # self.driver.find_element(self.Virtual_BNB_copy_address).click()     # 点击复制BNB充值地址
+        # time.sleep(1)
+        # self.driver.find_element(self.Virtual_BNB_Copy_Memo).click()        # 点击copy memo
+        # time.sleep(1)
 
     def check_QR_code(self):
         """检查是否加载付款二维码是否正确"""
@@ -381,29 +380,29 @@ class DAPPPage(Base):
         """
         有Memo的货币，在转账页面输入转账地址，金额，等操作
         """
+
         self.driver.find_element(*self.Virtual_transfer).click()
         if self.findElement("Not Now"):
             self.driver.back()
         else:
             pass
         time.sleep(2)
-        self.driver.find_element(*self.Transfer_Scan).click()       # 转账页面点击地址扫码
+        # self.driver.find_element(*self.Transfer_Scan).click()       # 转账页面点击地址扫码
 
-        if self.findElement("camera"):
-            self.driver.find_element(*self.Transfer_camera_premise).click()
-        else:
-            pass
+        # if self.findElement("camera"):
+        #     self.driver.find_element(*self.Transfer_camera_premise).click()
+        # else:
+        #     pass
         """
         判断转账点击扫码时，如果弹出获取相机权限按键，点击"Allow"
         """
-        self.driver.back()
-        time.sleep(1)
-        self.driver.find_element(*self.Transfer_Memo_Scan).click()  # 点击扫码Memo
-        time.sleep(1)
-        self.driver.back()      # 在相机扫码界面点击返回
-        time.sleep(1)
+        # self.driver.back()
+        # self.driver.find_element(*self.Transfer_Memo_Scan).click()  # 点击扫码Memo
+        # time.sleep(1)
+        # self.driver.back()      # 在相机扫码界面点击返回
+        # time.sleep(1)
         self.driver.find_element(*self.Transfer_Address).send_keys(address)       # 拉起键盘输入转账地址
-        self.driver.find_element(*self.Transfer_Amount_All).click()     # 转出金额点击All
+        # self.driver.find_element(*self.Transfer_Amount_All).click()     # 转出金额点击All
         self.driver.find_element(*self.Transfer_Memo).send_keys("")     # 转出到外部地址，不输入附言
         self.driver.find_element(*self.Transfer_Next).click()   # 点击下一步
         time.sleep(1)
@@ -562,14 +561,14 @@ class DAPPPage(Base):
         # 是否开启2FA，默认不开启
         time.sleep(5)
         if switch == 0:  # 不开启2FA
-            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+            if self.findElement('Not Now'):
                 self.driver.find_element(*self.Google_Notnow).click()
                 time.sleep(1)
                 self.driver.find_element(*self.Virtual_transfer).click()
             else:
                 pass
         else:  # 开启2FA
-            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+            if self.findElement('Not Now'):
                 self.driver.find_element(*self.Google_confirm).click()
                 time.sleep(2)
                 self.driver.find_element(*self.Virtual_transfer).click()
@@ -586,10 +585,10 @@ class DAPPPage(Base):
         time.sleep(5)
         self.driver.find_element(*self.Transfer_Address).send_keys(address)
         self.driver.find_element(*self.Transfer_money).send_keys(money)
-        time.sleep(3)
+        time.sleep(2)
         self.driver.find_element(*self.Tranfer_Next).click()
 
-    def send_codes(self, mcode=2222, ecode=2222, pwd=123456):
+    def send_codes(self, mcode='2222', ecode='2222', pwd='123456'):
         """
         转账界面输入验证码
         :param mcode: 手机验证码
@@ -597,12 +596,18 @@ class DAPPPage(Base):
         :return:
         """
 
-        if self.driver.find_element(*self.Transfer_Send_email).is_enabled():
-            self.driver.find_element(*self.Transfer_Send_email).send_keys(ecode)
+        self.driver.find_element(*self.Transfer_Next1).click()
+        time.sleep(2)
+        if self.findElement('tv_email_info'):
+            self.driver.find_element(*self.Transfer_Send_email).click()
+            time.sleep(1)
+            self.driver.find_element(*self.Transfer_input_email_code).send_keys(ecode)
         else:
             pass
-        if self.driver.find_element(*self.Transfer_Send_SMS).is_enabled():
-            self.driver.find_element(*self.Transfer_Send_SMS).send_keys(mcode)
+        if self.findElement('tv_phone_info'):
+            self.driver.find_element(*self.Transfer_Send_SMS).click()
+            time.sleep(1)
+            self.driver.find_element(*self.Transfer_input_SMS).send_keys(mcode)
         else:
             pass
         self.driver.find_element(*self.Transfer_Pay_password).send_keys(pwd)
@@ -610,8 +615,22 @@ class DAPPPage(Base):
     def confirm_transfer(self):
         """确认转账"""
 
-        self.Sys_back()
+        # self.Sys_back()
         self.driver.find_element(*self.Transfer_confirm).click()
+
+    def BEP2_transfer(self, address, money='0.00001', memo='123'):
+        """
+        输入卡片的 转账  数据
+        针对：BNB
+        """
+
+        self.click_card_transfer()
+        time.sleep(5)
+        self.driver.find_element(*self.Transfer_Address).send_keys(address)
+        self.driver.find_element(*self.Transfer_money).send_keys(money)
+        self.driver.find_element(*self.Transfer_Memo).send_keys(memo)
+        time.sleep(2)
+        self.driver.find_element(*self.Tranfer_Next).click()
 
 
 
