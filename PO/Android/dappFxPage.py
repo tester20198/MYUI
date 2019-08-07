@@ -14,6 +14,7 @@ class DappFxPage(Base):
 
     # Android#
     # -------DApp列表元素------------
+    urgent_news=(By.ID,"tv_notice")#紧急消息
     Dapp = "DApp"  # 点击卡片DApp标题
     click_dapp = (By.XPATH, "//android.widget.TextView[@text='DApp']")  # 点击dapp标题
     get_balance_text = (By.XPATH, "//android.widget.TextView[@text='Balance']")  # 获取Dapp页面Balance的文本信息
@@ -22,14 +23,14 @@ class DappFxPage(Base):
     Dapp_show_amout = (By.ID, "img_show_amout")  # 加密按钮
     #uat2环境
     #fx_card_btn= (By.XPATH,"//android.widget.LinearLayout[@resource-id='com.pundix.xwallet:id/ll_layout_balance']") #点击进入fx卡
-    #uat3环境
-    fx_card_btn = (By.XPATH, "//android.widget.LinearLayout[@resource-id='com.pundix.xwallet: id / tv_balance']")  # 点击进入fx卡
+    #uat环境
+    fx_card_btn = (By.XPATH, "//android.widget.TextView[@text='f(x) Card']")  # 点击进入fx卡
 
     # ----------fx卡片主界面元素---------------
     fx_amout = (By.ID, "tv_amout")  # fx卡片里面的加密按钮
     fx_setting = (By.ID, "iv_setting")  # fx卡片里面的设置按钮
     fx_back_btn = (By.CLASS_NAME, "android.widget.ImageButton")  # fx卡片里面的左上角返回键
-    fx_conversion_btn = "Conversion"  # 转换按钮
+    fx_conversion_btn = (By.XPATH,"//android.widget.TextView[@text='Conversion']")  # 转换按钮
     fx_staking_btn = (By.XPATH,"//android.widget.TextView[@text='Staking']")  # 挖矿按钮
     fx_main_btn =(By.XPATH,"//android.widget.TextView[@text='FX']")# fx按钮
     fx_NPXS_btn = (By.XPATH,"//android.widget.TextView[@text='NPXS']")  # npxs按钮
@@ -49,16 +50,20 @@ class DappFxPage(Base):
     staking_rl_layout_option=(By.ID,"rl_layout_option")#挖矿右上角的更多按钮
     staking_Guide = (By.ID, "option1")  # 挖矿界面guide按钮
     staking_history = (By.ID, "option2")  # 挖矿界面staking history按钮
-    staking_startTime = (By.ID, "startTime")  # 挖矿开始时间
-    staking_endTime = (By.ID, "endTime")  # 挖矿结束时间
+    staking_startTime = (By.XPATH, "//android.view.View[@text='Start time']")  # 挖矿开始时间
+    staking_endTime = (By.XPATH, "//android.view.View[@text='End Time']")  # 挖矿结束时间
     staking_startTime_cancle = (By.ID, "cancle")  # 取消时间按钮
-    staking_finish = (By.ID, "tv_finish")  # 确定时间按钮
+    staking_startTime_OK = (By.ID, "tv_finish")  # 确定时间按钮
+    staking_endTime_cancle = (By.XPATH, "//android.widget.TextView[@text='Cancel']")  # 取消时间按钮
+    staking_endTime_OK = (By.XPATH, "//android.widget.TextView[@text='OK']")  # 确定时间按钮
     staking_option2 = (By.ID, "option")  # 挖矿帮助按钮
     staking_shart = (By.ID, "option3")  # 挖矿界面分享按钮
     staking_pwCancel = (By.ID, "tv_pwCancel")  # 取消分享按钮
     staking_cancle = (By.ID, "cancle")  # 取消按钮
-    staking_withdraw=(By.XPATH,"//android.view.View[@resource-id='showRecharge']")#提现按钮
-    staking_startMining=(By.XPATH,"//android.view.View[@resource-id='startMining']")#开始挖矿按钮
+    staking_withdraw=(By.XPATH,"//android.view.View[@text='Withdraw']")#提现按钮
+    staking_startMining=(By.XPATH,"//android.view.View[@text='Start staking']")#开始挖矿按钮
+    staking_next=(By.XPATH,"//android.widget.Button[@text='Next']")#点击下一步按钮
+    staking_copy=(By.XPATH,"//android.widget.TextView[@text='Copy Link']")#点击复制链接按钮
 
 
 
@@ -75,6 +80,12 @@ class DappFxPage(Base):
     fx_send_emai_code=(By.ID,"tv_send_email_code")  #点击发送验证码
     fx_confirm=(By.ID,"btn_confirm") #点击确认按钮
     fx_bill=(By.XPATH,"//android.widget.TextView[@text='FX Distribution')")#fx账单名称
+
+    #fx账单
+    fx_list=(By.ID,"rv_record")
+    fx_transfer_type=(By.XPATH,"//android.widget.TextView[@text='Transfer']")#fx账单的transfer
+    fx_FX_Distribution=(By.XPATH,"//android.widget.TextView[@text='FX Distribution']")#fx账单
+    fx_Allocation_from_Staking=(By.XPATH,"//android.widget.TextView[@text='Allocation from Staking']")#挖矿账单
 
     # ------------NPXS界面元素------------
     npxs_help_menu = (By.ID, "iv_menu")  # 帮助按钮
@@ -96,13 +107,25 @@ class DappFxPage(Base):
     npxsxem_add = (By.ID, "iv_add_icon")  # add按钮
     npxsxem_account = (By.ID, "ll_layout_private")  # npxsxem account记录
     npxsxem_receive = (By.ID, "btn_recharge")  # receive按钮
-    npxsxem_transfer = (By.ID, "btn_withdraw")  # transfer按钮
+    npxsxem_transfer_btn = (By.ID, "btn_withdraw")  # transfer按钮
     npxsxem_payinfo = (By.ID, "rl_layout_payinfo")  # 账单记录
+    npxsxem_tv_private_account=(By.ID,"tv_private_account")#链上地址列表
+    npxsxem_copy_address=(By.ID,"btn_confirm")#copy address按钮
     npxsxem_select_agree = (By.ID, "cb_select_agree")  # 同意复选框
     npxsxem_view_address = (By.ID, "btn_view_recharge")  # view address按钮
     npxsxem_close = (By.ID, "iv_close")  # 关闭按钮
     npxsxem_address_QRcode = (By.ID, "btn_many_get_address")  # Address QR code按钮
-    npxsxem_copy_address = (By.ID, "btn_many_copy_address")  # copy address按钮
+
+    npxsxem_copy_address1= (By.ID, "btn_confirm")  # copy address按钮
+    npxsxem_iv_menu=(By.ID,"iv_menu")#右上角更多按钮
+    npxsxem_modify_address_note=(By.ID,"tv_refresh")#modify address note按钮
+    npxsxem_guide_btn=(By.ID,"tv_help")#guide按钮
+    npxsxem_cancel=(By.ID,"tv_cancel")#取消按钮
+    npxsxem_address_note=(By.ID,"ed_remarks")#address note输入框
+    npxsxem_save_modification=(By.ID,"btn_confirm")#save modificication按钮
+    npxsxem_tv_remarks=(By.ID,"tv_remarks")#address note的文本
+
+
     npxsxem_message_QRcode = (By.ID, "btn_many_get_message")  # message QR code按钮
     npxsxem_copy_message = (By.ID, "btn_many_copy_message")  # copy message按钮
     npxsxem_recipient_address = (By.ID, "ed_transferAddress")  # recipient address输入框
@@ -111,11 +134,21 @@ class DappFxPage(Base):
     npxsxem_transfer_next = (By.ID, "btn_transferNext")  # 下一步按钮
 
     npxsxem_chain_record=(By.ID,"iv_arrow")#点击链上的转账记录
+    npxsxem_select_btn=(By.ID,"cb_select_agree")#npxsxem的复选框按钮
+    npxsxem_transfer_confirm=(By.ID,"btn_confirm")#npxsxem确认按钮
+    npxsxen_withdrawNext1=(By.ID,"btn_withdrawNext1")#点击确认转账按钮
+    npxsxem_emailCode=(By.ID,"tv_send_email_code")#转账的邮箱验证码
+    npxsxem_ed_email_code=(By.ID,"ed_email_code")#邮箱验证码输入框
+    npxsxem_ed_pay_password=(By.ID,"ed_pay_password")#支付密码输入框
+    npxsxem_btn_confirm1=(By.ID,"btn_confirm")#确认转账按钮
+
+
 
     #---------------npxsxem add界面元素------------------#
     npxsxem_NEM_address=(By.ID,"ed_address")#NEM输入框
     npxsxem_NEM_note=(By.ID,"ed_remarks")#备注
     npxsxem_confirm=(By.ID,"btn_confirm")#确定按钮
+
 
     def dapp_page(self):
         '''进入dapp页面'''
@@ -139,16 +172,21 @@ class DappFxPage(Base):
         """
         添加fx卡片
         """
-        card_btn = self.driver.find_element(*self.Dapp_add_card_btn)
-        print("131232131231231231232")
-        while not self.findElement(card_btn):
-            print("131232131231231231232")
-            self.swipeDown(duration=1000)
-            time.sleep(2)
+        fx_card = self.driver.find_element(*self.fx_card_btn)
+        #addBtn=self.driver.find_element(self.Dapp_add_card_btn)
+
+        if fx_card:
+            print("F(x)Card已存在，不需要添加")
+            pass
 
         else:
-            self.driver.find_element(*self.Dapp_add_card_btn).click()
-
+            if not self.findElement('ib_add_card'):
+                self.swipeDown(duration=1000) #往下滑动查找添加按钮
+                time.sleep(1)
+                self.swipeDown(duration=1000)
+                time.sleep(1)
+                self.driver.find_element(*self.Dapp_add_card_btn).click()
+                time.sleep(2)
 
 
     def enter_fx_setting(self):
@@ -163,7 +201,7 @@ class DappFxPage(Base):
         点击转换按钮
         :return:
         """
-        self.driver.find_element(*self.fx_conversion_btn)
+        self.driver.find_element(*self.fx_conversion_btn).click()
         time.sleep(2)
 
 
@@ -171,7 +209,7 @@ class DappFxPage(Base):
         """
         进入转换的帮助按钮
         """
-        self.driver.find_element(*self.fx_conversion_btn).click()
+        self.driver.find_element(*self.conver_option_btn).click()
         time.sleep(2)
 
     def enter_staking_protocol(self):
@@ -194,14 +232,26 @@ class DappFxPage(Base):
             time.sleep(2)
 
 
+    def Dapp_notice(self):
+        """去掉紧急消息提示"""
+        #notice=self.driver.find_element(*self.urgent_news)
+        if self.findElement("tv_notice"):
+            #notice.click()
+            self.driver.find_element(*self.urgent_news).click()
+            time.sleep(2)
+            self.driver.back()
+            time.sleep(1)
+
     def Dapp_enter_fx(self):
         """从Dapp界面进入fx转账界面"""
-        time.sleep(3)
+        # self.swipeDown(duration=1000)#刷新一下Dapp界面，防止紧急消息弹出
+        # time.sleep(2)
         self.driver.find_element(*self.fx_card_btn).click()  # 点击DAPP界面的fx按钮
         time.sleep(2)
 
     def enter_staking(self):
         """点击fx卡片的staking按钮"""
+        time.sleep(2)
         self.driver.find_element(*self.fx_staking_btn).click()
         time.sleep(2)
 
@@ -242,6 +292,8 @@ class DappFxPage(Base):
         pay_password=self.driver.find_element(*self.fx_pay_password) #点击支付密码
         pay_password.click();pay_password.send_keys(text4)#输入支付密码
         time.sleep(3)
+        self.driver.back()#按返回键
+        time.sleep(2)
         self.driver.find_element(*self.fx_confirm).click()#点击确认转账按钮
         time.sleep(2)
 
@@ -266,6 +318,7 @@ class DappFxPage(Base):
         """进入npxsxem界面"""
         self.driver.find_element(*self.fx_NPXSXEM_btn).click()
         time.sleep(2)
+
 
     def enter_NPXS_helpBtn(self):
         """进入npxs界面的帮助按钮"""
@@ -308,8 +361,11 @@ class DappFxPage(Base):
         npxs_amount.click();npxs_amount.send_keys(text)#输入金额
         time.sleep(2)
 
+        self.driver.back()#按返回键
+        time.sleep(1)
         self.driver.find_element(*self.npxs_confirm).click()#点击确认按钮
         time.sleep(1)
+
 
 
     def click_npxs_add(self):
@@ -320,18 +376,63 @@ class DappFxPage(Base):
     def Add_NPXSchain_address(self,text,text1):
         """添加npxs链上地址"""
         self.driver.find_element(*self.npxs_chainAddress).click()#点击npxs地址输入框
-        time.sleep(1)
+        time.sleep(2)
         npxsChainAddress=self.driver.find_element(*self.npxs_chainAddress)
-        npxsChainAddress.click();npxsChainAddress.sendkeys(text)#输入npxs链上地址
+        npxsChainAddress.click();npxsChainAddress.send_keys(text)#输入npxs链上地址
         time.sleep(2)
 
-        npxsAddressNote=self.driver.find_element(*self.npxs_addressNote).click()#点击npxs地址备注
-        time.sleep(1)
-        npxsAddressNote.click();npxsAddressNote.sendkeys(text1)
+        self.driver.find_element(*self.npxs_addressNote).click()#点击npxs地址备注
+        npxsAddressNote =self.driver.find_element(*self.npxs_addressNote)#输入备注
+        time.sleep(2)
+        npxsAddressNote.click();npxsAddressNote.send_keys(text1)#输入备注
         time.sleep(2)
 
         self.driver.find_element(*self.npxs_chain_confirmBtn).click()#点击确认按钮
         time.sleep(2)
+
+
+    def click_tv_private_account(self,text1):
+        """点击npxsxem的列表记录"""
+        self.driver.find_element(*self.npxsxem_tv_private_account).click()#点击列表数据
+        time.sleep(2)
+        self.driver.find_element(*self.npxsxem_copy_address1).click()#点击copy address按钮
+        time.sleep(1)
+        self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.npxsxem_modify_address_note).click()#点击modify address note按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.npxsxem_address_note).click()#点击address note输入框
+        address_note=self.driver.find_element(*self.npxsxem_address_note)
+        address_note.click();address_note.send_keys(text1)
+        msg = self.driver.find_element(*self.npxsxem_address_note).text
+        time.sleep(2)
+        print(msg)
+        # enter_remark=address_note#获取输入address note的文本
+        self.driver.find_element(*self.npxsxem_save_modification).click()#点击save modification按钮
+        time.sleep(5)
+
+        msg1=self.driver.find_element(*self.npxsxem_tv_remarks).text
+        #print(msg,msg1)
+        print(msg1)
+
+
+
+        self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
+        time.sleep(2)
+        self.driver.find_element(*self.npxsxem_guide_btn).click()#点击帮助说明
+        time.sleep(2)
+        self.driver.back()
+        time.sleep(1)
+
+        self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
+        time.sleep(2)
+        self.driver.find_element(*self.npxsxem_cancel).click()#点击取消按钮
+        time.sleep(1)
+
+        return msg,msg1
+
 
 
     def click_npxsxem_helpBtn(self):
@@ -358,43 +459,90 @@ class DappFxPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.npxsxem_address_QRcode).click()#点击address QRcode按钮
         time.sleep(2)
+        self.driver.find_element(*self.npxsxem_close).click()#点击关闭按钮
+        time.sleep(1)
         self.driver.find_element(*self.npxsxem_copy_address).click()#点击copy address按钮
         time.sleep(2)
         self.driver.find_element(*self.npxsxem_message_QRcode).click()#点击message QRcode按钮
         time.sleep(2)
+        self.driver.find_element(*self.npxsxem_close).click()  # 点击关闭按钮
+        time.sleep(1)
         self.driver.find_element(*self.npxsxem_copy_message).click()#点击copy message按钮
         time.sleep(2)
 
     def click_npxsxem_transfer(self):
-        """点击npxsxem的转账按钮"""
-        self.driver.find_element(*self.npxsxem_transfer).click()
+        """点击npxsxem界面的转账按钮"""
+        self.driver.find_element(*self.npxsxem_transfer_btn).click()
         time.sleep(2)
 
-    def npxsxem_transfer(self,text,text1,text2):
+    def npxsxem_transfer(self,text,text1,text2,text3,text4):
         """npxsxem转账"""
         #第一步：输入转账地址
         self.driver.find_element(*self.npxsxem_recipient_address).click()#点击Recipient's Address输入框
         time.sleep(1)
         ecipient_address=self.driver.find_element(*self.npxsxem_recipient_address)
-        ecipient_address.click();ecipient_address.sendkeys(text)#输入npxsxem地址
+        ecipient_address.click();ecipient_address.send_keys(text)#输入npxsxem地址
         time.sleep(2)
 
         #第二步：输入转账金额
         self.driver.find_element(*self.npxsxem_amount).click()#点击amount按钮
         npxsxem_amount= self.driver.find_element(*self.npxsxem_amount)
-        npxsxem_amount.click();npxsxem_amount.sendkeys(text1)#输入转账金额
+        npxsxem_amount.click();npxsxem_amount.send_keys(text1)#输入转账金额
         time.sleep(2)
+        self.driver.back()#按返回键
+        time.sleep(1)
 
         #第三步：输入附言
         self.driver.find_element(*self.npxsxem_message).click()#点击message按钮
         time.sleep(1)
         npxsxem_message=self.driver.find_element(*self.npxsxem_message)
-        npxsxem_message.click();npxsxem_message.sendkeys(text2)#输入附言
+        npxsxem_message.click();npxsxem_message.send_keys(text2)#输入附言
+        time.sleep(2)
+        self.driver.back()#按返回键
+        time.sleep(1)
+
+        self.swipeUp()#往上滑动到下一步按钮
         time.sleep(2)
 
         #第四步：点击下一步按钮
         self.driver.find_element(*self.npxsxem_transfer_next).click()#点击下一步按钮
         time.sleep(2)
+
+        time.sleep(6)#倒计时5秒
+
+        self.driver.find_element(*self.npxsxem_select_btn).click()#点击复选框勾选按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.npxsxem_transfer_confirm).click()#点击协议确定按钮
+        time.sleep(2)
+
+        #点击确认转账
+        self.driver.find_element(*self.npxsxen_withdrawNext1).click()
+        time.sleep(2)
+
+        #第五步：输入支付密码确认转账
+        self.driver.find_element(*self.npxsxem_emailCode).click()#发送验证码
+        time.sleep(2)
+        self.driver.find_element(*self.npxsxem_ed_email_code).click()#点击邮箱输入框
+        time.sleep(2)
+        npxsxem_email_code=self.driver.find_element(*self.npxsxem_ed_email_code)
+        npxsxem_email_code.click();npxsxem_email_code.send_keys(text3)#输入邮箱验证码
+        time.sleep(2)
+
+        self.driver.find_element(*self.npxsxem_ed_pay_password).click()#点击支付密码输入框
+        time.sleep(2)
+        npxsxem_payPassword =self.driver.find_element(*self.npxsxem_ed_pay_password)
+        npxsxem_payPassword.click();npxsxem_payPassword.send_keys(text4)#输入支付密码
+        time.sleep(2)
+
+        self.driver.back()#按返回键
+        time.sleep(2)
+
+        self.driver.find_element(*self.npxsxem_btn_confirm1).click()#确认转账
+        time.sleep(2)
+
+
+
 
     def click_npxsxem_add(self):
         """点击npxsxem的add按钮"""
@@ -408,14 +556,14 @@ class DappFxPage(Base):
         self.driver.find_element(*self.npxsxem_NEM_address).click()#点击NEM address的输入框
         time.sleep(2)
         NEM_address=self.driver.find_element(*self.npxsxem_NEM_address)
-        NEM_address.click();NEM_address.sendkeys(text)#输入NEM的地址
+        NEM_address.click();NEM_address.send_keys(text)#输入NEM的地址
         time.sleep(2)
 
         #第二步：输入备注
         self.driver.find_element(*self.npxsxem_NEM_note).click()#点击备注输入框
         time.sleep(1)
         NEM_note=self.driver.find_element(*self.npxsxem_NEM_note)
-        NEM_note.click();NEM_note.sendkeys(text1)#输入备注
+        NEM_note.click();NEM_note.send_keys(text1)#输入备注
         time.sleep(2)
 
         #第三步：点击确定按钮
@@ -428,9 +576,20 @@ class DappFxPage(Base):
 
     def click_start_staking(self):
         """点击开启挖矿按钮"""
-        self.driver.find_element(*self.staking_startMining).click()
-        time.sleep(2)
-        self.driver.find_element(*self.staking_startMining).is_enabled()
+        #startMining=self.driver.find_element(*self.staking_startMining)
+        #withdraw=self.driver.find_element(*self.staking_withdraw)
+        if self.findElement("Start staking"):
+            self.driver.find_element(*self.staking_startMining).click() #点击开始挖矿按钮
+            time.sleep(2)
+        elif self.findElement("Withdraw"):
+            self.driver.find_element(*self.staking_withdraw).click()#点击提现按钮
+            time.sleep(2)
+            self.driver.find_element(*self.staking_next).click()#点击下一步按钮
+            time.sleep(2)
+            self.driver.find_element(*self.staking_copy).click()#点击复制按钮
+            time.sleep(2)
+
+
 
     def click_staking_setting(self):
         """点击挖矿界面右上角的更多按钮"""
@@ -439,8 +598,37 @@ class DappFxPage(Base):
 
     def click_staking_history(self):
         """点击挖矿历史界面"""
-        self.driver.find_element(*self.staking_history).click()
+        self.driver.find_element(*self.staking_history).click()#点击挖矿历史按钮
+        time.sleep(3)
+
+        #开始时间功能
+        self.driver.find_element(*self.staking_startTime).click()#点击开始时间
         time.sleep(2)
+        self.driver.find_element(*self.staking_startTime_cancle).click()#点击取消按钮
+        time.sleep(2)
+        self.driver.find_element(*self.staking_startTime).click()  # 点击开始时间
+        time.sleep(2)
+        self.driver.find_element(*self.staking_startTime_OK).click()#点击ok按钮
+        time.sleep(2)
+
+        #结束时间功能
+        self.driver.find_element(*self.staking_endTime).click()#点击结束时间按钮
+        time.sleep(3)
+        self.driver.find_element(*self.staking_endTime_cancle).click()#点击取消按钮
+        time.sleep(2)
+        self.driver.find_element(*self.staking_endTime).click()#点击结束时间按钮
+        time.sleep(2)
+        self.driver.find_element(*self.staking_endTime_OK).click()#点击确定按钮
+        time.sleep(2)
+
+        #帮助说明按钮
+        self.driver.find_element(*self.staking_option2).click()#点击挖矿的帮助按钮
+        time.sleep(2)
+        if self.findElement("STAKING GUIDE"):
+            print("进入帮助界面成功")
+            pass
+
+
 
     def click_staking_shareTo(self):
         """点击分享按钮"""
