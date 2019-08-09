@@ -167,6 +167,9 @@ class UsercenterPage(Base):
     security_fingerprint = (By.ID, 'switch_fingerprint')  # 设置-安全中心-指ew纹识别
     security_google = (By.ID, 'switch_google_authen')  # 设置-安全中心-谷歌验证码
     goodle_confirm = (By.ID, 'btn_yes')  # 谷歌验证码，确认开启
+    goodle_my_key = (By.ID,'tv_paste')  # 谷歌验证码粘贴
+    goodle_2fa = (By.ID,'et_2fa_code')  # 输入谷歌验证码
+
 
     # ———————————————————————修改登录密码——————————————————————————#
     setting_Security_loginPWD = (By.ID, 'rl_safety_login_pass')  # 设置-安全中心-修改登录密码
@@ -183,6 +186,8 @@ class UsercenterPage(Base):
     security_payAgain = (By.ID, 'et_paypass_again')  # 设置-安全中心-修改支付密码之新密码确认
     security_payModify = (By.ID, 'bt_paypass_modify')  # 设置-安全中心-修改支付密码之确认
     security_payForget = (By.ID, 'tv_forget_old_pass')  # 设置-安全中心-忘记支付密码入口
+    payForget_pwd = (By.ID,'tv_should_tips')    # 忘记支付密码 -- 输入新密码
+    payForget_pwd2 = (By.ID,'tv_password_tips') # 忘记支付密码 --- 输入新确认密码
 
     # ———————————————————————通用、语言、货币——————————————————————————#
     setting_General_btn = (By.ID, 'rl_common')  # 设置-通用入口
@@ -238,7 +243,7 @@ class UsercenterPage(Base):
             self.swipeUp(duration=1000)
         else:
             self.driver.find_element(*self.KYC_birth_year).click()
-        self.driver.find_element(*self.KYC_brith_ok)
+        self.driver.find_element(*self.KYC_brith_ok).click()
         self.driver.find_element(*self.KYC_nationality).click()  # 选择国籍
         time.sleep(2)
         self.driver.find_element(*self.KYC_submit).click()  # kyc 第一页提交
@@ -254,11 +259,11 @@ class UsercenterPage(Base):
         """修改手机号、邮箱的语音识别"""
         time.sleep(55)
         try:
-            self.driver.find_element(*self.call_phone_code).click()
+            WebDriverWait(self.driver, 60, ).until(expected_conditions.presence_of_element_located(self.call_phone_code)).click()
         except Exception as e:
             print(e)
 
-    def change_phone(self, code, phone):
+    def change_phone(self, code, phone,newCode):
         """修改手机号"""
         self.into_setting()
         self.driver.find_element(*self.setting_phone).click()  # 修改手机号入口
@@ -271,20 +276,20 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.verification_sms_code).send_keys(code)
         time.sleep(1)
         self.driver.find_element(*self.phone_new).send_keys(phone)  # 输入新手机号
+        time.sleep(1)
         self.driver.find_element(*self.new_code).click()
         time.sleep(1)
-        self.driver.find_element(*self.verification_new_code).send_keys(code)  # 发送及输入验证码
+        self.driver.find_element(*self.verification_new_code).send_keys(newCode)  # 发送及输入验证码
         self.change_phone_call()  # 新旧手机号的语音识别
-        time.sleep(3)
-        self.driver.find_element(*self.call_new_phone_code).click()
+        time.sleep(2)
+        WebDriverWait(self.driver, 60, ).until(expected_conditions.presence_of_element_located(self.call_new_phone_code)).click()
         time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 修改提交
         time.sleep(4)
         self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
         time.sleep(3)
-        self.Sys_back()
 
-    def change_email(self, code, email):
+    def change_email(self, code, email,newCode):
         """修改邮箱界面"""
         self.into_setting()
         self.driver.find_element(*self.setting_Email).click()  # 修改邮箱入口
@@ -299,14 +304,13 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.email_new).send_keys(email)  # 输入修改的新邮箱地址
         self.driver.find_element(*self.new_code).click()  # 发送新邮箱地址的验证码
         time.sleep(2)
-        self.driver.find_element(*self.verification_new_code).send_keys(code)
+        self.driver.find_element(*self.verification_new_code).send_keys(newCode)
         self.change_phone_call()
         time.sleep(4)
         self.driver.find_element(*self.new_confirm).click()  # 提交修改的数据
         time.sleep(3)
         self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
         time.sleep(2)
-        self.Sys_back()
 
     def into_general(self):
         """"安全中心入口"""
@@ -348,7 +352,7 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.security_payModify).click()  # 提交信息
         time.sleep(2)
 
-    def forget_payPwd(self, code):
+    def forget_payPwd(self, code,pwd):
         """忘记支付密码"""
         self.into_change_payPwd()
         time.sleep(2)
@@ -363,6 +367,11 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.verification_sms_code).send_keys(code)
         time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 提交按键
+        time.sleep(1)
+        self.driver.find_element(*self.payForget_pwd).send_keys(pwd) # 输入新密码
+        self.driver.find_element(*self.payForget_pwd2).send_keys(pwd)
+        time.sleep(1)
+        self.driver.find_element(*self.new_confirm).click() # 提交确认按键
         time.sleep(1)
 
     def pattern(self):
@@ -379,7 +388,7 @@ class UsercenterPage(Base):
         self.into_general()
         self.driver.find_element(*self.security_fingerprint).click()  # 指纹识别入口
 
-    def google(self, code):
+    def google(self, code,goodle):
         """谷歌验证"""
         self.into_general()
         self.driver.find_element(*self.security_google).click()  # 谷歌入口
@@ -394,6 +403,14 @@ class UsercenterPage(Base):
         time.sleep(1)
         self.driver.find_element(*self.new_confirm).click()  # 确认提交
         time.sleep(2)
+        self.driver.find_element(*self.new_confirm).click()  # 查看我的谷歌验证KEY
+        time.sleep(2)
+        self.driver.find_element(*self.goodle_my_key).clikc()
+        time.sleep(1)
+        self.driver.find_element(*self.goodle_2fa).send_keys(goodle) # 输入谷歌验证码
+        time.sleep(1)
+        self.driver.find_element(*self.new_confirm).click()  # 确认提交
+
 
     def general(self):
         """通用 - 语言及货币选择"""
