@@ -69,7 +69,7 @@ class registerPage(Base):
         """手机号码注册"""
         time.sleep(2)
         self.driver.find_element(*self.switch_mobile_register).click()  # 切换手机号码方式
-        time.sleep(1)
+        time.sleep(2)
         self.select_nation(nation)
         time.sleep(1)
         self.driver.find_element(*self.input_mobile).send_keys(mobile)  # 输入手机号码

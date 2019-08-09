@@ -80,6 +80,8 @@ class LoginPage(Base):
         time.sleep(1)
         self.driver.find_element(*self.edit_email).send_keys(email)
         self.log_in(pwd)
+        time.sleep(6)
+        self.telegram_skip()
 
     def login_by_Mobile(self, mobile, pwd, na=None):
         """使用手机登录"""
@@ -191,15 +193,15 @@ class LoginPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.click_FAQ).click()  # 点击FAQ目录
         time.sleep(2)
-        msg = self.driver.find_element(*self.get_page_title).text # 获取点击工单目录后的页面标题
+        msg = self.driver.find_element(*self.get_page_title).text  # 获取点击工单目录后的页面标题
         self.driver.back()
         self.driver.find_element(*self.click_Support_and_Feedback).click()  # 点击Support and Feedback目录
         time.sleep(2)
-        msg1 = self.driver.find_element(*self.get_page_title).text # 获取点击工单目录后的页面标题
+        msg1 = self.driver.find_element(*self.get_page_title).text  # 获取点击工单目录后的页面标题
         self.driver.back()
         self.driver.find_element(*self.click_Disclaimer).click()  # 点击Disclaimer目录
         time.sleep(2)
-        msg2 = self.driver.find_element(*self.get_page_title).text # 获取点击工单目录后的页面标题
+        msg2 = self.driver.find_element(*self.get_page_title).text  # 获取点击工单目录后的页面标题
         self.driver.back()
         return msg,msg1,msg2  # 返回为FAQ、Support and Feedback、Disclaimer
 

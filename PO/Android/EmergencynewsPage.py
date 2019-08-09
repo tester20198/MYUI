@@ -19,7 +19,7 @@ class EmergencynewsPage(Base):
         self.driver.find_element(*self.click_news).click()  #点击紧急消息菜单
         time.sleep(2)
         self.driver.find_element(*self.click_one_news).click()  #点击第一条信息
-        time.sleep(3)
+        time.sleep(10)
         text = self.driver.find_element(*self.get_page_text).text #获取页面的文本,如果找到 Webpage not available文本,则返回失败，反之返回成功
         while not self.findElement(text):
             return True

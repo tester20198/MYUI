@@ -9,17 +9,18 @@ class DappOpenAppTestCase(unittest.TestCase):
     """
     Dapp-开放平台app 测试用例
     """
-    @classmethod
-    def setUpClass(cls):
-        # Base.android_driver_caps["noReset"] = True
-        cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
-        cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
-        time.sleep(3)  # 等待初始化完成
-        cls.login_page.check_in()
-        cls.login_page.login_by_Email('xgq2@xinjineng.net', 'Abc123456') #调用登陆
-        cls.open_app_page = DappOpenAppPage(cls.driver)
 
-    def test_001_add_open_platform_App(self,type=u'APP'):
+    def setUp(self):
+        self.appname = u'P Demo'  # 必须传参app名称
+        Base.android_driver_caps["noReset"] = True
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
+        # self.login_page = LoginPage(self.driver)  # 初始化登录页元素以及方法
+        time.sleep(3)  # 等待初始化完成
+        # self.login_page.check_in()
+        # self.login_page.login_by_Email('xgq2@xinjineng.net', 'Abc123456') #调用登陆
+        self.open_app_page = DappOpenAppPage(self.driver)
+
+    def test_001_add_open_platform_App(self):
         '''
         用例一: 添加开放平台app
         :param type: 添加的类型
@@ -27,7 +28,7 @@ class DappOpenAppTestCase(unittest.TestCase):
         try:
             self.open_app_page.dapp_page() #点击dapp菜单
             time.sleep(1)
-            self.open_app_page.add_app_buisess(type) #添加app
+            self.open_app_page.add_app_buisess(self.appname) #添加app
             self.assertTrue(self.open_app_page.is_toast_exist('success'))
         except (BaseException,AssertionError):
             self.open_app_page.save_img("/open_add_app_fail")
@@ -82,11 +83,8 @@ class DappOpenAppTestCase(unittest.TestCase):
             self.open_app_page.save_img("/open_remove_app_fail")
             raise BaseException
 
-
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
 
 
 if __name__ == '__main__':
