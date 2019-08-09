@@ -122,10 +122,6 @@ class ChatTestCase(unittest.TestCase):
     def test_10_NPXS_transfer(self):
         """NPXS转账"""
         self.Dapppage.click_NPXS_Detail()
-
-    def test_10_NPXS_transfer(self):
-        """NPXS转账"""
-        self.Dapppage.click_NPXS_Detail()
         self.Dapppage.Click_Transfer_without_Memo("0x2b9084c74e4406eb7c0e06c1df9bff2b2bf7bbdb")
         self.Dapppage.Send_code()
         try:

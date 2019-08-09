@@ -15,11 +15,11 @@ class UsercenterTestCase(unittest.TestCase):
     def setUpClass(cls):
         cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
         time.sleep(5)  # 等待初始化完成
-        # cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
-        # cls.login_page.check_in()
-        # time.sleep(1)
-        # cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
-        # time.sleep(5)
+        cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
+        cls.login_page.check_in()
+        time.sleep(1)
+        cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
+        time.sleep(5)
         cls.user_page = UsercenterPage(cls.driver)  # 初始化个人中心页元素以及方法
         cls.user_page.go_to_usercenter()
         time.sleep(2)

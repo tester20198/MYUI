@@ -225,12 +225,12 @@ class UsercenterPage(Base):
     def setting_kyc(self, firstname, middleName, lastname, number):
         """ KYC ---- 选择日期未完成 """
         self.driver.find_element(*self.KYC_btn).click()  # 进入kyc 界面
-        # time.sleep(5)
-        # self.switch_to_view()   # 由于该按键是webdriver ，先切换视察再点击ID  或 直接点击显示文本
-        # time.sleep(3)
-        # self.driver.find_element(*self.KYC_go).click()
-
-        time.sleep(5)
+        time.sleep(2)
+        self.switch_to_view()   # 由于该按键是webdriver ，先切换视察再点击ID  或 直接点击显示文本
+        time.sleep(2)
+        self.driver.find_element(*self.KYC_go).click()
+        time.sleep(3)
+        self.driver.find_element(*self.KYC_go).click()
         self.driver.find_element(*self.KYC_firstName).send_key(firstname)  # 分别输入名字
         self.driver.find_element(*self.KYC_middleName).send_key(middleName)
         self.driver.find_element(*self.KYC_lastname).send_key(lastname)
