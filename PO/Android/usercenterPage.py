@@ -222,33 +222,34 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.my_Vouchers_instructions).click()  # 我的优惠券说明
         time.sleep(3)
 
-    def setting_kyc(self, firstname, middleName, lastname, number):
+    def  setting_kyc(self, firstname, middleName, lastname, number):
         """ KYC ---- 选择日期未完成 """
+
         self.driver.find_element(*self.KYC_btn).click()  # 进入kyc 界面
         time.sleep(2)
         self.switch_to_view()   # 由于该按键是webdriver ，先切换视察再点击ID  或 直接点击显示文本
         time.sleep(2)
         self.driver.find_element(*self.KYC_go).click()
-        time.sleep(3)
-        self.driver.find_element(*self.KYC_go).click()
-        self.driver.find_element(*self.KYC_firstName).send_key(firstname)  # 分别输入名字
-        self.driver.find_element(*self.KYC_middleName).send_key(middleName)
-        self.driver.find_element(*self.KYC_lastname).send_key(lastname)
-        self.driver.find_element(*self.KYC_number).send_key(number)
-        self.driver.find_element(*self.KYC_birth).click()  # 选择出生日期
-        time.sleep(3)
-        self.driver.find_element(*self.KYC_birth_year).click()  # 出生日期之年
-        while not self.findElement():
-            self.swipeUp(duration=1000)
-            self.swipeUp(duration=1000)
-        else:
-            self.driver.find_element(*self.KYC_birth_year).click()
-        self.driver.find_element(*self.KYC_brith_ok).click()
-        self.driver.find_element(*self.KYC_nationality).click()  # 选择国籍
         time.sleep(2)
-        self.driver.find_element(*self.KYC_submit).click()  # kyc 第一页提交
-        time.sleep(10)
-        self.driver.find_element(*self.KYC_instructions).click()  # KYC第一页说明
+
+        # self.driver.find_element(*self.KYC_firstName).send_key(firstname)  # 分别输入名字
+        # self.driver.find_element(*self.KYC_middleName).send_key(middleName)
+        # self.driver.find_element(*self.KYC_lastname).send_key(lastname)
+        # self.driver.find_element(*self.KYC_number).send_key(number)
+        # self.driver.find_element(*self.KYC_birth).click()  # 选择出生日期
+        # time.sleep(3)
+        # self.driver.find_element(*self.KYC_birth_year).click()  # 出生日期之年
+        # while not self.findElement():
+        #     self.swipeUp(duration=1000)
+        #     self.swipeUp(duration=1000)
+        # else:
+        #     self.driver.find_element(*self.KYC_birth_year).click()
+        # self.driver.find_element(*self.KYC_brith_ok).click()
+        # self.driver.find_element(*self.KYC_nationality).click()  # 选择国籍
+        # time.sleep(2)
+        # self.driver.find_element(*self.KYC_submit).click()  # kyc 第一页提交
+        # time.sleep(10)
+        # self.driver.find_element(*self.KYC_instructions).click()  # KYC第一页说明
 
     def into_setting(self):
         """设置入口"""
@@ -268,26 +269,25 @@ class UsercenterPage(Base):
         self.into_setting()
         self.driver.find_element(*self.setting_phone).click()  # 修改手机号入口
         time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click()  # 发送短信、邮箱验证码
-        time.sleep(1)
+        if self.findElement('tv_send_email_code'):
+            self.driver.find_element(*self.send_email_code).click()  # 发送短信、邮箱验证码
+            time.sleep(1)
+            self.driver.find_element(*self.verification_email_code).send_keys(code)  # 邮箱验证码
+        else:
+            pass
         self.driver.find_element(*self.send_sms_code).click()
         time.sleep(1)
-        self.driver.find_element(*self.verification_email_code).send_keys(code)  # 输入短信、邮箱验证码
         self.driver.find_element(*self.verification_sms_code).send_keys(code)
-        time.sleep(1)
         self.driver.find_element(*self.phone_new).send_keys(phone)  # 输入新手机号
-        time.sleep(1)
         self.driver.find_element(*self.new_code).click()
         time.sleep(1)
         self.driver.find_element(*self.verification_new_code).send_keys(newCode)  # 发送及输入验证码
-        self.change_phone_call()  # 新旧手机号的语音识别
+        # self.change_phone_call()  # 新旧手机号的语音识别
         time.sleep(2)
-        WebDriverWait(self.driver, 60, ).until(expected_conditions.presence_of_element_located(self.call_new_phone_code)).click()
+        WebDriverWait(self.driver, 60).until(expected_conditions.presence_of_element_located(self.call_new_phone_code)).click()
         time.sleep(2)
+        self.swipeUp()
         self.driver.find_element(*self.new_confirm).click()  # 修改提交
-        time.sleep(4)
-        self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
-        time.sleep(3)
 
     def change_email(self, code, email,newCode):
         """修改邮箱界面"""

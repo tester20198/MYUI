@@ -11,73 +11,49 @@ class UsercenterTestCase(unittest.TestCase):
     个人中心的测试用例
     """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
+    def setUp(self):
+        Base.android_driver_caps["noReset"] = True
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
+        # time.sleep(5)  # 等待初始化完成
+        # cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
+        # cls.login_page.check_in()
+        # time.sleep(1)
+        # cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
+        # time.sleep(5)
+        self.user_page = UsercenterPage(self.driver)  # 初始化个人中心页元素以及方法
         time.sleep(5)  # 等待初始化完成
-        cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
-        cls.login_page.check_in()
-        time.sleep(1)
-        cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
+        self.user_page.go_to_usercenter()
         time.sleep(5)
-        cls.user_page = UsercenterPage(cls.driver)  # 初始化个人中心页元素以及方法
-        cls.user_page.go_to_usercenter()
-        time.sleep(2)
-
-    def sty_back(self):
-        self.driver.back()
-        self.driver.back()
-        self.driver.back()
-
-
-    def test_100_vouchers(self):
-        """ 我的优惠券"""
-        time.sleep(3)
-        self.user_page.my_vouchers()
-
-    def test_101_kyc(self):
-        """设置KYC-第一页"""
-        time.sleep(2)
-        self.user_page.setting_kyc('first', 'second', 'third', '6742384')
-
-    def test_102_change_phone(self):
-        """设置 -- 修改手机号"""
-        self.sty_back()
-        time.sleep(3)
-        self.user_page.change_phone(2222, 4120909090,'1111')
-        time.sleep(3)
-
-
 
     def test_103_change_email(self):
         """ 修改邮箱地址"""
-        self.sty_back()
+
         time.sleep(3)
         self.user_page.change_email(2222, '120@qq.com','1111')
 
 
     def test_104_change_loginPWD(self):
         """修改登录密码"""
-        self.sty_back()
+
         time.sleep(2)
         self.user_page.change_login_pwd('Test1234')
 
     def test_105_change_payPWD(self):
         """修改支付密码"""
-        self.sty_back()
+
         time.sleep(2)
         self.user_page.change_payPwd('123456')
 
     def test_106_forget_payPwd(self):
         """忘记支付密码"""
-        self.sty_back()
+
         time.sleep(2)
         self.user_page.forget_payPwd('2222','123456')
 
 
     def test_107_pattern(self):
         """手势密码设置"""
-        self.sty_back()
+
         self.driver.back()
         self.driver.back()
         time.sleep(2)
@@ -85,13 +61,13 @@ class UsercenterTestCase(unittest.TestCase):
 
     def test_108_fingerprint(self):
         """指纹识别设置"""
-        self.sty_back()
+
         time.sleep(2)
         self.user_page.fingerprint()
 
     def test_109_google(self):
         """谷歌验证码"""
-        self.sty_back()
+
         time.sleep(2)
         self.user_page.google('2222','12345')
     #
@@ -231,9 +207,24 @@ class UsercenterTestCase(unittest.TestCase):
     #     time.sleep(2)
     #     self.user_page.about()
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    def test_015_vouchers(self):
+        """ 我的优惠券"""
+        time.sleep(3)
+        self.user_page.my_vouchers()
+
+    def test_016_kyc(self):
+        """设置KYC-第一页"""
+
+        # time.sleep(3)
+        self.user_page.setting_kyc('first', 'second', 'third', '6742384')
+
+    def test_017_change_phone(self):
+        """设置 -- 修改手机号"""
+
+        # time.sleep(3)
+        self.user_page.change_phone(2222, 4120909090, 2222)
+        self.assertTrue(self.user_page.is_toast_exist('registered'))
+
 
 
 if __name__ == '__main__':
