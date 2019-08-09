@@ -34,7 +34,7 @@ class RigisterTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('注册成功后跳转到设置用户头像界面,获取的头像字段文本信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.register_page.save_img("/mobile_register_fail")
+            self.register_page.save_img("/001_mobile_register_fail")
             raise BaseException
 
     def test_002_email_register(self,loginpwd='Abc123456',paypwd='123456',code='2222'):
@@ -54,7 +54,7 @@ class RigisterTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('注册成功后跳转到设置用户头像界面,获取的头像字段文本信息：%s' % msg)
         except (BaseException,AssertionError):
-            self.register_page.save_img("/email_register_fail")
+            self.register_page.save_img("/002_email_register_fail")
             raise BaseException
 
     def test_003_register_Agreement(self):
@@ -67,7 +67,7 @@ class RigisterTestCase(unittest.TestCase):
             self.assertEqual(msg, u'Forgot password')
             print('从注册页面跳转到登录页面,获取的页面文本信息：%s' % msg)
         except (BaseException,AssertionError):
-            self.register_page.save_img("/register_fail")
+            self.register_page.save_img("/003_register_fail")
             raise BaseException
 
     def tearDown(self):

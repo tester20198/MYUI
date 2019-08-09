@@ -8,29 +8,27 @@ class ChatTestCase(unittest.TestCase):
     """
     Chat界面的测试用例
     """
-    @classmethod
-    def setUpClass(cls):
 
-        cls.nickname = u'Sun'        #好友昵称
-        cls.groupname = u'测试组'      #群昵称
+    def setUp(self):
+        self.nickname = u'Sun'        #好友昵称
+        self.groupname = u'测试组'      #群昵称
         Base.android_driver_caps["noReset"] = True
-        cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
-        time.sleep(3)  # 等待初始化完成
-        cls.chat_page = ChatPage(cls.driver)
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
+        time.sleep(5)  # 等待初始化完成
+        self.chat_page = ChatPage(self.driver)
 
-    def test_001_Send_little_personal_redpacket(self,amount='0.0000001',explain=u'发送个人红包',paypwd='000000'):
+    def test_001_Send_little_personal_redpacket(self,amount='0.0000001',paypwd='000000'):
         '''
         用例一: 发送个人红包BTC(小额)
         :param nickname: 输入需要发送的好友昵称(全称)
         :param amount:  输入红包的金额
-        :param explain: 输入红包的祝福语
         :param paypwd: 输入支付密码
         :return:
         '''
         try:
             self.chat_page.Click_chat() #点击chat菜单
             time.sleep(1)
-            self.chat_page.Send_personal_redpacket(self.nickname,amount,explain) #输入接收者名称、红包金额、红包祝福语
+            self.chat_page.Send_personal_redpacket(self.nickname,amount) #输入接收者名称、红包金额、红包祝福语
             time.sleep(1)
             self.chat_page.Select_redpacket_coin_BTC()   #发送btc币种
             self.chat_page.Click_Send_redpacket(paypwd)   #输入支付密码
@@ -38,22 +36,22 @@ class ChatTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('发送红包后,获取的页面红包的状态信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/geren_redpacket_BTC_fail")
+            self.chat_page.save_img("/001_geren_redpacket_BTC_fail")
             raise BaseException
 
-    def test_002_Send_little_personal_redpacket(self,amount='0.001',explain=u'发送个人红包',paypwd='000000'):
+
+    def test_002_Send_little_personal_redpacket(self,amount='0.0000001',paypwd='000000'):
         '''
         用例二: 发送个人红包ETH(小额)
         :param nickname: 输入需要发送的好友昵称(全称)
         :param amount:  输入红包的金额
-        :param explain: 输入红包的祝福语
         :param paypwd: 输入支付密码
         :return:
         '''
         try:
             self.chat_page.Click_chat() #点击chat菜单
             time.sleep(1)
-            self.chat_page.Send_personal_redpacket(self.nickname,amount,explain) #输入接收者名称、红包金额、红包祝福语
+            self.chat_page.Send_personal_redpacket(self.nickname,amount) #输入接收者名称、红包金额、红包祝福语
             time.sleep(1)
             self.chat_page.Select_redpacket_coin_ETH()   #发送ETH币种
             self.chat_page.Click_Send_redpacket(paypwd)   #输入支付密码
@@ -61,15 +59,14 @@ class ChatTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('发送红包后,获取的页面红包的状态信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/geren_redpacket_ETH_fail")
+            self.chat_page.save_img("/002_geren_redpacket_ETH_fail")
             raise BaseException
 
-    def test_003_Send_little_group_redpacket(self,amount=1,explain=u'发送群红包',number=10,paypwd='000000'):
+    def test_003_Send_little_group_redpacket(self,amount='0.0000001',number=10,paypwd='000000'):
         '''
         用例三: 发送群红包NPXS(小额)
         :param nickname: 输入需要发送的好友昵称(全称)
         :param amount:  输入红包的金额
-        :param explain: 输入红包的祝福语
         :param number:  输入红包的个数
         :param paypwd: 输入支付密码
         :return:
@@ -77,7 +74,7 @@ class ChatTestCase(unittest.TestCase):
         try:
             self.chat_page.Click_chat()
             time.sleep(1)
-            self.chat_page.Send_group_redpacket(self.groupname,amount,explain,number) #发送群红包
+            self.chat_page.Send_group_redpacket(self.groupname,amount,number) #发送群红包
             time.sleep(1)
             self.chat_page.Select_redpacket_coin_NPXS()  # 发送NPXS币种
             self.chat_page.Click_Send_redpacket(paypwd)  # 输入支付密码
@@ -86,15 +83,14 @@ class ChatTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('发送红包后,获取的页面红包的状态信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/group_redpacket_NPXS_fail")
+            self.chat_page.save_img("/003_group_redpacket_NPXS_fail")
             raise BaseException
 
-    def test_004_Send_little_group_redpacket(self,amount=1,explain=u'发送群红包',number=10,paypwd='000000'):
+    def test_004_Send_little_group_redpacket(self,amount='0.0000001',number=10,paypwd='000000'):
         '''
         用例四: 发送群红包BNB(小额)
         :param nickname: 输入需要发送的好友昵称(全称)
         :param amount:  输入红包的金额
-        :param explain: 输入红包的祝福语
         :param number:  输入红包的个数
         :param paypwd: 输入支付密码
         :return:
@@ -102,7 +98,7 @@ class ChatTestCase(unittest.TestCase):
         try:
             self.chat_page.Click_chat()
             time.sleep(1)
-            self.chat_page.Send_group_redpacket(self.groupname,amount,explain,number) #发送群红包
+            self.chat_page.Send_group_redpacket(self.groupname,amount,number) #发送群红包
             time.sleep(1)
             self.chat_page.Select_redpacket_coin_BNB()  # 发送BNB币种
             self.chat_page.Click_Send_redpacket(paypwd)  # 输入支付密码
@@ -111,11 +107,11 @@ class ChatTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('发送红包后,获取的页面红包的状态信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/group_redpacket_NPXS_fail")
+            self.chat_page.save_img("/004_group_redpacket_BNB_fail")
             raise BaseException
 
-    def test_005_Send_big_group_redpacket(self,amount=10,explain=u'发送群红包',
-                                           number=1,paypwd='000000',code='2222',code2fa='222222'):
+    @unittest.skip
+    def test_005_Send_big_group_redpacket(self,amount=10,number=1000,paypwd='000000',code='2222',code2fa='222222'):
         '''
         用例五: 发送群红包ETH(大额)
         :param nickname: 输入需要发送的好友昵称(全称)
@@ -130,7 +126,7 @@ class ChatTestCase(unittest.TestCase):
         try:
             self.chat_page.Click_chat()
             time.sleep(1)
-            self.chat_page.Send_group_redpacket(self.groupname,amount,explain,number) #发送群红包
+            self.chat_page.Send_group_redpacket(self.groupname,amount,number) #发送群红包
             time.sleep(1)
             self.chat_page.Select_redpacket_coin_ETH()  # 发送ETH币种
             self.chat_page.Click_Send_redpacket(paypwd)  # 输入支付密码
@@ -138,7 +134,7 @@ class ChatTestCase(unittest.TestCase):
             msg = self.chat_page.judge_redpacket_status()  # 判断发出去的红包状态是否为View
             print('发送红包后,获取的页面红包的状态信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/big_group_redpacket_ETH_fail")
+            self.chat_page.save_img("/005_big_group_redpacket_ETH_fail")
             raise BaseException
 
     @unittest.skip
@@ -154,10 +150,10 @@ class ChatTestCase(unittest.TestCase):
             self.chat_page.Send_group_emjoy_message(self.groupname,message)
             # print('发送红包后,获取的页面红包的状态信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/emjoy_and_message_fail")
+            self.chat_page.save_img("/006_emjoy_and_message_fail")
             raise BaseException
 
-    def test_007_Forgot_payment_password(self,amount='0.001',explain=u'发送个人红包',emailcode='2222',pwd='000000'):
+    def test_007_Forgot_payment_password(self,amount='0.001',emailcode='2222',pwd='000000'):
         '''
         用例七: 忘记密码流程
         :param emailcode: 输入邮箱验证码
@@ -167,18 +163,17 @@ class ChatTestCase(unittest.TestCase):
         try:
             self.chat_page.Click_chat()  # 点击chat菜单
             time.sleep(1)
-            self.chat_page.Send_personal_redpacket(self.nickname, amount, explain)  # 输入接收者名称、红包金额、红包祝福语
+            self.chat_page.Send_personal_redpacket(self.nickname,amount)  # 输入接收者名称、红包金额、红包祝福语
             time.sleep(1)
             self.chat_page.Select_redpacket_coin_ETH()  # 发送ETH币种
             time.sleep(1)
             self.chat_page.business_forgot_payment_password(emailcode,pwd)
         except (BaseException, AssertionError):
-            self.chat_page.save_img("/Forgot_payment_password_fail")
+            self.chat_page.save_img("/007_Forgot_payment_password_fail")
             raise BaseException
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
 
 
 if __name__ == '__main__':

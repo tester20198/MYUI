@@ -14,8 +14,8 @@ class DappOpenCardPage(Base):
 
     # 添加开放平台卡片、app
     add_open_card = (By.XPATH, "//android.widget.TextView[@text='Virtual Card']")  # 添加开放平台卡片
-    select_Virtual_card = (By.ID, "rl_virtualFlag")  # 添加开放平台卡片时，选择添加虚拟卡
-    select_Physical_card = (By.ID, "rl_physicalFlag")  # 添加开放平台卡片时，选择添加物理卡片
+    select_Virtual_card = (By.ID, "btnVirtual")  # 添加开放平台卡片时，选择添加虚拟卡
+    select_Physical_card = (By.ID, "btnPhysical")  # 添加开放平台卡片时，选择添加物理卡片
     #实体卡
     Add_XPASS_No = (By.ID, "ed_addCardXpassNO")  # 输入XPASS卡号输入框
     Add_XPASS_Next = (By.ID, "btn_addCardNext")  # 输入卡号后下一步按钮
@@ -38,6 +38,10 @@ class DappOpenCardPage(Base):
     click_Internal_Transfer = (By.ID, "tv_refresh")  # 点击内部划转
     click_Instructions = (By.ID, "tv_help")  # 点击帮助说明
     click_Cancel = (By.ID, "tv_cancel")  # 点击取消
+
+    # Google认证提示
+    Google_Notnow = (By.ID, "btn_no")  # Google认证时，选择Not Now
+    Google_confirm = (By.ID, "btn_yes")  # google认证时，选择confirm
 
     Payment_code = (By.ID, "iv_qr_code")  # 二维码
     click_receive = (By.ID, "btn_recharge")  # Receive充值地址
@@ -90,8 +94,8 @@ class DappOpenCardPage(Base):
     def add_virtual_card(self):
         '''添加虚拟卡'''
 
+        time.sleep(3)
         self.driver.find_element(*self.select_Virtual_card).click()  # 添加虚拟卡
-        time.sleep(2)
         msg = self.is_toast_exist(u'Added successfully', 10, 0.5)
         return msg
 
@@ -127,7 +131,7 @@ class DappOpenCardPage(Base):
         self.driver.find_element(*self.click_open_card_token).click()
         time.sleep(4)
 
-    def card_details_page(self):
+    def card_details_page(self,cardname):
         '''卡片详情页面——加密、设置按钮、账单、开发者网站'''
 
         self.swipeDown(duration=1500)
@@ -176,34 +180,44 @@ class DappOpenCardPage(Base):
         else:
             return False
 
-    def transfer_buisess(self,text,text1,text2,text3):
+    def transfer_buisess(self,text,text1,text2,text3,cardname):
         '''转账流程'''
 
-        Transfer = 'Transfer'
-        click_Transfer = (By.XPATH, f'//android.widget.TextView[contains(@text, "{Transfer}")]')  # 进入添加卡片列表界面定位虚拟卡
-        while not self.findElement(Transfer):
-            self.swipeUp(duration=1500)
-            self.swipeUp(duration=1500)
-        else:
-            self.driver.find_element(*click_Transfer).click()
-        # self.driver.find_element(*self.click_open_card_Transfer).click()
+        self.driver.find_element(*self.click_transfer).click()
+        time.sleep(3)
+        # 首次点击转账，弹出是否开启2FA，默认不开启
+        switch = 0
+        if switch == 0:  # 不开启2FA
+            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+                self.driver.find_element(*self.Google_Notnow).click()
+                time.sleep(1)
+            else:
+                pass
+        else:  # 开启2FA
+            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+                self.driver.find_element(*self.Google_confirm).click()
+                time.sleep(1)
+            else:
+                pass
         time.sleep(3)
         self.driver.find_element(*self.input_transfer_Address).send_keys(text)
         self.driver.find_element(*self.input_amount).send_keys(text1)
         time.sleep(1)
         self.driver.find_element(*self.click_next).click()
-        time.sleep(1)
-        self.driver.find_element(*self.click_next2).click()
-        time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click()
-        time.sleep(2)
-        self.driver.find_element(*self.input_email_code).send_keys(text2)
-        time.sleep(2)
-        self.driver.find_element(*self.input_pay_password).send_keys(text3)
-        self.driver.find_element(*self.click_confirm).click()
-        time.sleep(2)
-        msg = self.is_toast_exist(u'Transfer successful')
-        return msg
+        if self.is_toast_exist(f'Max. transfer amount0.00000000{cardname}'):
+            return True
+        else:
+            self.driver.find_element(*self.click_next2).click()
+            time.sleep(2)
+            self.driver.find_element(*self.send_email_code).click()
+            time.sleep(2)
+            self.driver.find_element(*self.input_email_code).send_keys(text2)
+            time.sleep(2)
+            self.driver.find_element(*self.input_pay_password).send_keys(text3)
+            self.driver.find_element(*self.click_confirm).click()
+            time.sleep(2)
+            msg1 = self.is_toast_exist(u'Transfer successful')
+            return msg1
 
     def Internal_Transfer(self):
         '''内部划转'''

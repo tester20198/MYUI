@@ -30,7 +30,7 @@ class LoginTestCase(unittest.TestCase):
             self.assertListEqual([msg,msg1,msg2],['FAQ','Support and Feedback','Disclaimer'])
             print('工单系统点击各个菜单后,获取的页面标题: %s'% msg,msg1,msg2)
         except (BaseException, AssertionError):
-            self.login_page.save_img("/help_and_feedback_fail")
+            self.login_page.save_img("/001_help_and_feedback_fail")
             raise BaseException
 
     def test_002_login_by_email(self):
@@ -45,7 +45,7 @@ class LoginTestCase(unittest.TestCase):
             self.assertEqual(msg, u'Balance')
             print('登陆成功后,获取Dapp页面文本信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.login_page.save_img("/login_by_email_fail")
+            self.login_page.save_img("/002_login_by_email_fail")
             raise BaseException
 
     def test_003_login_by_mobile(self):
@@ -60,7 +60,7 @@ class LoginTestCase(unittest.TestCase):
             self.assertEqual(msg,u'Balance')
             print('登陆成功后,获取Dapp页面文本信息：%s' % msg)
         except (BaseException, AssertionError):
-            self.login_page.save_img("/login_by_mobile_fail")
+            self.login_page.save_img("/003_login_by_mobile_fail")
             raise BaseException
 
     def test_004_Email_Forgot_password(self):
@@ -74,7 +74,7 @@ class LoginTestCase(unittest.TestCase):
             self.assertEqual(msg,u'Log In')
             print('登陆密码重置成功,获取登陆页面login按钮文本信息：%s' % msg)  # 重置成功后，获取登陆界面的Log in按钮文本信息
         except (BaseException, AssertionError):
-            self.login_page.save_img("/Email_Forgot_password_fail")
+            self.login_page.save_img("/004_Email_Forgot_password_fail")
             raise BaseException
 
     def test_005_Mobile_Forgot_password(self):
@@ -88,7 +88,7 @@ class LoginTestCase(unittest.TestCase):
             self.assertEqual(msg, u'Log In')
             print('登陆密码重置成功,获取登陆页面login按钮文本信息：%s' % msg)  # 重置成功后，获取登陆界面的Log in按钮文本信息
         except (BaseException, AssertionError):
-            self.login_page.save_img("/Mobile_Forgot_password_fail")
+            self.login_page.save_img("/005_Mobile_Forgot_password_fail")
             raise BaseException
 
     def test_006_login_Sign_Up(self):
@@ -102,7 +102,7 @@ class LoginTestCase(unittest.TestCase):
             self.assertTrue(msg)
             print('从登陆页面跳转到注册页面,获取的页面文本信息：%s' % msg)  # 获取支付密码的文本信息
         except (BaseException, AssertionError):
-            self.login_page.save_img("/login_Sign_Up_fail")
+            self.login_page.save_img("/006_login_Sign_Up_fail")
             raise BaseException
 
     def tearDown(self):
