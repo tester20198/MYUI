@@ -225,11 +225,16 @@ class UsercenterPage(Base):
     def  setting_kyc(self, firstname, middleName, lastname, number):
         """ KYC ---- 选择日期未完成 """
 
+        self.swipeUp()
         self.driver.find_element(*self.KYC_btn).click()  # 进入kyc 界面
         time.sleep(2)
         self.switch_to_view()   # 由于该按键是webdriver ，先切换视察再点击ID  或 直接点击显示文本
         time.sleep(2)
-        self.driver.find_element(*self.KYC_go).click()
+        if self.findElement('commonBigBtnKyc'):
+            self.driver.find_element(*self.KYC_go).click()
+            print('未KYC！')
+        else:
+            print('已KYC！')
         time.sleep(2)
 
         # self.driver.find_element(*self.KYC_firstName).send_key(firstname)  # 分别输入名字
@@ -291,26 +296,28 @@ class UsercenterPage(Base):
 
     def change_email(self, code, email,newCode):
         """修改邮箱界面"""
+
         self.into_setting()
         self.driver.find_element(*self.setting_Email).click()  # 修改邮箱入口
         time.sleep(3)
         self.driver.find_element(*self.send_email_code).click()  # 发送手机及邮箱验证码
         time.sleep(1)
-        self.driver.find_element(*self.send_sms_code).click()
-        time.sleep(2)
-        self.driver.find_element(*self.verification_email_code).send_keys(code)  # 输入当前手机及邮箱验证码
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        self.driver.find_element(*self.verification_email_code).send_keys(code)
+        time.sleep(1)
+        if self.findElement('tv_send_sms_code'):
+            self.driver.find_element(*self.send_sms_code).click()
+            time.sleep(1)
+            self.driver.find_element(*self.verification_sms_code).send_keys(code)
         time.sleep(1)
         self.driver.find_element(*self.email_new).send_keys(email)  # 输入修改的新邮箱地址
         self.driver.find_element(*self.new_code).click()  # 发送新邮箱地址的验证码
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(*self.verification_new_code).send_keys(newCode)
         self.change_phone_call()
-        time.sleep(4)
-        self.driver.find_element(*self.new_confirm).click()  # 提交修改的数据
-        time.sleep(3)
-        self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
         time.sleep(2)
+        self.driver.find_element(*self.new_confirm).click()  # 提交修改的数据
+        time.sleep(2)
+        self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
 
     def into_general(self):
         """"安全中心入口"""
@@ -350,29 +357,37 @@ class UsercenterPage(Base):
         time.sleep(2)
         self.Sys_back()  # 收起键盘
         self.driver.find_element(*self.security_payModify).click()  # 提交信息
-        time.sleep(2)
 
     def forget_payPwd(self, code,pwd):
         """忘记支付密码"""
         self.into_change_payPwd()
         time.sleep(2)
+        self.Sys_back()
+        time.sleep(1)
         self.driver.find_element(*self.security_payForget).click()  # 忘记支付密码入口
         time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click()  # 点击发送邮箱及短信验证码按键
+        if self.findElement('tv_send_email_code'):
+            self.driver.find_element(*self.send_email_code).click()  # 点击发送邮箱及短信验证码按键
+            time.sleep(1)
+            self.driver.find_element(*self.verification_email_code).send_keys(code)  # 输入邮箱及短信验证码
+        else:
+            pass
         time.sleep(2)
-        self.driver.find_element(*self.send_sms_code).click()
-        time.sleep(2)
-        self.driver.find_element(*self.verification_email_code).send_keys(code)  # 输入邮箱及短信验证码
-        time.sleep(2)
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        if self.findElement('tv_send_sms_code'):
+            self.driver.find_element(*self.send_sms_code).click()
+            time.sleep(1)
+            self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        else:
+            pass
         time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 提交按键
-        time.sleep(1)
+        time.sleep(2)
+        self.driver.find_element(*self.payForget_pwd).click()
         self.driver.find_element(*self.payForget_pwd).send_keys(pwd) # 输入新密码
+        self.driver.find_element(*self.payForget_pwd2).click()
         self.driver.find_element(*self.payForget_pwd2).send_keys(pwd)
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(*self.new_confirm).click() # 提交确认按键
-        time.sleep(1)
 
     def pattern(self):
         """ 手势密码设置 """
@@ -381,7 +396,6 @@ class UsercenterPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.pattern_reset).click()  # 手势密码重置
         time.sleep(1)
-        Base.Sys_back(self)  # 返回界面
 
     def fingerprint(self):
         """指纹识别"""
@@ -390,6 +404,7 @@ class UsercenterPage(Base):
 
     def google(self, code,goodle):
         """谷歌验证"""
+
         self.into_general()
         self.driver.find_element(*self.security_google).click()  # 谷歌入口
         self.driver.find_element(*self.goodle_confirm).click()  # 开启谷歌验证码确认
@@ -405,7 +420,7 @@ class UsercenterPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 查看我的谷歌验证KEY
         time.sleep(2)
-        self.driver.find_element(*self.goodle_my_key).clikc()
+        self.driver.find_element(*self.goodle_my_key).click()
         time.sleep(1)
         self.driver.find_element(*self.goodle_2fa).send_keys(goodle) # 输入谷歌验证码
         time.sleep(1)
@@ -427,7 +442,6 @@ class UsercenterPage(Base):
             self.swipeUp()
             self.swipeUp()
         else:
-            pass
             self.click2('Venezuela (USD)')  # 货币选择Ven
             time.sleep(2)
 
@@ -507,7 +521,6 @@ class UsercenterPage(Base):
             self.driver.find_element(*self.refund).click()
         else:
             print('不存在退款或者已经退款了...')
-            pass
 
     def into_Assets(self):
         """进入总资产界面"""
@@ -685,16 +698,19 @@ class UsercenterPage(Base):
         """进入FAQ"""
 
         self.driver.find_element(*self.help).click()
+        self.Sys_back()
 
     def into_help_feedback(self):
         """进入feedback"""
 
         self.driver.find_element(*self.feedback).click()
+        self.Sys_back()
 
     def into_help_disclaimer(self):
         """进入disclaimer"""
 
         self.driver.find_element(*self.disclaimer).click()
+        self.Sys_back()
 
     def go_to_usercenter(self):
         """进入个人中心"""
