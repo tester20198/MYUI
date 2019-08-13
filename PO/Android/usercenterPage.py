@@ -186,8 +186,8 @@ class UsercenterPage(Base):
     security_payAgain = (By.ID, 'et_paypass_again')  # 设置-安全中心-修改支付密码之新密码确认
     security_payModify = (By.ID, 'bt_paypass_modify')  # 设置-安全中心-修改支付密码之确认
     security_payForget = (By.ID, 'tv_forget_old_pass')  # 设置-安全中心-忘记支付密码入口
-    payForget_pwd = (By.ID,'tv_should_tips')    # 忘记支付密码 -- 输入新密码
-    payForget_pwd2 = (By.ID,'tv_password_tips') # 忘记支付密码 --- 输入新确认密码
+    payForget_pwd = (By.ID,'et_pay_password')    # 忘记支付密码 -- 输入新密码
+    payForget_pwd2 = (By.ID,'et_confirm_pay_password') # 忘记支付密码 --- 输入新确认密码
 
     # ———————————————————————通用、语言、货币——————————————————————————#
     setting_General_btn = (By.ID, 'rl_common')  # 设置-通用入口
@@ -263,35 +263,35 @@ class UsercenterPage(Base):
 
     def change_phone_call(self):
         """修改手机号、邮箱的语音识别"""
-        time.sleep(55)
+
         try:
-            WebDriverWait(self.driver, 60, ).until(expected_conditions.presence_of_element_located(self.call_phone_code)).click()
+            WebDriverWait(self.driver, timeout=70, poll_frequency=1).until(expected_conditions.presence_of_element_located(self.call_phone_code)).click()
         except Exception as e:
-            print(e)
+            print('找不到语音入口？')
 
     def change_phone(self, code, phone,newCode):
         """修改手机号"""
         self.into_setting()
         self.driver.find_element(*self.setting_phone).click()  # 修改手机号入口
-        time.sleep(2)
+        time.sleep(3)
         if self.findElement('tv_send_email_code'):
             self.driver.find_element(*self.send_email_code).click()  # 发送短信、邮箱验证码
-            time.sleep(1)
+            time.sleep(2)
             self.driver.find_element(*self.verification_email_code).send_keys(code)  # 邮箱验证码
         else:
             pass
-        self.driver.find_element(*self.send_sms_code).click()
-        time.sleep(1)
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        if self.findElement('tv_send_sms_code'):
+            self.driver.find_element(*self.send_sms_code).click()
+            time.sleep(2)
+            self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        else:
+            pass
         self.driver.find_element(*self.phone_new).send_keys(phone)  # 输入新手机号
         self.driver.find_element(*self.new_code).click()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(*self.verification_new_code).send_keys(newCode)  # 发送及输入验证码
-        # self.change_phone_call()  # 新旧手机号的语音识别
+        self.change_phone_call()  # 新旧手机号的语音识别
         time.sleep(2)
-        WebDriverWait(self.driver, 60).until(expected_conditions.presence_of_element_located(self.call_new_phone_code)).click()
-        time.sleep(2)
-        self.swipeUp()
         self.driver.find_element(*self.new_confirm).click()  # 修改提交
 
     def change_email(self, code, email,newCode):
@@ -299,25 +299,25 @@ class UsercenterPage(Base):
 
         self.into_setting()
         self.driver.find_element(*self.setting_Email).click()  # 修改邮箱入口
-        time.sleep(3)
-        self.driver.find_element(*self.send_email_code).click()  # 发送手机及邮箱验证码
-        time.sleep(1)
-        self.driver.find_element(*self.verification_email_code).send_keys(code)
-        time.sleep(1)
+        time.sleep(2)
+        if self.findElement('tv_send_email_code'):
+            self.driver.find_element(*self.send_email_code).click()  # 发送短信、邮箱验证码
+            time.sleep(2)
+            self.driver.find_element(*self.verification_email_code).send_keys(code)  # 邮箱验证码
+        else:
+            pass
         if self.findElement('tv_send_sms_code'):
             self.driver.find_element(*self.send_sms_code).click()
-            time.sleep(1)
+            time.sleep(2)
             self.driver.find_element(*self.verification_sms_code).send_keys(code)
-        time.sleep(1)
+            self.change_phone_call()
+        else:
+            pass
         self.driver.find_element(*self.email_new).send_keys(email)  # 输入修改的新邮箱地址
         self.driver.find_element(*self.new_code).click()  # 发送新邮箱地址的验证码
         time.sleep(1)
         self.driver.find_element(*self.verification_new_code).send_keys(newCode)
-        self.change_phone_call()
-        time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 提交修改的数据
-        time.sleep(2)
-        self.driver.find_element(*self.cannot_used).click()  # 无法使用说明
 
     def into_general(self):
         """"安全中心入口"""
@@ -368,25 +368,25 @@ class UsercenterPage(Base):
         time.sleep(2)
         if self.findElement('tv_send_email_code'):
             self.driver.find_element(*self.send_email_code).click()  # 点击发送邮箱及短信验证码按键
-            time.sleep(1)
+            time.sleep(2)
             self.driver.find_element(*self.verification_email_code).send_keys(code)  # 输入邮箱及短信验证码
         else:
             pass
         time.sleep(2)
         if self.findElement('tv_send_sms_code'):
             self.driver.find_element(*self.send_sms_code).click()
-            time.sleep(1)
+            time.sleep(2)
             self.driver.find_element(*self.verification_sms_code).send_keys(code)
         else:
             pass
         time.sleep(2)
         self.driver.find_element(*self.new_confirm).click()  # 提交按键
         time.sleep(2)
-        self.driver.find_element(*self.payForget_pwd).click()
+        # self.driver.find_element(*self.payForget_pwd).click()
         self.driver.find_element(*self.payForget_pwd).send_keys(pwd) # 输入新密码
-        self.driver.find_element(*self.payForget_pwd2).click()
+        # self.driver.find_element(*self.payForget_pwd2).click()
         self.driver.find_element(*self.payForget_pwd2).send_keys(pwd)
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(*self.new_confirm).click() # 提交确认按键
 
     def pattern(self):
@@ -409,12 +409,20 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.security_google).click()  # 谷歌入口
         self.driver.find_element(*self.goodle_confirm).click()  # 开启谷歌验证码确认
         time.sleep(2)
-        self.driver.find_element(*self.send_email_code).click()  # 发送邮箱、手机验证码
-        time.sleep(2)
-        self.driver.find_element(*self.send_sms_code).click()
-        time.sleep(2)
-        self.driver.find_element(*self.verification_email_code).send_keys(code)  # 输入手机、邮箱验证码
-        self.driver.find_element(*self.verification_sms_code).send_keys(code)
+
+        if self.findElement('tv_send_email_code'):
+            self.driver.find_element(*self.send_email_code).click()  # 发送邮箱、手机验证码
+            time.sleep(1)
+            self.driver.find_element(*self.verification_email_code).send_keys(code)
+        else:
+            pass
+        if self.findElement('tv_send_sms_code'):
+            self.driver.find_element(*self.send_sms_code).click()
+            time.sleep(1)
+            self.driver.find_element(*self.verification_sms_code).send_keys(code)
+        else:
+            pass
+
         time.sleep(1)
         self.driver.find_element(*self.new_confirm).click()  # 确认提交
         time.sleep(2)
@@ -424,7 +432,7 @@ class UsercenterPage(Base):
         time.sleep(1)
         self.driver.find_element(*self.goodle_2fa).send_keys(goodle) # 输入谷歌验证码
         time.sleep(1)
-        self.driver.find_element(*self.new_confirm).click()  # 确认提交
+        # self.driver.find_element(*self.new_confirm).click()  # 确认提交(校验关闭了)
 
 
     def general(self):
@@ -497,11 +505,7 @@ class UsercenterPage(Base):
         """
 
         if self.check_QR_code():
-            if self.findElement('Allow'):  # 权限询问弹窗
-                self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
-                self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
-            else:
-                pass
+            self.authority()
             self.driver.find_element(*self.save_code).click()
         else:
             raise exceptions.ElementNotVisibleException
@@ -517,10 +521,11 @@ class UsercenterPage(Base):
     def refund_collection(self):
         """商户收款-退款"""
 
+        self.swipeUp()
         if self.findElement('Refund'):
             self.driver.find_element(*self.refund).click()
         else:
-            print('不存在退款或者已经退款了...')
+            print('不存在退款或者已经退款了...或者该用户不是商户...')
 
     def into_Assets(self):
         """进入总资产界面"""
@@ -666,13 +671,13 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.select_pic).click()  # 选择图库里的图片
         time.sleep(3)
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
-        time.sleep(3)
+        time.sleep(5)
         self.click2('Photo of yourself holding the ID card')
         time.sleep(1)
         self.driver.find_element(*self.select_pic).click()  # 选择图库里的图片
         time.sleep(3)
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
-        time.sleep(3)
+        time.sleep(5)
         self.click2('Next')
 
     def finish_merchant(self):
@@ -730,7 +735,7 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.head2).click()  # 点击个人资料的头像
         time.sleep(1)
         self.driver.find_element(*self.head_gallery).click()  # 选择图库的照片
-        time.sleep(2)
+        self.authority()
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
         time.sleep(3)
         WebDriverWait(self.driver, timeout=60, poll_frequency=1).until(
@@ -739,6 +744,7 @@ class UsercenterPage(Base):
 
     def complete_user_gender(self):
         """修改个人资料-性别"""
+
         self.driver.find_element(*self.gender).click()
         time.sleep(1)
         # self.click2('Female')  # 选择女性

@@ -12,6 +12,7 @@ class UsercenterTestCase(unittest.TestCase):
     """
 
     def setUp(self):
+        time.sleep(2)
         Base.android_driver_caps["noReset"] = True
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
         # time.sleep(5)  # 等待初始化完成
@@ -25,7 +26,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.go_to_usercenter()
         time.sleep(5)
 
-
+    @unittest.skip('不用测试2FA')
     def test_001_google(self):
         """谷歌验证码"""
 
@@ -44,10 +45,11 @@ class UsercenterTestCase(unittest.TestCase):
         """查看商户收款记录，和退款"""
 
         self.user_page.into_Collection()  # 进入收款页面
+        time.sleep(2)
         self.user_page.check_collection_history()
-        time.sleep(1)
+        time.sleep(3)
         self.assertTrue(self.user_page.findElement('Status'), '判断是否加载收款详情成功')
-        self.setUp()
+        time.sleep(2)
         self.user_page.refund_collection()
 
     def test_004_fingerprint(self):
@@ -63,6 +65,7 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(2)
         self.user_page.click2(self.user_page.Assets_Accounts)  # 总资产-Accounts
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
+        time.sleep(2)
         self.user_page.click2(self.user_page.Assets_Coins)  # 总资产-Coins
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
@@ -178,8 +181,8 @@ class UsercenterTestCase(unittest.TestCase):
     def test_018_change_email(self):
         """ 修改邮箱地址"""
 
-        self.user_page.change_email(2222, '476367003@qq.com','1111')
-        # self.assertTrue(self.user_page.is_toast_exist(''), '判断是否新邮箱已被注册')
+        self.user_page.change_email(2222, '476367003@xinjineng.net', 2222)
+        self.assertTrue(self.user_page.is_toast_exist('registered'), '判断是否新邮箱已被注册')
 
     def test_019_change_loginPWD(self):
         """修改登录密码"""
@@ -196,8 +199,11 @@ class UsercenterTestCase(unittest.TestCase):
     def test_021_forget_payPwd(self):
         """忘记支付密码"""
 
-        self.user_page.forget_payPwd('2222','123456')
+        self.user_page.forget_payPwd('2222',123456)
         self.assertTrue(self.user_page.is_toast_exist('same'), '判断是否重复密码')
+
+    def tearDown(self):
+        self.driver.quit()
 
 
 if __name__ == '__main__':
