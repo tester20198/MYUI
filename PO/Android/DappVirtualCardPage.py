@@ -225,7 +225,7 @@ class DAPPPage(Base):
         self.swipeUp()
         self.click_virtual_More()
         time.sleep(1)
-        self.click2("BNB")
+        self.click3("BNB")
         time.sleep(1)
 
     def click_QTUM_Detail(self):
@@ -433,6 +433,7 @@ class DAPPPage(Base):
         time.sleep(1)
 
     def click_NPXSXEM_Receice(self):
+        time.sleep(2)
         self.driver.find_element(*self.Virtual_Receive).click()
         time.sleep(10)
         self.driver.find_element(*self.Virtual_NPXSXEM_agree).click()
