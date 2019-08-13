@@ -450,7 +450,6 @@ class DAPPPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.Virtual_Internal_Transfer_entrance).click()
 
-
     def check_receive_code(self):
         """检查是否加载付款二维码是否正确"""
 
@@ -462,14 +461,14 @@ class DAPPPage(Base):
 
 
 
+
     def add_XPASS_card(self, num, pin):
         """
         添加XPASS卡
         num:XPASS卡号
         pin:卡号密码
         """
-
-        self.swipeUp()
+        
         self.driver.find_element(*self.Add_card).click()
         time.sleep(2)
         self.click2(self.Add_XPASS)
@@ -508,7 +507,9 @@ class DAPPPage(Base):
     def into_XPASS_card(self):
         """进入XPASS card页面"""
 
-        self.click2('black')
+        # self.click2('black')
+        black2 = (By.XPATH, '//android.widget.TextView[@resource-id="com.pundix.xwallet:id/tv_balance" and @text="black"]')
+        self.driver.find_element(*black2).click()
 
     def click_card_setting(self):
         """点击卡片的设置"""
@@ -567,7 +568,7 @@ class DAPPPage(Base):
         self.driver.find_element(*self.Virtual_Receive).click()
         time.sleep(2)
         self.driver.find_element(*self.Virtual_view_Address).click()
-        time.sleep(1)
+        time.sleep(3)
         if self.driver.find_element(*self.Receive_address_code).is_enabled():
             self.driver.find_element(*self.Virtual_Copy_Address).click()
             return True
@@ -623,13 +624,13 @@ class DAPPPage(Base):
         time.sleep(2)
         if self.findElement('tv_email_info'):
             self.driver.find_element(*self.Transfer_Send_email).click()
-            time.sleep(1)
+            time.sleep(2)
             self.driver.find_element(*self.Transfer_input_email_code).send_keys(ecode)
         else:
             pass
         if self.findElement('tv_phone_info'):
             self.driver.find_element(*self.Transfer_Send_SMS).click()
-            time.sleep(1)
+            time.sleep(2)
             self.driver.find_element(*self.Transfer_input_SMS).send_keys(mcode)
         else:
             pass
@@ -652,7 +653,8 @@ class DAPPPage(Base):
         self.driver.find_element(*self.Transfer_Address).send_keys(address)
         self.driver.find_element(*self.Transfer_money).send_keys(money)
         self.driver.find_element(*self.Transfer_Memo).send_keys(memo)
-        time.sleep(2)
+        time.sleep(1)
+        self.swipeUp()
         self.driver.find_element(*self.Tranfer_Next).click()
 
     def click3(self, text):

@@ -11,17 +11,18 @@ class XPASSTestCase(unittest.TestCase):
     XPASS卡的测试用例
     """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
-        cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
-        cls.login_page.check_in()
-        time.sleep(1)
-        cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
-        time.sleep(5)
-        cls.login_page.telegram_skip()  # 关闭telegram引导图
-        cls.xpass_page = DAPPPage(cls.driver)  # 初始化个人中心页元素以及方法
-        time.sleep(3)
+    def setUp(self):
+        time.sleep(2)
+        Base.android_driver_caps["noReset"] = True
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
+        # time.sleep(5)  # 等待初始化完成
+        # cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
+        # cls.login_page.check_in()
+        # time.sleep(1)
+        # cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
+        # time.sleep(5)
+        self.xpass_page = DAPPPage(self.driver)  # 初始化个人中心页元素以及方法
+        time.sleep(10)  # 等待初始化完成
 
     def test_001_check_add_XPASS(self):
         """添加XPASS"""
@@ -32,10 +33,6 @@ class XPASSTestCase(unittest.TestCase):
     def test_002_check_XPASS_card(self):
         """检查XPASS细节"""
 
-        self.driver.back()
-        self.driver.back()
-        self.driver.back()
-        self.xpass_page.swipeDown()
         self.xpass_page.into_XPASS_card()
         time.sleep(3)
         self.xpass_page.click_card_setting()  # 卡片设置
@@ -54,7 +51,7 @@ class XPASSTestCase(unittest.TestCase):
         coin：币种，根据币种改变测试用例
         """
 
-        # self.xpass_page.into_XPASS_card()
+        self.xpass_page.into_XPASS_card()
         time.sleep(2)
         self.xpass_page.into_coin_detail(coin)
         time.sleep(3)
@@ -67,8 +64,6 @@ class XPASSTestCase(unittest.TestCase):
             self.xpass_page.save_img(f'/{coin}充值码')
         except BaseException:
             print(f'无法获取{coin}充值二维码...')
-        finally:
-            self.driver.back()
 
     def test_004_check_XPASS_NPXS_transfer(self, coin='NPXS', address='0xaA3A007c27F41B7527d339270b3c46EDAF51fe84',
                                           money='0.00001'):
@@ -77,13 +72,13 @@ class XPASSTestCase(unittest.TestCase):
         coin：币种，根据币种改变测试用例
         """
 
-        # self.xpass_page.into_XPASS_card()
-        # time.sleep(2)
-        # self.xpass_page.into_coin_detail(coin)
+        self.xpass_page.into_XPASS_card()
+        time.sleep(2)
+        self.xpass_page.into_coin_detail(coin)
         time.sleep(2)
         self.xpass_page.ERC20_transfer(address, money)  # 点击卡片中的转账
-        time.sleep(2)
-        self.xpass_page.send_codes(pwd='123123')  # 输入转账时的验证码
+        time.sleep(3)
+        self.xpass_page.send_codes(pwd='123456')  # 输入转账时的验证码
         time.sleep(1)
         self.xpass_page.confirm_transfer()
         self.assertTrue(self.xpass_page.is_toast_exist('Transfer'), '判断是否转账成功')
@@ -94,10 +89,6 @@ class XPASSTestCase(unittest.TestCase):
         coin：币种，根据币种改变测试用例
         """
 
-        self.driver.back()
-        time.sleep(2)
-        self.xpass_page.into_coin_detail(coin='ETH')
-        time.sleep(5)
         self.test_003_check_XPASS_NPXS_rec(coin='ETH')
 
     def test_006_check_XPASS_ETH_transfer(self):
@@ -114,10 +105,7 @@ class XPASSTestCase(unittest.TestCase):
         检查XPASS卡BTC的充值地址
         coin：币种，根据币种改变测试用例
         """
-        self.driver.back()
-        time.sleep(2)
-        self.xpass_page.into_coin_detail(coin='BTC')
-        time.sleep(5)
+
         self.test_003_check_XPASS_NPXS_rec(coin='BTC')
 
     @unittest.skip('BTC测试链充值地址错误')
@@ -135,7 +123,7 @@ class XPASSTestCase(unittest.TestCase):
         coin：币种，根据币种改变测试用例
         """
 
-        self.driver.back()
+        self.xpass_page.into_XPASS_card()
         time.sleep(2)
         self.xpass_page.into_coin_detail(coin='BNB')
         time.sleep(2)
@@ -148,8 +136,9 @@ class XPASSTestCase(unittest.TestCase):
     def test_010_check_XPASS_BNB_transfer(self):
         """检查XPASS卡的BNB的转账"""
 
+        self.xpass_page.into_XPASS_card()
         time.sleep(2)
-        self.driver.back()
+        self.xpass_page.into_coin_detail(coin='BNB')
         time.sleep(2)
         self.xpass_page.BEP2_transfer(address='tbnb1nlt0zerp80ysn9ve7guqstrshwd9cz3j9z8fzl', memo='4hw4977m6f')
         time.sleep(30)  # 验证码时间间隔
@@ -158,9 +147,8 @@ class XPASSTestCase(unittest.TestCase):
         self.xpass_page.confirm_transfer()
         self.assertTrue(self.xpass_page.is_toast_exist('Transfer'), '判断是否转账成功')
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
 
 
 if __name__ == '__main__':
