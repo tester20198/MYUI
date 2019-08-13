@@ -392,6 +392,7 @@ class UsercenterPage(Base):
     def pattern(self):
         """ 手势密码设置 """
         self.into_general()
+        time.sleep(1)
         self.driver.find_element(*self.security_pattern).click()  # 手势密码入口
         time.sleep(2)
         self.driver.find_element(*self.pattern_reset).click()  # 手势密码重置
@@ -671,13 +672,13 @@ class UsercenterPage(Base):
         self.driver.find_element(*self.select_pic).click()  # 选择图库里的图片
         time.sleep(3)
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
-        time.sleep(5)
+        time.sleep(10)
         self.click2('Photo of yourself holding the ID card')
         time.sleep(1)
         self.driver.find_element(*self.select_pic).click()  # 选择图库里的图片
         time.sleep(3)
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
-        time.sleep(5)
+        time.sleep(10)
         self.click2('Next')
 
     def finish_merchant(self):

@@ -88,7 +88,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.check_every_type_bill()  # 检查各个账单类型
         self.assertFalse(self.user_page.is_toast_exist('Sever'), '判断是否出现500')
 
-    def test_008_internal_transfer(self):
+    def test_018_internal_transfer(self):
         """BTC内部转账"""
 
         self.user_page.into_internal_transfer()  # 进入内部划转
@@ -178,7 +178,7 @@ class UsercenterTestCase(unittest.TestCase):
         self.user_page.change_phone(2222, 4120909090, 2222)
         self.assertTrue(self.user_page.is_toast_exist('registered'))
 
-    def test_018_change_email(self):
+    def test_008_change_email(self):
         """ 修改邮箱地址"""
 
         self.user_page.change_email(2222, '476367003@xinjineng.net', 2222)
