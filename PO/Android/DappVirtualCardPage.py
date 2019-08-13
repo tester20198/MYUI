@@ -64,7 +64,7 @@ class DAPPPage(Base):
     Input_note = (By.ID, "et_withdrawRemarksInfo")  # 输入地址备注
     Transfer_Memo_Scan = (By.ID, "iv_msg_scan")  # 在Memo输入时选择扫码
     Transfer_Next1 = (By.ID, 'btn_withdrawNext1')
-
+    Transfer_NPXSXEM_Confirm = (By.ID, "btn_ok")    # 点击NPXSXEM转账时弹出提示按钮
 
     #BEP-2协议币种转账页面附言
     Transfer_Memo = (By.ID, "ed_transfer_msg")      #在转账页面点击Memo输入框
@@ -150,18 +150,21 @@ class DAPPPage(Base):
         """
         点击虚拟卡片上的BTC
         """
+        self.swipeUp()
         self.click2(self.Virtual_BTC)
 
     def click_Virtual_ETH(self):
         """
         点击虚拟卡片上的ETH
         """
+        self.swipeUp()
         self.click2(self.Virtual_ETH)
 
     def click_virtual_More(self):
         """
         点击虚拟卡片上的"更多"
         """
+        self.swipeUp()
         self.click2(self.Virtual_Go)
 
     def click_eye(self):
@@ -189,50 +192,73 @@ class DAPPPage(Base):
         """
         点击虚拟卡片详情上的BTC
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_BTC_Details).click()
+        time.sleep(1)
+        self.click2("BTC")
+        time.sleep(1)
 
     def click_ETH_Detail(self):
         """
         点击虚拟卡片详情上的ETH
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_ETH_Detail).click()
+        time.sleep(1)
+        self.click2("ETH")
+        time.sleep(1)
 
     def click_NPXS_Detail(self):
         """
         点击虚拟卡片上的NPXS
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_NPXS_Detail).click()
+        time.sleep(1)
+        self.click3('NPXS')
+        time.sleep(1)
 
     def click_BNB_Detail(self):
         """
         点击虚拟卡片详情上的BNB
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_BNB_Detail).click()
+        time.sleep(1)
+        self.click2("BNB")
+        time.sleep(1)
 
     def click_QTUM_Detail(self):
         """
         点击虚拟卡片详情上的QTUM
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_QTUM_Detail).click()
+        time.sleep(1)
+        self.click2("QTUM")
+        time.sleep(1)
 
     def click_XEM_Detail(self):
         """
         点击虚拟卡片详情上的XEM
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_XEM_Detail).click()
+        time.sleep(1)
+        self.swipeUp()
+        self.click3("XEM")
+        time.sleep(1)
 
     def click_NPXSXEM_Detail(self):
         """
         点击虚拟卡片上的NPXSXEM
         """
+        self.swipeUp()
         self.click_virtual_More()
-        self.driver.find_element(*self.Virtual_NPXSXEM_Detail).click()
+        time.sleep(1)
+        self.swipeUp()
+        self.click2("NPXSXEM")
+        time.sleep(1)
 
     def Click_Token_setting(self):
         """
@@ -282,50 +308,34 @@ class DAPPPage(Base):
                 print('找不到该类型账单...')
 
 
-    def Click_Transfer_without_Memo(self, address):
+    def Click_Transfer_without_Memo(self, address, switch=0):
 
         """
           无Memo类型的货币，转账页面操作
         """
         self.driver.find_element(*self.Virtual_transfer).click()
-        if self.findElement('Not Now'):
-            self.driver.back()
-        else:
-            pass
+        time.sleep(2)
+        if switch == 0:  # 不开启2FA
+            if self.findElement('Not Now'):
+                self.driver.find_element(*self.Google_Notnow).click()
+                time.sleep(1)
+                self.driver.find_element(*self.Virtual_transfer).click()
+            else:
+                pass
+        else:  # 开启2FA
+            if self.findElement('Not Now'):
+                self.driver.find_element(*self.Google_confirm).click()
+                time.sleep(2)
+                self.driver.find_element(*self.Virtual_transfer).click()
+
         time.sleep(2)
         self.driver.find_element(*self.Transfer_Address).send_keys(address)    # 转账输入BTC地址
+        time.sleep(1)
         self.driver.find_element(*self.Transfer_Amount_All).click()     # 转账页面转全部金额
+        time.sleep(1)
         self.driver.find_element(*self.Transfer_Next).click()       # 输入金额后点下一步
+        time.sleep(1)
 
-
-
-    def Send_code(self):
-        """
-        输入验证码和支付密码后完成
-        """
-        if self.findElement('@'):
-            """
-            查找元素如果出现@，发送Email code
-            """
-            self.driver.find_element(self.Transfer_Send_email).click()  # 点击发送邮箱验证码
-            time.sleep(3)
-            self.driver.find_element(*self.Transfer_input_email_code).send_keys("2222")     # 调起输入法，输入2222
-        else:
-            pass
-
-        if self.findElement("+"):
-            """
-            查找元素如果出现+，发送SMS code
-            """
-            self.driver.find_element(self.Transfer_Send_SMS).click()
-            time.sleep(3)
-            self.driver.find_element(*self.Transfer_input_SMS).send_keys("2222")
-        else:
-            pass
-
-        self.driver.find_element(*self.Transfer_Pay_password).send_keys("123456")   # 输入支付密码123456
-        self.driver.back()      # 输入完成后，点击系统返回，显示确认菜单
-        self.driver.find_element(*self.Transfer_confirm).click()
 
 
     def Add_address(self):
@@ -348,10 +358,13 @@ class DAPPPage(Base):
         """
         无Memo的货币查看充值地址
         """
-        self.driver.find_element(*self.Virtual_Receive).click()     # 点击Receving,弹出"View address"提示
-        self.driver.find_element(*self.Virtual_view_Address).click()    # 复制充值地址
-        self.driver.find_element(*self.Virtual_Copy_Address).click()    # 点击返回键
-        self.driver.back()
+        self.driver.find_element(*self.Virtual_Receive).click()  # 点击Receving,弹出"View address"提示
+        time.sleep(2)
+        self.driver.find_element(*self.Virtual_view_Address).click()
+        time.sleep(1)
+        self.driver.find_element(*self.Virtual_Copy_Address).click()  # 复制充值地址
+        time.sleep(3)
+        self.driver.back()  # 点击返回键
 
 
     def Copy_Address_Memo(self):
@@ -361,12 +374,13 @@ class DAPPPage(Base):
 
         self.driver.find_element(*self.Virtual_Receive).click()  # 点击Receving,弹出"View address"提示
         time.sleep(1)
-        self.driver.find_element(*self.Virtual_view_Address).click()
-        time.sleep(2)
+        self.driver.find_element(*self.Virtual_view_Address).click()    #点击确认View
+        time.sleep(3)
         # self.driver.find_element(self.Virtual_BNB_copy_address).click()     # 点击复制BNB充值地址
-        # time.sleep(1)
+        # time.sleep(2)
         # self.driver.find_element(self.Virtual_BNB_Copy_Memo).click()        # 点击copy memo
-        # time.sleep(1)
+        # time.sleep(2)
+        self.driver.back()
 
     def check_QR_code(self):
         """检查是否加载付款二维码是否正确"""
@@ -376,17 +390,25 @@ class DAPPPage(Base):
         else:
             return False
 
-    def Click_Transfer_with_memo(self, address):
+    def Click_Transfer_with_memo(self, address, switch=0):
         """
         有Memo的货币，在转账页面输入转账地址，金额，等操作
         """
 
         self.driver.find_element(*self.Virtual_transfer).click()
-        if self.findElement("Not Now"):
-            self.driver.back()
-        else:
-            pass
-        time.sleep(2)
+        if switch == 0:  # 不开启2FA
+            if self.findElement('Not Now'):
+                self.driver.find_element(*self.Google_Notnow).click()
+                time.sleep(1)
+                self.driver.find_element(*self.Virtual_transfer).click()
+            else:
+                pass
+        else:  # 开启2FA
+            if self.findElement('Not Now'):
+                self.driver.find_element(*self.Google_confirm).click()
+                time.sleep(2)
+                self.driver.find_element(*self.Virtual_transfer).click()
+
         # self.driver.find_element(*self.Transfer_Scan).click()       # 转账页面点击地址扫码
 
         # if self.findElement("camera"):
@@ -402,29 +424,30 @@ class DAPPPage(Base):
         # self.driver.back()      # 在相机扫码界面点击返回
         # time.sleep(1)
         self.driver.find_element(*self.Transfer_Address).send_keys(address)       # 拉起键盘输入转账地址
-        # self.driver.find_element(*self.Transfer_Amount_All).click()     # 转出金额点击All
+        time.sleep(2)
+        self.driver.find_element(*self.Transfer_Amount_All).click()     # 转出金额点击All
+        time.sleep(2)
         self.driver.find_element(*self.Transfer_Memo).send_keys("")     # 转出到外部地址，不输入附言
+        time.sleep(2)
         self.driver.find_element(*self.Transfer_Next).click()   # 点击下一步
         time.sleep(1)
 
-
-
     def click_NPXSXEM_Receice(self):
-        self.click_NPXSXEM_Detail()
-        time.sleep(2)
         self.driver.find_element(*self.Virtual_Receive).click()
-        time.sleep(7)
+        time.sleep(10)
         self.driver.find_element(*self.Virtual_NPXSXEM_agree).click()
-        time.sleep(1)
+        time.sleep(3)
         self.driver.find_element(*self.Virtual_view_Address).click()
-        self.Copy_Address_Memo()
+        # self.Copy_Address_Memo()
         """
         调用在地址界面复制操作方法
         """
 
     def Internal_Transfer(self):
         self.click_BNB_Detail()
+        time.sleep(2)
         self.driver.find_element(*self.Virtual_Menu).click()
+        time.sleep(2)
         self.driver.find_element(*self.Virtual_Internal_Transfer_entrance).click()
 
 
@@ -632,6 +655,26 @@ class DAPPPage(Base):
         time.sleep(2)
         self.driver.find_element(*self.Tranfer_Next).click()
 
+    def click3(self, text):
+        """
+        特殊点击法，点击一些只有text标识的元素
+        :param text: 元素名称
+        :return:
+        """
+
+        # coin_text = (By.XPATH, "//android.widget.TextView[@resource-id='com.pundix.xwallet:id/tv_currency' and @text='%s']" % text)
+        try:
+            coin_text = (By.XPATH, '//android.widget.TextView[@resource-id="com.pundix.xwallet:id/tv_currency" and @text="%s"]' % text)
+            print(coin_text)
+            self.driver.find_element(*coin_text).click()
+        except:
+            raise AttributeError('不存在该元素...')
+
+
+    def Click_NPXSXEM_Transfer(self):
+        """点击NPXSXEM转账，弹出提示框，点击确认"""
+        self.click_card_transfer()
+        self.driver.find_element(*self.Transfer_NPXSXEM_Confirm).click()
 
 
 
