@@ -454,7 +454,7 @@ class DAPPPage(Base):
     def check_receive_code(self):
         """检查是否加载付款二维码是否正确"""
 
-        if self.driver.find_element(*self.Receive_address_code).is_enabled():  # 判断充值二维码是否可用
+        if self.findElement('iv_single_qr_code'):  # 判断充值二维码是否可用
             return True
         else:
             return False

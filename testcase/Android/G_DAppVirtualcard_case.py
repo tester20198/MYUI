@@ -46,7 +46,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist('succee'))
-            self.assertFalse(self.Dapppage.is_toast_exist('server'))
+            self.assertFalse(self.Dapppage.is_toast_exist('500'))
         except AssertionError:
             self.Dapppage.save_img('/BTC_transfer')
         time.sleep(30)
@@ -61,7 +61,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist('succee'))
-            self.assertFalse(self.Dapppage.is_toast_exist('server'))
+            self.assertFalse(self.Dapppage.is_toast_exist('500'))
         except AssertionError:
              self.Dapppage.save_img('/BTC_transfer1')
         time.sleep(30)
@@ -89,7 +89,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succee"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/ETH_transfer")
         time.sleep(30)
@@ -105,7 +105,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist('succee'))
-            self.assertFalse(self.Dapppage.is_toast_exist('server'))
+            self.assertFalse(self.Dapppage.is_toast_exist('500'))
         except AssertionError:
              self.Dapppage.save_img('/BTC_transfer1')
         time.sleep(30)
@@ -134,7 +134,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succe"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/NPXS_transfer")
         time.sleep(30)
@@ -150,7 +150,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succe"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
              self.Dapppage.save_img("/NPXS_transfer")
         time.sleep(30)
@@ -179,7 +179,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succe"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/BNB_transfer")
         time.sleep(30)
@@ -209,7 +209,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succe"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/QTUM_transfer")
         time.sleep(30)
@@ -225,7 +225,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succe"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/QTUM_transfer1")
         time.sleep(30)
@@ -247,7 +247,7 @@ class DappCase(unittest.TestCase):
         self.Dapppage.confirm_transfer()
         try:
             self.assertTrue(self.Dapppage.is_toast_exist("succe"))
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/XEM_transfer")
         time.sleep(30)
@@ -267,7 +267,7 @@ class DappCase(unittest.TestCase):
         time.sleep(2)
         self.Dapppage.Click_NPXSXEM_Transfer()
         try:
-            self.assertFalse(self.Dapppage.is_toast_exist("server"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except AssertionError:
             self.Dapppage.save_img("/NPXSXEM_transfer")
 
@@ -276,6 +276,11 @@ class DappCase(unittest.TestCase):
         self.Dapppage.Internal_Transfer()
         time.sleep(5)
         self.usercenterPage.transfer_all()
+        try:
+            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertFalse(self.Dapppage.is_toast_exist("500"))
+        except AssertionError:
+            self.Dapppage.save_img("/Internal_Transfer")
 
     def tearDown(self):
         self.driver.quit()
