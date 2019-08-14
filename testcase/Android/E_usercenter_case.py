@@ -18,7 +18,7 @@ class UsercenterTestCase(unittest.TestCase):
         # cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
         # cls.login_page.check_in()
         # time.sleep(1)
-        # cls.login_page.login_by_Email(' 476367003@xinjineng.net', 'Aa123456')
+        # cls.login_page.login_by_Email('476367010@xinjineng.net', 'Aa123456')
         # time.sleep(5)
         self.user_page = UsercenterPage(self.driver)  # 初始化个人中心页元素以及方法
         time.sleep(5)  # 等待初始化完成
