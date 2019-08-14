@@ -1,9 +1,19 @@
 from appium import webdriver
 import unittest
-from PO.Android.dappFxPage import DappFxPage
-from PO.basePage import Base
 from PO.Android.loginPage import LoginPage
+from PO.Android.dappFxPage import DappFxPage
+from Public.getLog import InsertLog
+from PO.basePage import Base
+from PO.basePage import Base
+from selenium.webdriver.common.by import By
 import time
+from Public.getLog import write_log, stop_log
+import time
+import PO.Android.dappFxPage
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from PO.iOS import loginPage
+
 
 
 class DAppFxTestCase(unittest.TestCase):
@@ -11,20 +21,15 @@ class DAppFxTestCase(unittest.TestCase):
     DAPP的测试用例
     """
 
-    @classmethod
-    def setUpClass(cls):
-        Base.android_driver_caps["noReset"] = False
-        cls.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
-        time.sleep(5)  # 等待初始化完成
-        cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
-        cls.login_page.check_in()
-        time.sleep(1)
-        cls.login_page.login_by_Email('Ven@163.com', 'Abc123456')
-        time.sleep(5)
-
+    #@classmethod
+    #def setUpClass(sls):
     def setUp(self):
         Base.android_driver_caps['noReset']= True
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
+        # sls.login_page = DappFxPage(sls.driver)  # 初始化登录页元素以及方法
+        # time.sleep(5)  # 等待初始化完成
+        #self.login_page.check_in()
+        #self.login_page.login_by_Email('Ven@163.com', 'Test123456') #调用登陆
         self.dapp_Page=DappFxPage(self.driver) #初始化dapp页的元素以及方法
         self.dapp_Page.dapp_page()
         time.sleep(10)
@@ -255,7 +260,7 @@ class DAppFxTestCase(unittest.TestCase):
             self.dapp_Page.add_fxcard()  # 查找fx卡
             self.dapp_Page.Dapp_click_fxText()  # 点击dapp界面的fx按钮
             self.dapp_Page.enter_staking()#点击fx卡片的staking按钮
-            self.dapp_Page.enter_staking_protocol()
+            self.assertTrue(self.dapp_Page.enter_staking_protocol())#点击协议
         except AssertionError:
             self.dapp_Page.save_img("/014_staking_protocol")
             raise AssertionError
@@ -356,7 +361,6 @@ class DAppFxTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
-
 
 if __name__ == '__main__':
         unittest.main(verbosity=0)

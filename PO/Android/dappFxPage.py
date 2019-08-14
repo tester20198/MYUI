@@ -160,7 +160,7 @@ class DappFxPage(Base):
         """
 
         x, y = self.get_size()
-        self.driver.swipe(x/2, y *13/100, x/2, 55/100, duration)
+        self.driver.swipe(x/2, y*55/100, x/2, y *13/100,duration)
         print(x,y)
 
 
@@ -237,16 +237,19 @@ class DappFxPage(Base):
         if self.findElement("I have read and agreed to f(x) Staking Terms and Conditions"):
             self.swipeFXUp(duration=800)  #滑动协议界面
             self.swipeFXUp(duration=800)  # 滑动协议界面
-            self.swipeFXUp(duration=1500)  # 滑动协议界面
+            self.swipeFXUp(duration=800)  # 滑动协议界面
+            self.swipeFXUp(duration=800)  # 滑动协议界面
             self.driver.find_element(*self.staking_terms).click() #点击第一个协议复选框
             time.sleep(2)
             self.driver.find_element(*self.staking_function_token).click()#点击第二个协议复选框
             time.sleep(2)
             self.driver.find_element(*self.staking_confirm_btn).click()#点击确定按钮
             time.sleep(2)
-            return True
-        elif self.findElement("go to kyc"):
-            print("进入go to kyc界面")
+            if self.findElement("Know-Your-Customer (KYC)"):
+                print("勾选协议成功")
+                return True
+        elif self.findElement("Go to KYC"):
+            print("进入Go to KYC界面")
             self.driver.find_element(*self.staking_gotoKyc).click()#点击go to kyc按钮
             time.sleep(2)
             return True
@@ -498,8 +501,6 @@ class DappFxPage(Base):
 
     def click_npxsxem_viewBtn(self):
         """点击npxsxem界面的view按钮"""
-
-        time.sleep(2)
         self.driver.find_element(*self.npxsxem_view).click()
         time.sleep(1)
 
@@ -644,12 +645,14 @@ class DappFxPage(Base):
             self.driver.find_element(*self.staking_startMining).click() #点击开始挖矿按钮
             time.sleep(5)
         elif self.findElement("Withdraw"):
-            time.sleep(2)
             self.driver.find_element(*self.staking_withdraw).click()#点击提现按钮
             time.sleep(2)
             self.driver.find_element(*self.staking_next).click()#点击下一步按钮
             time.sleep(2)
             self.driver.find_element(*self.staking_copy).click()#点击复制按钮
+            time.sleep(2)
+
+
 
     def click_staking_setting(self):
         """点击挖矿界面右上角的更多按钮"""
@@ -704,3 +707,5 @@ class DappFxPage(Base):
         """下拉刷新挖矿界面"""
         time.sleep(3)
         self.swipeDown()
+
+
