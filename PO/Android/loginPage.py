@@ -155,7 +155,7 @@ class LoginPage(Base):
         '''单邮箱忘记密码，默认方式'''
 
         self.driver.find_element(*self.click_Forgot_password).click()
-        time.sleep(1)
+        time.sleep(3)
         self.driver.find_element(*self.input_Email_address).send_keys(text)
         time.sleep(1)
         self.business_forgot_password(text1,text2)

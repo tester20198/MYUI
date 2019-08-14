@@ -40,7 +40,7 @@ class LoginTestCase(unittest.TestCase):
         try:
             self.login_page.check_in()
             time.sleep(2)
-            self.login_page.login_by_Email('476367003@xinjineng.net', 'Aa123456')
+            self.login_page.login_by_Email('476367010@xinjineng.net', 'Aa123456')
             msg = self.login_page.Dapp_balance_text()  # 断言登陆成功后，获取Dapp页面Balance的文本信息
             self.assertEqual(msg, u'Balance')
             print('登陆成功后,获取Dapp页面文本信息：%s' % msg)
@@ -70,7 +70,7 @@ class LoginTestCase(unittest.TestCase):
         try:
             self.login_page.check_in()
             time.sleep(2)
-            msg = self.login_page.Email_Forgot_password('76163348@qq.com','2222',create_login_password)
+            msg = self.login_page.Email_Forgot_password('476367005@xinjineng.net','2222',create_login_password)
             self.assertEqual(msg,u'Log In')
             print('登陆密码重置成功,获取登陆页面login按钮文本信息：%s' % msg)  # 重置成功后，获取登陆界面的Log in按钮文本信息
         except (BaseException, AssertionError):
@@ -106,8 +106,6 @@ class LoginTestCase(unittest.TestCase):
             raise BaseException
 
     def tearDown(self):
-        # self.driver.back()
-        # self.login_page.log_out()
         self.driver.quit()
 
 

@@ -49,7 +49,8 @@ class registerPage(Base):
         self.driver.find_element(*self.input_login_pwd).send_keys(loginpwd)
         self.driver.find_element(*self.input_pay_pwd).send_keys(paypwd)
         self.driver.find_element(*self.comfirm_pay_pwd).send_keys(paypwd)
-        time.sleep(1)
+        time.sleep(2)
+        self.Sys_back()
         self.driver.find_element(*self.click_verify).click() # 点击发送验证码
         time.sleep(2)
         self.driver.find_element(*self.input_verify).send_keys(code)  # 验证码默认2222

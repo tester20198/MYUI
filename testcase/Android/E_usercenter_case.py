@@ -128,7 +128,7 @@ class UsercenterTestCase(unittest.TestCase):
             print('断言失败！')
             self.user_page.save_img('/内部划转')
 
-    # @unittest.skip('防止XPASS卡不够钱转账')
+    @unittest.skip('防止XPASS卡不够钱转账')
     def test_009_internal_transfer_all(self):
         """NPXS 来回内部转账"""
 

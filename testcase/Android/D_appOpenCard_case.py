@@ -30,7 +30,7 @@ class DappOpenCardTestCase(unittest.TestCase):
             self.open_page.dapp_page() #点击dapp菜单
             time.sleep(1)
             self.open_page.add_card_buisess(self.cardname)
-            self.assertTrue(self.open_page.add_virtual_card()) #判断添加成功
+            self.open_page.add_virtual_card() #判断添加成功
         except (BaseException, AssertionError):
             self.open_page.save_img("/001_Open_Virtual_card_fail")
             raise BaseException
@@ -149,4 +149,4 @@ class DappOpenCardTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    unittest.main(verbosity=0)

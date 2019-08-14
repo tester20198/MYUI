@@ -313,6 +313,7 @@ class UsercenterPage(Base):
             self.change_phone_call()
         else:
             pass
+        time.sleep(2)
         self.driver.find_element(*self.email_new).send_keys(email)  # 输入修改的新邮箱地址
         self.driver.find_element(*self.new_code).click()  # 发送新邮箱地址的验证码
         time.sleep(1)
@@ -668,13 +669,13 @@ class UsercenterPage(Base):
 
     def upload_merchant_pic(self):
         self.click2('Photo of ID card')
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(*self.select_pic).click()  # 选择图库里的图片
         time.sleep(3)
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片
         time.sleep(10)
         self.click2('Photo of yourself holding the ID card')
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(*self.select_pic).click()  # 选择图库里的图片
         time.sleep(3)
         self.driver.find_element(*self.first_pic).click()  # 选择第一张图片

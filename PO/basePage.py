@@ -227,6 +227,7 @@ class Base:
     def authority(self):
         """授予权限"""
 
+        time.sleep(1)
         if self.findElement('Allow'):  # 权限询问弹窗
             self.driver.switch_to.alert.accept()  # 系统弹窗默认允许
             self.driver.switch_to.alert.accept()  # 系统弹窗默认允许

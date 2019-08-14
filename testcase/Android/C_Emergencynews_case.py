@@ -16,7 +16,7 @@ class EmergencynewsTestCase(unittest.TestCase):
         self.login_page = LoginPage(self.driver)  # 初始化登录页元素以及方法
         time.sleep(3)  # 等待初始化完成
         self.login_page.check_in()
-        self.login_page.login_by_Email('xgq2@xinjineng.net', 'Abc123456')  # 调用登陆
+        self.login_page.login_by_Email('476367010@xinjineng.net', 'Aa123456')  # 调用登陆
         self.Emergencynews_Page = EmergencynewsPage(self.driver)
 
     def test_001_Click_Emergencynews(self):

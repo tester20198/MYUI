@@ -95,9 +95,13 @@ class DappOpenCardPage(Base):
         '''添加虚拟卡'''
 
         time.sleep(3)
-        self.driver.find_element(*self.select_Virtual_card).click()  # 添加虚拟卡
-        msg = self.is_toast_exist(u'Added successfully', 10, 0.5)
-        return msg
+        self.swipeUp()
+        if self.driver.find_element(*self.select_Virtual_card).is_enabled():  # 添加虚拟卡
+            self.driver.find_element(*self.select_Virtual_card).click()
+            msg = self.is_toast_exist(u'Added successfully', 10, 0.5)
+            return msg
+        else:
+            pass
 
     def add_physical_card(self,num,pin):
         '''添加实体卡'''
@@ -188,18 +192,20 @@ class DappOpenCardPage(Base):
         # 首次点击转账，弹出是否开启2FA，默认不开启
         switch = 0
         if switch == 0:  # 不开启2FA
-            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+            if self.findElement('Not Now'):
                 self.driver.find_element(*self.Google_Notnow).click()
                 time.sleep(1)
             else:
                 pass
         else:  # 开启2FA
-            if self.driver.find_element(*self.Google_Notnow).is_enabled():
+            if self.findElement('Not Now'):
                 self.driver.find_element(*self.Google_confirm).click()
-                time.sleep(1)
+                time.sleep(2)
             else:
                 pass
-        time.sleep(3)
+        time.sleep(1)
+        self.driver.find_element(*self.click_transfer).click()
+        time.sleep(4)
         self.driver.find_element(*self.input_transfer_Address).send_keys(text)
         self.driver.find_element(*self.input_amount).send_keys(text1)
         time.sleep(1)
@@ -249,8 +255,10 @@ class DappOpenCardPage(Base):
     def Transaction_history(self):
         '''账单历史记录'''
 
+        self.swipeUp()
         if self.findElement('No data'):
             pass
         else:
             self.driver.find_element(*self.click_Transaction_history).click()
             time.sleep(3)
+
