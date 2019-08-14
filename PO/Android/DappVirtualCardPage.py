@@ -194,9 +194,9 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(3)
         self.click2("BTC")
-        time.sleep(1)
+        time.sleep(3)
 
     def click_ETH_Detail(self):
         """
@@ -204,9 +204,9 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(5)
         self.click2("ETH")
-        time.sleep(1)
+        time.sleep(3)
 
     def click_NPXS_Detail(self):
         """
@@ -214,9 +214,9 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(3)
         self.click3('NPXS')
-        time.sleep(1)
+        time.sleep(3)
 
     def click_BNB_Detail(self):
         """
@@ -224,9 +224,9 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(3)
         self.click3("BNB")
-        time.sleep(1)
+        time.sleep(3)
 
     def click_QTUM_Detail(self):
         """
@@ -234,9 +234,9 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(3)
         self.click2("QTUM")
-        time.sleep(1)
+        time.sleep(3)
 
     def click_XEM_Detail(self):
         """
@@ -244,10 +244,10 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(3)
         self.swipeUp()
         self.click3("XEM")
-        time.sleep(1)
+        time.sleep(3)
 
     def click_NPXSXEM_Detail(self):
         """
@@ -255,10 +255,10 @@ class DAPPPage(Base):
         """
         self.swipeUp()
         self.click_virtual_More()
-        time.sleep(1)
+        time.sleep(3)
         self.swipeUp()
         self.click2("NPXSXEM")
-        time.sleep(1)
+        time.sleep(3)
 
     def Click_Token_setting(self):
         """
