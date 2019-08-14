@@ -1,10 +1,11 @@
 from appium import webdriver
 import unittest
 from PO.Android.DappOpenAppPage import DappOpenAppPage
-from PO.Android.loginPage import LoginPage
 from PO.basePage import Base
 import time
 
+
+@unittest.skip('未调试完成')
 class DappOpenAppTestCase(unittest.TestCase):
     """
     Dapp-开放平台app 测试用例

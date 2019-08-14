@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-
+@unittest.skip
 class DAppFxTestCase(unittest.TestCase):
     """
     DAPP的测试用例

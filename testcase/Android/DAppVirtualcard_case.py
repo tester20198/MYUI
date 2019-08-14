@@ -1,6 +1,5 @@
 from appium import webdriver
 import unittest
-from PO.Android.loginPage import LoginPage
 from PO.Android.DappVirtualCardPage import DAPPPage
 from PO.basePage import Base
 from PO.Android.usercenterPage import UsercenterPage
@@ -215,6 +214,7 @@ class DappCase(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=0)

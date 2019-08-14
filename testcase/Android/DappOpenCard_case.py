@@ -1,9 +1,9 @@
 from appium import webdriver
 import unittest
 from PO.Android.DappOpenCardPage import DappOpenCardPage
-from PO.Android.loginPage import LoginPage
 from PO.basePage import Base
 import time
+
 
 class DappOpenCardTestCase(unittest.TestCase):
     """
@@ -146,6 +146,7 @@ class DappOpenCardTestCase(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

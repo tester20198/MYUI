@@ -1,6 +1,5 @@
 from appium import webdriver
 import unittest
-from PO.Android.loginPage import LoginPage
 from PO.Android.DappVirtualCardPage import DAPPPage
 from PO.basePage import Base
 import time
@@ -28,7 +27,11 @@ class XPASSTestCase(unittest.TestCase):
         """添加XPASS"""
 
         self.xpass_page.add_XPASS_card(num='8011008881951290', pin='123456')
-        self.assertTrue(self.xpass_page.is_toast_exist('already'), '判断是否提示已添加过该卡片')
+        try:
+            self.assertTrue(self.xpass_page.is_toast_exist('already'), '判断是否提示已添加过该卡片')
+        except AssertionError:
+            print('断言失败！')
+            self.xpass_page.save_img('/添加XPASS卡')
 
     def test_002_check_XPASS_card(self):
         """检查XPASS细节"""
@@ -55,7 +58,7 @@ class XPASSTestCase(unittest.TestCase):
         time.sleep(2)
         self.xpass_page.into_coin_detail(coin)
         time.sleep(3)
-        self.assertTrue(self.xpass_page.check_QR_code(), '判断付款二维码是否加啊在成功')
+        self.assertTrue(self.xpass_page.check_QR_code(), '判断付款二维码是否加载成功')
         time.sleep(1)
         self.xpass_page.click_refresh()  # 点击付款二维码刷新按钮
         time.sleep(2)
@@ -81,8 +84,12 @@ class XPASSTestCase(unittest.TestCase):
         self.xpass_page.send_codes(pwd='123456')  # 输入转账时的验证码
         time.sleep(1)
         self.xpass_page.confirm_transfer()
-        self.assertTrue(self.xpass_page.is_toast_exist('Transfer'), '判断是否转账成功')
-
+        try:
+            self.assertTrue(self.xpass_page.is_toast_exist('Transfer'), '判断是否转账成功')
+        except AssertionError:                      
+            print('断言失败！')                          
+            self.xpass_page.save_img(f'/{coin}转账')
+            
     def test_005_XPASS_ETH_rec(self):
         """
         检查XPASS卡ETH的充值地址
@@ -129,7 +136,7 @@ class XPASSTestCase(unittest.TestCase):
         time.sleep(2)
         try:
             self.xpass_page.Copy_Address_Memo()
-            self.xpass_page.save_img('/BNB充值码截图')
+            self.xpass_page.save_img('/BNB充值码')
         except BaseException:
             print(f'无法获取BNB充值二维码...')
 
@@ -145,7 +152,11 @@ class XPASSTestCase(unittest.TestCase):
         self.xpass_page.send_codes()  # 输入转账时的验证码
         time.sleep(1)
         self.xpass_page.confirm_transfer()
-        self.assertTrue(self.xpass_page.is_toast_exist('Transfer'), '判断是否转账成功')
+        try:
+            self.assertTrue(self.xpass_page.is_toast_exist('Transfer'), '判断是否转账成功')
+        except AssertionError:
+            print('断言失败！')
+            self.xpass_page.save_img('/BNB转账')
 
     def tearDown(self):
         self.driver.quit()

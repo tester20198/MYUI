@@ -392,11 +392,11 @@ class UsercenterPage(Base):
     def pattern(self):
         """ 手势密码设置 """
         self.into_general()
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(*self.security_pattern).click()  # 手势密码入口
         time.sleep(2)
         self.driver.find_element(*self.pattern_reset).click()  # 手势密码重置
-        time.sleep(1)
+        time.sleep(2)
 
     def fingerprint(self):
         """指纹识别"""
