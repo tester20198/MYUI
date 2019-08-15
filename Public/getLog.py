@@ -1,8 +1,6 @@
 import os, subprocess
 from Public.getConfig import Environment
 import Public.other as other
-import logging
-import time
 
 def write_log():
     """

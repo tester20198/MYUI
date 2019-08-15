@@ -1,18 +1,8 @@
 from appium import webdriver
 import unittest
-from PO.Android.loginPage import LoginPage
 from PO.Android.dappFxPage import DappFxPage
-from Public.getLog import InsertLog
 from PO.basePage import Base
-from PO.basePage import Base
-from selenium.webdriver.common.by import By
 import time
-from Public.getLog import write_log, stop_log
-import time
-import PO.Android.dappFxPage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from PO.iOS import loginPage
 
 
 
