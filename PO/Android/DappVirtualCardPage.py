@@ -361,10 +361,10 @@ class DAPPPage(Base):
         self.driver.find_element(*self.Virtual_Receive).click()  # 点击Receving,弹出"View address"提示
         time.sleep(2)
         self.driver.find_element(*self.Virtual_view_Address).click()
-        time.sleep(1)
+        time.sleep(3)
         self.driver.find_element(*self.Virtual_Copy_Address).click()  # 复制充值地址
         time.sleep(3)
-        self.driver.back()  # 点击返回键
+        # self.driver.back()  # 点击返回键
 
 
     def Copy_Address_Memo(self):
