@@ -13,7 +13,6 @@ class DappCase(unittest.TestCase):
     """
 
     def setUp(self):
-        time.sleep(2)
         Base.android_driver_caps["noReset"] = True
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
         # cls.login_page = LoginPage(cls.driver)  # 初始化登录页元素以及方法
