@@ -2,6 +2,7 @@ from Public.AndroidMessage import Android
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from appium.webdriver.mobilecommand import MobileCommand
+from Public.getConfig import Environment
 import time, os
 
 
@@ -142,7 +143,8 @@ class Base:
         :使用例子：self.usercenterPage.save_img('/hello')
         """
 
-        path = os.path.abspath('../../img')
+        # path = os.path.abspath('../../img')
+        path = Environment().get_env('pictures', 'path')
         # print(path + picname + '.png')
         self.driver.get_screenshot_as_file(path + picname + '.png')
 

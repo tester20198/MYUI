@@ -5,6 +5,7 @@ from PO.basePage import Base
 import time
 
 
+@unittest.skip('ios端测试用例')
 class LoginTestCase(unittest.TestCase):
     """
     登录的测试用例

@@ -96,7 +96,7 @@ class registerPage(Base):
         '''点击注册界面的注册协议'''
 
         self.driver.back()
-        time.sleep(2)
+        time.sleep(3)
         self.driver.find_element(*self.click_service).click()
         time.sleep(2)
         self.driver.back()

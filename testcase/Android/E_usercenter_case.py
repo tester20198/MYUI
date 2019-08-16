@@ -2,6 +2,7 @@ from appium import webdriver
 import unittest
 from PO.Android.usercenterPage import UsercenterPage
 from PO.basePage import Base
+from BeautifulReport import BeautifulReport
 import time
 
 
@@ -11,7 +12,6 @@ class UsercenterTestCase(unittest.TestCase):
     """
 
     def setUp(self):
-        time.sleep(2)
         Base.android_driver_caps["noReset"] = True
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
         # time.sleep(5)  # 等待初始化完成
@@ -31,116 +31,127 @@ class UsercenterTestCase(unittest.TestCase):
 
         self.user_page.google('2222','12345')  # 不进行完整的开启2FA功能
 
+    @BeautifulReport.add_img('商户收款码')
     def test_002_save_code(self):
         """检查并保存商户收款码"""
 
-        self.user_page.into_Collection()  # 进入收款页面
-        time.sleep(1)
         try:
+            self.user_page.into_Collection()  # 进入收款页面
+            time.sleep(1)
+
             self.assertTrue(self.user_page.check_QR_code(), '判断是否加载收款二维码成功')
             self.user_page.save_QRcode()
             self.assertTrue(self.user_page.is_toast_exist('Image'), '判断是否保存收款二维码成功')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/商户收款码')
+        except (Exception, AssertionError):
+            self.user_page.save_img('商户收款码')
+            raise Exception
 
+    @BeautifulReport.add_img('商户退款详情页')
     def test_003_collection_history(self):
         """查看商户收款记录，和退款"""
 
-        self.user_page.into_Collection()  # 进入收款页面
-        time.sleep(2)
-        self.user_page.check_collection_history()
-        time.sleep(3)
         try:
+            self.user_page.into_Collection()  # 进入收款页面
+            time.sleep(2)
+            self.user_page.check_collection_history()
+            time.sleep(3)
+
             self.assertTrue(self.user_page.findElement('Status'), '判断是否加载收款详情成功')
             time.sleep(2)
             self.user_page.refund_collection()
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/商户退款详情页')
+        except (Exception, AssertionError):
+            self.user_page.save_img('商户退款详情页')
+            raise Exception
 
+    @BeautifulReport.add_img('添加指纹')
     def test_004_fingerprint(self):
         """指纹识别设置"""
 
-        self.user_page.fingerprint()
         try:
-            self.assertTrue(self.user_page.is_toast_exist('one'), '提示需要添加指纹')  # 测试机器没有录入指纹
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/添加指纹')
+            self.user_page.fingerprint()
 
+            self.assertTrue(self.user_page.is_toast_exist('one'), '提示需要添加指纹')  # 测试机器没有录入指纹
+        except (Exception, AssertionError):
+            self.user_page.save_img('添加指纹')
+            raise Exception
+
+    @BeautifulReport.add_img('总资产')
     def test_005_assets_account(self):
         """检查总资产页面"""
 
-        self.user_page.into_Assets()  # 进入总资产页面
-        time.sleep(2)
-        self.user_page.click2(self.user_page.Assets_Accounts)  # 总资产-Accounts
         try:
+            self.user_page.into_Assets()  # 进入总资产页面
+            time.sleep(2)
+            self.user_page.click2(self.user_page.Assets_Accounts)  # 总资产-Accounts
             self.assertFalse(self.user_page.is_toast_exist('500'), '判断是否出现500')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/总资产')
-        time.sleep(2)
-        try:
+            time.sleep(2)
+
             self.user_page.click2(self.user_page.Assets_Coins)  # 总资产-Coins
             self.assertFalse(self.user_page.is_toast_exist('500'), '判断是否出现500')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/总资产2')
+        except (Exception, AssertionError):
+            self.user_page.save_img('总资产')
+            raise Exception
 
+    @BeautifulReport.add_img('手势解锁')
     def test_006_pattern(self):
         """手势密码设置"""
 
-        self.user_page.pattern()
         try:
-            self.assertTrue(self.user_page.findElement('RESET'), '检查是否能跳转到开启手势解锁设图界面')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/手势解锁')
+            self.user_page.pattern()
 
+            self.assertTrue(self.user_page.findElement('RESET'), '检查是否能跳转到开启手势解锁设图界面')
+        except (Exception, AssertionError):
+            self.user_page.save_img('手势解锁')
+            raise Exception
+
+    @BeautifulReport.add_img('账单详情')
     def test_007_bills_detail(self):
         """遍历各个账单"""
 
-        self.user_page.into_Bill()  # 进入总账单
-        time.sleep(2)
-        self.user_page.click_bill_type()
-        self.driver.back()
-        self.user_page.click_bill_card()
-        self.driver.back()
-        time.sleep(1)
         try:
+            self.user_page.into_Bill()  # 进入总账单
+            time.sleep(2)
+            self.user_page.click_bill_type()
+            self.driver.back()
+            self.user_page.click_bill_card()
+            self.driver.back()
+            time.sleep(1)
+
             self.user_page.check_every_type_bill()  # 检查各个账单类型
             self.assertFalse(self.user_page.is_toast_exist('500'), '判断是否出现500')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/账单详情')
+        except (Exception, AssertionError):
+            self.user_page.save_img('账单详情')
+            raise Exception
 
+    @BeautifulReport.add_img('内部划转')
     def test_018_internal_transfer(self):
         """BTC内部转账"""
 
-        self.user_page.into_internal_transfer()  # 进入内部划转
-        time.sleep(2)
-        self.user_page.virtual_to_black('BTC')  # 选择虚拟卡到黑卡
-        self.user_page.virtual_to_black_little('0.00000001')  # 划转小金额的BTC
         try:
+            self.user_page.into_internal_transfer()  # 进入内部划转
+            time.sleep(2)
+            self.user_page.virtual_to_black('BTC')  # 选择虚拟卡到黑卡
+            self.user_page.virtual_to_black_little('0.00000001')  # 划转小金额的BTC
+
             self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/内部划转')
+        except (Exception, AssertionError):
+            self.user_page.save_img('内部划转')
+            raise Exception
 
     @unittest.skip('防止XPASS卡不够钱转账')
     def test_009_internal_transfer_all(self):
         """NPXS 来回内部转账"""
 
-        self.user_page.into_internal_transfer()  # 进入内部划转
-        time.sleep(2)
-        self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
-        self.user_page.transfer_all()  # 虚拟卡划转全部金额到黑卡
         try:
+            self.user_page.into_internal_transfer()  # 进入内部划转
+            time.sleep(2)
+            self.user_page.virtual_to_black('NPXS')  # 选择虚拟卡到黑卡
+            self.user_page.transfer_all()  # 虚拟卡划转全部金额到黑卡
+
             self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/全部内部划转')
+        except (Exception, AssertionError):
+            self.user_page.save_img('全部内部划转')
+            raise Exception
 
 
         # 原地划转返回，方便多次run case
@@ -153,8 +164,8 @@ class UsercenterTestCase(unittest.TestCase):
         try:
             self.assertTrue(self.user_page.is_toast_exist('successful'), '判断转账是否成功')
         except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/全部内部划转')
+            self.user_page.save_img('全部内部划转2')
+            raise Exception
 
     def test_010_into_merchant(self):
         """进入商户"""
@@ -183,17 +194,19 @@ class UsercenterTestCase(unittest.TestCase):
         time.sleep(2)
         self.user_page.into_help_disclaimer()
 
+    @BeautifulReport.add_img('个人资料')
     def test_012_edit_user_detail(self):
         """修改个人资料"""
 
-        self.user_page.complete_user_picture()  # 上传头像
         try:
+            self.user_page.complete_user_picture()  # 上传头像
+
             self.assertTrue(self.user_page.is_toast_exist('uploaded'), '判断上传头像成功')
             self.user_page.complete_user_gender()
             self.assertTrue(self.user_page.is_toast_exist('Saved'), '判断保存性别成功')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/个人资料')
+        except (Exception, AssertionError):
+            self.user_page.save_img('个人资料')
+            raise Exception
 
     def test_013_general(self):
         """通用 - 语言及货币选择 """
@@ -215,55 +228,65 @@ class UsercenterTestCase(unittest.TestCase):
 
         self.user_page.setting_kyc('first', 'second', 'third', '6742384')
 
+    @BeautifulReport.add_img('修改手机号码')
     def test_017_change_phone(self):
         """设置 -- 修改手机号"""
 
-        self.user_page.change_phone(2222, 4120909090, 2222)
         try:
-            self.assertTrue(self.user_page.is_toast_exist('registered'))
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/修改手机号码')
+            self.user_page.change_phone(2222, 4120909090, 2222)
 
+            self.assertTrue(self.user_page.is_toast_exist('registered'))
+        except (Exception, AssertionError):
+            self.user_page.save_img('修改手机号码')
+            raise Exception
+
+    @BeautifulReport.add_img('修改邮箱')
     def test_008_change_email(self):
         """ 修改邮箱地址"""
 
-        self.user_page.change_email(2222, '476367003@xinjineng.net', 2222)
         try:
-            self.assertTrue(self.user_page.is_toast_exist('registered'), '判断是否新邮箱已被注册')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/修改邮箱')
+            self.user_page.change_email(2222, '476367003@xinjineng.net', 2222)
 
+            self.assertTrue(self.user_page.is_toast_exist('registered'), '判断是否新邮箱已被注册')
+        except (Exception, AssertionError):
+            self.user_page.save_img('修改邮箱')
+            raise Exception
+
+    @BeautifulReport.add_img('修改登录密码')
     def test_019_change_loginPWD(self):
         """修改登录密码"""
 
-        self.user_page.change_login_pwd('Aa123456')
         try:
-            self.assertTrue(self.user_page.is_toast_exist('same'), '判断是否重复密码')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/修改登录密码')
+            self.user_page.change_login_pwd('Aa123456')
 
+            self.assertTrue(self.user_page.is_toast_exist('same'), '判断是否重复密码')
+        except (Exception, AssertionError):
+            self.user_page.save_img('修改登录密码')
+            raise Exception
+
+    @BeautifulReport.add_img('修改支付密码')
     def test_020_change_payPWD(self):
         """修改支付密码"""
 
-        self.user_page.change_payPwd('123456')
         try:
-            self.assertTrue(self.user_page.is_toast_exist('same'), '判断是否重复密码')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/修改支付密码')
+            self.user_page.change_payPwd('123456')
 
+            self.assertTrue(self.user_page.is_toast_exist('same'), '判断是否重复密码')
+        except (Exception, AssertionError):
+            self.user_page.save_img('修改支付密码')
+            raise Exception
+
+    @BeautifulReport.add_img('忘记支付密码')
     def test_021_forget_payPwd(self):
         """忘记支付密码"""
 
-        self.user_page.forget_payPwd('2222',123456)
         try:
+            self.user_page.forget_payPwd('2222',123456)
+
             self.assertTrue(self.user_page.is_toast_exist('same'), '判断是否重复密码')
-        except AssertionError:
-            print('断言失败！')
-            self.user_page.save_img('/忘记支付密码')
+        except (Exception, AssertionError):
+            self.user_page.save_img('忘记支付密码')
+            raise Exception
 
     def tearDown(self):
         self.driver.quit()

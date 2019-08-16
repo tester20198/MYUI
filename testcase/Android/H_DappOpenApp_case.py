@@ -2,6 +2,7 @@ from appium import webdriver
 import unittest
 from PO.Android.DappOpenAppPage import DappOpenAppPage
 from PO.basePage import Base
+from BeautifulReport import BeautifulReport
 import time
 
 
@@ -21,6 +22,7 @@ class DappOpenAppTestCase(unittest.TestCase):
         # self.login_page.login_by_Email('xgq2@xinjineng.net', 'Abc123456') #调用登陆
         self.open_app_page = DappOpenAppPage(self.driver)
 
+    @BeautifulReport.add_img('open_add_app_fail')
     def test_001_add_open_platform_App(self):
         '''
         用例一: 添加开放平台app
@@ -31,10 +33,11 @@ class DappOpenAppTestCase(unittest.TestCase):
             time.sleep(1)
             self.open_app_page.add_app_buisess(self.appname) #添加app
             self.assertTrue(self.open_app_page.is_toast_exist('success'))
-        except (BaseException,AssertionError):
-            self.open_app_page.save_img("/open_add_app_fail")
-            raise BaseException
+        except (Exception,AssertionError):
+            self.open_app_page.save_img("open_add_app_fail")
+            raise Exception
 
+    @BeautifulReport.add_img('open_app_home_fail')
     def test_002_App_Home(self):
         '''
         用例二: app的首页
@@ -43,10 +46,11 @@ class DappOpenAppTestCase(unittest.TestCase):
             self.open_app_page.dapp_page() #点击dapp菜单
             time.sleep(1)
             self.assertTrue(self.open_app_page.click_app_home()) #app首页
-        except (BaseException, AssertionError):
-            self.open_app_page.save_img("/open_app_home_fail")
-            raise BaseException
+        except (Exception, AssertionError):
+            self.open_app_page.save_img("open_app_home_fail")
+            raise Exception
 
+    @BeautifulReport.add_img('open_app_About_fail')
     def test_003_App_About_us(self):
         '''
         用例三: app的关于
@@ -55,10 +59,11 @@ class DappOpenAppTestCase(unittest.TestCase):
             self.open_app_page.dapp_page() #点击dapp菜单
             time.sleep(1)
             self.assertTrue(self.open_app_page.click_About_us()) #app关于
-        except (BaseException, AssertionError):
-            self.open_app_page.save_img("/open_app_About_fail")
-            raise BaseException
+        except (Exception, AssertionError):
+            self.open_app_page.save_img("open_app_About_fail")
+            raise Exception
 
+    @BeautifulReport.add_img('open_close_app_fail')
     def test_004_App_Home_Close(self):
         '''
         用例四: app首页关闭功能
@@ -67,10 +72,11 @@ class DappOpenAppTestCase(unittest.TestCase):
             self.open_app_page.dapp_page()  # 点击dapp菜单
             time.sleep(1)
             self.assertTrue(self.open_app_page.app_home_colse())
-        except (BaseException, AssertionError):
-            self.open_app_page.save_img("/open_close_app_fail")
-            raise BaseException
+        except (Exception, AssertionError):
+            self.open_app_page.save_img("open_close_app_fail")
+            raise Exception
 
+    @BeautifulReport.add_img('open_remove_app_fail')
     def test_005_Remove_App(self):
         '''
         用例五: 删除app
@@ -80,9 +86,9 @@ class DappOpenAppTestCase(unittest.TestCase):
             time.sleep(1)
             self.open_app_page.remove_app() #删除app
             self.assertTrue(self.open_app_page.is_toast_exist('success'))
-        except (BaseException, AssertionError):
-            self.open_app_page.save_img("/open_remove_app_fail")
-            raise BaseException
+        except (Exception, AssertionError):
+            self.open_app_page.save_img("open_remove_app_fail")
+            raise Exception
 
     def tearDown(self):
         self.driver.quit()
