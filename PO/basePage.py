@@ -3,7 +3,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from appium.webdriver.mobilecommand import MobileCommand
 from Public.getConfig import Environment
-import time, os
+import time
+import selenium.common.exceptions as E
 
 
 class Base:
@@ -177,7 +178,7 @@ class Base:
             WebDriverWait(self.driver, timeout, poll_frequency).until(
                 expected_conditions.presence_of_element_located(toast_loc))
             return True
-        except:
+        except E.NoSuchElementException:
             return False
 
     def switch_to_view(self, target='H5'):
