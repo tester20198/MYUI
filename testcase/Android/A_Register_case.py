@@ -31,8 +31,8 @@ class RigisterTestCase(unittest.TestCase):
         :return:
         '''
         try:
-            mobile = create_mobile() #随机生成委内瑞拉手机号码
-            self.register_page.click_register() #Venezuela
+            mobile = create_mobile()  # 随机生成委内瑞拉手机号码
+            self.register_page.click_register()  # Venezuela
             self.register_page.register_by_mobile(nation,mobile,loginpwd,paypwd,code)
             msg = self.register_page.click_confirm_button()
             self.assertTrue(msg)
@@ -43,16 +43,16 @@ class RigisterTestCase(unittest.TestCase):
 
     @BeautifulReport.add_img('002_email_register_fail')
     def test_002_email_register(self,loginpwd='Abc123456',paypwd='123456',code='2222'):
-        '''
+        """
         用例二： 邮箱注册
         :param create_email: 传参邮箱地址，create_email随机生成地址
         :param loginpwd: 登陆密码
         :param paypwd:   交易密码
         :param code:  邮箱验证码
         :return:
-        '''
+        """
         try:
-            email = create_email() #随机生成邮箱地址
+            email = create_email()  # 随机生成邮箱地址
             self.register_page.click_register()
             self.register_page.register_by_eamil(email,loginpwd,paypwd,code)
             msg = self.register_page.click_confirm_button()
@@ -64,9 +64,9 @@ class RigisterTestCase(unittest.TestCase):
 
     @BeautifulReport.add_img('003_register_fail')
     def test_003_register_Agreement(self):
-        '''
+        """
         用例三: 点击注册界面的协议和判断注册页面跳转到登录页面时，获取忘记密码的文本
-        '''
+        """
         try:
             self.register_page.click_register()
             msg = self.register_page.clcik_register_Agreement()

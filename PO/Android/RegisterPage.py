@@ -11,7 +11,7 @@ class registerPage(Base):
     """
 
     register_button = (By.ID, "btnSignup")  # 启动页注册按钮
-    switch_mobile_register = (By.ID,'tv_menu') #切换手机注册
+    switch_mobile_register = (By.ID,'tv_menu')  # 切换手机注册
     select_nation_btn = (By.ID, "tv_select_country")  # 国家下拉框
     input_eamil = (By.ID, "et_email")  # 输入邮箱
     input_mobile = (By.ID, "et_phone_number")  # 输入手机号码
@@ -24,8 +24,8 @@ class registerPage(Base):
     click_service = (By.ID, 'tv_terms_sevice')  # 点击注册服务协议
     click_user = (By.ID, 'tv_terms_user')  # 点击注册用户协议
     click_Login = (By.ID, 'tv_accountLogin')  # 点击注册界面的Login跳转登陆界面
-    get_Forgot_password = (By.XPATH,"//android.widget.TextView[@text='Forgot password']")  #获取忘记密码的文本信息
-    get_register_success = (By.XPATH,"//android.widget.TextView[@text='Profile']") #注册成功后用户信息中的头像Profile
+    get_Forgot_password = (By.XPATH,"//android.widget.TextView[@text='Forgot password']")  # 获取忘记密码的文本信息
+    get_register_success = (By.XPATH,"//android.widget.TextView[@text='Profile']")  # 注册成功后用户信息中的头像Profile
 
     def click_register(self):
         """进入注册页面"""
@@ -35,7 +35,7 @@ class registerPage(Base):
 
     def select_nation(self, nation):
         """选择国家 """
-        nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{nation}")]')# 定位国家
+        nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{nation}")]')  # 定位国家
         self.driver.find_element(*self.select_nation_btn).click()
         time.sleep(5)
         while not self.findElement(nation):
@@ -50,13 +50,15 @@ class registerPage(Base):
         self.driver.find_element(*self.input_pay_pwd).send_keys(paypwd)
         self.driver.find_element(*self.comfirm_pay_pwd).send_keys(paypwd)
         time.sleep(2)
-        self.Sys_back()
-        self.driver.find_element(*self.click_verify).click() # 点击发送验证码
+        # self.Sys_back()
+        self.driver.find_element(*self.click_verify).click()  # 点击发送验证码
         time.sleep(2)
         self.driver.find_element(*self.input_verify).send_keys(code)  # 验证码默认2222
+        self.swipeUp(duration=1000)
+        self.swipeUp(duration=1000)
 
     def set_payment_password(self,paypwd):
-        '''设置支付密码'''
+        """设置支付密码"""
         a = self.driver.find_element(*self.input_pay_pwd)
         # ActionChains创建鼠标事件,move_to_element鼠标移动到某个元素,click单击鼠标左键,send_keys发送某个键到当前焦点的元素,perform执行鼠标事件
         action_a = ActionChains(self.driver)
@@ -85,15 +87,15 @@ class registerPage(Base):
         self.send_loginpwd_paypwd_code(loginpwd,paypwd,code)  # 输入登陆密码、支付密码、验证码
 
     def click_confirm_button(self):
-        '''点击注册'''
-        self.driver.find_element(*self.click_confirm).click() #点击注册
+        """点击注册"""
+        self.driver.find_element(*self.click_confirm).click()  # 点击注册
         WebDriverWait(self.driver, 10, 0.5).until(
             EC.text_to_be_present_in_element(self.get_register_success, u"Profile"))
         msg = self.driver.find_element(*self.get_register_success).text  # 注册成功跳转到设置头像界面
         return msg
 
     def clcik_register_Agreement(self):
-        '''点击注册界面的注册协议'''
+        """点击注册界面的注册协议"""
 
         self.driver.back()
         time.sleep(3)
