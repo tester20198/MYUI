@@ -30,9 +30,9 @@ class XPASSTestCase(unittest.TestCase):
 
         try:
             self.xpass_page.save_img('添加XPASS卡')
-            self.xpass_page.add_XPASS_card(num='801100888195129', pin='123456')  #8011008881951290
+            self.xpass_page.add_XPASS_card(num='8011008881951290', pin='123456')
 
-            self.assertTrue(self.xpass_page.is_toast_exist('312312'), '判断是否提示已添加过该卡片')  # already
+            self.assertTrue(self.xpass_page.is_toast_exist('already'), '判断是否提示已添加过该卡片')
         except (Exception, AssertionError):
             self.xpass_page.save_img('添加XPASS卡')
             raise Exception
