@@ -24,6 +24,9 @@ class DappFxPage(Base):
     #uat2环境
     #fx_card_btn= (By.XPATH,"//android.widget.TextView[@text='FX' and @resource-id='com.pundix.xwallet:id/tv_balance']") #点击进入fx卡
     fx_card_btn = (By.XPATH, '//android.widget.TextView[contains(@text, "FX")]')
+    #add_fxApp=(By.XPATH, '//android.widget.TextView[@resource-id="com.pundix.xwallet:id/item_card_tv_name" and @text="FX")]')
+    add_fxAPP=(By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[1]")
+    # text_loc = ("xpath", f".//*[contains(@text,'{text}')]")
     #uat环境
     #fx_card_btn = (By.XPATH, "//android.widget.TextView[@text='f(x) Card']")  # 点击进入fx卡
 
@@ -69,6 +72,13 @@ class DappFxPage(Base):
 
 
     # -----------fx转账界面元素----------
+    fx_receive_btn=(By.ID,"btn_recharge")#received按钮
+    fx_iv_moreMenu=(By.ID,"iv_menu")#右上角的更多按钮
+    fx_instructions=(By.ID,"tv_help")#说明按钮
+    fx_cancle=(By.ID,"tv_cancel")#取消按钮
+    fx_viewAddress_btn=(By.ID,"btn_view_recharge")#viewaddress按钮
+    fx_close_btn=(By.ID,"iv_close")#右上角关闭按钮
+    fx_copyAddress=(By.ID,"btn_single_copy")#copy address按钮
     fx_page_transfer = (By.ID, "btn_withdraw")  # 转账按钮
     fx_type_name = (By.ID, "tv_type_name")  # 账单名称
     fx_transferAddress=(By.ID,"ed_receivingAddress")#fx转账地址
@@ -147,7 +157,6 @@ class DappFxPage(Base):
     npxsxem_btn_confirm1=(By.ID,"btn_confirm")#确认转账按钮
 
 
-
     #---------------npxsxem add界面元素------------------#
     npxsxem_NEM_address=(By.ID,"ed_address")#NEM输入框
     npxsxem_NEM_note=(By.ID,"ed_remarks")#备注
@@ -166,9 +175,23 @@ class DappFxPage(Base):
 
     def dapp_page(self):
         '''进入dapp页面'''
+        while not self.findElement("tv_notice"):
+            time.sleep(3)
+            if self.findElement("tv_notice"):
+                print("找到紧急消息")
+                self.driver.find_element(*self.urgent_news).click()  # 进入紧急消息页面
+                time.sleep(2)
+                self.driver.back()
+                time.sleep(3)
+                break
+        else:
+            pass
+
         WebDriverWait(self.driver, 20, 0.5).until(
             EC.text_to_be_present_in_element(self.get_balance_text, u'Balance'))  # 获取Dapp页面Balance
-        self.driver.find_element(*self.click_dapp).click()  # 进入dapp页面
+        if self.findElement("Balance"):
+            self.driver.find_element(*self.click_dapp).click()  # 进入dapp页面
+
 
 
     def enter_dapp(self):
@@ -190,6 +213,7 @@ class DappFxPage(Base):
             pass
 
         else:
+            print("需要滑动查找FX卡片")
             self.swipeUp(duration=1500)#滑动查找fx app
             self.swipeUp(duration=1500)  # 滑动查找fx app
             self.swipeUp(duration=1500)  # 滑动查找fx app
@@ -198,10 +222,26 @@ class DappFxPage(Base):
                 print("滑动后，已经找到F(x)Card")
                 time.sleep(2)
             else:
+                print("需要添加fx卡片")
                 self.swipeUp(duration=800)  # 滑动查找fx app
                 time.sleep(2)
-                self.driver.find_element(*self.Dapp_add_card_btn).click()
-                time.sleep(2)
+                self.driver.find_element(*self.Dapp_add_card_btn).click() #点击添加按钮
+                time.sleep(3)
+                while not self.findElement("This is a FX app which can stake and transfer."):
+                    self.swipeUp(duration=2000)  # 滑动查找fx app
+                    time.sleep(2)
+                    if self.findElement("This is a FX app which can stake and transfer."):
+                        print("已经找到fx app 1111")
+                        self.driver.find_element(*self.add_fxAPP).click()#点击添加app按钮
+                        time.sleep(2)
+
+                        break
+                    else:
+                        print("没有找到FX app")
+
+                else:
+                    self.driver.find_element(*self.add_fxAPP).click()#点击添加app按钮
+                    time.sleep(2)
 
 
     def enter_fx_setting(self):
@@ -239,6 +279,8 @@ class DappFxPage(Base):
             self.swipeFXUp(duration=800)  # 滑动协议界面
             self.swipeFXUp(duration=800)  # 滑动协议界面
             self.swipeFXUp(duration=800)  # 滑动协议界面
+            self.swipeFXUp(duration=800)  # 滑动协议界面
+            self.swipeFXUp(duration=800)  # 滑动协议界面
             self.driver.find_element(*self.staking_terms).click() #点击第一个协议复选框
             time.sleep(2)
             self.driver.find_element(*self.staking_function_token).click()#点击第二个协议复选框
@@ -258,6 +300,9 @@ class DappFxPage(Base):
             return True
         elif self.findElement("Start staking"):
             print("进入开始挖矿界面")
+            return True
+        elif self.findElement("Withdraw"):
+            print("提现界面")
             return True
         else:
             return False
@@ -289,10 +334,8 @@ class DappFxPage(Base):
         self.driver.find_element(*self.fx_main_btn).click() #点击fx卡片的fx按钮
         time.sleep(4)
 
-    def fx_transfer(self,text1,text2,text3,text4,text5):
-        """
-        fx转账
-        """
+    def fx_before_transfer(self,text1,text2):
+        """fx转账前的操作步骤"""
         self.driver.find_element(*self.fx_page_transfer).click()  # 点击转账按钮
         time.sleep(4)
         if self.findElement('Not Now'):
@@ -300,42 +343,99 @@ class DappFxPage(Base):
             time.sleep(2)
             self.driver.find_element(*self.fx_page_transfer).click()  # 点击转账按钮
             time.sleep(4)
-        else:
-            pass
 
-        fx_address = self.driver.find_element(*self.fx_transferAddress)#点击fx转账地址
-        fx_address.click();fx_address.send_keys(text1) #输入转账地址
+        fx_address = self.driver.find_element(*self.fx_transferAddress)  # 点击fx转账地址
+        fx_address.click();
+        fx_address.send_keys(text1)  # 输入转账地址
         time.sleep(2)
 
-        fx_amount=self.driver.find_element(*self.fx_coinNumber)#点击转账金额输入框
-        fx_amount.click();fx_amount.send_keys(text2)#输入金额
-        #coinNumber = self.driver.find_element(*self.fx_all).click()#点击all按钮
+        fx_amount = self.driver.find_element(*self.fx_coinNumber)  # 点击转账金额输入框
+        fx_amount.click();
+        fx_amount.send_keys(text2)  # 输入金额
+        # coinNumber = self.driver.find_element(*self.fx_all).click()#点击all按钮
         # coinNumber.clear()
         # coinNumber.send_keys(text1)
         time.sleep(2)
         self.driver.back()
         time.sleep(2)
-        self.driver.find_element(*self.fx_transferNext).click()#点击第一个界面的下一步按钮
-        time.sleep(3)
-        self.driver.find_element(*self.fx_withdrawNext).click()#点击第二个界面的下一步按钮
-        time.sleep(3)
+        self.driver.find_element(*self.fx_transferNext).click()  # 点击第一个界面的下一步按钮
+        if self.is_toast_exist("Min. transfer amount 0.5FX", timeout=10,poll_frequency=0.01):
+            print("转账金额不足，不能进行下一步")
+            return True
+
+        elif self.is_toast_exist("Max. transfer amount0.00000000FX", timeout=10,poll_frequency=0.01):
+            print("用户金额为0，无法转账")
+            return True
+
+        #
+
+    # else:
+    #     return False
+
+    def fx_receive(self):
+        """进入FX received界面"""
+        self.driver.find_element(*self.fx_iv_moreMenu).click()#点击更多按钮
+        time.sleep(2)
+        self.driver.find_element(*self.fx_instructions).click()#点击instruction按钮
+        time.sleep(2)
+        if self.findElement("Payment Code Guide"):
+            print("进入说明界面成功")
+            self.driver.back()#按返回键
+        self.driver.find_element(*self.fx_iv_moreMenu).click()  # 点击更多按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.fx_cancle).click()#点击取消按钮
+        time.sleep(2)
+
+        if self.findElement("Show to XPOS"):
+            print("点击取消按钮成功")
+
+        if self.findElement("btn_recharge"):
+            self.driver.find_element(*self.fx_receive_btn).click()#点击received按钮
+            time.sleep(2)
+
+        self.driver.find_element(*self.fx_close_btn).click()#点击右上角关闭按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.fx_receive_btn).click()  # 点击received按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.fx_viewAddress_btn).click()#点击viewaddress按钮
+        time.sleep(2)
+
+        self.driver.find_element(*self.fx_copyAddress).click()#点击copy address按钮
+        time.sleep(2)
+
+        if self.is_toast_exist("Copied successfully"):
+            print("Copied successfully 成功")
+            return True
+
+
+    def fx_after_transfer(self,text1,text2,text3):
+        """
+        fx转账输入邮箱验证码、短信验证码、支付密码操作
+        """
+        time.sleep(2)
+        if self.findElement("btn_withdrawNext1"):
+            self.driver.find_element(*self.fx_withdrawNext).click()#点击第二个界面的下一步按钮
+            time.sleep(3)
 
         if self.findElement("ed_email_code"):
-            self.driver.find_element(*self.fx_send_emai_code).click()  # 点击发送验证码
+            self.driver.find_element(*self.fx_send_emai_code).click()  # 点击发送邮箱验证码
             time.sleep(2)
             email_code =self.driver.find_element(*self.fx_email_code)#点击邮箱验证码输入框
-            email_code.click();email_code.send_keys(text3)
+            email_code.click();email_code.send_keys(text1)
             time.sleep(2)
 
         if self.findElement("tv_send_sms_code"):
-            self.driver.find_element(*self.fx_send_sms_code).click()  # 点击发送验证码
+            self.driver.find_element(*self.fx_send_sms_code).click()  # 点击发送短信验证码
             time.sleep(2)
             sms_code=self.driver.find_element(*self.fx_ed_sms_code)#点击短信验证码输入框
-            sms_code.click();sms_code.send_keys(text4)
+            sms_code.click();sms_code.send_keys(text2)
             time.sleep(2)
 
         pay_password=self.driver.find_element(*self.fx_pay_password) #点击支付密码
-        pay_password.click();pay_password.send_keys(text5)#输入支付密码
+        pay_password.click();pay_password.send_keys(text3)#输入支付密码
         time.sleep(3)
         self.driver.back()#按返回键
         time.sleep(2)
@@ -349,6 +449,8 @@ class DappFxPage(Base):
         elif self.is_toast_exist("Insufficient balance"):
             print("余额不足")
             return True
+        else:
+            return False
 
 
     def enter_fx_bill(self):
@@ -378,13 +480,13 @@ class DappFxPage(Base):
         """进入npxs界面的帮助按钮"""
         self.driver.find_element(*self.npxs_help_menu).click()
         time.sleep(2)
-        helpBtn=self.driver.find_element(*self.npxs_help_title)
-        if helpBtn:
-            print("已进入npxs帮助说明界面")
-            return True
-        else:
-            print("未进入npxs帮助说明界面")
-            return False
+        # self.driver.find_element(*self.npxs_help_title)
+        # if helpBtn:
+        #     print("已进入npxs帮助说明界面")
+        #     return True
+        # else:
+        #     print("未进入npxs帮助说明界面")
+        #     return False
 
 
     def enter_NPXS_transfer(self):
@@ -448,18 +550,21 @@ class DappFxPage(Base):
         self.driver.find_element(*self.npxs_chain_confirmBtn).click()#点击确认按钮
         time.sleep(4)
 
+    def click_npxsxem_first_data(self):
+        """点击npxsxem走链的第一条数据"""
+        if self.findElement("tv_private_account"):
+            self.driver.find_element(*self.npxsxem_tv_private_account).click()  # 点击列表数据
+            time.sleep(2)
 
     def click_tv_private_account(self,text1):
         """点击npxsxem的列表记录"""
-        self.driver.find_element(*self.npxsxem_tv_private_account).click()#点击列表数据
-        time.sleep(2)
-
         if self.findElement("btn_confirm"):
             self.driver.find_element(*self.npxsxem_copy_address1).click()  # 点击copy address按钮
             time.sleep(1)
 
-        self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
-        time.sleep(2)
+        if self.findElement("iv_menu"):
+            self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
+            time.sleep(2)
 
         if self.findElement("tv_refresh"):
 
@@ -469,11 +574,11 @@ class DappFxPage(Base):
             self.driver.find_element(*self.npxsxem_address_note).click()#点击address note输入框
             address_note = self.driver.find_element(*self.npxsxem_address_note)
             address_note.click();address_note.send_keys(text1)
-            msg = self.driver.find_element(*self.npxsxem_address_note).text
+            msg1 = self.driver.find_element(*self.npxsxem_address_note).text
             time.sleep(2)
             self.driver.find_element(*self.npxsxem_save_modification).click() #点击save modification按钮
             time.sleep(2)
-            msg1 = self.driver.find_element(*self.npxsxem_tv_remarks).text
+            msg2 = self.driver.find_element(*self.npxsxem_tv_remarks).text
             self.driver.find_element(*self.npxsxem_iv_menu).click()#点击右上角的更多按钮
             time.sleep(2)
             self.driver.find_element(*self.npxsxem_guide_btn).click()#点击帮助说明
@@ -485,9 +590,13 @@ class DappFxPage(Base):
             time.sleep(2)
             self.driver.find_element(*self.npxsxem_cancel).click()#点击取消按钮
             time.sleep(1)
+            return msg1,msg2
+
+
             #return msg,msg1
         else:
             print("进入帮助界面")
+
         #     self.driver.find_element(*self.npxsxem_copy_address2).click()  # 点击copy address按钮
         #     self.is_toast_exist("Copied successfully ")
         #     time.sleep(1)
@@ -645,12 +754,15 @@ class DappFxPage(Base):
             self.driver.find_element(*self.staking_startMining).click() #点击开始挖矿按钮
             time.sleep(5)
         elif self.findElement("Withdraw"):
-            self.driver.find_element(*self.staking_withdraw).click()#点击提现按钮
-            time.sleep(2)
-            self.driver.find_element(*self.staking_next).click()#点击下一步按钮
-            time.sleep(2)
-            self.driver.find_element(*self.staking_copy).click()#点击复制按钮
-            time.sleep(2)
+            if self.is_toast_exist("FX token withdrawn successfully"):
+                print("提现成功")
+            elif self.findElement("Withdraw"):
+                self.driver.find_element(*self.staking_withdraw).click()#点击提现按钮
+                time.sleep(2)
+                self.driver.find_element(*self.staking_next).click()#点击下一步按钮
+                time.sleep(2)
+                self.driver.find_element(*self.staking_copy).click()#点击复制按钮
+                time.sleep(2)
 
 
 
