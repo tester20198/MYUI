@@ -148,7 +148,7 @@ class LoginPage(Base):
         self.driver.find_element(*self.input_login_pwd).send_keys(text2)
         time.sleep(1)
         self.driver.find_element(*self.input_confirm_login_pwd).send_keys(text2)
-        time.sleep(1)
+        time.sleep(2)
         self.driver.find_element(*self.click_ok).click()
 
     def Email_Forgot_password(self,text,text1,text2):
@@ -159,7 +159,7 @@ class LoginPage(Base):
         self.driver.find_element(*self.input_Email_address).send_keys(text)
         time.sleep(1)
         self.business_forgot_password(text1,text2)
-        time.sleep(3)
+        time.sleep(5)
         msg = self.driver.find_element(*self.login_btn).text  # 重置成功后，获取登陆界面的Log in按钮文本信息
         return msg
 
@@ -173,7 +173,7 @@ class LoginPage(Base):
         nation_XPATH = (By.XPATH, f'//android.widget.TextView[contains(@text, "{na}")]')  # 定位国家
 
         self.driver.find_element(*self.Forgot_password_select_nation).click()
-        time.sleep(3)
+        time.sleep(5)
         while not self.findElement(na):
             self.swipeUp(duration=1500)
         else:
@@ -182,7 +182,7 @@ class LoginPage(Base):
         self.driver.find_element(*self.input_Mobile_address).send_keys(text)
         time.sleep(1)
         self.business_forgot_password(text1,text2)
-        time.sleep(3)
+        time.sleep(5)
         msg = self.driver.find_element(*self.login_btn).text  # 重置成功后，获取登陆界面的Log in按钮文本信息
         return msg
 

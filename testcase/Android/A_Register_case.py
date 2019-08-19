@@ -12,7 +12,6 @@ class RigisterTestCase(unittest.TestCase):
     注册的测试用例
     """
 
-
     def setUp(self):
         Base.android_driver_caps["noReset"] = False
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', Base.android_driver_caps)  # 串联
