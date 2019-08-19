@@ -30,9 +30,9 @@ class DappCase(unittest.TestCase):
         """
         try:
             self.Dapppage.click_BTC_Detail()
-            time.sleep(3)
+            time.sleep(5)
             self.Dapppage.Copy_Receive_Address()
-            time.sleep(3)
+            time.sleep(5)
 
             self.assertTrue(self.Dapppage.check_receive_code())
         except (Exception, AssertionError):
@@ -45,12 +45,12 @@ class DappCase(unittest.TestCase):
 
         try:
             self.Dapppage.click_BTC_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.Click_Transfer_without_Memo("n4mz19LnL84u4YQdNxX4V5kE6fwpyiMjcK")
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist('succee'))
+            self.assertTrue(self.Dapppage.is_toast_exist('successful'))
             self.assertFalse(self.Dapppage.is_toast_exist('500'))
         except (Exception, AssertionError):
             self.Dapppage.save_img('BTC_transfer1')
@@ -66,11 +66,11 @@ class DappCase(unittest.TestCase):
             self.Dapppage.click_BTC_Detail()
             time.sleep(5)
             self.Dapppage.ERC20_transfer(address="n4mz19LnL84u4YQdNxX4V5kE6fwpyiMjcK", money='0.005')
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist('succee'))
+            self.assertTrue(self.Dapppage.is_toast_exist('successful'))
             self.assertFalse(self.Dapppage.is_toast_exist('500'))
         except (Exception, AssertionError):
              self.Dapppage.save_img('BTC_transfer2')
@@ -85,9 +85,9 @@ class DappCase(unittest.TestCase):
         """
         try:
             self.Dapppage.click_ETH_Detail()
-            time.sleep(3)
+            time.sleep(5)
             self.Dapppage.Copy_Receive_Address()
-            time.sleep(3)
+            time.sleep(5)
 
             self.assertTrue(self.Dapppage.check_receive_code())
         except (Exception, AssertionError):
@@ -99,12 +99,12 @@ class DappCase(unittest.TestCase):
         """ETH转账"""
         try:
             self.Dapppage.click_ETH_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.Click_Transfer_without_Memo("0x4d7e60eab27597522232e04ab2743f14d903eeb5")
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succee"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("ETH_transfer1")
@@ -117,14 +117,14 @@ class DappCase(unittest.TestCase):
         """ETH转账转指定金额"""
         try:
             self.Dapppage.click_ETH_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.ERC20_transfer(address="0x4d7e60eab27597522232e04ab2743f14d903eeb5", money= '0.1')
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
-            time.sleep(1)
+            time.sleep(5)
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist('succee'))
+            self.assertTrue(self.Dapppage.is_toast_exist('successful'))
             self.assertFalse(self.Dapppage.is_toast_exist('500'))
         except (Exception, AssertionError):
              self.Dapppage.save_img('ETH_transfer2')
@@ -139,9 +139,9 @@ class DappCase(unittest.TestCase):
         """
         try:
             self.Dapppage.click_NPXS_Detail()
-            time.sleep(3)
+            time.sleep(5)
             self.Dapppage.Copy_Receive_Address()
-            time.sleep(3)
+            time.sleep(5)
 
             self.assertTrue(self.Dapppage.check_receive_code())
         except AssertionError:
@@ -153,12 +153,12 @@ class DappCase(unittest.TestCase):
         """NPXS转账"""
         try:
             self.Dapppage.click_NPXS_Detail()
-            time.sleep(4)
+            time.sleep(5)
             self.Dapppage.Click_Transfer_without_Memo("0x07a4a5ed9da97773e56dedcc0725e62efbcd61d1")
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("NPXS_transfer")
@@ -174,11 +174,11 @@ class DappCase(unittest.TestCase):
             self.Dapppage.click_NPXS_Detail()
             time.sleep(5)
             self.Dapppage.ERC20_transfer(address= "0x07a4a5ed9da97773e56dedcc0725e62efbcd61d1", money= '600')
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("NPXS_transfer")
@@ -193,11 +193,10 @@ class DappCase(unittest.TestCase):
 
         try:
             self.Dapppage.click_BNB_Detail()
-            time.sleep(3)
+            time.sleep(5)
             self.Dapppage.Copy_Address_Memo()
-            time.sleep(3)
+            time.sleep(5)
             self.Dapppage.save_img("/BNB_Recevice")     # 保存BNB充值地址图片
-
             self.assertTrue(self.Dapppage.check_receive_code())
         except (Exception, AssertionError):
             self.Dapppage.save_img("BNB_Receive")
@@ -211,11 +210,11 @@ class DappCase(unittest.TestCase):
             self.Dapppage.click_BNB_Detail()
             time.sleep(5)
             self.Dapppage.BEP2_transfer(address='tbnb1nlt0zerp80ysn9ve7guqstrshwd9cz3j9z8fzl', memo='4hw4977m6f', money='0.5')
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("BNB_transfer")
@@ -230,9 +229,9 @@ class DappCase(unittest.TestCase):
         """
         try:
             self.Dapppage.click_QTUM_Detail()
-            time.sleep(3)
+            time.sleep(5)
             self.Dapppage.Copy_Receive_Address()
-            time.sleep(3)
+            time.sleep(5)
 
             self.assertTrue(self.Dapppage.check_receive_code())
         except (Exception, AssertionError):
@@ -244,13 +243,13 @@ class DappCase(unittest.TestCase):
         """QTUM转账"""
         try:
             self.Dapppage.click_QTUM_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.Click_Transfer_without_Memo("qevcAgqD8rrJjaGutwQhDA1AT2FaXctdhm")
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("QTUM_transfer")
@@ -264,13 +263,13 @@ class DappCase(unittest.TestCase):
 
         try:
             self.Dapppage.click_QTUM_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.ERC20_transfer(address="qevcAgqD8rrJjaGutwQhDA1AT2FaXctdhm", money= "0.5")
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("QTUM_transfer1")
@@ -282,7 +281,7 @@ class DappCase(unittest.TestCase):
     def test_15_XEM_Receive(self):
         """点击查看XEM充值地址"""
         self.Dapppage.click_XEM_Detail()
-        time.sleep(3)
+        time.sleep(5)
         self.Dapppage.Copy_Address_Memo()
         self.Dapppage.save_img("XEM_Recevice")  # 保存XEM充值地址图片
 
@@ -292,13 +291,13 @@ class DappCase(unittest.TestCase):
 
         try:
             self.Dapppage.click_XEM_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.BEP2_transfer(address="TBF3ZZGCVY7NTWDABEH7P3KXD2LOYABEXASYDRUO",money='0.5')
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.send_codes()
             self.Dapppage.confirm_transfer()
 
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
+            self.assertTrue(self.Dapppage.is_toast_exist("successful"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
         except (Exception, AssertionError):
             self.Dapppage.save_img("XEM_transfer")
@@ -321,7 +320,7 @@ class DappCase(unittest.TestCase):
 
         try:
             self.Dapppage.click_NPXSXEM_Detail()
-            time.sleep(2)
+            time.sleep(5)
             self.Dapppage.Click_NPXSXEM_Transfer()
 
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
@@ -332,16 +331,13 @@ class DappCase(unittest.TestCase):
     @BeautifulReport.add_img('Internal_Transfer')
     def test_19_Internal_Transfer(self):
         """内部划转"""
+        self.Dapppage.Internal_Transfer()
+        time.sleep(5)
+        self.usercenterPage.transfer_all()
         try:
-            self.Dapppage.Internal_Transfer()
-            time.sleep(5)
-            self.usercenterPage.transfer_all()
-
-            self.assertTrue(self.Dapppage.is_toast_exist("succe"))
             self.assertFalse(self.Dapppage.is_toast_exist("500"))
-        except (Exception, AssertionError):
-            self.Dapppage.save_img("Internal_Transfer")
-            raise Exception
+        except AssertionError:
+            self.Dapppage.save_img("/Internal_transfer")
 
     def tearDown(self):
         self.driver.quit()
