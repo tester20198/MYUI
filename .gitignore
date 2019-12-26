@@ -1,2 +1,8 @@
 .idea
 .pytest_cache
+Page/Android/__pycache__/
+Page/__pycache__/
+Public/__pycache__/AppiumServer.cpython-37.pyc
+testcase/Android/__pycache__/
+testcase/__pycache__/
+testcase/iOS/__pycache__/
