@@ -215,7 +215,7 @@ class Base(Environment):
             text_loc = ("xpath", ".//*[contains(@text,'%s')]" % text)
             self.driver.find_element(*text_loc).click()
         except:
-            raise AttributeError('不存在该元素...')
+            print('不存在该元素...')
 
     def send_keys2(self, el, text):
         """

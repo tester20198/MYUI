@@ -53,7 +53,7 @@ class registerPage(Base):
         time.sleep(2)
         # self.Sys_back()
         self.driver.find_element(*self.click_verify).click()  # 点击发送验证码
-        time.sleep(2)
+        time.sleep(5)
         self.driver.find_element(*self.input_verify).send_keys(code)  # 验证码默认2222
         self.swipeUp(duration=1000)
         self.swipeUp(duration=1000)
