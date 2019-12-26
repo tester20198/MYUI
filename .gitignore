@@ -1,3 +1,2 @@
 .idea
-img
-logs
+.pytest_cache

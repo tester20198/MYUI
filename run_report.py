@@ -1,44 +1,38 @@
+from Public.AppiumServer import AppiumServer
+import pytest
 import os
-import unittest
-from BeautifulReport import BeautifulReport
-from Public import other
 
 
-class RunReport:
-    """
-    输出报告
-    """
+class RunReport(AppiumServer):
+    """运行 & 产生报告"""
 
-    def __init__(self):
-        # 测试用例位置
-        self.case_path = os.path.join(other.append_path('testcase'))  # + Environment().get_env('testing_cases', 'cases'))
-        print(f'执行的测试用例路径为：{self.case_path}')
-
-    def add_cases(self):
+    def terminal_report(self, root='./testcase/'):
         """
-        批量添加测试用例
-        :pattern:测试用例脚本模板
-        :top_level_dir:顶层目录的名称,默认None
-        :return:
+        在pycharm终端跑测试用例,但不生成报告
+        :root: 指定运行文件，默认testcase中所有含有test的py脚本
         """
 
-        discover = unittest.defaultTestLoader.discover(self.case_path, pattern="*_case.py",
-                                                       top_level_dir=None)
-        return discover
+        pytest.main(['-s', '-q', root])  # 在终端运行报告
 
-    def run_cases_by_beautiful_report(self, cases):
+    def generate_report(self):
         """
-        借用BeautifulReport模版输出测试用例报告
-        :param cases:测试用例集
-        :return:
+        生成allure报告
         """
 
-        result = BeautifulReport(cases)
-        result.report(description='自动化测试报告', log_path='./reports')
+        pytest.main(['-s', '--alluredir', './reports/data/'])  # 在终端运行报告
+        os.system(
+            'allure generate ./reports/data/ -o ./reports/html/ --clean')  # --clean清除上一期数据
+
+    def open_report(self):
+        """
+        生成报告，且用浏览器打开allure报告
+        """
+
+        self.generate_report()
+        os.system('allure open -h 127.0.0.1 -p 8083 ./reports/html/')
 
 
-if __name__ == "__main__":
-    # 用例集合
-    re = RunReport()
-    cases = re.add_cases()
-    re.run_cases_by_beautiful_report(cases)
+if __name__ == '__main__':
+    R = RunReport()
+    R.terminal_report(
+        root='/Users/pundix047/PycharmProjects/MYUI/testcase/Android/a_Register_test.py')
