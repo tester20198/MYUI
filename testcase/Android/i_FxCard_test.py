@@ -1,7 +1,7 @@
 from appium import webdriver
-from Page.Android.dappFxPage import DappFxPage
+from Page.Android.FxCardPage import DappFxPage
 from Page.basePage import Base
-from Page.Android.loginPage import LoginPage
+from Page.Android.LoginPage import LoginPage
 import pytest
 import time
 

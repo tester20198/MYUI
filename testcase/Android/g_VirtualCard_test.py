@@ -1,7 +1,7 @@
 from appium import webdriver
-from Page.Android.DappVirtualCardPage import DAPPPage
+from Page.Android.VirtualCardPage import DAPPPage
 from Page.basePage import Base
-from Page.Android.usercenterPage import UsercenterPage
+from Page.Android.UsercenterPage import UsercenterPage
 import pytest
 import time
 

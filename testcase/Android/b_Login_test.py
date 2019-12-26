@@ -1,5 +1,5 @@
 from appium import webdriver
-from Page.Android.loginPage import LoginPage
+from Page.Android.LoginPage import LoginPage
 from Page.basePage import Base
 from Public.other import create_address
 import pytest

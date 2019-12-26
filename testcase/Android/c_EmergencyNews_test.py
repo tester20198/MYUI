@@ -1,6 +1,6 @@
 from appium import webdriver
-from Page.Android.EmergencynewsPage import EmergencynewsPage
-from Page.Android.loginPage import LoginPage
+from Page.Android.EmergencyNewsPage import EmergencynewsPage
+from Page.Android.LoginPage import LoginPage
 from Page.basePage import Base
 import pytest
 import time

@@ -1,5 +1,5 @@
 from appium import webdriver
-from Page.Android.usercenterPage import UsercenterPage
+from Page.Android.UsercenterPage import UsercenterPage
 from Page.basePage import Base
 import pytest
 import time
